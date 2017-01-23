@@ -190,7 +190,6 @@ use warnings;
             ];
 
 @responses = [
-              "ELIZA - Javascript Version by George Dunlop ( george@peccavi.com )",
                "Don't you believe that I can<*",
                "Perhaps you would like to be able to<*",
                "You want me to be able to<*",
@@ -307,7 +306,7 @@ use warnings;
                "Do you expect a different answer by repeating yourself?",
                "Come, come, elucidate your thoughts.",
                "Please don't repeat yourself!",
-               ]
+               ];
 
 @preConj = [
               "are",
@@ -329,7 +328,7 @@ use warnings;
               "you'll",
               "myself",
               "yourself",
-            ]
+            ];
 
 @postConj = [
   		        "am",
@@ -351,46 +350,44 @@ use warnings;
  	            "I'll",
  	            "yourself",
 	            "myself",
-            ]
+            ];
 
 @preTense = [
-              conj3[0]  = "me am";
-              conj3[1]  = "am me";
-              conj3[2]  = "me can";
-              conj3[3]  = "can me";
-              conj3[4]  = "me have";
-              conj3[5]  = "me will";
-              conj3[6]  = "will me";
-            ]
+              "me am",
+              "am me",
+              "me can",
+              "can me",
+              "me have",
+              "me will",
+              "will me",
+            ];
 
 @postTense = [
-                conj4[0]  = "I am";
-    	          conj4[1]  = "am I";
-      	        conj4[2]  = "I can";
-    	          conj4[3]  = "can I";
-     	          conj4[4]  = "I have";
-       	        conj4[5]  = "I will";
-       	        conj4[6]  = "will I";
-              ]
+                "I am",
+    	          "am I",
+      	        "I can",
+    	          "can I",
+     	          "I have",
+       	        "I will",
+       	        "will I",
+              ];
+
+$keySize = @keywords;
+$noKey = @keywords - 1;
+$responsesSize = responses;
 
 
-
-print "Hello I am Eliza. What problems are you having today?\n\> ";
+print "Hello I am Eliza. What problems are you having today?\n";
 
 while(<STDIN>){
   last if ($_ =~ /^\s*$/); # Exit if it was just spaces (or just an enter)
-  @input = split(/\s+/,$_);
-  print @input;
+  $string = $_;
+  $string =~ s/\bc\w*\b/badger/ig;
+  print $string;
 }
 
-sub presubstitionLayer() {
-  $wordCount = scalar(@_);
-  foreach my $word (@_) {
-    # body...
-  }
-
-#  sub conjugate( sStrg ){           	// rephrases sString
-#		var sString = sStrg;
+#sub conjugate(){
+#		$preString = @_[0];
 #		for( i = 0; i < maxConj; i++ ){			// decompose
 #			sString = replaceStr( sString, conj1[i], "#@&" + i, 2 );
 #		}
@@ -407,4 +404,4 @@ sub presubstitionLayer() {
 #		return sString;
 #	}
 
-}
+https://www.caveofprogramming.com/perl-tutorial/perl-replace-substring.html
