@@ -1,0 +1,410 @@
+#! usr/bin/perl
+use warnings;
+
+@keywords = [
+              [
+                "CAN YOU",
+                1,
+                3
+              ],
+              [
+                "CAN I",
+                4,
+                5
+              ],
+              [
+                "YOU ARE",
+                6,
+                9
+              ],
+              [
+                "YOU'RE",
+                6,
+                9
+              ],
+              [
+                "I DON'T",
+                10,
+                13
+              ],
+              [
+                "I FEEL",
+                14,
+                16
+              ],
+              [
+                "WHY DON'T YOU",
+                 17,
+                 19
+              ],
+              [
+                "WHY CAN'T I",
+                20,
+                21
+              ],
+              [
+                "ARE YOU",
+                22,
+                24
+              ],
+              [
+                "I CAN'T",
+                25,
+                27
+              ],
+              [
+                "I AM",
+                28,
+                31
+              ],
+              [
+                "I'M",
+                28,
+                31
+              ],
+              [
+                "YOU",
+                32,
+                34
+              ],
+              [
+                "I WANT",
+                35,
+                39
+              ],
+              [
+                "WHAT",
+                40,
+                48
+              ],
+              [
+                "HOW",
+                40,
+                48
+              ],
+              [
+                "WHO",
+                40,
+                48
+              ],
+              [
+                "WHERE",
+                40,
+                48
+              ],
+              [
+                "WHEN",
+                40,
+                48
+              ],
+              [
+                "WHY",
+                40,
+                48
+              ],
+              [
+                "NAME",
+                49,
+                50
+              ],
+              [
+                "CAUSE",
+                51,
+                54
+              ],
+              [
+                "SORRY",
+                55,
+                58
+              ],
+              [
+                "DREAM",
+                59,
+                62
+              ],
+              [
+                "HELLO",
+                63,
+                63
+              ],
+              [
+                "HI",
+                63,
+                63
+              ],
+              [
+                "MAYBE",
+                64,
+                68
+              ],
+              [
+                "NO",
+                69,
+                73
+              ],
+              [
+                "YOUR",
+                74,
+                75
+              ],
+              [
+                "ALWAYS",
+                76,
+                79
+              ],
+              [
+                "THINK",
+                80,
+                82
+              ],
+              [
+                "ALIKE",
+                83,
+                89
+              ],
+              [
+                "YES",
+                90,
+                92
+              ],
+              [
+                "FRIEND",
+                93,
+                98
+              ],
+              [
+                "COMPUTER",
+                99,
+                105
+              ],
+              [
+                "NO KEY FOUND",
+                106,
+                112
+              ],
+              [
+                "REPEAT INPUT",
+                113,
+                116
+              ]
+            ];
+
+@responses = [
+              "ELIZA - Javascript Version by George Dunlop ( george@peccavi.com )",
+               "Don't you believe that I can<*",
+               "Perhaps you would like to be able to<*",
+               "You want me to be able to<*",
+               "Perhaps you don't want to<*",
+               "Do you want to be able to<*",
+               "What makes you think I am<*",
+               "Does it please you to believe I am<*",
+               "Perhaps you would like to be<*",
+               "Do you sometimes wish you were<*",
+               "Don't you really<*",
+               "Why don't you<*",
+               "Do you wish to be able to<*",
+               "Does that trouble you?",
+               "Tell me more about such feelings.",
+               "Do you often feel<*",
+               "Do you enjoy feeling<*",
+               "Do you really believe I don't<*",
+               "Perhaps in good time I will<@",
+               "Do you want me to<*",
+               "Do you think you should be able to<*",
+               "Why can't you<*",
+               "Why are you interested in whether or not I am<*",
+               "Would you prefer if I were not<*",
+               "Perhaps in your fantasies I am<*",
+               "How do you know you can't<*",
+               "Have you tried?",
+               "Perhaps you can now<*",
+               "Did you come to me because you are<*",
+               "How long have you been<*".
+               "Do you believe it is normal to be<*",
+               "Do you enjoy being<*",
+               "We were discussing you, not me.",
+               "Oh... <*",
+               "You're not really talking about me, are you?",
+               "What would it mean to you if you got<*",
+               "Why do you want<*",
+               "Suppose you got<*",
+               "What if you never got<*",
+               "I sometimes also want<@",
+               "Why do you ask?",
+               "Does that question interest you?",
+               "What answer would please you the most?",
+               "What do you think?",
+               "Are such questions on your mind often?",
+               "What is it that you really want to know?",
+               "Have you asked anyone else?",
+               "Have you asked such questions before?",
+               "What else comes to mind when you ask that?",
+               "Names don't interest me.",
+               "I don't care about names, please go on.",
+               "Is that the real reason?",
+               "Don't any other reasons come to mind?",
+               "Does that reason explain anything else?",
+               "What other reasons might there be?",
+               "Please don't apologise!",
+               "Apologies are not necessary.",
+               "What feelings do you have when you apologise?",
+               "Don't be so defensive!",
+               "What does that dream suggest to you?",
+               "Do you dream often?",
+               "What persons appear in your dreams?",
+               "Are you disturbed by your dreams?",
+               "How are you today.. What would you like to discuss?",
+               "You don't seem quite certain.",
+               "Why the uncertain tone?",
+               "Can't you be more positive?",
+               "You aren't sure?",
+               "Don't you know?",
+               "Are you saying no just to be negative?",
+               "You are being a bit negative.",
+               "Why not?",
+               "Are you sure?",
+               "Why no?",
+               "Why are you concerned about my<*",
+               "What about your own<*",
+               "Can you think of a specific example?",
+               "When?",
+               "What are you thinking of?",
+               "Really, always?",
+               "Do you really think so?",
+               "But you are not sure you<*",
+               "Do you doubt you<*",
+               "In what way?",
+               "What resemblence do you see?",
+               "What does the similarity suggest to you?",
+               "What other connections do you see?",
+               "Could there really be some connection?",
+               "How?",
+               "You seem quite positive.",
+               "Are you Sure?",
+               "I see.",
+               "I understand.",
+               "Why do you bring up the topic of friends?",
+               "Do your friends worry you?",
+               "Do your friends pick on you?",
+               "Are you sure you have any friends?",
+               "Do you impose on your friends?",
+               "Perhaps your love for friends worries you.",
+               "Do computers worry you?",
+               "Are you talking about me in particular?",
+               "Are you frightened by machines?",
+               "Why do you mention computers?",
+               "What do you think machines have to do with your problems?",
+               "Don't you think computers can help people?",
+               "What is it about machines that worries you?",
+               "Say, do you have any psychological problems?",
+               "What does that suggest to you?",
+               "I see.",
+               "I'm not sure I understand you fully.",
+               "Come, come, elucidate your thoughts.",
+               "Can you elaborate on that?",
+               "That is quite interesting.",
+               "Why did you repeat yourself?",
+               "Do you expect a different answer by repeating yourself?",
+               "Come, come, elucidate your thoughts.",
+               "Please don't repeat yourself!",
+               ]
+
+@preConj = [
+              "are",
+              "am",
+              "were",
+              "was",
+              "I",
+              "me",
+              "you",
+              "my",
+              "your",
+              "mine",
+              "your's",
+              "I'm",
+              "you're",
+              "I've",
+              "you've",
+              "I'll",
+              "you'll",
+              "myself",
+              "yourself",
+            ]
+
+@postConj = [
+  		        "am",
+   		        "are",
+ 		          "was",
+    		      "were",
+   			      "you",
+    		      "you",
+   		        "me",
+   		        "your",
+  		        "my",
+  		        "your's",
+ 	            "mine",
+  		        "you're",
+ 	            "I'm",
+ 		          "you've",
+ 	            "I've",
+		          "you'll",
+ 	            "I'll",
+ 	            "yourself",
+	            "myself",
+            ]
+
+@preTense = [
+              conj3[0]  = "me am";
+              conj3[1]  = "am me";
+              conj3[2]  = "me can";
+              conj3[3]  = "can me";
+              conj3[4]  = "me have";
+              conj3[5]  = "me will";
+              conj3[6]  = "will me";
+            ]
+
+@postTense = [
+                conj4[0]  = "I am";
+    	          conj4[1]  = "am I";
+      	        conj4[2]  = "I can";
+    	          conj4[3]  = "can I";
+     	          conj4[4]  = "I have";
+       	        conj4[5]  = "I will";
+       	        conj4[6]  = "will I";
+              ]
+
+
+
+print "Hello I am Eliza. What problems are you having today?\n\> ";
+
+while(<STDIN>){
+  last if ($_ =~ /^\s*$/); # Exit if it was just spaces (or just an enter)
+  @input = split(/\s+/,$_);
+  print @input;
+}
+
+sub presubstitionLayer() {
+  $wordCount = scalar(@_);
+  foreach my $word (@_) {
+    # body...
+  }
+
+#  sub conjugate( sStrg ){           	// rephrases sString
+#		var sString = sStrg;
+#		for( i = 0; i < maxConj; i++ ){			// decompose
+#			sString = replaceStr( sString, conj1[i], "#@&" + i, 2 );
+#		}
+#		for( i = 0; i < maxConj; i++ ){			// recompose
+#			sString = replaceStr( sString, "#@&" + i, conj2[i], 2 );
+#		}
+#		// post process the resulting string
+#		for( i = 0; i < max2ndConj; i++ ){			// decompose
+#			sString = replaceStr( sString, conj3[i], "#@&" + i, 2 );
+#		}
+#		for( i = 0; i < max2ndConj; i++ ){			// recompose
+#			sString = replaceStr( sString, "#@&" + i, conj4[i], 2 );
+#		}
+#		return sString;
+#	}
+
+}
