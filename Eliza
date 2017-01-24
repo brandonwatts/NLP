@@ -382,26 +382,32 @@ print "Hello I am Eliza. What problems are you having today?\n";
 while(<STDIN>){
   last if ($_ =~ /^\s*$/); # Exit if it was just spaces (or just an enter)
   $string = $_;
-  $string =~ s/\bc\w*\b/badger/ig;
+  $string = stripString($string);
+  $string = replaceWord("Hey","Hello",$string);
   print $string;
 }
 
-#sub conjugate(){
-#		$preString = @_[0];
-#		for( i = 0; i < maxConj; i++ ){			// decompose
-#			sString = replaceStr( sString, conj1[i], "#@&" + i, 2 );
-#		}
-#		for( i = 0; i < maxConj; i++ ){			// recompose
-#			sString = replaceStr( sString, "#@&" + i, conj2[i], 2 );
-#		}
-#		// post process the resulting string
-#		for( i = 0; i < max2ndConj; i++ ){			// decompose
-#			sString = replaceStr( sString, conj3[i], "#@&" + i, 2 );
-#		}
-#		for( i = 0; i < max2ndConj; i++ ){			// recompose
-#			sString = replaceStr( sString, "#@&" + i, conj4[i], 2 );
-#		}
-#		return sString;
-#	}
+sub stripString {
+  $string = $_[0];
+  $string =~ tr/a-zA-z //dc;
 
-https://www.caveofprogramming.com/perl-tutorial/perl-replace-substring.html
+  return $string;
+}
+
+sub replaceWord {
+  $oldword = $_[0];
+  $newWord = $_[1];
+  $string = $_[2];
+  @stringWords = split (" ",$string);
+  foreach my $word (@stringWords) {
+    foreach my $i (0..$#preConj) {
+      print "Word: $word";
+      print $preConj[$i];
+      if ($word eq $preConj[$i]) {
+          $word = $postConj[$i];
+          print "changed";
+      }
+    }   
+  }
+  return $string;
+}
