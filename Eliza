@@ -1,204 +1,51 @@
 #! usr/bin/perl
 use warnings;
+use feature qw(say switch);
 
-@keywords = [
-              [
-                "CAN YOU",
-                1,
-                3
-              ],
-              [
-                "CAN I",
-                4,
-                5
-              ],
-              [
-                "YOU ARE",
-                6,
-                9
-              ],
-              [
-                "YOU'RE",
-                6,
-                9
-              ],
-              [
-                "I DON'T",
-                10,
-                13
-              ],
-              [
-                "I FEEL",
-                14,
-                16
-              ],
-              [
-                "WHY DON'T YOU",
-                 17,
-                 19
-              ],
-              [
-                "WHY CAN'T I",
-                20,
-                21
-              ],
-              [
-                "ARE YOU",
-                22,
-                24
-              ],
-              [
-                "I CAN'T",
-                25,
-                27
-              ],
-              [
-                "I AM",
-                28,
-                31
-              ],
-              [
-                "I'M",
-                28,
-                31
-              ],
-              [
-                "YOU",
-                32,
-                34
-              ],
-              [
-                "I WANT",
-                35,
-                39
-              ],
-              [
-                "WHAT",
-                40,
-                48
-              ],
-              [
-                "HOW",
-                40,
-                48
-              ],
-              [
-                "WHO",
-                40,
-                48
-              ],
-              [
-                "WHERE",
-                40,
-                48
-              ],
-              [
-                "WHEN",
-                40,
-                48
-              ],
-              [
-                "WHY",
-                40,
-                48
-              ],
-              [
-                "NAME",
-                49,
-                50
-              ],
-              [
-                "CAUSE",
-                51,
-                54
-              ],
-              [
-                "SORRY",
-                55,
-                58
-              ],
-              [
-                "DREAM",
-                59,
-                62
-              ],
-              [
-                "HELLO",
-                63,
-                63
-              ],
-              [
-                "HI",
-                63,
-                63
-              ],
-              [
-                "MAYBE",
-                64,
-                68
-              ],
-              [
-                "NO",
-                69,
-                73
-              ],
-              [
-                "YOUR",
-                74,
-                75
-              ],
-              [
-                "ALWAYS",
-                76,
-                79
-              ],
-              [
-                "THINK",
-                80,
-                82
-              ],
-              [
-                "ALIKE",
-                83,
-                89
-              ],
-              [
-                "YES",
-                90,
-                92
-              ],
-              [
-                "FRIEND",
-                93,
-                98
-              ],
-              [
-                "COMPUTER",
-                99,
-                105
-              ],
-              [
-                "NO KEY FOUND",
-                106,
-                112
-              ],
-              [
-                "REPEAT INPUT",
-                113,
-                116
-              ]
-            ];
 
-@responses = [
-               "Don't you believe that I can<*",
-               "Perhaps you would like to be able to<*",
-               "You want me to be able to<*",
-               "Perhaps you don't want to<*",
-               "Do you want to be able to<*",
-               "What makes you think I am<*",
-               "Does it please you to believe I am<*",
-               "Perhaps you would like to be<*",
-               "Do you sometimes wish you were<*",
+%keywordsWithResponses = (
+
+              "CAN YOU" => ["Don't you believe that I can<*", "Perhaps you would like to be able to<*", "You want me to be able to<*"],
+              "CAN I", => ["Perhaps you don't want to<*", "Do you want to be able to<*"],
+              "YOU ARE" => ["What makes you think I am<*", "Does it please you to believe I am<*", "Perhaps you would like to be<*", "Do you sometimes wish you were<*"],
+              "YOU'RE" => ["What makes you think I am<*", "Does it please you to believe I am<*", "Perhaps you would like to be<*", "Do you sometimes wish you were<*"],
+              "I DON'T" => [],
+              "I FEEL" => [],
+              "WHY DON'T YOU" => [],
+              "WHY CAN'T I" => [],
+              "ARE YOU" => [],
+              "I CAN'T" => [],
+              "I AM" => [],
+              "I'M" => [],
+              "YOU" => [],
+              "I WANT" => [],
+              "WHAT" => [],
+              "HOW" => [],
+              "WHO" => [],
+              "WHERE" => [],
+              "WHEN" => [],
+              "WHY" => [],
+              "NAME" => [],
+              "CAUSE" => [],
+              "SORRY" => [],
+              "DREAM" => [],
+              "HELLO" => [],
+              "HI" => [],
+              "MAYBE" => [],
+              "NO" => [],
+              "YOUR" => [],
+              "ALWAYS" => [],
+              "THINK" => [],
+              "ALIKE" => [],
+              "YES" => [],
+              "FRIEND" => [],
+              "COMPUTER" => [],
+              "NO KEY FOUND" => [],
+              "REPEAT INPUT" => [],
+            );
+
+@responses = (       
+               
                "Don't you really<*",
                "Why don't you<*",
                "Do you wish to be able to<*",
@@ -306,31 +153,10 @@ use warnings;
                "Do you expect a different answer by repeating yourself?",
                "Come, come, elucidate your thoughts.",
                "Please don't repeat yourself!",
-               ];
+              );
 
-@preConj = [
-              "are",
-              "am",
-              "were",
-              "was",
-              "I",
-              "me",
-              "you",
-              "my",
-              "your",
-              "mine",
-              "your's",
-              "I'm",
-              "you're",
-              "I've",
-              "you've",
-              "I'll",
-              "you'll",
-              "myself",
-              "yourself",
-            ];
 
-@postConj = [
+@postConj = (
   		        "am",
    		        "are",
  		          "was",
@@ -350,27 +176,39 @@ use warnings;
  	            "I'll",
  	            "yourself",
 	            "myself",
-            ];
+            );
 
-@preTense = [
-              "me am",
-              "am me",
-              "me can",
-              "can me",
-              "me have",
-              "me will",
-              "will me",
-            ];
+my %preToPost = (
+    "me am"  => "I am",
+    "am me" => "am I",
+    "me can"  => "I can",
+    "can me" => "can I",
+    "me have" => "I have",
+    "me will" => "I will",
+    "will me" => "will I"
+);
 
-@postTense = [
-                "I am",
-    	          "am I",
-      	        "I can",
-    	          "can I",
-     	          "I have",
-       	        "I will",
-       	        "will I",
-              ];
+@preConj = (
+              "are",
+              "am",
+              "were",
+              "was",
+              "I",
+              "me",
+              "you",
+              "my",
+              "your",
+              "mine",
+              "your's",
+              "I'm",
+              "you're",
+              "I've",
+              "you've",
+              "I'll",
+              "you'll",
+              "myself",
+              "yourself",
+            );
 
 $keySize = @keywords;
 $noKey = @keywords - 1;
@@ -383,8 +221,9 @@ while(<STDIN>){
   last if ($_ =~ /^\s*$/); # Exit if it was just spaces (or just an enter)
   $string = $_;
   $string = stripString($string);
-  $string = replaceWord("Hey","Hello",$string);
-  print $string;
+  $string = conjugate($string);
+  $string = correctTense($string); 
+  say $string."?";
 }
 
 sub stripString {
@@ -394,20 +233,27 @@ sub stripString {
   return $string;
 }
 
-sub replaceWord {
-  $oldword = $_[0];
-  $newWord = $_[1];
-  $string = $_[2];
+sub conjugate {
+  $string = $_[0];
   @stringWords = split (" ",$string);
   foreach my $word (@stringWords) {
-    foreach my $i (0..$#preConj) {
-      print "Word: $word";
-      print $preConj[$i];
+    for ($i = 0;$i< @preConj;$i++) {
       if ($word eq $preConj[$i]) {
           $word = $postConj[$i];
-          print "changed";
+          last;
       }
     }   
   }
-  return $string;
+  return join (" ", @stringWords);
 }
+
+sub correctTense {
+  $string = $_[0];
+  for my $phrase (keys %preToPost) {
+    $string =~ s/$phrase/$preToPost{$phrase}/g;
+  }
+    return $string;
+    #print "The right tense of '$phrase' is $preToPost{$phrase}\n";
+
+}
+
