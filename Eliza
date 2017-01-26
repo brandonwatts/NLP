@@ -5,42 +5,42 @@ use feature qw(say switch);
 
 %keywordsWithResponses = (
 
-              "CAN YOU" => ("Don't you believe that I can<*", "Perhaps you would like to be able to<*", "You want me to be able to<*"),
-              "CAN I", => ("Perhaps you don't want to<*", "Do you want to be able to<*"),
-              "YOU ARE" => ("What makes you think I am<*", "Does it please you to believe I am<*", "Perhaps you would like to be<*", "Do you sometimes wish you were<*"),
-              "YOU'RE" => ("What makes you think I am<*", "Does it please you to believe I am<*", "Perhaps you would like to be<*", "Do you sometimes wish you were<*"),
-              "I DON'T" => ("Don't you really<*","Why don't you<*","Do you wish to be able to<*","Does that trouble you?"),
-              "I FEEL" => ("Tell me more about such feelings.","Do you often feel<*","Do you enjoy feeling<*"),
-              "WHY DON'T YOU" => ("Do you really believe I don't<*", "Perhaps in good time I will<@","Do you want me to<*"),
-              "WHY CAN'T I" => ("Do you think you should be able to<*","Why can't you<*"),
-              "ARE YOU" => ("Why are you interested in whether or not I am<*","Would you prefer if I were not<*","Perhaps in your fantasies I am<*"),
-              "I CAN'T" => ("How do you know you can't<*","Have you tried?","Perhaps you can now<*"),
-              "I AM" => ("Did you come to me because you are<*","How long have you been<*","Do you believe it is normal to be<*","Do you enjoy being<*"),
-              "I'M" => ("Did you come to me because you are<*","How long have you been<*","Do you believe it is normal to be<*","Do you enjoy being<*"),
-              "YOU" => ("We were discussing you, not me.","Oh... <*","You're not really talking about me, are you?"),
-              "I WANT" => ("What would it mean to you if you got<*", "Why do you want<*","Suppose you got<*","What if you never got<*","I sometimes also want<@"),
-              "WHAT" => ("Why do you ask?","Does that question interest you?","What answer would please you the most?","What do you think?","Are such questions on your mind often?","What is it that you really want to know?","Have you asked anyone else?","Have you asked such questions before?","What else comes to mind when you ask that?"),
-              "HOW" => ("Why do you ask?","Does that question interest you?","What answer would please you the most?","What do you think?","Are such questions on your mind often?","What is it that you really want to know?","Have you asked anyone else?","Have you asked such questions before?","What else comes to mind when you ask that?"),
-              "WHO" => ("Why do you ask?","Does that question interest you?","What answer would please you the most?","What do you think?","Are such questions on your mind often?","What is it that you really want to know?","Have you asked anyone else?","Have you asked such questions before?","What else comes to mind when you ask that?"),
-              "WHERE" => ("Why do you ask?","Does that question interest you?","What answer would please you the most?","What do you think?","Are such questions on your mind often?","What is it that you really want to know?","Have you asked anyone else?","Have you asked such questions before?","What else comes to mind when you ask that?"),
-              "WHEN" => ("Why do you ask?","Does that question interest you?","What answer would please you the most?","What do you think?","Are such questions on your mind often?","What is it that you really want to know?","Have you asked anyone else?","Have you asked such questions before?","What else comes to mind when you ask that?"),
-              "WHY" => ("Why do you ask?","Does that question interest you?","What answer would please you the most?","What do you think?","Are such questions on your mind often?","What is it that you really want to know?","Have you asked anyone else?","Have you asked such questions before?","What else comes to mind when you ask that?"),
-              "NAME" => ("Names don't interest me.", "I don't care about names, please go on."),
-              "CAUSE" => ("Is that the real reason?","Don't any other reasons come to mind?","Does that reason explain anything else?","What other reasons might there be?"),
-              "SORRY" => ("Please don't apologise!","Apologies are not necessary.","What feelings do you have when you apologise?","Don't be so defensive!"),
-              "DREAM" => ("What does that dream suggest to you?","Do you dream often?","What persons appear in your dreams?","Are you disturbed by your dreams?" ),
-              "HELLO" => ("How are you today.. What would you like to discuss?"),
-              "HI" => ("How are you today.. What would you like to discuss?"),
-              "MAYBE" => ("You don't seem quite certain.","Why the uncertain tone?","Can't you be more positive?","You aren't sure?","Don't you know?"),
-              "NO" => ("Are you saying no just to be negative?","You are being a bit negative.","Why not?","Are you sure?","Why no?"),
-              "YOUR" => ("Why are you concerned about my<*","What about your own<*"),
-              "ALWAYS" => ("Can you think of a specific example?","When?","What are you thinking of?","Really, always?"),
-              "THINK" => ("Do you really think so?","But you are not sure you<*","Do you doubt you<*"),
-              "ALIKE" => ("In what way?","What resemblence do you see?","What does the similarity suggest to you?","What other connections do you see?","Could there really be some connection?","How?","You seem quite positive."),
-              "YES" => ("Are you Sure?","I see.","I understand."),
-              "FRIEND" => ("Why do you bring up the topic of friends?","Do your friends worry you?","Do your friends pick on you?","Are you sure you have any friends?","Do you impose on your friends?","Perhaps your love for friends worries you."),
-              "COMPUTER" => ("Do computers worry you?","Are you talking about me in particular?","Are you frightened by machines?","Why do you mention computers?","What do you think machines have to do with your problems?","Don't you think computers can help people?","What is it about machines that worries you?"),
-              "NO KEY FOUND" => ("Say, do you have any psychological problems?","What does that suggest to you?","I see.","I'm not sure I understand you fully.","Come, come, elucidate your thoughts.","Can you elaborate on that?","That is quite interesting.")
+              "CAN YOU" => ["Don't you believe that I can <Q>", "Perhaps you would like to be able to<*", "You want me to be able to <Q>"],
+              "CAN I", => ["Perhaps you don't want to <Q>", "Do you want to be able to <Q>"],
+              "YOU ARE" => ["What makes you think I am <Q>", "Does it please you to believe I am <Q>", "Perhaps you would like to be <Q>", "Do you sometimes wish you were <Q>"],
+              "YOU'RE" => ["What makes you think I am <Q>", "Does it please you to believe I am <Q>", "Perhaps you would like to be <Q>", "Do you sometimes wish you were <Q>"],
+              "I DON'T" => ["Don't you really <Q>","Why don't you <Q>","Do you wish to be able to <Q>","Does that trouble you?"],
+              "I FEEL" => ["Tell me more about such feelings.","Do you often feel <Q>","Do you enjoy feeling <Q>"],
+              "WHY DON'T YOU" => ["Do you really believe I don't <Q>", "Perhaps in good time I will <S>","Do you want me to <Q>"],
+              "WHY CAN'T I" => ["Do you think you should be able to <Q>","Why can't you <Q>"],
+              "ARE YOU" => ["Why are you interested in whether or not I am <Q>","Would you prefer if I were not <Q>","Perhaps in your fantasies I am <Q>"],
+              "I CAN'T" => ["How do you know you can't <Q>","Have you tried?","Perhaps you can now <Q>"],
+              "I AM" => ["Did you come to me because you are <Q>","How long have you been <Q>","Do you believe it is normal to be <Q>","Do you enjoy being <Q>"],
+              "I'M" => ["Did you come to me because you are <Q>","How long have you been <Q>","Do you believe it is normal to be <Q>","Do you enjoy being <Q>"],
+              "YOU" => ["We were discussing you, not me.","Oh... <Q>","You're not really talking about me, are you?"],
+              "I WANT" => ["What would it mean to you if you got <Q>", "Why do you want <Q>","Suppose you got <Q>","What if you never got <Q>","I sometimes also want <S>"],
+              "WHAT" => ["Why do you ask?","Does that question interest you?","What answer would please you the most?","What do you think?","Are such questions on your mind often?","What is it that you really want to know?","Have you asked anyone else?","Have you asked such questions before?","What else comes to mind when you ask that?"],
+              "HOW" => ["Why do you ask?","Does that question interest you?","What answer would please you the most?","What do you think?","Are such questions on your mind often?","What is it that you really want to know?","Have you asked anyone else?","Have you asked such questions before?","What else comes to mind when you ask that?"],
+              "WHO" => ["Why do you ask?","Does that question interest you?","What answer would please you the most?","What do you think?","Are such questions on your mind often?","What is it that you really want to know?","Have you asked anyone else?","Have you asked such questions before?","What else comes to mind when you ask that?"],
+              "WHERE" => ["Why do you ask?","Does that question interest you?","What answer would please you the most?","What do you think?","Are such questions on your mind often?","What is it that you really want to know?","Have you asked anyone else?","Have you asked such questions before?","What else comes to mind when you ask that?"],
+              "WHEN" => ["Why do you ask?","Does that question interest you?","What answer would please you the most?","What do you think?","Are such questions on your mind often?","What is it that you really want to know?","Have you asked anyone else?","Have you asked such questions before?","What else comes to mind when you ask that?"],
+              "WHY" => ["Why do you ask?","Does that question interest you?","What answer would please you the most?","What do you think?","Are such questions on your mind often?","What is it that you really want to know?","Have you asked anyone else?","Have you asked such questions before?","What else comes to mind when you ask that?"],
+              "NAME" => ["Names don't interest me.", "I don't care about names, please go on."],
+              "CAUSE" => ["Is that the real reason?","Don't any other reasons come to mind?","Does that reason explain anything else?","What other reasons might there be?"],
+              "SORRY" => ["Please don't apologise!","Apologies are not necessary.","What feelings do you have when you apologise?","Don't be so defensive!"],
+              "DREAM" => ["What does that dream suggest to you?","Do you dream often?","What persons appear in your dreams?","Are you disturbed by your dreams?"],
+              "HELLO" => ["How are you today.. What would you like to discuss?"],
+              "HI" => ["How are you today.. What would you like to discuss?"],
+              "MAYBE" => ["You don't seem quite certain.","Why the uncertain tone?","Can't you be more positive?","You aren't sure?","Don't you know?"],
+              "NO" => ["Are you saying no just to be negative?","You are being a bit negative.","Why not?","Are you sure?","Why no?"],
+              "YOUR" => ["Why are you concerned about my <Q>","What about your own <Q>"],
+              "ALWAYS" => ["Can you think of a specific example?","When?","What are you thinking of?","Really, always?"],
+              "THINK" => ["Do you really think so?","But you are not sure you <Q>","Do you doubt you <Q>"],
+              "ALIKE" => ["In what way?","What resemblence do you see?","What does the similarity suggest to you?","What other connections do you see?","Could there really be some connection?","How?","You seem quite positive."],
+              "YES" => ["Are you Sure?","I see.","I understand."],
+              "FRIEND" => ["Why do you bring up the topic of friends?","Do your friends worry you?","Do your friends pick on you?","Are you sure you have any friends?","Do you impose on your friends?","Perhaps your love for friends worries you."],
+              "COMPUTER" => ["Do computers worry you?","Are you talking about me in particular?","Are you frightened by machines?","Why do you mention computers?","What do you think machines have to do with your problems?","Don't you think computers can help people?","What is it about machines that worries you?"],
+              "NO KEY FOUND" => ["Say, do you have any psychological problems?","What does that suggest to you?","I see.","I'm not sure I understand you fully.","Come, come, elucidate your thoughts.","Can you elaborate on that?","That is quite interesting."]
             );
 
 
@@ -110,9 +110,9 @@ while(<STDIN>){
   last if ($_ =~ /^\s*$/); # Exit if it was just spaces (or just an enter)
   $string = $_;
   $string = stripString($string);
+  $string = correctTense($string); 
   $string = FindQuestion($string);
-  #$string = conjugate($string);
-  #$string = correctTense($string); 
+  $string = conjugate($string);
   say $string;
 }
 
@@ -123,13 +123,39 @@ sub stripString {
   return $string;
 }
 
+sub formQuestion {
+  $string = $_[0];
+  $response = $_[1];
+  $keyword = $_[2];
+  if($response =~ m/<Q>/){
+      $modifier = findModifier($string,$keyword);
+      $response =~ s/<Q>/$modifier/;
+      $response = $response."?";
+      return $response;
+  }
+  elsif($string =~ m/<S>/)
+  {
+
+  }
+  else {
+    return $response;
+  }
+}
+
+sub findModifier {
+  $string = $_[0];
+  $phrase = $_[1];
+  $string =~ /$phrase /i;
+  return "$'";
+}
+
 sub FindQuestion {
   $string = $_[0];
-  for my $phrase (keys %keywordsWithResponses) {
-    if ($string =~ m/$phrase/i)
+  foreach my $key (keys %keywordsWithResponses) {
+    if ($string =~ m/$key/i)
     {
-      $string = $keywordsWithResponses{$phrase};
-      return $string;
+      $response = formQuestion($string,$keywordsWithResponses{$key}[0],$key);
+      return $response;
     }
   }
   return "Nothing";
@@ -156,6 +182,11 @@ sub correctTense {
   }
     return $string;
     #print "The right tense of '$phrase' is $preToPost{$phrase}\n";
+}
 
+sub removeSpaces{
+  $string = $_[0];
+  $string =~ s/\s+//g;
+  return $string;
 }
 
