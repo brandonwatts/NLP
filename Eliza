@@ -67,7 +67,7 @@ use feature qw(say switch);
 	            "myself",
             );
 
-my %preToPost = (
+my %secondaryConjugationList = (
     "me am"  => "I am",
     "am me" => "am I",
     "me can"  => "I can",
@@ -76,6 +76,28 @@ my %preToPost = (
     "me will" => "I will",
     "will me" => "will I"
 );
+
+my %primaryConjugationList {
+    "are" => "am",
+    "am" => "are",
+    "were" => "was",
+    "was" => "were",
+    "I" => "you",
+    "me" => "you",
+    "you" => "me",
+    "my" => "your",
+    "your" => "my",
+    "mine" => "your's",
+    "your's" => "mine",
+    "I'm" => "you're",
+    "you're" => "I'm",
+    "I've" => "you've",
+    "you've" => "I've"
+    "I'll" => "you'll",
+    "you'll" => "I'll",
+    "myself" => "yourself",
+    "yourself" => "myself"
+}
 
 @preConj = (
               "are",
@@ -99,20 +121,14 @@ my %preToPost = (
               "yourself",
             );
 
-$keySize = @keywords;
-$noKey = @keywords - 1;
-$responsesSize = responses;
-
-
 print "Hello I am Eliza. What problems are you having today?\n";
 
 while(<STDIN>){
   last if ($_ =~ /^\s*$/); # Exit if it was just spaces (or just an enter)
   $string = $_;
   $string = stripString($string);
-  $string = correctTense($string); 
   $string = FindQuestion($string);
-  $string = conjugate($string);
+    $string = correctTense($string); 
   say $string;
 }
 
@@ -129,13 +145,18 @@ sub formQuestion {
   $keyword = $_[2];
   if($response =~ m/<Q>/){
       $modifier = findModifier($string,$keyword);
+      $modifier = conjugate($modifier);
       $response =~ s/<Q>/$modifier/;
       $response = $response."?";
       return $response;
   }
-  elsif($string =~ m/<S>/)
-  {
+  elsif($string =~ m/<S>/) {
 
+      $modifier = findModifier($string,$keyword);
+      $modifier = conjugate($modifier);
+      $response =~ s/<S>/$modifier/;
+      $response = $response.".";
+      return $response;
   }
   else {
     return $response;
@@ -152,13 +173,13 @@ sub findModifier {
 sub FindQuestion {
   $string = $_[0];
   foreach my $key (keys %keywordsWithResponses) {
-    if ($string =~ m/$key/i)
+    if ($string =~ m/\b$key\b/i)
     {
       $response = formQuestion($string,$keywordsWithResponses{$key}[0],$key);
       return $response;
     }
   }
-  return "Nothing";
+  return "DEFAULT_LISTENING_RESPONSE";
 }
 
 sub conjugate {
@@ -177,11 +198,10 @@ sub conjugate {
 
 sub correctTense {
   $string = $_[0];
-  for my $phrase (keys %preToPost) {
-    $string =~ s/$phrase/$preToPost{$phrase}/g;
+  for my $phrase (keys %conjugationList) {
+    $string =~ s/$phrase/%conjugationList{$phrase}/g;
   }
     return $string;
-    #print "The right tense of '$phrase' is $preToPost{$phrase}\n";
 }
 
 sub removeSpaces{
