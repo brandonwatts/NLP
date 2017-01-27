@@ -77,7 +77,7 @@ my %secondaryConjugationList = (
     "will me" => "will I"
 );
 
-my %primaryConjugationList {
+my %primaryConjugationList = (
     "are" => "am",
     "am" => "are",
     "were" => "was",
@@ -92,12 +92,12 @@ my %primaryConjugationList {
     "I'm" => "you're",
     "you're" => "I'm",
     "I've" => "you've",
-    "you've" => "I've"
+    "you've" => "I've",
     "I'll" => "you'll",
     "you'll" => "I'll",
     "myself" => "yourself",
     "yourself" => "myself"
-}
+);
 
 @preConj = (
               "are",
