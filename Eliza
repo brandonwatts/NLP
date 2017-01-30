@@ -4,7 +4,6 @@ use feature qw(say switch);
 
 
 %keywordsWithResponses = (
-
               "CAN YOU" => ["Don't you believe that I can <Q>", "Perhaps you would like to be able to<*", "You want me to be able to <Q>"],
               "CAN I", => ["Perhaps you don't want to <Q>", "Do you want to be able to <Q>"],
               "YOU ARE" => ["What makes you think I am <Q>", "Does it please you to believe I am <Q>", "Perhaps you would like to be <Q>", "Do you sometimes wish you were <Q>"],
@@ -40,31 +39,7 @@ use feature qw(say switch);
               "YES" => ["Are you Sure?","I see.","I understand."],
               "FRIEND" => ["Why do you bring up the topic of friends?","Do your friends worry you?","Do your friends pick on you?","Are you sure you have any friends?","Do you impose on your friends?","Perhaps your love for friends worries you."],
               "COMPUTER" => ["Do computers worry you?","Are you talking about me in particular?","Are you frightened by machines?","Why do you mention computers?","What do you think machines have to do with your problems?","Don't you think computers can help people?","What is it about machines that worries you?"],
-              "NO KEY FOUND" => ["Say, do you have any psychological problems?","What does that suggest to you?","I see.","I'm not sure I understand you fully.","Come, come, elucidate your thoughts.","Can you elaborate on that?","That is quite interesting."]
-            );
-
-
-
-@postConj = (
-  		        "am",
-   		        "are",
- 		          "was",
-    		      "were",
-   			      "you",
-    		      "you",
-   		        "me",
-   		        "your",
-  		        "my",
-  		        "your's",
- 	            "mine",
-  		        "you're",
- 	            "I'm",
- 		          "you've",
- 	            "I've",
-		          "you'll",
- 	            "I'll",
- 	            "yourself",
-	            "myself",
+              "NO KEY FOUND" => ["I didn't quite understand, can you say that another way?","What does that suggest to you?","I see.","I'm not sure I understand you fully.","That is quite interesting."]
             );
 
 my %secondaryConjugationList = (
@@ -77,7 +52,7 @@ my %secondaryConjugationList = (
     "will me" => "will I"
 );
 
-my %primaryConjugationList = (
+ %primaryConjugationList = (
     "are" => "am",
     "am" => "are",
     "were" => "was",
@@ -99,34 +74,21 @@ my %primaryConjugationList = (
     "yourself" => "myself"
 );
 
-@preConj = (
-              "are",
-              "am",
-              "were",
-              "was",
-              "I",
-              "me",
-              "you",
-              "my",
-              "your",
-              "mine",
-              "your's",
-              "I'm",
-              "you're",
-              "I've",
-              "you've",
-              "I'll",
-              "you'll",
-              "myself",
-              "yourself",
-            );
 
-print "Hello I am Eliza. What problems are you having today?\n";
+$name = 
+
+say "Hello I am Eliza, a trained psychotherapist. What is your name?";
+$input = <STDIN>;
+chomp($input);
+if ($input =~ /([A-Z][a-z]+)/){
+say "Hello $1. Lets get started. What's been bugging you lately?";
+}
 
 while(<STDIN>){
   last if ($_ =~ /^\s*$/); # Exit if it was just spaces (or just an enter)
   $string = $_;
   $string = stripString($string);
+  print $string;
   $string = FindQuestion($string);
     $string = correctTense($string); 
   say $string;
@@ -145,6 +107,7 @@ sub formQuestion {
   $keyword = $_[2];
   if($response =~ m/<Q>/){
       $modifier = findModifier($string,$keyword);
+      
       $modifier = conjugate($modifier);
       $response =~ s/<Q>/$modifier/;
       $response = $response."?";
@@ -172,34 +135,31 @@ sub findModifier {
 
 sub FindQuestion {
   $string = $_[0];
+  $max_responses = 5;
   foreach my $key (keys %keywordsWithResponses) {
     if ($string =~ m/\b$key\b/i)
     {
-      $response = formQuestion($string,$keywordsWithResponses{$key}[0],$key);
+      my $number_of_questions = @{$keywordsWithResponses{$key}};
+      my $random_response_index = int(rand($number_of_questions));
+      $response = formQuestion($string,$keywordsWithResponses{$key}[$random_response_index],$key);
       return $response;
     }
   }
-  return "DEFAULT_LISTENING_RESPONSE";
+  return  $keywordsWithResponses{"NO KEY FOUND"}[int(rand($max_responses))];
 }
 
 sub conjugate {
   $string = $_[0];
-  @stringWords = split (" ",$string);
-  foreach my $word (@stringWords) {
-    for ($i = 0;$i< @preConj;$i++) {
-      if ($word eq $preConj[$i]) {
-          $word = $postConj[$i];
-          last;
-      }
+  for my $word (keys %primaryConjugationList) {
+     $string =~ s/\b$word\b/$primaryConjugationList{$word}/g;
     }   
-  }
-  return join (" ", @stringWords);
+    return $string;
 }
 
 sub correctTense {
   $string = $_[0];
-  for my $phrase (keys %conjugationList) {
-    $string =~ s/$phrase/%conjugationList{$phrase}/g;
+  for my $phrase (keys %secondaryConjugationList) {
+    $string =~ s/\b$phrase\b/$secondaryConjugationList{$phrase}/g;
   }
     return $string;
 }
@@ -209,4 +169,3 @@ sub removeSpaces{
   $string =~ s/\s+//g;
   return $string;
 }
-
