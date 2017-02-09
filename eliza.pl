@@ -1,16 +1,70 @@
 #! usr/bin/perl
+
+######### INFORMATION ########
+
+# Brandon Watts
+# CMSC 416
+# Assignment 1
+# 2/6/17
+
+######## SUMMARY #########
+
+# This program attempts to recreate the famous ELIZA program. ELIZA was a chatbot
+# which used basic "find and replace" mechanism for forming its responses. ELIZA can be
+# terminated by typing nothing at all or typing "quit".
+
+########## EXAMPLE CONVERSATION #########
+
+# ELIZA: Hello I am Eliza, a trained psychotherapist. What is your name?
+# USER: I am Brandon
+# ELIZA: Hello Brandon. Lets get started. What's been bugging you lately?
+# USER: I dont know
+# ELIZA: What does that suggest to you?
+# USER: I am very tired
+# ELIZA: Did you come to me because you are very tired?
+# USER: no
+# ELIZA: Are you sure?
+# USER: can you help me
+# ELIZA: You want me to be able to help you?
+# USER: are you alive
+# ELIZA: Why are you interested in whether or not I am alive?
+# USER: i feel sick
+# ELIZA: Brandon, Do you often feel sick?
+
+######### ALGORITHIMS ########
+
+# Algorithims are decribed in detail below but the idea is that 
+# input is read an then stripped of all special characters. Then the following steps are taken.
+#
+#   1) Search the input looking for a "keyword"
+#   2) If we find a keyword we randomly pick an appropriate sentence from bank 
+#   3) If we do not find the "keyword" we just output generic response
+#   4) When we have a sentence we find the "modifier" (basically everything after keyword)
+#   5) We inject modifier in sentence
+#   6) We correct the grammar, then output sentence
+
+########## REFERENCES #########
+
+# "Regular Expressions Cheat Sheet" - https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/
+# "ELIZA" - https://en.wikipedia.org/wiki/ELIZA
+# "A Conversation With ELIZA, The Electronic Therapist" - http://thoughtcatalog.com/oliver-miller/2012/08/a-conversation-with-eliza/ - Helped form alot of the keywords and responses.
+
 use warnings;
 use feature qw(say switch);
 
-# This is the bank of keywords along with reponses.
+# This is the bank of keywords along with reponses. I chose some of these word due to a few reasons:
+# 1. They are easy to respond to
+# 2. They are specific enough to show im listening, yet generic enough to fit a wide range of questions
+# 3. Some were used by other ELIZA programs (References Included)
+# 4. I liked them
 %keywordsWithResponses = (
     "CAN YOU" => [
-        "Do you believe that I can <Q>",
+        "<N>, Do you believe that I can <Q>",
         "Would like me to be able to <Q>",
         "You want me to be able to <Q>"
     ],
     "CAN I",
-    => [ "It seems like you don't want to <Q>", "Do you want to be able to <Q>" ],
+    => [ "<N>, It seems like you don't want to <Q>", "Do you want to be able to <Q>" ],
     "YOU ARE" => [
         "What makes you think I am <Q>",
         "Perhaps you would like to be <Q>",
@@ -19,17 +73,17 @@ use feature qw(say switch);
     "YOU'RE" => [
         "What makes you think I am <Q>",
         "Perhaps you would like to be <Q>",
-        "Do you sometimes wish you were <Q>"
+        "Do you sometimes wish you were <Q>, <N>"
     ],
     "I DON'T" => [
         "Don't you really <Q>",
         "Why don't you <Q>",
-        "Do you wish to be able to <Q>",
+        "<N>, Do you wish to be able to <Q>",
         "Does that trouble you?"
     ],
     "I FEEL" => [
         "Tell me more about such feelings.",
-        "Do you often feel <Q>",
+        "<N>, Do you often feel <Q>",
         "Do you enjoy feeling <Q>"
     ],
     "WHY DON'T YOU" => [
@@ -44,7 +98,7 @@ use feature qw(say switch);
         "Would you prefer if I were not <Q>",
     ],
     "I CAN'T" => [
-        "How do you know you can't <Q>",
+        "<N>, How do you know you can't <Q>",
         "Have you tried?",
         "Perhaps you can now <Q>"
     ],
@@ -61,7 +115,7 @@ use feature qw(say switch);
         "Do you enjoy being <Q>"
     ],
     "YOU" => [
-        "We were discussing you, not me.",
+        "<N>, We were discussing you, not me.",
         "You're not really talking about me, are you?"
     ],
     "I WANT" => [
@@ -144,7 +198,7 @@ use feature qw(say switch);
         "What other reasons might there be?"
     ],
     "SORRY" => [
-        "Apologies are not necessary.",
+        "<N>, Apologies are not necessary.",
         "What feelings do you have when you apologise?",
     ],
     "HELLO" => ["How are you today.. What would you like to discuss?"],
@@ -156,7 +210,7 @@ use feature qw(say switch);
         "Don't you know?"
     ],
     "NO" => [
-        "Are you saying no just to be negative?",
+        "<N>, Are you saying no just to be negative?",
         "You are being a bit negative.",
         "Why not?", "Are you sure?",
         "Why no?"
@@ -170,7 +224,7 @@ use feature qw(say switch);
         "Really, always?"
     ],
     "THINK" => [
-        "Do you really think so?",
+        "<N>, Do you really think so?",
         "But you are not sure you <Q>",
         "Do you doubt you <Q>"
     ],
@@ -184,11 +238,8 @@ use feature qw(say switch);
     ],
     "YES"    => [ "Are you Sure?", "I see.", "I understand." ],
     "FRIEND" => [
-        "Why do you bring up the topic of friends?",
         "Do your friends worry you?",
         "Do your friends pick on you?",
-        "Are you sure you have any friends?",
-        "Do you impose on your friends?",
         "Perhaps your love for friends worries you."
     ],
     "NO KEY FOUND" => [
@@ -200,6 +251,7 @@ use feature qw(say switch);
     ]
 );
 
+# Bank of incorrect conjugations to correct versions, respectively
 my %secondaryConjugationList = (
     "me am"   => "I am",
     "am me"   => "am I",
@@ -210,6 +262,8 @@ my %secondaryConjugationList = (
     "will me" => "will I"
 );
 
+# Bank of conjugations to know eliza should form response to the user
+# For example if the user says "me", ELIZA should respond with "you"
 %primaryConjugationList = (
     "are"      => "am",
     "am"       => "are",
@@ -232,14 +286,15 @@ my %secondaryConjugationList = (
     "yourself" => "myself"
 );
 
-##########      This is the program logic       ##########       
 
-$name = ""; 
+##########      This is the program logic       ##########       
+
+$name = ""; 
 
 say "Hello I am Eliza, a trained psychotherapist. What is your name?";
 $input = <STDIN>;      
 chomp($input);
-if ( $input =~ /\s([A-Z][a-z]+)\b/ ) {  # Regex to grab first uppercase word that does not start the sentence
+if ( $input =~ /([A-Z][a-z]+)\b/ ) {  # Regex to grab first uppercase word that does not start the sentence
     say "Hello $1. Lets get started. What's been bugging you lately?";
     $name = $1;
 }
@@ -257,7 +312,8 @@ while(<STDIN>){
   say $string;
 }
 
-#  Method to strip a string of all its special characters so eliza can filter out gibberish. (or attempt to)
+
+#  Method to strip a string of all its special characters so eliza can filter out gibberish. (or attempt to)
 #
 #  @param 0_[]  This contains the input string.
 #  return       The string stripped of all special charaters.
@@ -267,14 +323,15 @@ sub stripString {
   chomp($string); 
   return $string;
 }
-#  Method to check if a string has a <Q> symbol or a <S> symbol which
+
+#  Method to check if a string has a <Q> symbol or a <S> symbol which
 #  I took to mean Question and statement respectively. If it has either is these symbols, I replace
 #  it with the modifier to demonstrate listening to the patient. 
 #
 #  @param 0_[]  This contains the input string.
 #  @param 1_[]  contains the response waiting for modifier
 #  @parm  2_[]  contains the keyword found so we dont have to search for it again
-#  return       The conpleted sentence waiting to recieve conjugation.
+#  return       The completed sentence waiting to recieve conjugation.
 sub formQuestion {
   $string = $_[0];
   $response = $_[1];
@@ -283,6 +340,7 @@ sub formQuestion {
       $modifier = findModifier($string,$keyword);
       $modifier = conjugate($modifier); 
       $response =~ s/<Q>/$modifier/; # We change out that symbol for the modifier.
+      $response =~ s/<N>/$name/; # We input thier name
       $response = $response."?"; # We put a question mark
       return $response;
   }
@@ -290,14 +348,17 @@ sub formQuestion {
       $modifier = findModifier($string,$keyword);
       $modifier = conjugate($modifier);
       $response =~ s/<S>/$modifier/; # We change out the symbol for the modifier.
+      $response =~ s/<N>/$name/; # We input thier name
       $response = $response."."; # We put a period
       return $response;
   }
-  else {  # Just a generic reponse so no need to find modifier
+  else {  # Just a generic response so no need to find modifier
+    $response =~ s/<N>/$name/; # We input thier name
     return $response;
   }
 }
-#  Method to find the modifier of a question/statement. We use the term modifier
+
+#  Method to find the modifier of a question/statement. We use the term modifier
 #  here lightly to mean anything matched after the keyword.  
 #
 #  @param 0_[]  This contains the input string.
@@ -309,7 +370,8 @@ sub findModifier {
   $string =~ /$phrase /i; # Regex to find the keyword in the string
   return "$'"; # Grab everything after that keyword
 }
-#  Method to Find the question based on the specific keywords it spots. Each keyword will have multiple responses
+
+#  Method to Find the question based on the specific keywords it spots. Each keyword will have multiple responses
 #  so we are just randomizing the choosing process for that as well.
 #
 #  @param 0_[]  This contains the input string.
@@ -328,7 +390,8 @@ sub FindQuestion {
   return  $keywordsWithResponses{"NO KEY FOUND"}[int(rand($max_responses))]; # There was no keyword so we do not recognize the sentence
 }
 
-#  Method to correct conjuagtion so that Eliza can ask the questions in the correct person
+
+#  Method to correct conjuagtion so that Eliza can ask the questions in the correct person
 #  using the second conjugation list. We use this so Eliza will output proper pronous
 #  acoording the the conjugation rules found in primaryConjugationList.
 #
@@ -341,7 +404,8 @@ sub conjugate {
     }   
     return $string;
 }
-#  Method to correct the tense of an input using the second conjugation list. We use this so
+
+#  Method to correct the tense of an input using the second conjugation list. We use this so
 #  Eliza will output proper english acoording the the conjugation rules.
 #
 #  @param 0_[]  This contains a string which may or may not have incorrect conjugations.
