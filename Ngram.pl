@@ -25,26 +25,20 @@ printFrequecyTable();
 printNgramMapping();
 printRawFrequencyTable();
 
-say("The frequency of Brandon is: ". getFrequency("Brandon is","<END>"));
-
 close(FILE);
 
 #going to fix off by 1
 sub createNgramMapping {
-    $sentence  = $_[0];
-    $sliceSize = $_[1];
-    my @words = split("\w+|[^\w\s]", $sentence );
-
-    unshift( @words, "<START>" );
-    push( @words, "<END>" );
-    foreach my $i ( 1 .. $#words ) {
-        if ( $words[$i] =~ m/(<START>|<END>)/ ) {
+    $sliceSize  = $_[0];
+    @sentenceWords = @{$_[1]}; 
+    unshift( @sentenceWords, "<START>" );
+    push( @sentenceWords, "<END>" );
+    foreach my $i ( 1 .. $#sentenceWords ) {
+        if ( $sentenceWords[$i] =~ m/(<START>|<END>)/ ) {
             next;
-        } else {
+       } else {
             @tempArray = ();
-            foreach my $j ( 0 .. $sliceSize - 2 ) {
-            push( @tempArray, $words[ $i + $j ] );
-        }
+            @tempArray.push($sentenceWords[$i-1]);
         $key = join( " ", @tempArray );
         if ( $i + $#tempArray - 1 > $#words || $key =~ m/(<START>|<END>)/) {
             next;
@@ -56,11 +50,11 @@ sub createNgramMapping {
 
 sub process {
     $inputString = $_;
-    @inputWords = split( " ", $inputString );
+    @inputWords = $inputString =~ /[\w']+|[.,!?;]/g;
     foreach my $word (@inputWords) {
-        insertFrequecyTable($word);
+        insertFrequecyTable(lc($word));
     }
-    createNgramMapping( $inputString, 2 );
+    createNgramMapping(2, \@inputWords);
 }
 
 sub insertFrequecyTable {
@@ -83,7 +77,7 @@ sub getFrequency {
 	} 
 }
 
-sub printRawFrequencyTable {\
+sub printRawFrequencyTable {
 say "---------------------- Raw Frequency Table ----------------------------";
     foreach my $key ( keys %rawfrequencyTable ) {    # Loop through the dictionary
         say "KEY: $key \t VALUE: $rawfrequencyTable{$key}";
@@ -102,5 +96,4 @@ sub printNgramMapping {
     foreach my $key ( keys %NgramMapping ) {      # Loop through the dictionary
         say "KEY: $key \t VALUE: $NgramMapping{$key}";
     }
-}
 }
