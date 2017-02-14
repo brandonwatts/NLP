@@ -33,18 +33,25 @@ sub createNgramMapping {
     @sentenceWords = @{$_[1]}; 
     unshift( @sentenceWords, "<START>" );
     push( @sentenceWords, "<END>" );
-    foreach my $i ( 1 .. $#sentenceWords ) {
+    foreach my $i ( 0.. $#sentenceWords ) {
+        @tempArray = ();
         if ( $sentenceWords[$i] =~ m/(<START>|<END>)/ ) {
             next;
-       } else {
-            @tempArray = ();
-            @tempArray.push($sentenceWords[$i-1]);
-        $key = join( " ", @tempArray );
-        if ( $i + $#tempArray - 1 > $#words || $key =~ m/(<START>|<END>)/) {
+       } 
+       else {
+        $startingPoint = $i - $sliceSize < 1 ? -1 : $i - $sliceSize;
+        if ($startingPoint == -1)
+        {
             next;
-        } else {
-            insertNgramMapping( $key, $words[ $i + $#tempArray+1 ] );
         }
+        else {
+        for my $j($startingPoint...$i-1) {
+            push (@tempArray, $sentenceWords[$j]);
+        }
+    }
+       }
+        $key = join(" ", @tempArray );
+        insertNgramMapping( $key, $sentenceWords[$i]);
      }
 }
 
@@ -80,20 +87,20 @@ sub getFrequency {
 sub printRawFrequencyTable {
 say "---------------------- Raw Frequency Table ----------------------------";
     foreach my $key ( keys %rawfrequencyTable ) {    # Loop through the dictionary
-        say "KEY: $key \t VALUE: $rawfrequencyTable{$key}";
+        printf("KEY: %-15s VALUE: %-15s\n", $key, $rawfrequencyTable{$key});
     }
 }
 
 sub printFrequecyTable {
     say "---------------------- Frequency Table ----------------------------";
     foreach my $key ( keys %frequencyTable ) {    # Loop through the dictionary
-        say "KEY: $key \t VALUE: $frequencyTable{$key}";
+        printf("KEY: %-15s VALUE: %-15s\n", $key, $frequencyTable{$key});
     }
 }
 
 sub printNgramMapping {
     say "---------------------- NGram Mapping ----------------------------";
     foreach my $key ( keys %NgramMapping ) {      # Loop through the dictionary
-        say "KEY: $key \t VALUE: $NgramMapping{$key}";
+        printf("KEY: %-15s VALUE: %-15s\n", $key, $NgramMapping{$key});
     }
 }
