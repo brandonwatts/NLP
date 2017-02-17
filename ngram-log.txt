@@ -1,0 +1,11 @@
+%script ngram-log.txt
+
+%time perl ngram.pl 1 10 pg2554.txt pg2600.txt pg1399.txt
+
+%time perl ngram.pl 2 10 pg2554.txt pg2600.txt pg1399.txt
+
+%time perl ngram.pl 3 10 pg2554.txt pg2600.txt pg1399.txt
+
+%time perl ngram.pl 4.10 pg2554.txt pg2600.txt pg1399.txt
+
+%exit
