@@ -15,7 +15,7 @@
 
 ########## EXAMPLE USE CASES #########
 
-# $ perl Ngram.pl 4 3 First-Offensive.txt The-Battle-for-Saipan.txt 
+# $ perl Ngram.pl 3 4 First-Offensive.txt The-Battle-for-Saipan.txt 
 
 #1. Page 17 by general merrill b.
 
@@ -27,7 +27,7 @@
 
 #####
 
-# $ perl Ngram.pl 2 4 The-Battle-for-Saipan.txt 
+# $ perl Ngram.pl 4 2 The-Battle-for-Saipan.txt 
 
 #1. Kelley , usa was sounded.
 
@@ -61,23 +61,32 @@
 use warnings;
 use feature qw(say switch);
 use File::Slurp;
+use File::Basename;
 
 my %frequencyTables;
 my %NgramMapping;
 my %rawfrequencyTableCount;
 my %rawfrequencyTable;
-my $NUMBEROFSENTENCES = $ARGV[0];
-my $NGRAMSIZE = $ARGV[1];
+my $NUMBEROFSENTENCES = $ARGV[1];
+my $NGRAMSIZE;
 
-for(my $i=2; $i < @ARGV; $i++) {
-    my $text = read_file($ARGV[$i]);
-    process($text);
+if($ARGV[0] <= 1) {
+    say "Must have an Ngram Size of at least 2."
+}else {
+
+    $NGRAMSIZE = $ARGV[0]-1; # We minus one because "bigram" actually means key size of 1.
+
+    for(my $i=2; $i < @ARGV; $i++) {
+        my $text = read_file($ARGV[$i]);
+        process($text);
+    }
+
+    my $name = basename($0);
+
+    print "\nThis program generates random sentences based on an Ngram model. Written by Brandon Watts.\n";
+    say "\nCommand line settings: $name $NGRAMSIZE $NUMBEROFSENTENCES\n";
+    say generateSentences($NUMBEROFSENTENCES);
 }
-
-say generateSentences($NUMBEROFSENTENCES);
-#printFrequecyTable();
-#printNgramMapping();
-#printRawFrequencyTable();
 
 # This is the firt method called which then sets up and delegates the creation of the frequency table and the creation of the Ngram Mapping.
 #
@@ -286,26 +295,36 @@ sub insertNgramMapping {
     $rawfrequencyTable{$key}{$value} = $rawfrequencyTableCount{$key."|".$value}/$frequencyTable{$value}; # Generate the rawfrequency value and store it in a double hash.
 }
 
+#################### Methods Used for debugging ####################
+
 sub printRawFrequencyTable {
-say "---------------------- Raw Frequency Table ----------------------------";
+    say "---------------------- Raw Frequency Table ----------------------------";
+
     for my $key ( keys %rawfrequencyTable ) {
-    print "$key: ";
-    for my $value ( keys %{ $rawfrequencyTable{$key} } ) {
-         print "$value=$rawfrequencyTable{$key}{$value} ";
-    }
-    print "\n";
+        
+        print "$key: ";
+
+        for my $value ( keys %{ $rawfrequencyTable{$key} } ) {
+            print "$value=$rawfrequencyTable{$key}{$value} ";
+        }
+
+        print "\n";
     }
 }
 
 sub printFrequecyTable {
+
     say "---------------------- Frequency Table ----------------------------";
+
     foreach my $key ( keys %frequencyTable ) {    # Loop through the dictionary
         printf("KEY: %-25s VALUE: %-25s\n", $key, $frequencyTable{$key});
     }
 }
 
 sub printNgramMapping {
+
     say "---------------------- NGram Mapping ----------------------------";
+
     foreach my $key ( keys %NgramMapping ) {    # Loop through the dictionary
         printf("KEY: %-25s VALUE: %-25s\n", $key, $NgramMapping{$key});
     }
