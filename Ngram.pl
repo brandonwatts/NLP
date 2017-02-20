@@ -70,11 +70,11 @@ my %rawfrequencyTable;
 my $NUMBEROFSENTENCES = $ARGV[1];
 my $NGRAMSIZE;
 
-if($ARGV[0] <= 1) {
-    say "Must have an Ngram Size of at least 2."
+if($ARGV[0] <= 0) {
+    say "Must have an Ngram Size of at least 1."
 }else {
 
-    $NGRAMSIZE = $ARGV[0]-1; # We minus one because "bigram" actually means key size of 1.
+    $NGRAMSIZE = $ARGV[0];
 
     for(my $i=2; $i < @ARGV; $i++) {
         my $text = read_file($ARGV[$i]);
@@ -165,7 +165,7 @@ sub createFrequencyTable {
 sub generateSentence { 
 
     my $currentWord = findStartingWordPhrase(); # Randomly generate a starting phrase to give us place to begin.
-    my $sentence = substr(findStartingWordPhrase(),8); # Delete the token "<start>" so it is not displayed.
+    my $sentence = findStartingWordPhrase();
   
     do{
 
@@ -256,6 +256,9 @@ sub generateSentences {
 sub formatted {
 
     my $unformattedString = $_[0];
+
+    ########## We dont want to show start token so we remove it #########
+    $unformattedString =~ s/<start>|<end>//;
 
     ##########  Trim the string #########
     $unformattedString =~ s/^\s+|\s+$//g;
