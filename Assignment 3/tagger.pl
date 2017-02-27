@@ -57,7 +57,7 @@ sub preprocess {
 sub createFrequencyTable {
 
     my $file = $_[0];
-    my @POS = $file=~ /[-`$%&(\\\/)'':\.,'\w+]+\\?\/([-`$%&(\\\/)'':\.,'\w+]+)/g; # Grab all the POS tags, semicolons, commas, and periods and place them in an array
+    my @POS = $file=~ /[-`$%\(\)&(\\\/)'':\.,'\w+]+\\?\/([-`$%\(\)&(\\\/)'':\.,'\w+]+)/g; # Grab all the POS tags, semicolons, commas, and periods and place them in an array
        
 
           # print join("\n",@POS),"\n";
@@ -71,7 +71,7 @@ sub createFrequencyTable {
 #  @param $_[0]  Will hold the Training data file in its entirety
 sub createWordtoPOSMapping {
     my $data = $_[0];
-    my @sentenceTokens = $data=~ /[-`$%&(\\\/)'':\.,'\w+]+\\?\/[-`$%&(\\\/)'':\.,'\w+]+/g;
+    my @sentenceTokens = $data=~ /[-`$%\(\)&(\\\/)'':\.,'\w+]+\\?\/[-`$%\(\)&(\\\/)'':\.,'\w+]+/g;
 
     for my $token (@sentenceTokens) {
 
@@ -87,7 +87,7 @@ sub createPOStoPOSMapping {
     my $rawData = $_[0];
 
     ### Regex to grab just the POS tag in a capture group ###
-    my @sentenceTokens = $rawData=~ /[-`$%&(\\\/)'':\.,'\w+]+\\?\/([-`$%&(\\\/)'':\.,'\w+]+)/g;
+    my @sentenceTokens = $rawData=~ /[-`$%\(\)&(\\\/)'':\.,'\w+]+\\?\/([-`$%\(\)&(\\\/)'':\.,'\w+]+)/g;
     
 
 
@@ -106,9 +106,8 @@ sub generateTaggedFile {
     $file =~ s/\[|\]//g;
     $file =~ s/\s+|_/ /g; # Delete all of the Tabs and remove extra Spaces.
     my $outputFile = "pos-test-with-tags.txt";
-    print $file;
 
-    my @sentenceTokens = $file=~ /[-`$%&'':\.,'\w+]+/g;
+    my @sentenceTokens = $file=~ /[-`$%&(\\\/)'':\(\)\.,'\w+]+/g;
     my @sentenceTokensPOS;
     write_file($outputFile,"");
 

@@ -65,8 +65,16 @@ sub computeAccuracy {
 
     my $true = 0;
     my $false = 0;
+    my $breakingWord;
 
     foreach my $i (0.. $#POSForTagged ) {
+        if($tokensForTagged[$i] eq $tokensForKey[$i]) {
+
+            }else
+          {
+            print("BREAKING WORD: $breakingWord LINE: $i\n");
+            last;
+          }  
         if ($POSForTagged[$i] eq $POSForKey[$i]) { 
                 $true++;
        } else {
