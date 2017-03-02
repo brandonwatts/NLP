@@ -27,6 +27,8 @@ my $trainingData = read_file($ARGV[0]);
 ### Test data file ###
 my $testData = read_file($ARGV[1]);
 
+my @POSkey = ("CC","CD","DT","EX","FW","IN","JJ","JJR","JJS","LS","MD","NN","NNS","NNP","NNPS","PDT","POS","PRP","RB","RBR","RBS","RP","SYM","TO","UH","VB","VBD","VBG","VBN","VBP","VBZ","WDT","WRB");
+
 
 preprocess($trainingData);
    #printFrequecyTable();
@@ -57,7 +59,7 @@ sub preprocess {
 sub createFrequencyTable {
 
     my $file = $_[0];
-    my @POS = $file=~ /[-`$%\(\)&(\\\/)'':\.,'\w+]+\\?\/([-`$%\(\)&(\\\/)'':\.,'\w+]+)/g; # Grab all the POS tags, semicolons, commas, and periods and place them in an array
+    my @POS = $file=~ /\S+\\?\/(\S+)/g; # Grab all the POS tags, semicolons, commas, and periods and place them in an array
        
 
           # print join("\n",@POS),"\n";
@@ -71,12 +73,12 @@ sub createFrequencyTable {
 #  @param $_[0]  Will hold the Training data file in its entirety
 sub createWordtoPOSMapping {
     my $data = $_[0];
-    my @sentenceTokens = $data=~ /[-`$%\(\)&(\\\/)'':\.,'\w+]+\\?\/[-`$%\(\)&(\\\/)'':\.,'\w+]+/g;
+    my @sentenceTokens = $data=~ /\S+\\?\/\S+/g;
 
     for my $token (@sentenceTokens) {
 
         ### Seperate the word from the POS into 2 capture groups ###
-         if ($token =~ /([-`$%&'':\.,'\w+]+)\\?\/([-`$%&'':\.,'\w+]+)/) { $wordToPOSMapping{$1}{$2}++; }
+         if ($token =~ /(\S+)\\?\/(\S+)/) { $wordToPOSMapping{$1}{$2}++; }
     }
 }
 
@@ -87,7 +89,7 @@ sub createPOStoPOSMapping {
     my $rawData = $_[0];
 
     ### Regex to grab just the POS tag in a capture group ###
-    my @sentenceTokens = $rawData=~ /[-`$%\(\)&(\\\/)'':\.,'\w+]+\\?\/([-`$%\(\)&(\\\/)'':\.,'\w+]+)/g;
+    my @sentenceTokens = $rawData=~ /\S+\\?\/(\S+)/g;
     
 
 
@@ -103,16 +105,22 @@ sub createPOStoPOSMapping {
 sub generateTaggedFile {
 
     my $file = $_[0];
-    $file =~ s/\[|\]//g;
+    $file =~ s/\[|\]/ /g;
     $file =~ s/\s+|_/ /g; # Delete all of the Tabs and remove extra Spaces.
     my $outputFile = "pos-test-with-tags.txt";
 
-    my @sentenceTokens = $file=~ /[-`$%&(\\\/)'':\(\)\.,'\w+]+/g;
+    my @sentenceTokens = $file=~ /\S+/g;
     my @sentenceTokensPOS;
-    write_file($outputFile,"");
 
     foreach my $i (0.. $#sentenceTokens ) {
-              my $POSGuess = getPOS($sentenceTokens[$i]);
+        
+        my $POSGuess;
+
+        if($i<1) {
+                $POSGuess = getPOS($sentenceTokens[$i]);
+            } else {
+              $POSGuess = getPOS($sentenceTokens[$i],$sentenceTokens[$i-1]);
+            }
         append_file( $outputFile, "$sentenceTokens[$i]/$POSGuess\n");
     }
 
@@ -123,13 +131,38 @@ sub generateTaggedFile {
 #  @param $_[0]   
 sub getPOS {
     my $currentWord = $_[0];
+    my $lastWord = $_[1];
+    my $prevPOS;
     my $max;
-    my $POS = "NN";
-    my $prevPOS = "NN";
+    my $POS;
+
+    if (defined $lastWord) {
+        $prevPOS = getPOS($lastWord);
+    } else {
+        $prevPOS = "NN";
+    }
+
+
+            $POS = "NNP";
+    
+    
+
+
+    
+                if($currentWord =~ /^(?=.)(\d{1,3}(,\d{3})*)?(\.\d+)?$|(\d\\\/\d)/) {
+                    return "CD";
+                } 
+
+                if($currentWord =~ /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/) {
+                    return "CD";
+                } 
 
        if(exists $wordToPOSMapping{$currentWord}) {
+
             $max = 0;
             for my $value ( keys %{ $wordToPOSMapping{$currentWord} } ) {
+
+
 
                 my $frequencyTableValue;
                 my $POSMapping;
@@ -138,7 +171,7 @@ sub getPOS {
                 if(exists $frequencyTable{$value}) {
                     $frequencyTableValue =  $frequencyTable{$value};
                 } else {
-                    $frequencyTableValue = 1;
+                    next;
                 }
 
                 if(exists $POStoPOSMapping{$value}{$prevPOS}) {
@@ -147,23 +180,49 @@ sub getPOS {
                     $POSMapping = 0;
                 }
 
-
                 if(exists $wordToPOSMapping{$currentWord}{$value}) {
                    $currentMap = $wordToPOSMapping{$currentWord}{$value};
                 } else {
                     $currentMap = 0;
                 }
 
-
-                my $argMax = ($currentMap/$frequencyTableValue)*($POSMapping/$frequencyTableValue);
-                        $POS = $value;
+                my $argMax = (($currentMap * $POSMapping)/$frequencyTableValue);
                 if($argMax > $max) {
                         $max = $argMax;
+                        $POS = $value;
                 }
-            }
+        }
             return $POS;
         }
-        else { return "NN"; }
+        else { 
+                if($currentWord =~ /\w+-\w+/) {
+                    return "JJ";
+                } 
+                
+                if($currentWord =~ /\b\w+(ly\b)/) {
+                    return "RB";
+                } 
+
+                if($currentWord =~ /\b\w+(s\b)/) {
+                    return "NNS";
+                } 
+
+                if($currentWord =~ /\b\w+(ed\b)/) {
+                    return "VBN";
+                } 
+
+                if($currentWord =~ /\boh\b|\bah\b/i) {
+                    return "UH";
+                } 
+
+                 if($currentWord =~ /\b\w+(ing\b)/) {
+                    return "VBG";
+                } 
+
+
+                return "NNP";
+        }
+            
 }
 
 sub printFrequecyTable {

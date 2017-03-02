@@ -18,6 +18,8 @@ my $taggedFile = read_file($ARGV[0]);
 ### Test data file ###
 my $key = read_file($ARGV[1]);
 
+my %confusionMatrix;
+
 my @tokensForKey;
     my @POSForKey;
     my @tokensForTagged;
@@ -32,14 +34,13 @@ sub processKey {
     my $outputFile = "test.txt";
 
     my $rawData = $_[0];
-    $rawData =~ s/\[|\]//g;
+    $rawData =~ s/\[|\]/ /g;
     $rawData =~ s/\s+|_/ /g; # Delete all of the Tabs and remove extra Spaces.
-    $rawData =~ s/^\s+|\s+$//g; # Trim the file
 
-    my @sentenceTokens = $rawData=~ /[-`$%&(\\\/)'':\.,'\w+]+\\?\/[-`$%&(\\\/)'':\.,'\w+]+/g;    
+    my @sentenceTokens = $rawData=~ /\S+/g;    
     foreach my $i (0.. $#sentenceTokens ) {
         append_file($outputFile, "$sentenceTokens[$i]\n"); 
-       if ($sentenceTokens[$i] =~ /([-`$%&'':\.,'\w+]+)\/([-`$%&'':\.,'\w+]+)/) { 
+       if ($sentenceTokens[$i] =~ /(\S+)\\?\/(\S+)/) { 
         $tokensForKey[$i] = $1; 
         $POSForKey[$i] = $2;
        } 
@@ -49,11 +50,11 @@ sub processKey {
 sub processTagged {
     my $rawData = $_[0];
 
-    my @sentenceTokens = $rawData=~ /[-`$%&(\\\/)'':\.,'\w+]+\\?\/[-`$%&(\\\/)'':\.,'\w+]+/g;
+    my @sentenceTokens = $rawData=~ /\S+/g;
     
     foreach my $i (0.. $#sentenceTokens ) {
 
-       if ($sentenceTokens[$i] =~ /([-`$%&'':\.,'\w+]+)\/([-`$%&'':\.,'\w+]+)/) { 
+       if ($sentenceTokens[$i] =~ /(\S+)\\?\/(\S+)/){ 
 
         $tokensForTagged[$i] = $1; 
         $POSForTagged[$i] = $2;
@@ -68,22 +69,32 @@ sub computeAccuracy {
     my $breakingWord;
 
     foreach my $i (0.. $#POSForTagged ) {
-        if($tokensForTagged[$i] eq $tokensForKey[$i]) {
-
-            }else
-          {
-            print("BREAKING WORD: $breakingWord LINE: $i\n");
-            last;
-          }  
+        
         if ($POSForTagged[$i] eq $POSForKey[$i]) { 
                 $true++;
        } else {
                 $false++;
+                $confusionMatrix{$tokensForTagged[$i]}{$POSForKey[$i]} = $POSForTagged[$i];
             }
     }
 
-    print("TRUE: $true");
-    print("FALSE: $false")
+    say "---------------------- Confusion Matrix ----------------------------";
+
+    for my $key ( keys %confusionMatrix ) {
+        
+        for my $value ( keys %{ $confusionMatrix{$key} } ) {
+            say "---------------------------------------------------------------------------------------------";
+            printf("Word: %-20s | Chose: %-20s | Correct: %-20s\n", $key,$confusionMatrix{$key}{$value} ,$value);
+            say "---------------------------------------------------------------------------------------------";
+        }
+
+        print "\n";
+    }
+
+       my $correctPercentage = $true/$#POSForTagged;
+        my $incorrectPercentage = $false/$#POSForTagged;
+    print("Percentage Correct: $correctPercentage\n");
+    print("Percentage Incorrect: $incorrectPercentage\n");
 }
 
 

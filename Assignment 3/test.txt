@@ -58,7 +58,7 @@ October/NNP
 1987/CD
 crash/NN
 failed/VBD
-their/PRP
+their/PRP$
 first/JJ
 test/NN
 ,/,
@@ -200,8 +200,10 @@ illiquid/JJ
 ./.
 Once/RB
 again/RB
+{/(
 the/DT
 specialists/NNS
+}/)
 were/VBD
 not/RB
 able/JJ
@@ -254,7 +256,7 @@ specialist/NN
 is/VBZ
 n't/RB
 doing/VBG
-his/PRP
+his/PRP$
 job/NN
 ./.
 When/WRB
@@ -299,7 +301,7 @@ traders/NNS
 had/VBD
 already/RB
 left/VBN
-their/PRP
+their/PRP$
 offices/NNS
 early/RB
 Friday/NNP
@@ -337,7 +339,7 @@ about/RB
 a/DT
 third/JJ
 of/IN
-their/PRP
+their/PRP$
 gains/NNS
 this/DT
 year/NN
@@ -349,6 +351,7 @@ a/DT
 ,/,
 or/CC
 6.9/CD
+%/NN
 ,/,
 loss/NN
 on/IN
@@ -443,6 +446,7 @@ fell/VBD
 ,/,
 or/CC
 8/CD
+%/NN
 ,/,
 a/DT
 week/NN
@@ -454,6 +458,7 @@ The/DT
 Dow/NNP
 fell/VBD
 22.6/CD
+%/NN
 on/IN
 Black/NNP
 Monday/NNP
@@ -483,6 +488,7 @@ rumors/NNS
 about/IN
 the/DT
 proposed/VBN
+$/$
 6.79/CD
 billion/CD
 buy-out/NN
@@ -578,7 +584,7 @@ could/MD
 be/VB
 seen/VBN
 shaking/VBG
-their/PRP
+their/PRP$
 heads/NNS
 when/WRB
 the/DT
@@ -632,7 +638,7 @@ n't/RB
 get/VB
 financing/NN
 for/IN
-its/PRP
+its/PRP$
 bid/NN
 ./.
 At/IN
@@ -655,7 +661,7 @@ Arbitragers/NNS
 could/MD
 n't/RB
 dump/VB
-their/PRP
+their/PRP$
 UAL/NNP
 stock/NN
 --/:
@@ -676,7 +682,7 @@ had/VBD
 For/IN
 example/NN
 ,/,
-their/PRP
+their/PRP$
 selling/NN
 caused/VBD
 trading/NN
@@ -746,7 +752,7 @@ Business/NNP
 Machines/NNP
 to/TO
 offset/VB
-their/PRP
+their/PRP$
 losses/NNS
 ./.
 When/WRB
@@ -822,7 +828,7 @@ Traders/NNS
 said/VBD
 most/JJS
 of/IN
-their/PRP
+their/PRP$
 major/JJ
 institutional/JJ
 investors/NNS
@@ -1409,7 +1415,7 @@ small/JJ
 investors/NNS
 began/VBD
 ringing/VBG
-their/PRP
+their/PRP$
 brokers/NNS
 ,/,
 wondering/VBG
@@ -1500,7 +1506,7 @@ less/JJR
 It/PRP
 would/MD
 be/VB
-my/PRP
+my/PRP$
 inclination/NN
 to/TO
 advise/VB
@@ -1657,7 +1663,7 @@ Dow/NNP
 average/JJ
 ground/NN
 to/TO
-its/PRP
+its/PRP$
 final/JJ
 190.58/CD
 loss/NN
@@ -1669,7 +1675,7 @@ pit/NN
 stayed/VBD
 locked/JJ
 at/IN
-its/PRP
+its/PRP$
 30-point/JJ
 trading/NN
 limit/NN
@@ -1696,6 +1702,7 @@ close/NN
 the/DT
 equivalent/NN
 of/IN
+$/$
 330/CD
 million/CD
 in/IN
@@ -1831,7 +1838,7 @@ Grasso/NNP
 said/VBD
 ,/,
 ``/``
-Our/PRP
+Our/PRP$
 systemic/JJ
 performance/NN
 was/VBD
@@ -1985,7 +1992,7 @@ Oct./NNP
 1989/CD
 )/)
 Concerning/VBG
-your/PRP
+your/PRP$
 Sept./NNP
 21/CD
 page-one/JJ
@@ -2060,7 +2067,7 @@ reached/VBD
 agreements/NNS
 to/TO
 sell/VB
-its/PRP
+its/PRP$
 remaining/VBG
 seven/CD
 aircraft/NN
@@ -2103,6 +2110,7 @@ a/DT
 portion/NN
 of/IN
 the/DT
+$/$
 32/CD
 million/CD
 realized/VBN
@@ -2114,7 +2122,7 @@ be/VB
 used/VBN
 to/TO
 repay/VB
-its/PRP
+its/PRP$
 bank/NN
 debt/NN
 and/CC
@@ -2135,7 +2143,7 @@ announced/VBD
 it/PRP
 would/MD
 sell/VB
-its/PRP
+its/PRP$
 aging/VBG
 fleet/NN
 of/IN
@@ -2163,6 +2171,7 @@ it/PRP
 has/VBZ
 made/VBN
 a/DT
+$/$
 409/CD
 million/CD
 cash/NN
@@ -2180,6 +2189,7 @@ shopping-center/NN
 holdings/NNS
 ./.
 The/DT
+$/$
 409/CD
 million/CD
 bid/NN
@@ -2189,6 +2199,7 @@ assumption/NN
 of/IN
 an/DT
 estimated/JJ
+$/$
 300/CD
 million/CD
 in/IN
@@ -2250,10 +2261,12 @@ and/CC
 claims/VBZ
 to/TO
 have/VB
+$/$
 1/CD
 billion/CD
 in/IN
 assets/NNS
+;/:
 Mr./NNP
 Simpson/NNP
 is/VBZ
@@ -2330,7 +2343,7 @@ operating/VBG
 with/IN
 protection/NN
 from/IN
-its/PRP
+its/PRP$
 creditors/NNS
 under/IN
 Chapter/NNP
@@ -2341,7 +2354,7 @@ U.S./NNP
 Bankruptcy/NNP
 Code/NNP
 ./.
-Its/PRP
+Its/PRP$
 parent/NN
 company/NN
 ,/,
@@ -2402,6 +2415,7 @@ creditors/NNS
 committee/NN
 ./.
 The/DT
+$/$
 409/CD
 million/CD
 bid/NN
@@ -2413,6 +2427,7 @@ Simpson/NNP
 as/IN
 representing/VBG
 75/CD
+%/NN
 of/IN
 the/DT
 value/NN
@@ -2494,8 +2509,9 @@ Bigg/NNP
 's/POS
 hypermarket/NN
 as/IN
-its/PRP
+its/PRP$
 anchor/NN
+;/:
 the/DT
 Columbia/NNP
 mall/NN
@@ -2525,6 +2541,7 @@ be/VB
 completed/VBN
 next/IN
 February/NNP
+;/:
 vacant/JJ
 land/NN
 sites/NNS
@@ -2532,6 +2549,7 @@ in/IN
 Florida/NNP
 and/CC
 Ohio/NNP
+;/:
 L.J./NNP
 Hooker/NNP
 International/NNP
@@ -2733,6 +2751,7 @@ ambitious/JJ
 but/CC
 ill-fated/JJ
 ,/,
+$/$
 1/CD
 billion/CD
 acquisition/NN
@@ -2759,6 +2778,7 @@ Jewelers/NNP
 a/DT
 Sacramento/NNP
 chain/NN
+;/:
 Sakowitz/NNP
 Inc./NNP
 ,/,
@@ -2808,7 +2828,7 @@ Hooker/NNP
 Corp./NNP
 has/VBZ
 sold/VBN
-its/PRP
+its/PRP$
 interest/NN
 in/IN
 the/DT
@@ -2855,7 +2875,7 @@ the/DT
 Hooker/NNP
 interest/NN
 in/IN
-his/PRP
+his/PRP$
 company/NN
 ./.
 The/DT
@@ -2948,6 +2968,7 @@ Oct./NNP
 ,/,
 up/RB
 14.8/CD
+%/NN
 from/IN
 the/DT
 preceding/JJ
@@ -2974,6 +2995,7 @@ total/NN
 was/VBD
 up/RB
 6.2/CD
+%/NN
 from/IN
 274,963/CD
 tons/NNS
@@ -2990,6 +3012,7 @@ tons/NNS
 ,/,
 up/RB
 7.8/CD
+%/NN
 from/IN
 11,141,711/CD
 tons/NNS
@@ -3002,6 +3025,7 @@ Treasury/NNP
 plans/NNS
 to/TO
 raise/VB
+$/$
 175/CD
 million/CD
 in/IN
@@ -3011,6 +3035,7 @@ Thursday/NNP
 by/IN
 selling/VBG
 about/RB
+$/$
 9.75/CD
 billion/CD
 of/IN
@@ -3018,6 +3043,7 @@ of/IN
 bills/NNS
 and/CC
 redeeming/VBG
+$/$
 9.58/CD
 billion/CD
 of/IN
@@ -3047,6 +3073,7 @@ in/IN
 minimum/JJ
 denominations/NNS
 of/IN
+$/$
 10,000/CD
 ./.
 Bids/NNS
@@ -3073,7 +3100,7 @@ As/IN
 small/JJ
 investors/NNS
 peppered/VBD
-their/PRP
+their/PRP$
 mutual/JJ
 funds/NNS
 with/IN
@@ -3200,6 +3227,7 @@ represented/VBD
 less/JJR
 than/IN
 15/CD
+%/NN
 of/IN
 the/DT
 total/JJ
@@ -3207,6 +3235,7 @@ cash/NN
 position/NN
 of/IN
 about/RB
+$/$
 2/CD
 billion/CD
 of/IN
@@ -3245,6 +3274,7 @@ runs/VBZ
 Fidelity/NNP
 Investments/NNP
 '/POS
+$/$
 5/CD
 billion/CD
 Equity-Income/NNP
@@ -3367,10 +3397,11 @@ positions/NNS
 well/RB
 above/IN
 20/CD
+%/NN
 in/IN
 several/JJ
 of/IN
-his/PRP
+his/PRP$
 funds/NNS
 ./.
 Windsor/NNP
@@ -3388,15 +3419,17 @@ said/VBD
 they/PRP
 had/VBD
 raised/VBN
-their/PRP
+their/PRP$
 cash/NN
 levels/NNS
 to/TO
 more/JJR
 than/IN
 20/CD
+%/NN
 and/CC
 30/CD
+%/NN
 ,/,
 respectively/RB
 ,/,
@@ -3411,6 +3444,7 @@ manager/NN
 of/IN
 Fidelity/NNP
 's/POS
+$/$
 12.7/CD
 billion/CD
 Magellan/NNP
@@ -3428,7 +3462,9 @@ up/RP
 cash/NN
 to/TO
 7/CD
+%/NN
 or/CC
+$/$
 850/CD
 million/CD
 ./.
@@ -3503,6 +3539,7 @@ stock/NN
 funds/NNS
 held/VBD
 10.2/CD
+%/NN
 of/IN
 assets/NNS
 in/IN
@@ -3528,8 +3565,10 @@ higher/JJR
 than/IN
 the/DT
 8.8/CD
+%/NN
 and/CC
 9.2/CD
+%/JJ
 levels/NNS
 in/IN
 August/NNP
@@ -3584,7 +3623,7 @@ have/VBP
 sharply/RB
 scaled/VBN
 back/RP
-their/PRP
+their/PRP$
 purchases/NNS
 of/IN
 stock/NN
@@ -3663,6 +3702,7 @@ Bajakian/NNP
 manager/NN
 of/IN
 the/DT
+$/$
 1.8/CD
 billion/CD
 Wellington/NNP
@@ -3670,7 +3710,7 @@ Fund/NNP
 ,/,
 added/VBD
 to/TO
-his/PRP
+his/PRP$
 positions/NNS
 in/IN
 Bristol-Myers/NNP
@@ -3702,7 +3742,7 @@ and/CC
 American/NNP
 Home/NNP
 Products/NNP
-whose/WP
+whose/WP$
 dividend/NN
 yields/NNS
 have/VBP
@@ -3718,7 +3758,7 @@ Mr./NNP
 Lynch/NNP
 ,/,
 for/IN
-his/PRP
+his/PRP$
 part/NN
 ,/,
 snapped/VBD
@@ -3852,7 +3892,7 @@ Fidelity/NNP
 on/IN
 Saturday/NNP
 opened/VBD
-its/PRP
+its/PRP$
 54/CD
 walk-in/JJ
 investor/NN
@@ -3896,7 +3936,7 @@ Price/NNP
 Associates/NNP
 Inc./NNP
 increased/VBD
-its/PRP
+its/PRP$
 staff/NN
 of/IN
 phone/NN
@@ -3984,7 +4024,7 @@ investors/NNS
 with/IN
 recordings/NNS
 on/IN
-their/PRP
+their/PRP$
 toll-free/JJ
 phone/NN
 lines/NNS
@@ -3992,8 +4032,10 @@ lines/NNS
 ``/``
 We/PRP
 view/VBP
+{/(
 Friday/NNP
 's/POS
+}/)
 market/NN
 decline/NN
 as/IN
@@ -4074,6 +4116,7 @@ staggering/JJ
 gain/NN
 of/IN
 25/CD
+%/NN
 through/IN
 September/NNP
 ,/,
@@ -4094,6 +4137,7 @@ Lehman/NNP
 Hutton/NNP
 Inc./NNP
 's/POS
+$/$
 335/CD
 million/CD
 Sector/NNP
@@ -4142,8 +4186,10 @@ decline/VB
 more/JJR
 than/IN
 10/CD
+%/NN
 to/TO
 15/CD
+%/NN
 from/IN
 recent/JJ
 highs/NNS
@@ -4303,6 +4349,7 @@ Boesel/NNP
 manager/NN
 of/IN
 the/DT
+$/$
 580/CD
 million/CD
 T./NNP
@@ -4401,6 +4448,7 @@ reported/VBD
 net/JJ
 income/NN
 of/IN
+$/$
 1.7/CD
 million/CD
 ,/,
@@ -4411,6 +4459,7 @@ a/DT
 share/NN
 ,/,
 on/IN
+$/$
 14.1/CD
 million/CD
 in/IN
@@ -4440,7 +4489,7 @@ announced/VBD
 it/PRP
 will/MD
 postpone/VB
-its/PRP
+its/PRP$
 new/JJ
 service/NN
 out/IN
@@ -4486,7 +4535,7 @@ Boeing/NNP
 ,/,
 now/RB
 entering/VBG
-its/PRP
+its/PRP$
 13th/JJ
 day/NN
 ,/,
@@ -4496,7 +4545,7 @@ caused/VBN
 some/DT
 turmoil/NN
 in/IN
-our/PRP
+our/PRP$
 scheduling/NN
 ''/''
 and/CC
@@ -4636,7 +4685,7 @@ West/NNP
 flights/NNS
 --/:
 including/VBG
-its/PRP
+its/PRP$
 new/JJ
 service/NN
 at/IN
@@ -4644,9 +4693,11 @@ San/NNP
 Antonio/NNP
 ,/,
 Texas/NNP
+;/:
 Newark/NNP
 ,/,
 N.J./NNP
+;/:
 and/CC
 Palmdale/NNP
 ,/,
@@ -4744,7 +4795,7 @@ I/PRP
 do/VBP
 n't/RB
 think/VB
-their/PRP
+their/PRP$
 customers/NNS
 would/MD
 like/VB
@@ -4777,7 +4828,7 @@ plane/NN
 than/IN
 many/JJ
 of/IN
-its/PRP
+its/PRP$
 competitors/NNS
 would/MD
 be/VB
@@ -4800,7 +4851,7 @@ all/PDT
 the/DT
 planes/NNS
 in/IN
-their/PRP
+their/PRP$
 fleets/NNS
 ,/,
 they/PRP
@@ -4957,7 +5008,7 @@ communication/NN
 with/IN
 all/DT
 of/IN
-its/PRP
+its/PRP$
 customers/NNS
 and/CC
 that/IN
@@ -5191,11 +5242,13 @@ Boeing/NNP
 's/POS
 shares/NNS
 fell/VBD
+$/$
 4/CD
 Friday/NNP
 to/TO
 close/VB
 at/IN
+$/$
 57.375/CD
 in/IN
 composite/JJ
@@ -5288,7 +5341,7 @@ saying/VBG
 that/IN
 ``/``
 to/TO
-my/PRP
+my/PRP$
 knowledge/NN
 ,/,
 Boeing/NNP
@@ -5326,6 +5379,7 @@ offer/NN
 of/IN
 a/DT
 10/CD
+%/NN
 wage/NN
 increase/NN
 over/IN
@@ -5398,7 +5452,7 @@ continuing/VBG
 to/TO
 work/VB
 through/IN
-its/PRP
+its/PRP$
 expired/JJ
 contract/NN
 ,/,
@@ -5449,7 +5503,7 @@ it/PRP
 agreed/VBD
 to/TO
 extend/VB
-its/PRP
+its/PRP$
 contract/NN
 on/IN
 a/DT
@@ -5498,6 +5552,7 @@ a/DT
 total/NN
 of/IN
 about/RB
+$/$
 326/CD
 million/CD
 ./.
@@ -5580,7 +5635,7 @@ article/NN
 Atco/NNP
 Ltd./NNP
 said/VBD
-its/PRP
+its/PRP$
 utilities/NNS
 arm/NN
 is/VBZ
@@ -5601,6 +5656,7 @@ billion/CD
 Canadian/JJ
 dollars/NNS
 (/(
+US$/$
 851/CD
 million/CD
 )/)
@@ -5623,8 +5679,8 @@ president/NN
 finance/NN
 ,/,
 said/VBD
-its/PRP
--owned/JJ
+its/PRP$
+50.1%-owned/JJ
 Canadian/NNP
 Utilities/NNP
 Ltd./NNP
@@ -5666,7 +5722,7 @@ suppliers/NNS
 as/IN
 part/NN
 of/IN
-its/PRP
+its/PRP$
 privatization/NN
 program/NN
 ./.
@@ -5679,6 +5735,7 @@ big/JJ
 They/PRP
 can/MD
 be/VB
+C$/$
 1/CD
 billion/CD
 plus/RB
@@ -5722,20 +5779,22 @@ to/TO
 be/VB
 the/DT
 operator/NN
+{/(
 of/IN
 the/DT
 project/NN
+}/)
 and/CC
 a/DT
 modest/JJ
 equity/NN
 investor/NN
 ./.
-Our/PRP
+Our/PRP$
 long/JJ
 suit/NN
 is/VBZ
-our/PRP
+our/PRP$
 proven/JJ
 ability/NN
 to/TO
@@ -5786,7 +5845,7 @@ country/NN
 plan/NN
 to/TO
 privatize/VB
-its/PRP
+its/PRP$
 massive/JJ
 water/NN
 and/CC
@@ -5800,9 +5859,11 @@ plans/VBZ
 to/TO
 raise/VB
 about/RB
+#/#
 20/CD
 billion/CD
 (/(
+$/$
 31.05/CD
 billion/CD
 )/)
@@ -5812,7 +5873,7 @@ sale/NN
 of/IN
 most/JJS
 of/IN
-its/PRP
+its/PRP$
 giant/JJ
 water/NN
 and/CC
@@ -5839,6 +5900,7 @@ alone/RB
 expected/VBN
 to/TO
 raise/VB
+#/#
 13/CD
 billion/CD
 ,/,
@@ -5866,6 +5928,7 @@ to/TO
 compete/VB
 for/IN
 15/CD
+%/NN
 of/IN
 customers/NNS
 until/IN
@@ -5875,6 +5938,7 @@ and/CC
 for/IN
 another/DT
 10/CD
+%/NN
 between/IN
 1994/CD
 and/CC
@@ -5886,12 +5950,13 @@ had/VBD
 1988/CD
 revenue/NN
 of/IN
+C$/$
 1.16/CD
 billion/CD
 ,/,
 mainly/RB
 from/IN
-its/PRP
+its/PRP$
 natural/JJ
 gas/NN
 and/CC
@@ -5947,7 +6012,7 @@ a/DT
 real/JJ
 thrust/NN
 on/IN
-our/PRP
+our/PRP$
 utility/NN
 side/NN
 ,/,
@@ -6061,9 +6126,11 @@ a/DT
 cost/NN
 of/IN
 about/RB
+$/$
 300/CD
 million/CD
 to/TO
+$/$
 400/CD
 million/CD
 ./.
@@ -6077,9 +6144,11 @@ report/VB
 third/JJ
 earnings/NNS
 of/IN
+$/$
 1.3/CD
 million/CD
 to/TO
+$/$
 1.7/CD
 million/CD
 ,/,
@@ -6112,6 +6181,7 @@ had/VBD
 net/JJ
 income/NN
 of/IN
+$/$
 326,000/CD
 ,/,
 or/CC
@@ -6124,6 +6194,7 @@ on/IN
 revenue/NN
 of/IN
 about/RB
+$/$
 41.4/CD
 million/CD
 ./.
@@ -6149,10 +6220,12 @@ CONCORDE/NNP
 trans-Atlantic/JJ
 flights/NNS
 are/VBP
+$/$
 2,400/CD
 to/TO
 Paris/NNP
 and/CC
+$/$
 3,200/CD
 to/TO
 London/NNP
@@ -6253,6 +6326,7 @@ operator/NN
 with/IN
 a/DT
 100/CD
+%/NN
 interest/NN
 in/IN
 the/DT
@@ -6270,6 +6344,7 @@ Friday/NNP
 to/TO
 close/VB
 at/IN
+$/$
 8.25/CD
 in/IN
 New/NNP
@@ -6288,6 +6363,7 @@ said/VBD
 it/PRP
 formed/VBD
 a/DT
+$/$
 53.4/CD
 million/CD
 limited/JJ
@@ -6517,7 +6593,7 @@ is/VBZ
 the/DT
 first/JJ
 of/IN
-its/PRP
+its/PRP$
 kind/NN
 ./.
 ``/``
@@ -6557,7 +6633,7 @@ the/DT
 negative/JJ
 impacts/NNS
 to/TO
-its/PRP
+its/PRP$
 own/JJ
 balance/NN
 sheet/NN
@@ -6573,6 +6649,7 @@ putting/VBG
 up/RP
 only/RB
 10/CD
+%/NN
 of/IN
 the/DT
 capital/NN
@@ -6610,14 +6687,14 @@ of/IN
 land/NN
 to/TO
 fuel/VB
-our/PRP
+our/PRP$
 growth/NN
 at/IN
 a/DT
 minimum/JJ
 risk/NN
 to/TO
-our/PRP
+our/PRP$
 company/NN
 ,/,
 ''/''
@@ -6751,10 +6828,12 @@ with/IN
 year-earlier/JJ
 profit/NN
 of/IN
+$/$
 99.8/CD
 million/CD
 ,/,
 or/CC
+$/$
 3.92/CD
 a/DT
 share/NN
@@ -6762,6 +6841,7 @@ share/NN
 on/IN
 sales/NNS
 of/IN
+$/$
 724.4/CD
 million/CD
 ./.
@@ -6774,7 +6854,7 @@ nearly/RB
 a/DT
 quarter/NN
 of/IN
-its/PRP
+its/PRP$
 value/NN
 since/IN
 Sept./NNP
@@ -6782,10 +6862,12 @@ Sept./NNP
 ,/,
 closed/VBD
 at/IN
+$/$
 34.375/CD
 share/NN
 ,/,
 down/RB
+$/$
 1.125/CD
 ,/,
 in/IN
@@ -6832,14 +6914,14 @@ most/RBS
 profitable/JJ
 periods/NNS
 in/IN
-their/PRP
+their/PRP$
 history/NN
 ,/,
 these/DT
 producers/NNS
 now/RB
 see/VBP
-their/PRP
+their/PRP$
 prices/NNS
 eroding/VBG
 ./.
@@ -6954,7 +7036,7 @@ and/CC
 plowed/VBD
 more/JJR
 of/IN
-its/PRP
+its/PRP$
 resources/NNS
 into/IN
 plastics/NNS
@@ -7012,7 +7094,7 @@ Quantum/NNP
 will/MD
 prosper/VB
 through/IN
-its/PRP
+its/PRP$
 new/JJ
 direction/NN
 ./.
@@ -7061,9 +7143,10 @@ share/NN
 ,/,
 about/RB
 20/CD
+%/NN
 ./.
 But/CC
-its/PRP
+its/PRP$
 competitors/NNS
 --/:
 including/VBG
@@ -7201,7 +7284,7 @@ Quantum/NNP
 badly/RB
 ,/,
 because/IN
-its/PRP
+its/PRP$
 own/JJ
 plants/NNS
 cover/VBP
@@ -7209,7 +7292,7 @@ only/RB
 about/RB
 half/NN
 of/IN
-its/PRP
+its/PRP$
 ethylene/NN
 needs/NNS
 ./.
@@ -7450,7 +7533,7 @@ crucial/JJ
 to/TO
 Quantum/NNP
 because/IN
-its/PRP
+its/PRP$
 cash/NN
 requirements/NNS
 remain/VBP
@@ -7466,6 +7549,7 @@ out/RP
 a/DT
 three-year/JJ
 ,/,
+$/$
 1.3/CD
 billion/CD
 plant-expansion/JJ
@@ -7479,7 +7563,7 @@ the/DT
 same/JJ
 time/NN
 ,/,
-its/PRP
+its/PRP$
 annual/JJ
 payments/NNS
 on/IN
@@ -7495,6 +7579,7 @@ year/NN
 ago/RB
 to/TO
 about/RB
+$/$
 240/CD
 million/CD
 ,/,
@@ -7507,6 +7592,7 @@ on/RP
 to/TO
 pay/VB
 a/DT
+$/$
 50-a-share/JJ
 special/JJ
 dividend/NN
@@ -7531,11 +7617,11 @@ share/VB
 the/DT
 bonanza/NN
 with/IN
-its/PRP
+its/PRP$
 holders/NNS
 ,/,
 because/IN
-its/PRP
+its/PRP$
 stock/NN
 price/NN
 was/VBD
@@ -7571,12 +7657,13 @@ the/DT
 company/NN
 to/TO
 cut/VB
-its/PRP
+its/PRP$
 quarterly/JJ
 dividend/NN
 ,/,
 raised/VBD
 36/CD
+%/NN
 to/TO
 75/CD
 cents/NNS
@@ -7613,7 +7700,7 @@ analysts/NNS
 ./.
 Some/DT
 viewed/VBD
-his/PRP
+his/PRP$
 response/NN
 --/:
 that/IN
@@ -7645,7 +7732,7 @@ given/VBN
 something/NN
 less/JJR
 than/IN
-his/PRP
+his/PRP$
 usual/JJ
 straight-from-the-shoulder/JJ
 performance/NN
@@ -7665,8 +7752,10 @@ Quantum/NNP
 's/POS
 shares/NNS
 slid/VBD
+$/$
 2.625/CD
 to/TO
+$/$
 36.625/CD
 in/IN
 Big/NNP
@@ -7684,7 +7773,7 @@ confronts/VBZ
 a/DT
 disaster/NN
 at/IN
-its/PRP
+its/PRP$
 plant/NN
 in/IN
 Morris/NNP
@@ -7762,7 +7851,7 @@ had/VBD
 been/VBN
 steadily/RB
 lowering/VBG
-its/PRP
+its/PRP$
 accident/NN
 rate/NN
 and/CC
@@ -7869,7 +7958,7 @@ through/IN
 this/DT
 exercise/NN
 during/IN
-his/PRP
+his/PRP$
 former/JJ
 career/NN
 as/IN
@@ -7917,8 +8006,10 @@ usually/RB
 accounts/VBZ
 for/IN
 20/CD
+%/NN
 to/TO
 25/CD
+%/NN
 of/IN
 Quantum/NNP
 's/POS
@@ -7926,8 +8017,9 @@ polyethylene/NN
 production/NN
 and/CC
 50/CD
+%/NN
 of/IN
-its/PRP
+its/PRP$
 ethylene/NN
 production/NN
 ./.
@@ -7983,10 +8075,10 @@ Quantum/NNP
 is/VBZ
 also/RB
 tightening/VBG
-its/PRP
+its/PRP$
 grip/NN
 on/IN
-its/PRP
+its/PRP$
 one/CD
 large/JJ
 business/NN
@@ -8000,7 +8092,7 @@ Through/IN
 a/DT
 venture/NN
 with/IN
-its/PRP
+its/PRP$
 investment/NN
 banker/NN
 ,/,
@@ -8022,6 +8114,7 @@ a/DT
 transaction/NN
 valued/VBN
 at/IN
+$/$
 1.18/CD
 billion/CD
 ./.
@@ -8086,7 +8179,7 @@ is/VBZ
 looking/VBG
 to/TO
 expand/VB
-its/PRP
+its/PRP$
 polyethylene/NN
 business/NN
 in/IN
@@ -8133,7 +8226,7 @@ Nabisco/NNP
 Inc./NNP
 is/VBZ
 disbanding/VBG
-its/PRP
+its/PRP$
 division/NN
 responsible/JJ
 for/IN
@@ -8178,6 +8271,7 @@ this/DT
 year/NN
 in/IN
 a/DT
+$/$
 25/CD
 billion/CD
 leveraged/JJ
@@ -8203,7 +8297,7 @@ unit/NN
 ,/,
 and/CC
 dismissing/VBG
-its/PRP
+its/PRP$
 14/CD
 employees/NNS
 ,/,
@@ -8220,11 +8314,11 @@ said/VBD
 RJR/NNP
 is/VBZ
 discussing/VBG
-its/PRP
+its/PRP$
 network-buying/JJ
 plans/NNS
 with/IN
-its/PRP
+its/PRP$
 two/CD
 main/JJ
 advertising/NN
@@ -8243,7 +8337,7 @@ with/IN
 the/DT
 size/NN
 of/IN
-our/PRP
+our/PRP$
 media/NNS
 purchases/NNS
 that/IN
@@ -8291,6 +8385,7 @@ RJR/NNP
 is/VBZ
 spending/VBG
 about/RB
+$/$
 140/CD
 million/CD
 on/IN
@@ -8303,6 +8398,7 @@ year/NN
 down/RB
 from/IN
 roughly/RB
+$/$
 200/CD
 million/CD
 last/JJ
@@ -8461,10 +8557,12 @@ season/NN
 ``/``
 The/DT
 studies/NNS
+{/(
 on/IN
 closing/VBG
 the/DT
 unit/NN
+}/)
 could/MD
 n't/RB
 be/VB
@@ -8487,7 +8585,7 @@ Chrisanthopoulos/NNP
 was/VBD
 n't/RB
 in/IN
-his/PRP
+his/PRP$
 office/NN
 Friday/NNP
 afternoon/NN
@@ -8500,7 +8598,7 @@ U.S./NNP
 which/WDT
 is/VBZ
 finalizing/VBG
-its/PRP
+its/PRP$
 steel-import/JJ
 quotas/NNS
 ,/,
@@ -8510,7 +8608,7 @@ a/DT
 larger/JJR
 share/NN
 of/IN
-its/PRP
+its/PRP$
 steel/NN
 market/NN
 to/TO
@@ -8628,6 +8726,7 @@ have/VBP
 supplied/VBN
 about/RB
 80/CD
+%/NN
 of/IN
 the/DT
 100/CD
@@ -8645,6 +8744,7 @@ Of/IN
 the/DT
 remaining/VBG
 20/CD
+%/NN
 needed/VBN
 ,/,
 the/DT
@@ -8653,6 +8753,7 @@ negotiations/NNS
 allocate/VBP
 about/RB
 15/CD
+%/NN
 to/TO
 foreign/JJ
 suppliers/NNS
@@ -8784,7 +8885,7 @@ governments/NNS
 The/DT
 U.S./NNP
 termed/VBD
-its/PRP
+its/PRP$
 plan/NN
 ,/,
 a/DT
@@ -8815,7 +8916,7 @@ first/JJ
 countries/NNS
 to/TO
 conclude/VB
-its/PRP
+its/PRP$
 steel/NN
 talks/NNS
 with/IN
@@ -8824,10 +8925,11 @@ U.S./NNP
 ,/,
 virtually/RB
 doubled/VBD
-its/PRP
+its/PRP$
 quota/NN
 to/TO
 0.95/CD
+%/NN
 of/IN
 the/DT
 U.S./NNP
@@ -8835,6 +8937,7 @@ steel/NN
 market/NN
 from/IN
 0.48/CD
+%/NN
 under/IN
 the/DT
 previous/JJ
@@ -8846,6 +8949,7 @@ Korea/NNP
 which/WDT
 had/VBD
 1.9/CD
+%/NN
 under/IN
 the/DT
 previous/JJ
@@ -8861,6 +8965,7 @@ increase/NN
 to/TO
 about/RB
 1.95/CD
+%/NN
 ./.
 That/DT
 increase/NN
@@ -8870,6 +8975,7 @@ slightly/RB
 more/JJR
 than/IN
 2/CD
+%/NN
 of/IN
 the/DT
 U.S./NNP
@@ -8890,11 +8996,12 @@ is/VBZ
 expected/VBN
 to/TO
 increase/VB
-its/PRP
+its/PRP$
 allowance/NN
 from/IN
 the/DT
 1.43/CD
+%/NN
 share/NN
 it/PRP
 has/VBZ
@@ -8919,7 +9026,7 @@ have/VBP
 n't/RB
 been/VBN
 filling/VBG
-their/PRP
+their/PRP$
 quotas/NNS
 to/TO
 the/DT
@@ -8945,6 +9052,7 @@ been/VBN
 supplying/VBG
 about/RB
 5/CD
+%/NN
 of/IN
 the/DT
 U.S./NNP
@@ -8956,6 +9064,7 @@ quotas/NNS
 of/IN
 about/RB
 6.7/CD
+%/NN
 ./.
 Japan/NNP
 has/VBZ
@@ -8966,6 +9075,7 @@ to/TO
 total/VB
 about/RB
 4.5/CD
+%/NN
 of/IN
 the/DT
 U.S./NNP
@@ -8976,6 +9086,7 @@ a/DT
 quota/NN
 of/IN
 5.9/CD
+%/NN
 ./.
 In/IN
 the/DT
@@ -8985,7 +9096,7 @@ talks/NNS
 the/DT
 EC/NNP
 had/VBD
-its/PRP
+its/PRP$
 quota/NN
 increased/VBN
 about/RB
@@ -8994,17 +9105,19 @@ tons/NNS
 ,/,
 to/TO
 7/CD
+%/NN
 of/IN
 the/DT
 U.S./NNP
 market/NN
 from/IN
 6.7/CD
+%/NN
 in/IN
 1988/CD
 ./.
 But/CC
-its/PRP
+its/PRP$
 quota/NN
 has/VBZ
 been/VBN
@@ -9012,6 +9125,7 @@ as/RB
 high/JJ
 as/IN
 6.9/CD
+%/NN
 in/IN
 1984/CD
 ./.
@@ -9023,13 +9137,15 @@ has/VBZ
 agreed/VBN
 to/TO
 cut/VB
-its/PRP
+its/PRP$
 quota/NN
 to/TO
 about/RB
 5/CD
+%/NN
 from/IN
 5.9/CD
+%/NN
 previously/RB
 ./.
 Japan/NNP
@@ -9046,6 +9162,7 @@ Korea/NNP
 provide/VBP
 about/RB
 80/CD
+%/NN
 of/IN
 the/DT
 steel/NN
@@ -9082,6 +9199,7 @@ about/RB
 an/DT
 extra/JJ
 2/CD
+%/NN
 of/IN
 the/DT
 domestic/JJ
@@ -9093,7 +9211,7 @@ to/TO
 foreign/JJ
 suppliers/NNS
 in/IN
-its/PRP
+its/PRP$
 quota/NN
 talks/NNS
 ./.
@@ -9105,6 +9223,7 @@ up/RP
 of/IN
 a/DT
 1/CD
+%/NN
 increase/NN
 in/IN
 the/DT
@@ -9113,6 +9232,7 @@ quota/NN
 program/NN
 and/CC
 1/CD
+%/NN
 from/IN
 cutting/VBG
 Japan/NNP
@@ -9139,6 +9259,7 @@ will/MD
 have/VB
 another/DT
 1/CD
+%/NN
 of/IN
 the/DT
 U.S./NNP
@@ -9149,7 +9270,7 @@ allocate/VB
 ./.
 These/DT
 optional/JJ
--a-year/JJ
+1%-a-year/JJ
 increases/NNS
 to/TO
 the/DT
@@ -9167,7 +9288,7 @@ steel-quota/NN
 program/NN
 to/TO
 give/VB
-its/PRP
+its/PRP$
 negotiators/NNS
 leverage/NN
 with/IN
@@ -9185,7 +9306,7 @@ subsidies/NNS
 and/CC
 protectionism/NN
 from/IN
-their/PRP
+their/PRP$
 own/JJ
 steel/NN
 industries/NNS
@@ -9217,7 +9338,7 @@ stronger/JJR
 ''/''
 performance/NN
 in/IN
-its/PRP
+its/PRP$
 second/JJ
 half/NN
 ./.
@@ -9231,6 +9352,7 @@ had/VBD
 net/JJ
 income/NN
 of/IN
+$/$
 272,000/CD
 ,/,
 or/CC
@@ -9240,7 +9362,7 @@ a/DT
 share/NN
 ,/,
 in/IN
-its/PRP
+its/PRP$
 year-earlier/JJ
 second/NN
 quarter/NN
@@ -9251,6 +9373,7 @@ Sept./NNP
 ./.
 Revenue/NN
 totaled/VBD
+$/$
 5/CD
 million/CD
 ./.
@@ -9286,6 +9409,7 @@ revenue/NN
 of/IN
 just/RB
 under/IN
+$/$
 4/CD
 million/CD
 ./.
@@ -9421,6 +9545,7 @@ realize/VB
 a/DT
 minimum/NN
 of/IN
+$/$
 10/CD
 of/IN
 recurring/VBG
@@ -9529,6 +9654,7 @@ phones/NNS
 would/MD
 produce/VB
 about/RB
+$/$
 5/CD
 of/IN
 recurring/VBG
@@ -9547,6 +9673,7 @@ price/NN
 index/NN
 rose/VBD
 0.7/CD
+%/NN
 in/IN
 September/NNP
 from/IN
@@ -9555,6 +9682,7 @@ and/CC
 was/VBD
 up/RB
 7.6/CD
+%/NN
 for/IN
 the/DT
 year/NN
@@ -9645,6 +9773,7 @@ acquires/VBZ
 more/JJR
 than/IN
 15/CD
+%/NN
 of/IN
 the/DT
 company/NN
@@ -9720,7 +9849,7 @@ P&G/NNP
 growing/VBG
 concern/NN
 that/IN
-its/PRP
+its/PRP$
 Japanese/JJ
 rivals/NNS
 ,/,
@@ -9731,7 +9860,7 @@ Corp./NNP
 ,/,
 may/MD
 bring/VB
-their/PRP
+their/PRP$
 superconcentrates/NNS
 to/TO
 the/DT
@@ -9763,6 +9892,7 @@ quickly/RB
 won/VBD
 a/DT
 30/CD
+%/NN
 stake/NN
 in/IN
 the/DT
@@ -9888,10 +10018,12 @@ fell/VBD
 to/TO
 about/RB
 8/CD
+%/NN
 from/IN
 more/JJR
 than/IN
 20/CD
+%/NN
 ./.
 With/IN
 the/DT
@@ -9909,6 +10041,7 @@ estimated/VBN
 to/TO
 be/VB
 12/CD
+%/NN
 ./.
 While/IN
 the/DT
@@ -9933,6 +10066,7 @@ will/MD
 be/VB
 in/IN
 the/DT
+$/$
 4/CD
 billion/CD
 U.S./NNP
@@ -9969,7 +10103,7 @@ it/PRP
 's/VBZ
 already/RB
 expanded/VBN
-its/PRP
+its/PRP$
 best-selling/JJ
 Tide/NNP
 into/IN
@@ -10005,6 +10139,7 @@ that/WDT
 less/JJR
 is/VBZ
 more/JJR
+;/:
 many/JJ
 people/NNS
 tend/VBP
@@ -10210,7 +10345,7 @@ as/IN
 competitors/NNS
 follow/VBP
 with/IN
-their/PRP
+their/PRP$
 own/JJ
 superconcentrates/NNS
 ./.
@@ -10221,7 +10356,9 @@ will/MD
 probably/RB
 push/VB
 the/DT
+{/(
 less-established/JJ
+}/)
 brands/NNS
 out/RP
 altogether/RB
@@ -10272,6 +10409,7 @@ which/WDT
 has/VBZ
 about/RB
 23/CD
+%/NN
 of/IN
 the/DT
 market/NN
@@ -10399,7 +10537,7 @@ something/NN
 quickly/RB
 to/TO
 reduce/VB
-its/PRP
+its/PRP$
 trade/NN
 surplus/NN
 with/IN
@@ -10743,7 +10881,7 @@ with/IN
 Japanese/JJ
 officials/NNS
 said/VBD
-her/PRP
+her/PRP$
 tone/NN
 often/RB
 was/VBD
@@ -10755,7 +10893,7 @@ conciliatory/JJ
 ``/``
 I/PRP
 think/VBP
-my/PRP
+my/PRP$
 line/NN
 has/VBZ
 been/VBN
@@ -10884,7 +11022,7 @@ has/VBZ
 identified/VBN
 ./.
 But/CC
-her/PRP
+her/PRP$
 main/JJ
 thrust/NN
 was/VBD
@@ -10922,7 +11060,7 @@ quantitative/JJ
 targets/NNS
 ./.
 At/IN
-her/PRP
+her/PRP$
 news/NN
 conference/NN
 for/IN
@@ -10941,7 +11079,7 @@ of/IN
 relief/NN
 ./.
 ``/``
-My/PRP
+My/PRP$
 impression/NN
 was/VBD
 that/IN
@@ -10963,7 +11101,7 @@ few/JJ
 nervous/JJ
 chuckles/NNS
 from/IN
-his/PRP
+his/PRP$
 colleagues/NNS
 ./.
 ``/``
@@ -11006,7 +11144,7 @@ officials/NNS
 about/IN
 what/WP
 exactly/RB
-her/PRP
+her/PRP$
 stance/NN
 is/VBZ
 on/IN
@@ -11030,6 +11168,7 @@ been/VBN
 stuck/JJ
 around/IN
 10/CD
+%/NN
 for/IN
 years/NNS
 ./.
@@ -11046,6 +11185,7 @@ U.S./NNP
 companies/NNS
 a/DT
 20/CD
+%/NN
 share/NN
 by/IN
 1991/CD
@@ -11063,7 +11203,7 @@ promise/NN
 At/IN
 one/CD
 of/IN
-her/PRP
+her/PRP$
 news/NN
 conferences/NNS
 ,/,
@@ -11081,6 +11221,7 @@ much/RB
 better/RBR
 than/IN
 20/CD
+%/NN
 ./.
 ''/''
 But/CC
@@ -11157,7 +11298,7 @@ including/VBG
 seeking/VBG
 increases/NNS
 in/IN
-its/PRP
+its/PRP$
 credit/NN
 lines/NNS
 ./.
@@ -11199,10 +11340,12 @@ reported/VBD
 net/JJ
 income/NN
 of/IN
+$/$
 4.9/CD
 million/CD
 ,/,
 or/CC
+$/$
 1.21/CD
 a/DT
 share/NN
@@ -11213,7 +11356,7 @@ did/VBD
 n't/RB
 break/VB
 out/RP
-its/PRP
+its/PRP$
 fourth-quarter/JJ
 results/NNS
 ./.
@@ -11225,10 +11368,12 @@ months/NNS
 net/JJ
 income/NN
 was/VBD
+$/$
 4.7/CD
 million/CD
 ,/,
 or/CC
+$/$
 1.31/CD
 a/DT
 share/NN
@@ -11236,6 +11381,7 @@ share/NN
 on/IN
 revenue/NN
 of/IN
+$/$
 44.3/CD
 million/CD
 ./.
@@ -11273,7 +11419,7 @@ from/IN
 difficulties/NNS
 in/IN
 resolving/VBG
-its/PRP
+its/PRP$
 accounting/NN
 of/IN
 a/DT
@@ -11309,6 +11455,7 @@ it/PRP
 would/MD
 establish/VB
 a/DT
+$/$
 250,000/CD
 trust/NN
 fund/NN
@@ -11330,7 +11477,7 @@ by/IN
 a/DT
 buyer/NN
 of/IN
-its/PRP
+its/PRP$
 computerized/JJ
 newspaper-publishing/JJ
 system/NN
@@ -11369,6 +11516,7 @@ the/DT
 system/NN
 's/VBZ
 about/RB
+$/$
 3/CD
 million/CD
 purchase/NN
@@ -11446,7 +11594,7 @@ completed/VBD
 the/DT
 sale/NN
 of/IN
-its/PRP
+its/PRP$
 A./NNP
 Sulka/NNP
 &/CC
@@ -11610,7 +11758,7 @@ that/IN
 profits/NNS
 could/MD
 equal/VB
-their/PRP
+their/PRP$
 year-earlier/JJ
 performance/NN
 ./.
@@ -11745,6 +11893,7 @@ It/PRP
 has/VBZ
 plunged/VBN
 13/CD
+%/NN
 since/IN
 July/NNP
 to/TO
@@ -11809,7 +11958,7 @@ furiously/RB
 Now/RB
 ,/,
 greatly/RB
-increased/VBN
+increased/VBN|JJ
 supplies/NNS
 are/VBP
 on/IN
@@ -11992,6 +12141,7 @@ Prices/NNS
 --/:
 averaging/VBG
 roughly/RB
+$/$
 2/CD
 a/DT
 barrel/NN
@@ -12073,6 +12223,7 @@ steadily/RB
 fell/VBD
 to/TO
 below/IN
+$/$
 13/CD
 a/DT
 barrel/NN
@@ -12106,6 +12257,7 @@ they/PRP
 averaged/VBD
 about/RB
 5/CD
+%/NN
 less/JJR
 than/IN
 they/PRP
@@ -12216,8 +12368,10 @@ are/VBP
 anywhere/RB
 from/IN
 8/CD
+%/NN
 to/TO
 17/CD
+%/NN
 lower/JJR
 than/IN
 a/DT
@@ -12243,6 +12397,7 @@ spot/JJ
 market/NN
 for/IN
 around/IN
+$/$
 1.47/CD
 a/DT
 thousand/CD
@@ -12251,7 +12406,9 @@ feet/NNS
 ,/,
 down/RB
 13/CD
+%/NN
 from/IN
+$/$
 1.69/CD
 a/DT
 thousand/CD
@@ -12326,10 +12483,10 @@ which/WDT
 the/DT
 U.S./NNP
 and/CC
-its/PRP
+its/PRP$
 allies/NNS
 align/VBP
-their/PRP
+their/PRP$
 export-control/JJ
 policies/NNS
 ,/,
@@ -12407,7 +12564,7 @@ liberalization/NN
 ./.
 To/TO
 make/VB
-its/PRP
+its/PRP$
 point/NN
 ,/,
 it/PRP
@@ -12468,6 +12625,7 @@ allegations/NNS
 that/IN
 Olivetti/NNP
 exported/VBD
+$/$
 25/CD
 million/CD
 in/IN
@@ -12539,7 +12697,7 @@ rules/NNS
 President/NNP
 Bush/NNP
 called/VBD
-his/PRP
+his/PRP$
 attention/NN
 to/TO
 the/DT
@@ -12649,7 +12807,7 @@ sent/VBN
 conflicting/JJ
 signals/NNS
 about/IN
-its/PRP
+its/PRP$
 export-control/JJ
 policies/NNS
 ,/,
@@ -12819,9 +12977,11 @@ the/DT
 latest/JJS
 offer/NN
 ,/,
+HK$/$
 62.5/CD
 million/CD
 (/(
+US$/$
 8/CD
 million/CD
 )/)
@@ -12862,6 +13022,7 @@ will/MD
 be/VB
 priced/VBN
 at/IN
+HK$/$
 1.25/CD
 each/DT
 and/CC
@@ -12878,6 +13039,7 @@ price/NN
 of/IN
 about/RB
 26/CD
+%/NN
 ./.
 In/IN
 trading/VBG
@@ -12894,6 +13056,7 @@ shares/NNS
 closed/VBD
 Wednesday/NNP
 at/IN
+HK$/$
 4.80/CD
 each/DT
 ./.
@@ -12908,6 +13071,7 @@ have/VB
 to/TO
 rise/VB
 above/IN
+HK$/$
 6.05/CD
 for/IN
 subscribers/NNS
@@ -12918,7 +13082,7 @@ issue/NN
 to/TO
 profitably/RB
 convert/VB
-their/PRP
+their/PRP$
 warrants/NNS
 ./.
 While/IN
@@ -12932,7 +13096,7 @@ past/NN
 issued/VBD
 warrants/NNS
 on/IN
-their/PRP
+their/PRP$
 own/JJ
 shares/NNS
 ,/,
@@ -12971,7 +13135,7 @@ shares/NNS
 ,/,
 to/TO
 cover/VB
-its/PRP
+its/PRP$
 entire/JJ
 position/NN
 ./.
@@ -13077,13 +13241,14 @@ the/DT
 thrift/NN
 by/IN
 concealing/VBG
-their/PRP
+their/PRP$
 relationship/NN
 when/WRB
 persuading/VBG
 it/PRP
 to/TO
 buy/VB
+$/$
 284/CD
 million/CD
 in/IN
@@ -13147,12 +13312,14 @@ to/TO
 purchase/VB
 a/DT
 51/CD
+%/NN
 stake/NN
 in/IN
 the/DT
 thrift/NN
 for/IN
 about/RB
+$/$
 34/CD
 million/CD
 ./.
@@ -13194,6 +13361,7 @@ comment/VB
 In/IN
 addition/NN
 to/TO
+$/$
 33/CD
 million/CD
 compensatory/JJ
@@ -13202,6 +13370,7 @@ damages/NNS
 the/DT
 suit/NN
 seeks/VBZ
+$/$
 100/CD
 million/CD
 in/IN
@@ -13264,7 +13433,7 @@ Financial/NNP
 Corp./NNP
 could/MD
 improve/VB
-its/PRP
+its/PRP$
 financial/JJ
 condition/NN
 by/IN
@@ -13299,6 +13468,7 @@ to/TO
 acquire/VB
 the/DT
 51/CD
+%/NN
 stake/NN
 in/IN
 the/DT
@@ -13332,6 +13502,7 @@ since/IN
 then/RB
 has/VBZ
 realized/VBN
+$/$
 11/CD
 million/CD
 in/IN
@@ -13348,7 +13519,7 @@ Basic/NNP
 Industries/NNP
 Inc./NNP
 said/VBD
-its/PRP
+its/PRP$
 directors/NNS
 reached/VBD
 an/DT
@@ -13363,7 +13534,7 @@ America/NNP
 Inc./NNP
 to/TO
 combine/VB
-its/PRP
+its/PRP$
 North/JJ
 American/JJ
 cement/NN
@@ -13382,6 +13553,7 @@ minority/NN
 shareholders/NNS
 with/IN
 12.8/CD
+%/NN
 of/IN
 the/DT
 combined/JJ
@@ -13405,8 +13577,9 @@ Ltd./NNP
 previously/RB
 proposed/VBD
 combining/VBG
-its/PRP
+its/PRP$
 100/CD
+%/NN
 stake/NN
 in/IN
 St./NNP
@@ -13414,16 +13587,18 @@ Lawrence/NNP
 Cement/NNP
 Inc./NNP
 and/CC
-its/PRP
+its/PRP$
 60/CD
+%/NN
 stake/NN
 in/IN
 Dundee/NNP
 Cement/NNP
 Co./NNP
 with/IN
-its/PRP
+its/PRP$
 67/CD
+%/NN
 stake/NN
 in/IN
 Ideal/NN
@@ -13442,6 +13617,7 @@ other/JJ
 shareholders/NNS
 about/RB
 10/CD
+%/NN
 of/IN
 the/DT
 combined/JJ
@@ -13471,6 +13647,7 @@ HOFI/NNP
 will/MD
 own/VB
 87.2/CD
+%/NN
 of/IN
 the/DT
 combined/JJ
@@ -13484,6 +13661,7 @@ will/MD
 represent/VB
 about/RB
 39.2/CD
+%/NN
 of/IN
 the/DT
 combined/JJ
@@ -13524,7 +13702,7 @@ have/VBP
 slumped/VBN
 well/RB
 below/IN
-their/PRP
+their/PRP$
 drought-induced/JJ
 peaks/NNS
 of/IN
@@ -13822,6 +14000,7 @@ keep/VB
 prices/NNS
 near/IN
 the/DT
+$/$
 4-a-bushel/JJ
 level/NN
 ,/,
@@ -13842,6 +14021,7 @@ December/NNP
 delivery/NN
 settled/VBD
 at/IN
+$/$
 4.0675/CD
 a/DT
 bushel/NN
@@ -13958,7 +14138,7 @@ have/VB
 to/TO
 default/VB
 on/IN
-their/PRP
+their/PRP$
 contractual/JJ
 obligation/NN
 to/TO
@@ -13972,7 +14152,7 @@ refused/VBN
 requests/NNS
 to/TO
 reduce/VB
-its/PRP
+its/PRP$
 holdings/NNS
 ./.
 Ferruzzi/NNP
@@ -14046,6 +14226,7 @@ Oklahoma/NNP
 panhandle/NN
 ,/,
 40/CD
+%/NN
 or/CC
 more/JJR
 of/IN
@@ -14062,6 +14243,7 @@ climbs/VBZ
 to/TO
 about/RB
 47/CD
+%/NN
 in/IN
 wheat-growing/JJ
 portions/NNS
@@ -14081,7 +14263,7 @@ any/DT
 clear/JJ
 indication/NN
 of/IN
-its/PRP
+its/PRP$
 wheat/NN
 purchase/NN
 plans/NNS
@@ -14244,16 +14426,18 @@ the/DT
 export/NN
 price/NN
 of/IN
-its/PRP
+its/PRP$
 juice/NN
 concentrate/NN
 to/TO
 about/RB
+$/$
 1.34/CD
 a/DT
 pound/NN
 from/IN
 around/IN
+$/$
 1.55/CD
 ./.
 Friday/NNP
@@ -14301,6 +14485,7 @@ of/IN
 4.95/CD
 cents/NNS
 at/IN
+$/$
 1.3210/CD
 a/DT
 pound/NN
@@ -14318,7 +14503,7 @@ at/IN
 the/DT
 start/NN
 of/IN
-its/PRP
+its/PRP$
 crop/NN
 season/NN
 ,/,
@@ -14339,7 +14524,7 @@ to/TO
 stimulate/VB
 demand/NN
 for/IN
-its/PRP
+its/PRP$
 product/NN
 ,/,
 which/WDT
@@ -14408,6 +14593,7 @@ significantly/RB
 from/IN
 more/JJR
 than/IN
+$/$
 2/CD
 a/DT
 pound/NN
@@ -14447,7 +14633,7 @@ oranges/NNS
 in/IN
 Florida/NNP
 reach/VBP
-their/PRP
+their/PRP$
 peak/NN
 ,/,
 the/DT
@@ -14550,6 +14736,7 @@ November/NNP
 delivery/NN
 finished/VBD
 at/IN
+$/$
 20.89/CD
 a/DT
 barrel/NN
@@ -14614,6 +14801,7 @@ November/NNP
 contract/NN
 will/MD
 reach/VB
+$/$
 21.50/CD
 a/DT
 barrel/NN
@@ -14678,7 +14866,7 @@ is/VBZ
 having/VBG
 difficulties/NNS
 with/IN
-its/PRP
+its/PRP$
 oil/NN
 exports/NNS
 and/CC
@@ -14687,7 +14875,7 @@ Nigeria/NNP
 has/VBZ
 about/RB
 reached/VBN
-its/PRP
+its/PRP$
 production/NN
 limit/NN
 and/CC
@@ -14939,7 +15127,9 @@ to/TO
 shareholders/NNS
 ./.
 But/CC
+{/(
 otherwise/RB
+}/)
 it/PRP
 would/MD
 undoubtedly/RB
@@ -14965,13 +15155,13 @@ the/DT
 current/JJ
 board/NN
 ,/,
-whose/WP
+whose/WP$
 chairman/NN
 is/VBZ
 Maurice/NNP
 Saatchi/NNP
 and/CC
-whose/WP
+whose/WP$
 strategic/JJ
 guiding/JJ
 force/NN
@@ -15024,6 +15214,7 @@ would/MD
 fetch/VB
 upward/RB
 of/IN
+$/$
 1.3/CD
 billion/CD
 ./.
@@ -15084,7 +15275,7 @@ becomes/VBZ
 a/DT
 member/NN
 of/IN
-its/PRP
+its/PRP$
 board/NN
 on/IN
 Jan./NNP
@@ -15324,7 +15515,7 @@ client/NN
 that/WDT
 is/VBZ
 reviewing/VBG
-its/PRP
+its/PRP$
 account/NN
 ,/,
 declined/VBD
@@ -15372,10 +15563,12 @@ Glendale/NNP
 Federal/NNP
 Bank/NNP
 awarded/VBD
-its/PRP
+its/PRP$
+$/$
 12/CD
 million/CD
 to/TO
+$/$
 15/CD
 million/CD
 account/NN
@@ -15419,7 +15612,7 @@ Cola/NNP
 Co./NNP
 has/VBZ
 ended/VBN
-its/PRP
+its/PRP$
 relationship/NN
 with/IN
 the/DT
@@ -15439,6 +15632,7 @@ account/NN
 had/VBD
 billed/VBN
 about/RB
+$/$
 6/CD
 million/CD
 in/IN
@@ -15590,11 +15784,13 @@ Seoul/NNP
 and/CC
 is/VBZ
 70/CD
+%/NN
 owned/VBN
 by/IN
 Samsung/NNP
 and/CC
 30/CD
+%/NN
 owned/VBN
 by/IN
 Bozell/NNP
@@ -15652,7 +15848,7 @@ and/CC
 revenue/NN
 jumped/VBD
 in/IN
-its/PRP
+its/PRP$
 second/JJ
 quarter/NN
 ended/VBN
@@ -15669,6 +15865,7 @@ net/JJ
 income/NN
 rose/VBD
 to/TO
+$/$
 4.8/CD
 million/CD
 ,/,
@@ -15682,6 +15879,7 @@ from/IN
 year-earlier/JJ
 net/NN
 of/IN
+$/$
 1.1/CD
 million/CD
 ,/,
@@ -15694,19 +15892,22 @@ share/NN
 Revenue/NN
 soared/VBD
 to/TO
+$/$
 117/CD
 million/CD
 from/IN
+$/$
 81.5/CD
 million/CD
 ./.
 Maxtor/NNP
 said/VBD
-its/PRP
+its/PRP$
 results/NNS
 were/VBD
 boosted/VBN
 by/IN
+$/$
 2/CD
 million/CD
 in/IN
@@ -15801,6 +16002,7 @@ half/NN
 ,/,
 net/NN
 was/VBD
+$/$
 7/CD
 million/CD
 ,/,
@@ -15814,6 +16016,7 @@ up/RB
 from/IN
 the/DT
 year-earlier/JJ
+$/$
 3.1/CD
 million/CD
 ,/,
@@ -15826,9 +16029,11 @@ share/NN
 Revenue/NN
 rose/VBD
 to/TO
+$/$
 225.5/CD
 million/CD
 from/IN
+$/$
 161.8/CD
 million/CD
 ./.
@@ -15890,7 +16095,7 @@ it/PRP
 filed/VBD
 part/NN
 of/IN
-its/PRP
+its/PRP$
 10-K/JJ
 report/NN
 with/IN
@@ -15907,7 +16112,7 @@ filing/NN
 does/VBZ
 n't/RB
 include/VB
-its/PRP
+its/PRP$
 audited/JJ
 financial/JJ
 statements/NNS
@@ -15942,7 +16147,7 @@ by/IN
 the/DT
 end/NN
 of/IN
-its/PRP
+its/PRP$
 first/JJ
 extension/NN
 ``/``
@@ -15976,7 +16181,7 @@ it/PRP
 plans/VBZ
 to/TO
 amend/VB
-its/PRP
+its/PRP$
 10K/JJ
 to/TO
 provide/VB
@@ -15985,7 +16190,7 @@ results/NNS
 as/RB
 soon/RB
 as/IN
-its/PRP
+its/PRP$
 audit/NN
 is/VBZ
 completed/VBN
@@ -16102,6 +16307,7 @@ which/WDT
 has/VBZ
 an/DT
 86/CD
+%/NN
 stake/NN
 in/IN
 PCS/NNP
@@ -16183,7 +16389,7 @@ eye/NN
 surgery/NN
 ./.
 In/IN
-its/PRP
+its/PRP$
 lawsuit/NN
 ,/,
 Pharmacia/NNP
@@ -16220,10 +16426,12 @@ MedChem/NNP
 sales/NNS
 and/CC
 10/CD
+%/NN
 to/TO
 20/CD
+%/NN
 of/IN
-its/PRP
+its/PRP$
 earnings/NNS
 ./.
 In/IN
@@ -16237,6 +16445,7 @@ Aug./NNP
 ,/,
 MedChem/NNP
 earned/VBD
+$/$
 2.9/CD
 million/CD
 ,/,
@@ -16249,6 +16458,7 @@ share/NN
 on/IN
 sales/NNS
 of/IN
+$/$
 17.4/CD
 million/CD
 ./.
@@ -16277,7 +16487,7 @@ concerns/VBZ
 only/RB
 one/CD
 of/IN
-its/PRP
+its/PRP$
 defenses/NNS
 in/IN
 the/DT
@@ -16291,7 +16501,7 @@ considering/VBG
 ``/``
 all/DT
 of/IN
-its/PRP
+its/PRP$
 options/NNS
 in/IN
 light/NN
@@ -16315,7 +16525,7 @@ plans/VBZ
 to/TO
 ``/``
 assert/VB
-its/PRP
+its/PRP$
 other/JJ
 defenses/NNS
 ''/''
@@ -16594,6 +16804,7 @@ Co./NNP
 posted/VBD
 an/DT
 11/CD
+%/NN
 gain/NN
 in/IN
 net/JJ
@@ -16634,6 +16845,7 @@ newspapers/NNS
 reported/VBD
 a/DT
 3/CD
+%/NN
 increase/NN
 in/IN
 advertising/NN
@@ -16692,6 +16904,7 @@ quarter/NN
 ,/,
 down/RB
 9.2/CD
+%/NN
 from/IN
 the/DT
 1988/CD
@@ -16729,6 +16942,7 @@ a/DT
 decrease/NN
 of/IN
 4/CD
+%/NN
 from/IN
 last/JJ
 year/NN
@@ -16740,11 +16954,13 @@ ad/NN
 revenue/NN
 increased/VBD
 8/CD
+%/NN
 in/IN
 the/DT
 quarter/NN
 and/CC
 13/CD
+%/NN
 in/IN
 the/DT
 nine/CD
@@ -16760,20 +16976,25 @@ Gannett/NNP
 net/NN
 rose/VBD
 9.5/CD
+%/NN
 to/TO
+$/$
 270/CD
 million/CD
 ,/,
 or/CC
+$/$
 1.68/CD
 a/DT
 share/NN
 ,/,
 from/IN
+$/$
 247/CD
 million/CD
 ,/,
 or/CC
+$/$
 1.52/CD
 a/DT
 share/NN
@@ -16781,10 +17002,13 @@ share/NN
 Revenue/NN
 gained/VBD
 6/CD
+%/NN
 to/TO
+$/$
 2.55/CD
 billion/CD
 from/IN
+$/$
 2.4/CD
 billion/CD
 ./.
@@ -16799,6 +17023,7 @@ net/NN
 income/NN
 fell/VBD
 9.9/CD
+%/NN
 from/IN
 the/DT
 year-earlier/JJ
@@ -16807,6 +17032,7 @@ period/NN
 Net/NN
 fell/VBD
 to/TO
+$/$
 28.8/CD
 million/CD
 ,/,
@@ -16817,6 +17043,7 @@ a/DT
 share/NN
 ,/,
 from/IN
+$/$
 32/CD
 million/CD
 ,/,
@@ -16834,6 +17061,7 @@ a/DT
 one-time/JJ
 gain/NN
 of/IN
+$/$
 3.5/CD
 million/CD
 ,/,
@@ -16846,10 +17074,13 @@ share/NN
 Revenue/NN
 gained/VB
 5.3/CD
+%/NN
 to/TO
+$/$
 404.1/CD
 million/CD
 from/IN
+$/$
 383.8/CD
 million/CD
 ./.
@@ -16884,6 +17115,7 @@ the/DT
 Journal/NNP
 fell/VBD
 6.1/CD
+%/NN
 in/IN
 the/DT
 third/JJ
@@ -16909,6 +17141,7 @@ Globe/NNP
 reported/VBD
 net/NN
 of/IN
+$/$
 8.5/CD
 million/CD
 ,/,
@@ -16923,6 +17156,7 @@ with/IN
 a/DT
 loss/NN
 of/IN
+$/$
 26.5/CD
 million/CD
 ,/,
@@ -17005,9 +17239,11 @@ prices/NNS
 to/TO
 rise/VB
 14/CD
+%/NN
 since/IN
 1986/CD
 to/TO
+$/$
 650/CD
 a/DT
 metric/JJ
@@ -17080,7 +17316,7 @@ soft/JJ
 advertising/NN
 levels/NNS
 at/IN
-its/PRP
+its/PRP$
 Long/NNP
 Island/NNP
 Newsday/NNP
@@ -17136,7 +17372,7 @@ weak/JJ
 advertising/NN
 levels/NNS
 at/IN
-its/PRP
+its/PRP$
 flagship/NN
 New/NNP
 York/NNP
@@ -17147,7 +17383,7 @@ discounting/NN
 of/IN
 newsprint/NN
 at/IN
-its/PRP
+its/PRP$
 affiliate/NN
 ,/,
 Forest/NNP
@@ -17270,7 +17506,7 @@ joint/JJ
 operating/NN
 agreement/NN
 between/IN
-its/PRP
+its/PRP$
 Detroit/NNP
 Free/NNP
 Press/NNP
@@ -17304,7 +17540,7 @@ spending/NN
 at/IN
 several/JJ
 of/IN
-its/PRP
+its/PRP$
 major/JJ
 daily/JJ
 newspapers/NNS
@@ -17402,7 +17638,7 @@ corporation/NN
 struggles/VBZ
 to/TO
 cut/VB
-its/PRP
+its/PRP$
 excess/JJ
 vehicle-making/JJ
 capacity/NN
@@ -17473,8 +17709,9 @@ currently/RB
 using/VBG
 about/RB
 80/CD
+%/NN
 of/IN
-its/PRP
+its/PRP$
 North/JJ
 American/JJ
 vehicle/NN
@@ -17487,6 +17724,7 @@ will/MD
 run/VB
 at/IN
 100/CD
+%/NN
 of/IN
 capacity/NN
 by/IN
@@ -17532,7 +17770,7 @@ up/RP
 the/DT
 pace/NN
 of/IN
-its/PRP
+its/PRP$
 factory/NN
 consolidation/NN
 to/TO
@@ -17609,7 +17847,7 @@ officials/NNS
 want/VBP
 to/TO
 get/VB
-their/PRP
+their/PRP$
 strategy/NN
 to/TO
 reduce/VB
@@ -17839,7 +18077,7 @@ free/JJ
 trade/NN
 agreement/NN
 and/CC
-its/PRP
+its/PRP$
 champion/NN
 ,/,
 Prime/NNP
@@ -17887,7 +18125,7 @@ Mich./NNP
 ,/,
 were/VBD
 told/VBN
-their/PRP
+their/PRP$
 facilities/NNS
 are/VBP
 no/RB
@@ -17948,7 +18186,7 @@ Oklahoma/NNP
 City/NNP
 uncertain/JJ
 about/IN
-their/PRP
+their/PRP$
 futures/NNS
 ./.
 The/DT
@@ -18181,7 +18419,7 @@ raised/VBD
 an/DT
 obstacle/NN
 to/TO
-its/PRP
+its/PRP$
 proposed/JJ
 acquisition/NN
 of/IN
@@ -18194,6 +18432,7 @@ million/CD
 Canadian/JJ
 dollars/NNS
 (/(
+US$/$
 801.6/CD
 million/CD
 )/)
@@ -18262,7 +18501,7 @@ information/NN
 to/TO
 further/RB
 support/VB
-its/PRP
+its/PRP$
 takeover/NN
 plan/NN
 ./.
@@ -18307,7 +18546,7 @@ the/DT
 first/JJ
 time/NN
 in/IN
-its/PRP
+its/PRP$
 four-year/JJ
 history/NN
 that/IN
@@ -18362,6 +18601,7 @@ change/NN
 in/IN
 government/NN
 policy/NN
+;/:
 this/DT
 provision/NN
 has/VBZ
@@ -18579,7 +18819,7 @@ neither/DT
 side/NN
 will/MD
 disclose/VB
-its/PRP
+its/PRP$
 contents/NNS
 ,/,
 Mr./NNP
@@ -18588,7 +18828,7 @@ expects/VBZ
 it/PRP
 to/TO
 contain/VB
-more/RBR
+more/RBR|JJR
 specific/JJ
 guarantees/NNS
 on/IN
@@ -18653,6 +18893,7 @@ concerns/NNS
 which/WDT
 are/VBP
 bidding/VBG
+C$/$
 30/CD
 a/DT
 share/NN
@@ -18672,6 +18913,7 @@ Rhone-Poulenc/NNP
 S.A./NNP
 holds/VBZ
 51/CD
+%/NN
 of/IN
 Merieux/NNP
 ./.
@@ -18730,7 +18972,7 @@ the/DT
 585,000/CD
 shares/NNS
 of/IN
-its/PRP
+its/PRP$
 preferred/JJ
 stock/NN
 outstanding/JJ
@@ -18780,7 +19022,7 @@ stock/NN
 ./.
 Weatherford/NNP
 suspended/VBD
-its/PRP
+its/PRP$
 preferred-dividend/JJ
 payment/NN
 in/IN
@@ -18801,6 +19043,7 @@ dividends/NNS
 in/IN
 arrears/NNS
 about/RB
+$/$
 6/CD
 million/CD
 ,/,
@@ -19064,7 +19307,7 @@ drug/NN
 makers/NNS
 have/VBP
 shed/VBN
-their/PRP
+their/PRP$
 slow-growing/JJ
 businesses/NNS
 and/CC
@@ -19132,8 +19375,10 @@ have/VB
 climbed/VBN
 between/IN
 11/CD
+%/NN
 and/CC
 14/CD
+%/NN
 ./.
 While/IN
 that/DT
@@ -19187,12 +19432,13 @@ rose/VBD
 by/IN
 about/RB
 22/CD
+%/NN
 ,/,
 propelled/VBN
 by/IN
 sales/NNS
 of/IN
-its/PRP
+its/PRP$
 line-up/NN
 of/IN
 fast-growing/JJ
@@ -19200,11 +19446,12 @@ prescription/NN
 drugs/NNS
 ,/,
 including/VBG
-its/PRP
+its/PRP$
 anti-cholesterol/JJ
 drug/NN
 ,/,
 Mevacor/NNP
+;/:
 a/DT
 high/JJ
 blood/NN
@@ -19212,6 +19459,7 @@ pressure/NN
 medicine/NN
 ,/,
 Vasotec/NNP
+;/:
 Primaxin/NNP
 ,/,
 an/DT
@@ -19262,6 +19510,7 @@ of/IN
 ,/,
 Merck/NNP
 earned/VBD
+$/$
 311.8/CD
 million/CD
 ,/,
@@ -19303,6 +19552,7 @@ quarter/NN
 jumped/VBD
 about/RB
 20/CD
+%/NN
 ,/,
 largely/RB
 because/IN
@@ -19310,7 +19560,7 @@ of/IN
 the/DT
 performance/NN
 of/IN
-its/PRP
+its/PRP$
 new/JJ
 anti-depressant/NN
 Prozac/NNP
@@ -19329,6 +19579,7 @@ generate/VB
 sales/NNS
 of/IN
 about/RB
+$/$
 300/CD
 million/CD
 this/DT
@@ -19359,10 +19610,12 @@ quarter/NN
 ,/,
 Lilly/NNP
 earned/VBD
+$/$
 171.4/CD
 million/CD
 ,/,
 or/CC
+$/$
 1.20/CD
 a/DT
 share/NN
@@ -19389,11 +19642,14 @@ by/IN
 more/JJR
 than/IN
 20/CD
+%/NN
 from/IN
+$/$
 87.7/CD
 million/CD
 ,/,
 or/CC
+$/$
 1.25/CD
 a/DT
 share/NN
@@ -19416,7 +19672,7 @@ analysts/NNS
 for/IN
 sharply/RB
 lowering/VBG
-its/PRP
+its/PRP$
 costs/NNS
 in/IN
 recent/JJ
@@ -19443,7 +19699,7 @@ allowed/VBD
 sharp-rising/JJ
 sales/NNS
 from/IN
-its/PRP
+its/PRP$
 cholesterol/NN
 drug/NN
 ,/,
@@ -19461,6 +19717,7 @@ expected/VBN
 to/TO
 be/VB
 about/RB
+$/$
 300/CD
 million/CD
 this/DT
@@ -19468,6 +19725,7 @@ year/NN
 ,/,
 up/RB
 from/IN
+$/$
 190/CD
 million/CD
 in/IN
@@ -19507,12 +19765,15 @@ to/TO
 be/VB
 about/RB
 18/CD
+%/NN
 above/IN
 the/DT
+$/$
 123/CD
 million/CD
 ,/,
 or/CC
+$/$
 1.25/CD
 a/DT
 share/NN
@@ -19534,7 +19795,7 @@ especially/RB
 strong/JJ
 sales/NNS
 of/IN
-its/PRP
+its/PRP$
 Capoten/NNP
 drug/NN
 for/IN
@@ -19580,8 +19841,10 @@ rise/NN
 of/IN
 about/RB
 18/CD
+%/NN
 to/TO
 20/CD
+%/NN
 ,/,
 and/CC
 Bristol-Meyers/NNP
@@ -19592,6 +19855,7 @@ increase/NN
 of/IN
 about/RB
 13/CD
+%/NN
 are/VBP
 largely/RB
 because/IN
@@ -19606,6 +19870,7 @@ well/RB
 ''/''
 ScheringPlough/NN
 earned/VBD
+$/$
 94.4/CD
 million/CD
 ,/,
@@ -19618,6 +19883,7 @@ share/NN
 while/IN
 Bristol-Myers/NNP
 earned/VBD
+$/$
 232.3/CD
 million/CD
 ,/,
@@ -19668,8 +19934,10 @@ rose/VBD
 by/IN
 about/RB
 19/CD
+%/NN
 ,/,
 to/TO
+$/$
 1/CD
 ./.
 The/DT
@@ -19679,6 +19947,7 @@ to/TO
 achieve/VB
 the/DT
 20/CD
+%/NN
 increase/NN
 in/IN
 full-year/JJ
@@ -19723,6 +19992,7 @@ decline/VB
 by/IN
 about/RB
 5/CD
+%/NN
 ./.
 Sales/NNP
 of/IN
@@ -19777,10 +20047,12 @@ year/NN
 ,/,
 Pfizer/NNP
 earned/VBD
+$/$
 216.8/CD
 million/CD
 ,/,
 or/CC
+$/$
 1.29/CD
 a/DT
 share/NN
@@ -19810,11 +20082,14 @@ by/IN
 only/RB
 about/RB
 2/CD
+%/NN
 to/TO
 4/CD
+%/NN
 as/IN
 compared/VBN
 with/IN
+$/$
 89.6/CD
 million/CD
 ,/,
@@ -19891,6 +20166,7 @@ well/RB
 --/:
 at/IN
 about/RB
+$/$
 125/CD
 million/CD
 for/IN
@@ -19917,7 +20193,7 @@ and/CC
 television/NN
 campaigns/NNS
 for/IN
-advertising/VBG
+advertising/VBG|NN
 ,/,
 analysts/NNS
 said/VBD
@@ -19950,8 +20226,9 @@ Friday/NNP
 ,/,
 dropping/VBG
 23/CD
+%/NN
 because/IN
-its/PRP
+its/PRP$
 problems/NNS
 were/VBD
 compounded/VBN
@@ -19962,7 +20239,7 @@ an/DT
 unexpected/JJ
 loss/NN
 for/IN
-its/PRP
+its/PRP$
 fiscal/JJ
 first/JJ
 quarter/NN
@@ -19975,6 +20252,7 @@ said/VBD
 it/PRP
 expects/VBZ
 a/DT
+$/$
 2/CD
 million/CD
 net/JJ
@@ -20012,6 +20290,7 @@ modestly/RB
 ''/''
 from/IN
 the/DT
+$/$
 26.5/CD
 million/CD
 reported/VBN
@@ -20025,6 +20304,7 @@ reported/VBD
 net/JJ
 income/NN
 of/IN
+$/$
 1.5/CD
 million/CD
 ,/,
@@ -20041,14 +20321,14 @@ period/NN
 ./.
 ``/``
 While/IN
-our/PRP
+our/PRP$
 international/JJ
 operations/NNS
 showed/VBD
 strong/JJ
 growth/NN
 ,/,
-our/PRP
+our/PRP$
 domestic/JJ
 business/NN
 was/VBD
@@ -20108,7 +20388,7 @@ sales/NNS
 ,/,
 and/CC
 that/IN
-his/PRP
+his/PRP$
 marketing/NN
 responsibilities/NNS
 have/VBP
@@ -20138,18 +20418,21 @@ in/IN
 May/NNP
 1988/CD
 at/IN
+$/$
 14/CD
 a/DT
 share/NN
 ./.
 It/PRP
 fell/VBD
+$/$
 1.875/CD
 a/DT
 share/NN
 Friday/NNP
 ,/,
 to/TO
+$/$
 6.25/CD
 ,/,
 a/DT
@@ -20160,13 +20443,14 @@ in/IN
 over-the-counter/JJ
 trading/NN
 ./.
-Its/PRP
+Its/PRP$
 high/NN
 for/IN
 the/DT
 past/JJ
 year/NN
 was/VBD
+$/$
 16.375/CD
 a/DT
 share/NN
@@ -20179,6 +20463,7 @@ quarter/NN
 the/DT
 company/NN
 earned/VBD
+$/$
 4.5/CD
 million/CD
 ,/,
@@ -20191,6 +20476,7 @@ share/NN
 on/IN
 sales/NNS
 of/IN
+$/$
 47.2/CD
 million/CD
 ./.
@@ -20206,7 +20492,7 @@ a/DT
 great/JJ
 zoo/NN
 ,/,
-its/PRP
+its/PRP$
 own/JJ
 charming/JJ
 Little/NNP
@@ -20274,7 +20560,7 @@ Cunningham/NNP
 's/POS
 Bronx/NNP
 ,/,
-her/PRP
+her/PRP$
 childhood/NN
 Bronx/NNP
 of/IN
@@ -20303,6 +20589,7 @@ Knopf/NNP
 195/CD
 pages/NNS
 ,/,
+$/$
 18.95/CD
 )/)
 ,/,
@@ -20325,7 +20612,7 @@ Catholic/NNP
 real/JJ
 oddballs/NNS
 like/IN
-her/PRP
+her/PRP$
 sexpot/NN
 friend/NN
 ,/,
@@ -20428,7 +20715,7 @@ Morris/NNP
 Snezak/NNP
 )/)
 ,/,
-whose/WP
+whose/WP$
 lobbies/NNS
 and/CC
 hallways/NNS
@@ -20539,7 +20826,7 @@ eight/CD
 years/NNS
 ,/,
 by/IN
-her/PRP
+her/PRP$
 mother/NN
 ,/,
 Rosie/NNP
@@ -20580,7 +20867,7 @@ not/RB
 have/VB
 known/VBN
 about/IN
-his/PRP
+his/PRP$
 child/NN
 ,/,
 as/IN
@@ -20611,7 +20898,7 @@ n't/RB
 interfere/VB
 much/RB
 with/IN
-her/PRP
+her/PRP$
 child/NN
 's/POS
 education/NN
@@ -20677,15 +20964,15 @@ She/PRP
 analyzed/VBD
 families/NNS
 by/IN
-their/PRP
+their/PRP$
 sleeping/NN
 arrangements/NNS
 ./.
-Her/PRP
+Her/PRP$
 friend/NN
 Susan/NNP
 ,/,
-whose/WP
+whose/WP$
 parents/NNS
 kept/VBD
 reminding/VBG
@@ -20701,7 +20988,7 @@ narrow/JJ
 bed/NN
 wedged/VBN
 into/IN
-her/PRP
+her/PRP$
 parents/NNS
 '/POS
 bedroom/NN
@@ -20714,7 +21001,7 @@ a/DT
 temporary/JJ
 visitor/NN
 ./.
-Her/PRP
+Her/PRP$
 friend/NN
 Diana/NNP
 's/POS
@@ -20723,6 +21010,7 @@ was/VBD
 a/DT
 professional/JJ
 thief/NN
+;/:
 they/PRP
 did/VBD
 n't/RB
@@ -20746,7 +21034,7 @@ slept/VBD
 and/CC
 how/WRB
 because/IN
-her/PRP
+her/PRP$
 own/JJ
 arrangements/NNS
 kept/VBD
@@ -20756,7 +21044,7 @@ When/WRB
 Rosie/NNP
 died/VBD
 ,/,
-her/PRP
+her/PRP$
 uncles/NNS
 moved/VBD
 in/RP
@@ -20784,7 +21072,7 @@ white/JJ
 ,/,
 according/VBG
 to/TO
-her/PRP
+her/PRP$
 instructions/NNS
 ./.
 With/IN
@@ -20792,7 +21080,7 @@ loving/JJ
 detail/NN
 she/PRP
 recalls/VBZ
-her/PRP
+her/PRP$
 Uncle/NNP
 Gabe/NNP
 ,/,
@@ -20813,6 +21101,7 @@ a/DT
 love/NN
 song/NN
 )/)
+;/:
 and/CC
 Uncle/NNP
 Len/NNP
@@ -20850,7 +21139,7 @@ mission/NN
 They/PRP
 came/VBD
 by/IN
-their/PRP
+their/PRP$
 strangeness/NN
 honestly/RB
 ./.
@@ -20876,7 +21165,7 @@ album/NN
 and/CC
 lugged/VBD
 around/RP
-her/PRP
+her/PRP$
 perennial/JJ
 work-in-progress/NN
 ,/,
@@ -20923,7 +21212,7 @@ there/EX
 much/JJ
 pleasure/NN
 in/IN
-her/PRP
+her/PRP$
 saucy/JJ
 ,/,
 poignant/JJ
@@ -20980,6 +21269,7 @@ Press/NNP
 200/CD
 pages/NNS
 ,/,
+$/$
 18.95/CD
 )/)
 feel/VBP
@@ -20988,7 +21278,7 @@ and/CC
 static/JJ
 ./.
 For/IN
-his/PRP
+his/PRP$
 sixth/JJ
 novel/NN
 ,/,
@@ -21000,7 +21290,7 @@ resuscitate/VB
 the/DT
 protagonist/NN
 of/IN
-his/PRP
+his/PRP$
 1972/CD
 work/NN
 ,/,
@@ -21017,7 +21307,7 @@ a/DT
 57-year-old/JJ
 writer/NN
 ,/,
-whose/WP
+whose/WP$
 continuing/VBG
 flirtation/NN
 with/IN
@@ -21050,7 +21340,7 @@ early/JJ
 when/WRB
 people/NNS
 like/IN
-his/PRP
+his/PRP$
 friend/NN
 Travis/NNP
 would/MD
@@ -21133,7 +21423,7 @@ Long/NNP
 Island/NNP
 suburb/NN
 with/IN
-his/PRP
+his/PRP$
 wife/NN
 ,/,
 who/WP
@@ -21152,7 +21442,7 @@ seems/VBZ
 to/TO
 notice/VB
 when/WRB
-her/PRP
+her/PRP$
 husband/NN
 disappears/VBZ
 for/IN
@@ -21189,6 +21479,7 @@ it/PRP
 agreed/VBD
 to/TO
 pay/VB
+$/$
 1.5/CD
 million/CD
 as/IN
@@ -21302,7 +21593,7 @@ that/IN
 as/IN
 part/NN
 of/IN
-its/PRP
+its/PRP$
 agreement/NN
 with/IN
 the/DT
@@ -21341,6 +21632,7 @@ Friday/NNP
 ,/,
 said/VBD
 that/IN
+$/$
 1/CD
 million/CD
 of/IN
@@ -21351,17 +21643,18 @@ previously/RB
 provided/VBN
 for/IN
 in/IN
-its/PRP
+its/PRP$
 financial/JJ
 statements/NNS
 and/CC
 that/DT
+$/$
 500,000/CD
 will/MD
 be/VB
 recognized/VBN
 in/IN
-its/PRP
+its/PRP$
 1989/CD
 third-quarter/JJ
 statement/NN
@@ -21448,6 +21741,7 @@ can/MD
 not/RB
 fall/VB
 below/IN
+$/$
 185/CD
 million/CD
 after/IN
@@ -21511,6 +21805,7 @@ of/IN
 any/DT
 loans/NNS
 exceeding/VBG
+$/$
 50/CD
 million/CD
 that/WDT
@@ -21533,6 +21828,7 @@ must/MD
 be/VB
 at/IN
 least/JJS
+$/$
 150/CD
 million/CD
 ./.
@@ -21556,7 +21852,7 @@ early/JJ
 to/TO
 vote/VB
 on/IN
-its/PRP
+its/PRP$
 proposed/VBN
 reorganization/NN
 ./.
@@ -21652,11 +21948,13 @@ of/IN
 Hewlett-Packard/NNP
 Co./NNP
 ,/,
-whose/WP
+whose/WP$
 shares/NNS
 dropped/VBD
+$/$
 3.125/CD
 to/TO
+$/$
 48.125/CD
 ./.
 ``/``
@@ -21709,7 +22007,7 @@ too/RB
 happy/JJ
 to/TO
 personalize/VB
-their/PRP
+their/PRP$
 criticism/NN
 ./.
 ``/``
@@ -21745,9 +22043,10 @@ of/IN
 ITT/NNP
 Corp./NNP
 ,/,
-whose/WP
+whose/WP$
 stock/NN
 dropped/VBD
+$/$
 3.375/CD
 ./.
 ``/``
@@ -21755,6 +22054,7 @@ Where/WRB
 's/VBZ
 the/DT
 leadership/NN
+?/.
 Where/WRB
 's/VBZ
 the/DT
@@ -21769,6 +22069,7 @@ is/VBZ
 enough/JJ
 '/''
 ''/''
+?/.
 The/DT
 executives/NNS
 were/VBD
@@ -21788,13 +22089,13 @@ off/IN
 the/DT
 value/NN
 of/IN
-their/PRP
+their/PRP$
 companies/NNS
 --/:
 and/CC
 millions/NNS
 off/IN
-their/PRP
+their/PRP$
 personal/JJ
 fortunes/NNS
 ./.
@@ -21837,15 +22138,17 @@ the/DT
 mountains/NNS
 here/RB
 after/IN
-his/PRP
+his/PRP$
 company/NN
 's/POS
 shares/NNS
 plunged/VBD
+$/$
 5.75/CD
 to/TO
 close/VB
 at/IN
+$/$
 86.50/CD
 ./.
 ``/``
@@ -21855,6 +22158,7 @@ n't/RB
 bother/VB
 calling/VBG
 anybody/NN
+;/:
 I/PRP
 did/VBD
 n't/RB
@@ -21881,18 +22185,20 @@ added/VBD
 John/NNP
 Smale/NNP
 ,/,
-whose/WP
+whose/WP$
 Procter/NNP
 &/CC
 Gamble/NNP
 Co./NNP
 took/VBD
 an/DT
+$/$
 8.75/CD
 slide/NN
 to/TO
 close/VB
 at/IN
+$/$
 120.75/CD
 ./.
 ``/``
@@ -22036,6 +22342,7 @@ roughly/RB
 an/DT
 inflation-adjusted/JJ
 2/CD
+%/NN
 annual/JJ
 rate/NN
 ,/,
@@ -22180,7 +22487,7 @@ economy/NN
 ,/,
 turmoil/NN
 in/IN
-their/PRP
+their/PRP$
 own/JJ
 industries/NNS
 and/CC
@@ -22262,6 +22569,7 @@ are/VBP
 still/RB
 coming/VBG
 down/RB
+?/.
 Is/VBZ
 this/DT
 the/DT
@@ -22271,6 +22579,7 @@ to/TO
 open/VB
 a/DT
 store/NN
+?/.
 Who/WP
 is/VBZ
 going/VBG
@@ -22281,6 +22590,7 @@ the/DT
 space/NN
 next/IN
 door/NN
+?/.
 ''/''
 In/IN
 addition/NN
@@ -22362,8 +22672,10 @@ rents/NNS
 have/VBP
 dropped/VBN
 10/CD
+%/NN
 to/TO
 15/CD
+%/NN
 in/IN
 the/DT
 past/JJ
@@ -22582,7 +22894,7 @@ is/VBZ
 for/IN
 sale/NN
 by/IN
-its/PRP
+its/PRP$
 owner/NN
 ,/,
 Campeau/NNP
@@ -22645,7 +22957,7 @@ late/JJ
 1970s/NNS
 ,/,
 when/WRB
-their/PRP
+their/PRP$
 leases/NNS
 were/VBD
 signed/VBN
@@ -22694,12 +23006,14 @@ rents/NNS
 of/IN
 up/RB
 to/TO
+$/$
 500/CD
 a/DT
 square/JJ
 foot/NN
 ,/,
 and/CC
+$/$
 250/CD
 is/VBZ
 not/RB
@@ -22714,6 +23028,7 @@ offers/VBZ
 rents/NNS
 of/IN
 about/RB
+$/$
 100/CD
 a/DT
 square/JJ
@@ -22746,6 +23061,7 @@ and/CC
 Chicago/NNP
 rarely/RB
 top/VBP
+$/$
 100/CD
 a/DT
 square/JJ
@@ -22764,6 +23080,7 @@ do/VBP
 n't/RB
 exceed/VB
 about/RB
+$/$
 125/CD
 a/DT
 square/JJ
@@ -22949,7 +23266,7 @@ marks/VBZ
 the/DT
 start/NN
 of/IN
-his/PRP
+his/PRP$
 34th/JJ
 year/NN
 on/IN
@@ -22967,7 +23284,7 @@ from/IN
 previous/JJ
 anniversaries/NNS
 of/IN
-his/PRP
+his/PRP$
 tenure/NN
 ./.
 For/IN
@@ -22979,7 +23296,7 @@ the/DT
 83-year-old/JJ
 justice/NN
 finds/VBZ
-his/PRP
+his/PRP$
 influence/NN
 almost/RB
 exclusively/RB
@@ -23008,7 +23325,7 @@ as/IN
 well/RB
 ,/,
 for/IN
-his/PRP
+his/PRP$
 three/CD
 liberal/JJ
 and/CC
@@ -23035,7 +23352,7 @@ three/CD
 of/IN
 them/PRP
 in/IN
-their/PRP
+their/PRP$
 80s/NNS
 ,/,
 ready/JJ
@@ -23056,6 +23373,7 @@ on/IN
 the/DT
 high/JJ
 court/NN
+?/.
 Every/DT
 indication/NN
 is/VBZ
@@ -23091,6 +23409,7 @@ appear/VBP
 philosophical/JJ
 about/IN
 it/PRP
+;/:
 Justices/NNPS
 Marshall/NNP
 and/CC
@@ -23265,7 +23584,7 @@ contentious/JJ
 flag-burning/NN
 ruling/NN
 as/IN
-his/PRP
+his/PRP$
 only/JJ
 big/JJ
 victory/NN
@@ -23274,7 +23593,7 @@ But/CC
 Justice/NNP
 Brennan/NNP
 foresaw/VBD
-his/PRP
+his/PRP$
 new/JJ
 role/NN
 ,/,
@@ -23408,7 +23727,7 @@ but/CC
 is/VBZ
 feisty/JJ
 about/IN
-his/PRP
+his/PRP$
 role/NN
 and/CC
 determined/JJ
@@ -23530,7 +23849,7 @@ Marshall/NNP
 are/VBP
 speaking/VBG
 in/IN
-their/PRP
+their/PRP$
 dissents/NNS
 to/TO
 a/DT
@@ -23556,7 +23875,7 @@ also/RB
 seems/VBZ
 feisty/JJ
 about/IN
-his/PRP
+his/PRP$
 new/JJ
 role/NN
 ./.
@@ -23569,7 +23888,7 @@ defeats/NNS
 more/RBR
 personally/RB
 than/IN
-his/PRP
+his/PRP$
 colleagues/NNS
 ,/,
 especially/RB
@@ -23583,7 +23902,7 @@ abortion/NN
 first/RB
 recognized/VBN
 in/IN
-his/PRP
+his/PRP$
 1973/CD
 opinion/NN
 ,/,
@@ -23616,7 +23935,7 @@ recent/JJ
 years/NNS
 ./.
 And/CC
-his/PRP
+his/PRP$
 outlook/NN
 improved/VBD
 after/IN
@@ -23627,7 +23946,7 @@ in/IN
 August/NNP
 ./.
 But/CC
-his/PRP
+his/PRP$
 level/NN
 of/IN
 frustration/NN
@@ -23650,7 +23969,7 @@ Chicago/NNP
 ./.
 He/PRP
 concluded/VBD
-his/PRP
+his/PRP$
 remarks/NNS
 by/IN
 quoting/VBG
@@ -23701,7 +24020,7 @@ of/IN
 the/DT
 dissenters/NNS
 about/IN
-his/PRP
+his/PRP$
 role/NN
 ,/,
 in/IN
@@ -23824,7 +24143,7 @@ savings-and-loan/JJ
 institutions/NNS
 ,/,
 in/IN
-its/PRP
+its/PRP$
 first/JJ
 wave/NN
 of/IN
@@ -23904,7 +24223,7 @@ which/WDT
 has/VBZ
 aggressively/RB
 expanded/VBN
-its/PRP
+its/PRP$
 markets/NNS
 ,/,
 particularly/RB
@@ -23982,6 +24301,7 @@ RTC/NNP
 is/VBZ
 stuck/VBN
 with/IN
+$/$
 4.51/CD
 billion/CD
 in/IN
@@ -23994,8 +24314,10 @@ premiums/NNS
 ranging/VBG
 from/IN
 1.5/CD
+%/NN
 to/TO
 3.7/CD
+%/NN
 for/IN
 the/DT
 deposits/NNS
@@ -24161,6 +24483,7 @@ Salina/NNP
 Kan./NNP
 ,/,
 with/IN
+$/$
 1.7/CD
 billion/CD
 in/IN
@@ -24187,7 +24510,7 @@ institution/NN
 ./.
 NCNB/NNP
 continued/VBD
-its/PRP
+its/PRP$
 foray/NN
 into/IN
 the/DT
@@ -24210,6 +24533,7 @@ which/WDT
 had/VBD
 assets/NNS
 of/IN
+$/$
 2.8/CD
 billion/CD
 ./.
@@ -24224,9 +24548,11 @@ RTC/NNP
 a/DT
 premium/NN
 of/IN
+$/$
 129/CD
 million/CD
 for/IN
+$/$
 3.5/CD
 billion/CD
 in/IN
@@ -24252,12 +24578,14 @@ the/DT
 RTC/NNP
 will/MD
 pay/VB
+$/$
 3.8/CD
 billion/CD
 to/TO
 NCNB/NNP
 to/TO
 take/VB
+$/$
 750/CD
 million/CD
 of/IN
@@ -24282,6 +24610,7 @@ had/VBD
 total/JJ
 assets/NNS
 of/IN
+$/$
 900/CD
 million/CD
 ./.
@@ -24293,9 +24622,11 @@ RTC/NNP
 a/DT
 premium/NN
 of/IN
+$/$
 40.4/CD
 million/CD
 for/IN
+$/$
 1.1/CD
 billion/CD
 in/IN
@@ -24305,6 +24636,7 @@ NCNB/NNP
 will/MD
 also/RB
 acquire/VB
+$/$
 266/CD
 million/CD
 of/IN
@@ -24318,6 +24650,7 @@ RTC/NNP
 which/WDT
 will/MD
 require/VB
+$/$
 875/CD
 million/CD
 in/IN
@@ -24345,6 +24678,7 @@ Pa./NNP
 ,/,
 which/WDT
 had/VBD
+$/$
 2.3/CD
 billion/CD
 in/IN
@@ -24356,10 +24690,12 @@ pay/VB
 a/DT
 premium/NN
 of/IN
+$/$
 30.5/CD
 million/CD
 to/TO
 assume/VB
+$/$
 2/CD
 billion/CD
 in/IN
@@ -24369,6 +24705,7 @@ It/PRP
 will/MD
 also/RB
 purchase/VB
+$/$
 845/CD
 million/CD
 of/IN
@@ -24378,6 +24715,7 @@ thrift/NN
 assets/NNS
 ,/,
 with/IN
+$/$
 1.9/CD
 billion/CD
 in/IN
@@ -24413,6 +24751,7 @@ Calif./NNP
 ,/,
 which/WDT
 had/VBD
+$/$
 949/CD
 million/CD
 in/IN
@@ -24424,10 +24763,12 @@ will/MD
 pay/VB
 the/DT
 RTC/NNP
+$/$
 25/CD
 million/CD
 to/TO
 assume/VB
+$/$
 989/CD
 million/CD
 in/IN
@@ -24437,6 +24778,7 @@ It/PRP
 will/MD
 also/RB
 purchase/VB
+$/$
 473/CD
 million/CD
 in/IN
@@ -24444,6 +24786,7 @@ assets/NNS
 ,/,
 and/CC
 receive/VB
+$/$
 550/CD
 million/CD
 in/IN
@@ -24488,6 +24831,7 @@ offering/NN
 of/IN
 up/IN
 to/TO
+$/$
 300/CD
 million/CD
 of/IN
@@ -24570,6 +24914,7 @@ Inc/NNP
 PacifiCare/NNP
 's/POS
 71/CD
+%/NN
 )/)
 ,/,
 via/IN
@@ -24627,6 +24972,7 @@ Inc./NNP
 ,/,
 offering/NN
 of/IN
+$/$
 150/CD
 million/CD
 senior/JJ
@@ -24653,7 +24999,7 @@ subscribers/NNS
 ,/,
 is/VBZ
 lowering/VBG
-its/PRP
+its/PRP$
 circulation/NN
 guarantee/NN
 to/TO
@@ -24665,7 +25011,7 @@ consecutive/JJ
 year/NN
 ,/,
 increasing/VBG
-its/PRP
+its/PRP$
 subscription/NN
 rates/NNS
 and/CC
@@ -24679,7 +25025,7 @@ In/IN
 an/DT
 announcement/NN
 to/TO
-its/PRP
+its/PRP$
 staff/NN
 last/JJ
 week/NN
@@ -24699,7 +25045,7 @@ will/MD
 dramatically/RB
 de-emphasize/VB
 ''/''
-its/PRP
+its/PRP$
 use/NN
 of/IN
 electronic/JJ
@@ -24711,6 +25057,7 @@ in/IN
 television/NN
 subscription/NN
 drives/NNS
+;/:
 cut/VB
 the/DT
 circulation/NN
@@ -24723,19 +25070,22 @@ by/IN
 to/TO
 four/CD
 million/CD
+;/:
 and/CC
 increase/VB
 the/DT
 cost/NN
 of/IN
-its/PRP
+its/PRP$
 annual/JJ
 subscription/NN
 rate/NN
 by/IN
 about/RB
+$/$
 4/CD
 to/TO
+$/$
 55/CD
 ./.
 In/IN
@@ -24759,11 +25109,12 @@ it/PRP
 wo/MD
 n't/RB
 increase/VB
-its/PRP
+its/PRP$
 advertising/NN
 rates/NNS
 in/IN
 1990/CD
+;/:
 a/DT
 full/JJ
 ,/,
@@ -24774,6 +25125,7 @@ the/DT
 magazine/NN
 costs/VBZ
 about/RB
+$/$
 120,000/CD
 ./.
 However/RB
@@ -24793,6 +25145,7 @@ will/MD
 be/VB
 effectively/RB
 7.5/CD
+%/NN
 higher/JJR
 per/IN
 subscriber/NN
@@ -24868,7 +25221,7 @@ Guide/NNP
 ,/,
 have/VBP
 cut/VBN
-their/PRP
+their/PRP$
 massive/JJ
 circulation/NN
 rate/NN
@@ -25050,7 +25403,7 @@ October/NNP
 the/DT
 magazine/NN
 cut/VBD
-its/PRP
+its/PRP$
 guaranteed/VBN
 circulation/NN
 from/IN
@@ -25075,6 +25428,7 @@ Circulations/NNP
 ,/,
 dropped/VBD
 7.3/CD
+%/NN
 to/TO
 4,393,237/CD
 in/IN
@@ -25147,6 +25501,7 @@ a/DT
 show/NN
 of/IN
 weakness/NN
+;/:
 they/PRP
 are/VBP
 improving/VBG
@@ -25156,7 +25511,7 @@ of/IN
 circulation/NN
 while/IN
 insuring/VBG
-their/PRP
+their/PRP$
 profits/NNS
 ./.
 ''/''
@@ -25250,7 +25605,7 @@ both/DT
 have/VBP
 been/VBN
 increasing/VBG
-their/PRP
+their/PRP$
 circulation/NN
 rate/NN
 bases/NNS
@@ -25261,7 +25616,7 @@ are/VBP
 expected/VBN
 to/TO
 announce/VB
-their/PRP
+their/PRP$
 ad/NN
 rates/NNS
 and/CC
@@ -25325,7 +25680,7 @@ Network/NNP
 has/VBZ
 come/VBN
 since/IN
-its/PRP
+its/PRP$
 birth/NN
 nine/CD
 years/NNS
@@ -25362,7 +25717,7 @@ major/JJ
 broadcast/NN
 networks/NNS
 ./.
-Its/PRP
+Its/PRP$
 niche/NN
 as/IN
 the/DT
@@ -25384,7 +25739,7 @@ world/NN
 But/CC
 for/IN
 all/PDT
-its/PRP
+its/PRP$
 success/NN
 ,/,
 CNN/NNP
@@ -25536,7 +25891,7 @@ effort/NN
 CNN/NNP
 will/MD
 premiere/VB
-its/PRP
+its/PRP$
 first/JJ
 prime-time/NN
 newscast/NN
@@ -25616,7 +25971,7 @@ by/IN
 shifting/VBG
 away/RB
 from/IN
-its/PRP
+its/PRP$
 current/JJ
 format/NN
 toward/IN
@@ -25859,7 +26214,7 @@ are/VBP
 likely/JJ
 to/TO
 pursue/VB
-more/JJR
+more/JJR|RBR
 general/JJ
 news/NN
 in/IN
@@ -25891,12 +26246,12 @@ CNN/NNP
 wants/VBZ
 to/TO
 change/VB
-its/PRP
+its/PRP$
 viewers/NNS
 '/POS
 habits/NNS
 ./.
-Its/PRP
+Its/PRP$
 watchers/NNS
 are/VBP
 ,/,
@@ -25983,10 +26338,10 @@ have/VBP
 been/VBN
 molded/VBN
 by/IN
-its/PRP
+its/PRP$
 format/NN
 ./.
-Its/PRP
+Its/PRP$
 strategy/NN
 in/IN
 the/DT
@@ -26006,7 +26361,7 @@ focused/VBD
 on/IN
 building/NN
 up/RP
-its/PRP
+its/PRP$
 news/NN
 bureaus/NN
 around/IN
@@ -26031,7 +26386,7 @@ networks/NNS
 ./.
 It/PRP
 filled/VBD
-its/PRP
+its/PRP$
 daily/JJ
 schedule/NN
 with/IN
@@ -26077,7 +26432,7 @@ more-distinctive/JJR
 shows/NNS
 ./.
 ``/``
-Our/PRP
+Our/PRP$
 goal/NN
 is/VBZ
 to/TO
@@ -26115,7 +26470,7 @@ morning/NN
 because/IN
 surveys/NNS
 show/VBP
-its/PRP
+its/PRP$
 global-news/NN
 hour/NN
 in/IN
@@ -26123,7 +26478,7 @@ the/DT
 afternoon/NN
 is/VBZ
 among/IN
-its/PRP
+its/PRP$
 most/RBS
 ``/``
 differentiated/JJ
@@ -26148,7 +26503,7 @@ programs/NNS
 ,/,
 similar/JJ
 to/TO
-its/PRP
+its/PRP$
 ``/``
 Larry/NNP
 King/NNP
@@ -26195,7 +26550,7 @@ now/RB
 CNN/NNP
 has/VBZ
 featured/VBN
-its/PRP
+its/PRP$
 Hollywood/NNP
 gossip/NN
 show/NN
@@ -26207,6 +26562,7 @@ period/NN
 ./.
 But/CC
 70/CD
+%/NN
 of/IN
 the/DT
 cable-television-equipped/JJ
@@ -26332,7 +26688,7 @@ CNN/NNP
 's/POS
 stage/NN
 for/IN
-its/PRP
+its/PRP$
 big/JJ
 push/NN
 into/IN
@@ -26398,7 +26754,7 @@ will/MD
 generate/VB
 excitement/NN
 for/IN
-its/PRP
+its/PRP$
 ``/``
 branded/JJ
 ''/''
@@ -26437,7 +26793,7 @@ will/MD
 follow/VB
 through/RP
 with/IN
-its/PRP
+its/PRP$
 investigative/JJ
 commitment/NN
 ,/,
@@ -26484,7 +26840,7 @@ CNN/NNP
 is/VBZ
 indispensable/JJ
 to/TO
-his/PRP
+his/PRP$
 job/NN
 ./.
 The/DT
@@ -26517,6 +26873,7 @@ as/RB
 much/JJ
 as/IN
 15/CD
+%/NN
 ,/,
 but/CC
 they/PRP
@@ -26536,9 +26893,10 @@ Mosettig/NNP
 ``/``
 CNN/NNP
 is/VBZ
-my/PRP
+my/PRP$
 wire/NN
 service/NN
+;/:
 they/PRP
 're/VBP
 on/IN
@@ -26605,7 +26963,7 @@ of/IN
 services/NNS
 evolved/VBD
 into/IN
-more/JJR
+more/JJR|RBR
 general-interest/JJ
 ,/,
 long-format/JJ
@@ -26631,6 +26989,7 @@ which/WDT
 holds/VBZ
 a/DT
 2/CD
+%/NN
 stake/NN
 in/IN
 Turner/NNP
@@ -26669,14 +27028,14 @@ Pennzoil/NNP
 Co./NNP
 took/VBD
 in/IN
-its/PRP
+its/PRP$
 dispute/NN
 with/IN
 Texaco/NNP
 ,/,
 contrary/JJ
 to/TO
-your/PRP
+your/PRP$
 Sept./NNP
 8/CD
 article/NN
@@ -26738,6 +27097,7 @@ intended/VBD
 to/TO
 be/VB
 bound/VBN
+;/:
 in/IN
 Arcadian/NNP
 Phosphates/NNP
@@ -26830,7 +27190,7 @@ America/NNP
 withdrew/VBD
 from/IN
 regulators/NNS
-its/PRP
+its/PRP$
 application/NN
 to/TO
 buy/VB
@@ -26858,13 +27218,13 @@ at/IN
 Imperial/NNP
 Corp./NNP
 ,/,
-whose/WP
+whose/WP$
 spokesman/NN
 said/VBD
 the/DT
 company/NN
 withdrew/VBD
-its/PRP
+its/PRP$
 application/NN
 from/IN
 the/DT
@@ -26922,6 +27282,7 @@ August/NNP
 ,/,
 included/VBN
 about/RB
+$/$
 146/CD
 million/CD
 in/IN
@@ -26959,6 +27320,7 @@ and/CC
 to/TO
 save/VB
 about/RB
+$/$
 2/CD
 million/CD
 in/IN
@@ -27009,6 +27371,7 @@ Federal/NNP
 with/IN
 assets/NNS
 of/IN
+$/$
 3.3/CD
 billion/CD
 ,/,
@@ -27049,6 +27412,7 @@ a/DT
 net/JJ
 loss/NN
 of/IN
+$/$
 33.1/CD
 million/CD
 ./.
@@ -27080,7 +27444,7 @@ a/DT
 new/JJ
 tack/NN
 in/IN
-their/PRP
+their/PRP$
 efforts/NNS
 to/TO
 defuse/VB
@@ -27157,7 +27521,7 @@ little/RB
 precedent/JJ
 to/TO
 back/VB
-their/PRP
+their/PRP$
 position/NN
 ./.
 Still/RB
@@ -27181,7 +27545,7 @@ the/DT
 lawyers/NNS
 have/VBP
 renewed/VBN
-their/PRP
+their/PRP$
 arguments/NNS
 in/IN
 Texas/NNP
@@ -27226,6 +27590,7 @@ bills/NNS
 ,/,
 which/WDT
 topped/VBD
+$/$
 73/CD
 million/CD
 last/JJ
@@ -27406,10 +27771,11 @@ Sunbelt/NNP
 's/POS
 liabilities/NNS
 exceeded/VBD
-its/PRP
+its/PRP$
 assets/NNS
 by/IN
 about/RB
+$/$
 2/CD
 billion/CD
 when/WRB
@@ -27585,7 +27951,7 @@ job/NN
 in/IN
 Denver/NNP
 and/CC
-his/PRP
+his/PRP$
 San/NNP
 Diego/NNP
 home/NN
@@ -27642,7 +28008,7 @@ a/DT
 tumultuous/JJ
 reception/NN
 upon/IN
-their/PRP
+their/PRP$
 return/NN
 to/TO
 black/JJ
@@ -27735,7 +28101,7 @@ in/IN
 prison/NN
 ./.
 But/CC
-his/PRP
+his/PRP$
 release/NN
 within/IN
 the/DT
@@ -27839,7 +28205,7 @@ incest/NN
 ./.
 He/PRP
 reiterated/VBD
-his/PRP
+his/PRP$
 opposition/NN
 to/TO
 such/JJ
@@ -27888,7 +28254,7 @@ without/IN
 the/DT
 consent/NN
 of/IN
-their/PRP
+their/PRP$
 parents/NNS
 ./.
 The/DT
@@ -28271,7 +28637,7 @@ impartial/JJ
 ./.
 He/PRP
 made/VBD
-his/PRP
+his/PRP$
 remarks/NNS
 to/TO
 a/DT
@@ -28476,6 +28842,7 @@ franchisees/NNS
 offered/VBD
 more/JJR
 than/IN
+$/$
 200/CD
 million/CD
 to/TO
@@ -28693,7 +29060,7 @@ existing/JJ
 contractual/JJ
 relationships/NNS
 for/IN
-their/PRP
+their/PRP$
 own/JJ
 self-serving/JJ
 motives/NNS
@@ -28750,6 +29117,7 @@ goods/NNS
 shot/VBD
 up/RB
 0.9/CD
+%/NN
 last/JJ
 month/NN
 ,/,
@@ -28871,10 +29239,12 @@ retail/JJ
 sales/NNS
 grew/VBD
 0.5/CD
+%/NN
 in/IN
 September/NNP
 ,/,
 to/TO
+$/$
 145.21/CD
 billion/CD
 ./.
@@ -28886,6 +29256,7 @@ top/NN
 of/IN
 a/DT
 0.7/CD
+%/NN
 gain/NN
 in/IN
 August/NNP
@@ -28968,6 +29339,7 @@ numbers/NNS
 The/DT
 overall/JJ
 0.9/CD
+%/NN
 increase/NN
 is/VBZ
 serious/JJ
@@ -28994,6 +29366,7 @@ still/RB
 increased/VBD
 by/IN
 0.7/CD
+%/NN
 ,/,
 ''/''
 said/VBD
@@ -29050,6 +29423,7 @@ is/VBZ
 not/RB
 bad/JJ
 news/NN
+;/:
 this/DT
 is/VBZ
 a/DT
@@ -29100,7 +29474,7 @@ has/VBZ
 fallen/VBN
 back/RB
 from/IN
-its/PRP
+its/PRP$
 torrid/JJ
 pace/NN
 last/JJ
@@ -29150,6 +29524,7 @@ climbed/VBN
 at/IN
 a/DT
 5.1/CD
+%/NN
 compound/JJ
 annual/JJ
 rate/NN
@@ -29188,6 +29563,7 @@ rise/NN
 than/IN
 the/DT
 4.0/CD
+%/NN
 increase/NN
 for/IN
 all/DT
@@ -29214,9 +29590,11 @@ prices/NNS
 zoomed/VBD
 up/RB
 6.5/CD
+%/NN
 after/IN
 plunging/VBG
 7.3/CD
+%/NN
 in/IN
 August/NNP
 ./.
@@ -29268,6 +29646,7 @@ index/NN
 but/CC
 the/DT
 0.9/CD
+%/NN
 climb/NN
 was/VBD
 higher/JJR
@@ -29280,8 +29659,10 @@ I/PRP
 think/VBP
 the/DT
 resurgence/NN
+{/(
 in/IN
 inflation/NN
+}/)
 is/VBZ
 going/VBG
 to/TO
@@ -29357,6 +29738,7 @@ omen/NN
 as/IN
 the/DT
 0.9/CD
+%/NN
 figure/NN
 suggests/VBZ
 ./.
@@ -29403,12 +29785,14 @@ car/NN
 prices/NNS
 jumped/VBD
 3.8/CD
+%/NN
 in/IN
 September/NNP
 ,/,
 after/IN
 climbing/VBG
 0.5/CD
+%/NN
 in/IN
 August/NNP
 and/CC
@@ -29435,7 +29819,7 @@ coming/VBG
 as/IN
 dealers/NNS
 introduced/VBD
-their/PRP
+their/PRP$
 1990/CD
 models/NNS
 ./.
@@ -29468,6 +29852,7 @@ rose/VBD
 a/DT
 hefty/JJ
 1.1/CD
+%/NN
 in/IN
 September/NNP
 ,/,
@@ -29479,15 +29864,18 @@ electronic/JJ
 equipment/NN
 fell/VBD
 1.1/CD
+%/NN
 ./.
 Food/NN
 prices/NNS
 declined/VBD
 0.6/CD
+%/NN
 ,/,
 after/IN
 climbing/VBG
 0.3/CD
+%/NN
 in/IN
 August/NNP
 ./.
@@ -29503,9 +29891,11 @@ car/NN
 sales/NNS
 rose/VBD
 0.8/CD
+%/NN
 in/IN
 September/NNP
 to/TO
+$/$
 32.82/CD
 billion/CD
 ./.
@@ -29533,9 +29923,11 @@ merchandise/NN
 stores/NNS
 rose/VBD
 1.7/CD
+%/NN
 after/IN
 declining/VBG
 0.6/CD
+%/NN
 in/IN
 August/NNP
 ,/,
@@ -29546,9 +29938,11 @@ building/NN
 materials/NNS
 fell/VBD
 1.8/CD
+%/NN
 after/IN
 rising/VBG
 1.7/CD
+%/NN
 ./.
 Producer/NN
 prices/NNS
@@ -29557,6 +29951,7 @@ intermediate/JJ
 goods/NNS
 grew/VBD
 0.4/CD
+%/NN
 in/IN
 September/NNP
 ,/,
@@ -29580,15 +29975,18 @@ materials/NNS
 ,/,
 jumped/VBD
 1.1/CD
+%/NN
 after/IN
 declining/VBG
 1.9/CD
+%/NN
 in/IN
 August/NNP
 and/CC
 edging/VBG
 up/RP
 0.2/CD
+%/NN
 in/IN
 July/NNP
 ./.
@@ -29603,6 +30001,7 @@ price/NN
 indexes/NNS
 (/(
 1982/CD
+=/SYM
 100/CD
 )/)
 for/IN
@@ -29634,9 +30033,11 @@ loss/NN
 of/IN
 at/IN
 least/JJS
+$/$
 125/CD
 million/CD
 to/TO
+$/$
 150/CD
 million/CD
 for/IN
@@ -29654,6 +30055,7 @@ had/VBD
 net/JJ
 income/NN
 of/IN
+$/$
 485,000/CD
 ,/,
 but/CC
@@ -29689,9 +30091,11 @@ to/TO
 slightly/RB
 more/JJR
 than/IN
+$/$
 700/CD
 million/CD
 from/IN
+$/$
 516/CD
 million/CD
 between/IN
@@ -29701,6 +30105,7 @@ September/NNP
 ./.
 Approximately/RB
 85/CD
+%/NN
 of/IN
 the/DT
 total/NN
@@ -29721,9 +30126,11 @@ it/PRP
 will/MD
 provide/VB
 between/IN
+$/$
 85/CD
 million/CD
 and/CC
+$/$
 110/CD
 million/CD
 for/IN
@@ -29790,7 +30197,7 @@ CityFed/NNP
 will/MD
 also/RB
 mark/VB
-its/PRP
+its/PRP$
 portfolio/NN
 of/IN
 high-yield/JJ
@@ -29830,6 +30237,7 @@ third-quarter/JJ
 results/NNS
 of/IN
 approximately/RB
+$/$
 30/CD
 million/CD
 ./.
@@ -29840,14 +30248,14 @@ it/PRP
 expects/VBZ
 to/TO
 shed/VB
-its/PRP
+its/PRP$
 remaining/VBG
 mortgage/NN
 loan/NN
 origination/NN
 operations/NNS
 outside/IN
-its/PRP
+its/PRP$
 principal/JJ
 markets/NNS
 in/IN
@@ -29883,9 +30291,11 @@ in/IN
 a/DT
 loss/NN
 of/IN
+$/$
 125/CD
 million/CD
 to/TO
+$/$
 150/CD
 million/CD
 for/IN
@@ -29962,7 +30372,7 @@ suspend/VB
 dividend/NN
 payments/NNS
 on/IN
-its/PRP
+its/PRP$
 two/CD
 classes/NNS
 of/IN
@@ -30002,7 +30412,7 @@ apparent/JJ
 losses/NNS
 ''/''
 in/IN
-its/PRP
+its/PRP$
 junk-bond/NN
 portfolio/NN
 in/IN
@@ -30115,12 +30525,12 @@ institution/NN
 largely/RB
 because/IN
 of/IN
-its/PRP
+its/PRP$
 big/JJ
 junk-bond/NN
 holdings/NNS
 and/CC
-its/PRP
+its/PRP$
 operating/NN
 losses/NNS
 ./.
@@ -30144,7 +30554,7 @@ common/JJ
 stock/NN
 dividends/NNS
 until/IN
-its/PRP
+its/PRP$
 operations/NNS
 were/VBD
 on/IN
@@ -30164,6 +30574,7 @@ a/DT
 net/JJ
 loss/NN
 of/IN
+$/$
 21.3/CD
 million/CD
 ,/,
@@ -30173,6 +30584,7 @@ year-earlier/JJ
 net/JJ
 income/NN
 of/IN
+$/$
 52.8/CD
 million/CD
 ./.
@@ -30205,15 +30617,17 @@ April/NNP
 it/PRP
 has/VBZ
 pared/VBN
-its/PRP
+its/PRP$
 high-yield/JJ
 bond/NN
 holdings/NNS
 to/TO
 about/RB
+$/$
 890/CD
 million/CD
 from/IN
+$/$
 1.35/CD
 billion/CD
 ./.
@@ -30222,6 +30636,7 @@ Paul/NNP
 said/VBD
 only/RB
 about/RB
+$/$
 150/CD
 million/CD
 of/IN
@@ -30300,7 +30715,7 @@ current/JJ
 market/NN
 values/NNS
 for/IN
-its/PRP
+its/PRP$
 holdings/NNS
 ,/,
 but/CC
@@ -30393,6 +30808,7 @@ common/JJ
 shares/NNS
 closed/VBD
 at/IN
+$/$
 3/CD
 ,/,
 down/RB
@@ -30466,10 +30882,11 @@ instance/NN
 ,/,
 CenTrust/NNP
 added/VBD
+$/$
 22.5/CD
 million/CD
 to/TO
-its/PRP
+its/PRP$
 general/JJ
 reserves/NNS
 ./.
@@ -30491,7 +30908,7 @@ to/TO
 sell/VB
 63/CD
 of/IN
-its/PRP
+its/PRP$
 71/CD
 branches/NNS
 to/TO
@@ -30620,6 +31037,7 @@ it/PRP
 would/MD
 bring/VB
 in/RP
+$/$
 150/CD
 million/CD
 and/CC
@@ -30629,9 +31047,11 @@ thrift/NN
 's/POS
 assets/NNS
 to/TO
+$/$
 6.7/CD
 billion/CD
 from/IN
+$/$
 9/CD
 billion/CD
 ./.
@@ -30646,18 +31066,21 @@ positive/JJ
 tangible/JJ
 capital/NN
 of/IN
+$/$
 82/CD
 million/CD
 ,/,
 or/CC
 about/RB
 1.2/CD
+%/NN
 of/IN
 assets/NNS
 ,/,
 from/IN
 a/DT
 negative/JJ
+$/$
 33/CD
 million/CD
 as/IN
@@ -30691,6 +31114,7 @@ good/JJ
 will/NN
 by/IN
 about/RB
+$/$
 180/CD
 million/CD
 ./.
@@ -30734,6 +31158,7 @@ not/RB
 renewing/VBG
 more/JJR
 than/IN
+$/$
 1/CD
 billion/CD
 of/IN
@@ -30753,7 +31178,7 @@ also/RB
 working/VBG
 to/TO
 unload/VB
-its/PRP
+its/PRP$
 junk-bond/JJ
 portfolio/NN
 by/IN
@@ -30869,6 +31294,7 @@ as/RB
 many/JJ
 as/IN
 50/CD
+%/NN
 of/IN
 West/JJ
 German/JJ
@@ -30969,6 +31395,7 @@ that/IN
 a/DT
 full/JJ
 60/CD
+%/NN
 of/IN
 Europe/NNP
 's/POS
@@ -31063,7 +31490,7 @@ are/VBP
 authorized/VBN
 knock-offs/JJ
 of/IN
-their/PRP
+their/PRP$
 American/NNP
 counterparts/NNS
 ./.
@@ -31080,7 +31507,7 @@ features/VBZ
 semi-celebrities/NNS
 seeking/VBG
 out/RP
-their/PRP
+their/PRP$
 grammar-school/NN
 classmates/NNS
 for/IN
@@ -31093,7 +31520,7 @@ game/NN
 show/NN
 has/VBZ
 as/RB
-its/PRP
+its/PRP$
 host/NN
 a/DT
 Belgian/NNP
@@ -31135,7 +31562,7 @@ Cacao/NNP
 Fantastico/NNP
 ,/,
 ''/''
-whose/WP
+whose/WP$
 praises/NNS
 were/VBD
 sung/VBN
@@ -31216,6 +31643,7 @@ someone/NN
 could/MD
 pile/VB
 up/RP
+$/$
 150/CD
 worth/NN
 of/IN
@@ -31252,7 +31680,7 @@ Genscher/NNP
 frying/VBG
 and/CC
 selling/VBG
-their/PRP
+their/PRP$
 combined/JJ
 weight/NN
 in/IN
@@ -31293,7 +31721,7 @@ programs/NNS
 usually/RB
 target/VBP
 only/RB
-their/PRP
+their/PRP$
 own/JJ
 local/JJ
 audience/NN
@@ -31491,7 +31919,7 @@ instance/NN
 One/CD
 Man/NN
 and/CC
-His/PRP
+His/PRP$
 Dog/NNP
 ,/,
 ''/''
@@ -31769,11 +32197,11 @@ recent/JJ
 crusade/NN
 to/TO
 produce/VB
-more/JJR
+more/JJR|RBR
 worthy/JJ
 shows/NNS
 of/IN
-its/PRP
+its/PRP$
 own/JJ
 ,/,
 programs/NNS
@@ -31839,7 +32267,7 @@ here/RB
 many/JJ
 believe/VBP
 that/DT
-its/PRP
+its/PRP$
 absence/NN
 is/VBZ
 to/TO
@@ -31969,6 +32397,7 @@ for/IN
 the/DT
 first/JJ
 time/NN
+;/:
 Spain/NNP
 earlier/RBR
 began/VBD
@@ -31977,7 +32406,7 @@ allow/VB
 commercial/JJ
 television/NN
 alongside/IN
-its/PRP
+its/PRP$
 state/NN
 channels/NNS
 ./.
@@ -32056,7 +32485,7 @@ mix/NN
 to/TO
 most/JJS
 of/IN
-its/PRP
+its/PRP$
 audience/NN
 ./.
 The/DT
@@ -32070,7 +32499,7 @@ made/VBN
 available/JJ
 cheaply/RB
 from/IN
-its/PRP
+its/PRP$
 boss/NN
 's/POS
 other/JJ
@@ -32166,7 +32595,7 @@ an/DT
 agreement/NN
 to/TO
 merge/VB
-their/PRP
+their/PRP$
 guided-missile/NN
 divisions/NNS
 ,/,
@@ -32198,9 +32627,11 @@ sales/NNS
 of/IN
 at/IN
 least/JJS
+#/#
 1.4/CD
 billion/CD
 (/(
+$/$
 2.17/CD
 billion/CD
 )/)
@@ -32391,7 +32822,7 @@ Aerospace-Thomson/NNP
 ties/NNS
 would/MD
 be/VB
-their/PRP
+their/PRP$
 respective/JJ
 national/JJ
 rivals/NNS
@@ -32429,7 +32860,7 @@ sitting/VBG
 quietly/RB
 by/RB
 as/RB
-their/PRP
+their/PRP$
 competitors/NNS
 join/VBP
 forces/NNS
@@ -32443,7 +32874,7 @@ to/TO
 GEC/NNP
 confirmed/VBD
 that/IN
-his/PRP
+his/PRP$
 company/NN
 may/MD
 join/VB
@@ -32508,7 +32939,7 @@ weeks/NNS
 before/IN
 GEC/NNP
 and/CC
-its/PRP
+its/PRP$
 potential/JJ
 partners/NNS
 decide/VBP
@@ -32535,6 +32966,7 @@ auditors/NNS
 recently/RB
 said/VBD
 included/VBD
+#/#
 215/CD
 million/CD
 in/IN
@@ -32570,6 +33002,7 @@ by/IN
 British/JJ
 antitrust/JJ
 regulators/NNS
+;/:
 Ferranti/NNP
 is/VBZ
 GEC/NNP
@@ -32583,7 +33016,7 @@ defense-electronics/JJ
 contracts/NNS
 ,/,
 and/CC
-its/PRP
+its/PRP$
 purchase/NN
 by/IN
 GEC/NNP
@@ -32726,7 +33159,7 @@ Aerospace/NNP
 ,/,
 earnings/NNS
 in/IN
-their/PRP
+their/PRP$
 home/NN
 markets/NNS
 have/VBP
@@ -32738,6 +33171,7 @@ increasingly/RB
 tight-fisted/JJ
 defense/NN
 ministries/NNS
+;/:
 and/CC
 Middle/NNP
 East/NNP
@@ -32777,7 +33211,7 @@ feels/VBZ
 the/DT
 future/NN
 of/IN
-its/PRP
+its/PRP$
 defense/NN
 business/NN
 depends/VBZ
@@ -32794,6 +33228,7 @@ defense/NN
 industry/NN
 is/VBZ
 consolidating/VBG
+;/:
 for/IN
 instance/NN
 ,/,
@@ -32837,7 +33272,7 @@ British/NNP
 Aerospace/NNP
 and/CC
 by/IN
-its/PRP
+its/PRP$
 home/NN
 rival/NN
 ,/,
@@ -32845,6 +33280,7 @@ France/NNP
 's/POS
 Aerospatiale/NNP
 S.A./NNP
+;/:
 to/TO
 better/RBR
 compete/VB
@@ -32887,6 +33323,7 @@ missile/NN
 business/NN
 is/VBZ
 about/RB
+#/#
 950/CD
 million/CD
 ,/,
@@ -32902,7 +33339,7 @@ chief/JJ
 missile/NN
 products/NNS
 include/VBP
-its/PRP
+its/PRP$
 17-year-old/JJ
 family/NN
 of/IN
@@ -32946,12 +33383,13 @@ two-step/JJ
 million/CD
 Canadian-dollar/JJ
 (/(
+US$/$
 705.6/CD
 million/CD
 )/)
 expansion/NN
 of/IN
-its/PRP
+its/PRP$
 system/NN
 because/IN
 Canada/NNP
@@ -33002,6 +33440,7 @@ by/IN
 1991/CD
 ,/,
 8/CD
+%/NN
 lower/JJR
 than/IN
 a/DT
@@ -33026,6 +33465,7 @@ half/NN
 ,/,
 about/RB
 1/CD
+%/NN
 below/IN
 the/DT
 1988/CD
@@ -33057,7 +33497,7 @@ as/IN
 many/JJ
 producers/NNS
 shift/VBP
-their/PRP
+their/PRP$
 emphasis/NN
 to/TO
 natural/JJ
@@ -33095,6 +33535,7 @@ is/VBZ
 down/RB
 about/RB
 2/CD
+%/NN
 since/IN
 January/NNP
 and/CC
@@ -33156,7 +33597,7 @@ oil/NN
 and/CC
 have/VBP
 shifted/VBN
-their/PRP
+their/PRP$
 exploration/NN
 and/CC
 development/NN
@@ -33174,6 +33615,7 @@ Canada/NNP
 is/VBZ
 down/RB
 30/CD
+%/NN
 from/IN
 a/DT
 year/NN
@@ -33253,6 +33695,7 @@ Interprovincial/NNP
 transports/VBZ
 about/RB
 75/CD
+%/NN
 of/IN
 all/DT
 crude/NN
@@ -33264,6 +33707,7 @@ Canada/NNP
 and/CC
 almost/RB
 60/CD
+%/NN
 of/IN
 Interprovincial/NNP
 's/POS
@@ -33293,7 +33737,7 @@ Interprovincial/NNP
 's/POS
 system/NN
 ,/,
-whose/WP
+whose/WP$
 main/JJ
 line/NN
 runs/NNS
@@ -33338,6 +33782,7 @@ day/NN
 or/CC
 about/RB
 9.1/CD
+%/NN
 of/IN
 net/JJ
 U.S./NNP
@@ -33477,7 +33922,7 @@ output/NN
 Under/IN
 terms/NNS
 of/IN
-its/PRP
+its/PRP$
 proposed/VBN
 two-step/JJ
 expansion/NN
@@ -33501,7 +33946,7 @@ of/IN
 additional/JJ
 capacity/NN
 to/TO
-its/PRP
+its/PRP$
 system/NN
 ,/,
 beginning/VBG
@@ -33536,9 +33981,10 @@ that/IN
 third-quarter/JJ
 earnings/NNS
 dropped/VBD
-more/JJR
+more/JJR|RBR
 than/IN
 50/CD
+%/NN
 from/IN
 the/DT
 previous/JJ
@@ -33565,9 +34011,11 @@ had/VBD
 net/JJ
 income/NN
 of/IN
+$/$
 45.3/CD
 million/CD
 or/CC
+$/$
 1.25/CD
 a/DT
 share/NN
@@ -33577,6 +34025,7 @@ a/DT
 pretax/JJ
 charge/NN
 of/IN
+$/$
 17/CD
 million/CD
 related/VBN
@@ -33590,6 +34039,7 @@ suit/NN
 on/IN
 sales/NNS
 of/IN
+$/$
 1.11/CD
 billion/CD
 ./.
@@ -33652,7 +34102,7 @@ higher/JJR
 labor/NN
 costs/NNS
 under/IN
-its/PRP
+its/PRP$
 new/JJ
 contract/NN
 ./.
@@ -33669,7 +34119,7 @@ start-up/JJ
 costs/NNS
 associated/VBN
 with/IN
-its/PRP
+its/PRP$
 Joseph/NNP
 T./NNP
 Ryerson/NNP
@@ -33709,7 +34159,7 @@ quarter/NN
 ./.
 Inland/NNP
 said/VBD
-its/PRP
+its/PRP$
 third-quarter/JJ
 results/NNS
 will/MD
@@ -33741,10 +34191,12 @@ company/NN
 had/VBD
 net/NN
 of/IN
+$/$
 61/CD
 million/CD
 ,/,
 or/CC
+$/$
 1.70/CD
 a/DT
 share/NN
@@ -33752,6 +34204,7 @@ share/NN
 on/IN
 sales/NNS
 of/IN
+$/$
 1.02/CD
 billion/CD
 ./.
@@ -33810,6 +34263,7 @@ would/MD
 be/VB
 only/RB
 10/CD
+%/NN
 in/IN
 1990/CD
 ,/,
@@ -33853,12 +34307,14 @@ stock/NN
 ,/,
 which/WDT
 lost/VBD
+$/$
 3.25/CD
 that/DT
 day/NN
 to/TO
 close/VB
 at/IN
+$/$
 52/CD
 in/IN
 national/JJ
@@ -33883,7 +34339,7 @@ it/PRP
 expects/VBZ
 revenue/NN
 for/IN
-its/PRP
+its/PRP$
 first/JJ
 quarter/NN
 ended/VBN
@@ -33892,6 +34348,7 @@ Sept./NNP
 to/TO
 increase/VB
 34/CD
+%/NN
 ./.
 The/DT
 announcement/NN
@@ -33902,10 +34359,12 @@ company/NN
 stock/NN
 to/TO
 surge/VB
+$/$
 6.50/CD
 to/TO
 close/VB
 at/IN
+$/$
 75.50/CD
 a/DT
 share/NN
@@ -33986,7 +34445,7 @@ half/NN
 will/MD
 report/VB
 for/IN
-their/PRP
+their/PRP$
 most/RBS
 recent/JJ
 quarter/NN
@@ -34098,13 +34557,14 @@ more/RBR
 than/IN
 doubling/VBG
 for/IN
-its/PRP
+its/PRP$
 fourth/JJ
 quarter/NN
 ended/VBN
 June/NNP
 30/CD
 to/TO
+$/$
 7.4/CD
 million/CD
 ,/,
@@ -34125,7 +34585,7 @@ investors/NNS
 that/IN
 results/NNS
 for/IN
-its/PRP
+its/PRP$
 first/JJ
 quarter/NN
 ended/VBD
@@ -34457,10 +34917,11 @@ share/NN
 on/IN
 revenues/NNS
 of/IN
+$/$
 19.5/CD
 million/CD
 for/IN
-its/PRP
+its/PRP$
 third/JJ
 quarter/NN
 ,/,
@@ -34618,10 +35079,10 @@ are/VBP
 expected/VBN
 to/TO
 tighten/VB
-their/PRP
+their/PRP$
 hold/NN
 on/IN
-their/PRP
+their/PRP$
 business/NN
 ./.
 At/IN
@@ -34661,7 +35122,7 @@ a/DT
 candidate/NN
 to/TO
 sell/VB
-its/PRP
+its/PRP$
 troubled/JJ
 operation/NN
 ./.
@@ -34700,7 +35161,7 @@ Brown/NNP
 estimates/VBZ
 Wyse/NNP
 ,/,
-whose/WP
+whose/WP$
 terminals/NNS
 business/NN
 is/VBZ
@@ -34716,7 +35177,7 @@ cents/NNS
 a/DT
 share/NN
 for/IN
-its/PRP
+its/PRP$
 quarter/NN
 ended/VBN
 Sept/NNP
@@ -34749,7 +35210,7 @@ or/CC
 more/JJR
 microprocessors/NNS
 as/IN
-their/PRP
+their/PRP$
 ``/``
 brains/NNS
 ,/,
@@ -34814,7 +35275,7 @@ with/IN
 microprocessor-based/JJ
 systems/NNS
 of/IN
-their/PRP
+their/PRP$
 own/JJ
 ./.
 But/CC
@@ -34935,7 +35396,7 @@ for/IN
 instance/NN
 ,/,
 saw/VBD
-its/PRP
+its/PRP$
 population/NN
 grow/VB
 by/IN
@@ -34944,6 +35405,7 @@ people/NNS
 ,/,
 or/CC
 0.4/CD
+%/NN
 ,/,
 between/IN
 1987/CD
@@ -35031,7 +35493,7 @@ Northeast/NNP
 has/VBZ
 been/VBN
 holding/VBG
-its/PRP
+its/PRP$
 own/JJ
 in/IN
 the/DT
@@ -35056,8 +35518,9 @@ York/NNP
 which/WDT
 lost/VBD
 4/CD
+%/NN
 of/IN
-its/PRP
+its/PRP$
 population/NN
 during/IN
 the/DT
@@ -35095,7 +35558,7 @@ and/CC
 West/NNP
 have/VBP
 had/VBN
-their/PRP
+their/PRP$
 own/JJ
 population/NN
 turnaround/NN
@@ -35176,7 +35639,7 @@ narrowing/VBG
 More/JJR
 Elderly/JJ
 Maintain/VBP
-Their/PRP
+Their/PRP$
 Independence/NN
 THANKS/NNS
 TO/TO
@@ -35217,6 +35680,7 @@ population/NN
 shows/VBZ
 that/IN
 64/CD
+%/NN
 of/IN
 people/NNS
 aged/VBN
@@ -35234,6 +35698,7 @@ in/IN
 up/RB
 from/IN
 59/CD
+%/NN
 in/IN
 1970/CD
 ./.
@@ -35258,6 +35723,7 @@ remained/VBN
 at/IN
 about/RB
 24/CD
+%/NN
 since/IN
 1970/CD
 ./.
@@ -35289,6 +35755,7 @@ In/IN
 1988/CD
 ,/,
 10/CD
+%/NN
 of/IN
 those/DT
 aged/VBN
@@ -35305,6 +35772,7 @@ spouses/NNS
 down/RB
 from/IN
 15/CD
+%/NN
 in/IN
 1970/CD
 ./.
@@ -35338,15 +35806,17 @@ slightly/RB
 ,/,
 to/TO
 40/CD
+%/NN
 in/IN
 1988/CD
 from/IN
 38/CD
+%/NN
 in/IN
 1970/CD
 ./.
 Like/IN
-their/PRP
+their/PRP$
 younger/JJR
 counterparts/NNS
 ,/,
@@ -35364,6 +35834,7 @@ relatives/NNS
 ./.
 Only/RB
 17/CD
+%/NN
 of/IN
 those/DT
 aged/VBN
@@ -35382,6 +35853,7 @@ in/IN
 down/RB
 from/IN
 26/CD
+%/NN
 in/IN
 1970/CD
 ./.
@@ -35399,8 +35871,10 @@ has/VBZ
 increased/VBN
 to/TO
 40/CD
+%/NN
 from/IN
 32/CD
+%/NN
 ./.
 More/JJR
 people/NNS
@@ -35467,7 +35941,7 @@ to/TO
 be/VB
 successful/JJ
 in/IN
-their/PRP
+their/PRP$
 jobs/NNS
 ,/,
 while/IN
@@ -35485,7 +35959,7 @@ spend/VB
 more/JJR
 time/NN
 with/IN
-their/PRP
+their/PRP$
 families/NNS
 ./.
 Being/VBG
@@ -35526,6 +36000,7 @@ for/IN
 the/DT
 sample/NN
 was/VBD
+$/$
 194,000/CD
 ,/,
 and/CC
@@ -35535,6 +36010,7 @@ assets/NNS
 were/VBD
 reported/VBN
 as/IN
+$/$
 775,000/CD
 ./.
 The/DT
@@ -35560,6 +36036,7 @@ they/PRP
 represent/VBP
 only/RB
 2/CD
+%/NN
 of/IN
 the/DT
 population/NN
@@ -35600,13 +36077,14 @@ are/VBP
 distinctive/JJ
 ./.
 Despite/IN
-their/PRP
+their/PRP$
 considerable/JJ
 incomes/NNS
 and/CC
 assets/NNS
 ,/,
 40/CD
+%/NN
 of/IN
 the/DT
 respondents/NNS
@@ -35656,6 +36134,7 @@ either/RB
 ./.
 About/RB
 40/CD
+%/NN
 do/VBP
 n't/RB
 feel/VB
@@ -35677,7 +36156,9 @@ affluent/NN
 ,/,
 only/RB
 25/CD
+%/NN
 give/VBP
+$/$
 2,500/CD
 or/CC
 more/JJR
@@ -35692,12 +36173,14 @@ attend/VBP
 religious/JJ
 services/NNS
 regularly/RB
+;/:
 at/IN
 the/DT
 same/JJ
 time/NN
 ,/,
 60/CD
+%/NN
 feel/VBP
 that/IN
 in/IN
@@ -35749,6 +36232,7 @@ women/NNS
 make/VB
 up/RP
 47/CD
+%/NN
 of/IN
 officials/NNS
 and/CC
@@ -35762,6 +36246,7 @@ banks/NNS
 up/RB
 from/IN
 33/CD
+%/NN
 in/IN
 1978/CD
 ./.
@@ -35776,8 +36261,10 @@ has/VBZ
 risen/VBN
 to/TO
 16/CD
+%/NN
 from/IN
 12/CD
+%/NN
 .../:
 ./.
 Per-capita/JJ
@@ -35815,13 +36302,16 @@ woman/NN
 and/CC
 child/NN
 was/VBD
+$/$
 16,489/CD
 in/IN
 1988/CD
 ,/,
 up/RB
 6.6/CD
+%/NN
 from/IN
+$/$
 15,472/CD
 in/IN
 1987/CD
@@ -35832,10 +36322,12 @@ personal/JJ
 income/NN
 ranged/VBD
 from/IN
+$/$
 11,116/CD
 in/IN
 Mississippi/NNP
 to/TO
+$/$
 23,059/CD
 in/IN
 Connecticut/NNP
@@ -35853,6 +36345,7 @@ fall/NN
 ,/,
 up/RB
 2/CD
+%/NN
 from/IN
 1988/CD
 ,/,
@@ -35866,11 +36359,13 @@ estimates/NNS
 ./.
 About/RB
 54/CD
+%/NN
 are/VBP
 women/NNS
 ,/,
 and/CC
 44/CD
+%/NN
 are/VBP
 part-time/JJ
 students/NNS
@@ -35962,7 +36457,7 @@ free/JJ
 pool/NN
 tables/NNS
 in/IN
-its/PRP
+its/PRP$
 new/JJ
 lounge/NN
 ./.
@@ -36037,7 +36532,7 @@ to/TO
 a/DT
 sport/NN
 that/IN
-its/PRP
+its/PRP$
 fans/NNS
 claim/NN
 has/VBZ
@@ -36135,6 +36630,7 @@ Kempinski/NNP
 where/WRB
 rooms/NNS
 average/VBP
+$/$
 200/CD
 a/DT
 night/NN
@@ -36145,6 +36641,7 @@ mixed/JJ
 drinks/NNS
 go/VBP
 for/IN
+$/$
 3.50/CD
 a/DT
 pop/NN
@@ -36215,7 +36712,7 @@ worms/NNS
 either/RB
 ./.
 After/IN
-its/PRP
+its/PRP$
 previous/JJ
 mayor/NN
 committed/VBD
@@ -36232,7 +36729,7 @@ officials/NNS
 regularly/RB
 voted/VBD
 on/IN
-their/PRP
+their/PRP$
 own/JJ
 projects/NNS
 ,/,
@@ -36345,6 +36842,7 @@ was/VBD
 the/DT
 local/JJ
 color/NN
+;/:
 unfortunately/RB
 neither/CC
 he/PRP
@@ -36356,7 +36854,7 @@ the/DT
 show/NN
 have/VBP
 done/VBN
-their/PRP
+their/PRP$
 homework/NN
 ./.
 For/IN
@@ -36373,6 +36871,7 @@ not/RB
 the/DT
 ultimate/JJ
 insult/NN
+;/:
 ``/``
 Mainland/JJ
 haole/FW
@@ -36397,7 +36896,7 @@ shirt/NN
 and/CC
 rolling/VBG
 up/RP
-its/PRP
+its/PRP$
 long/JJ
 sleeves/NNS
 ./.
@@ -36426,7 +36925,7 @@ would/MD
 wear/VB
 flowers/NNS
 in/IN
-her/PRP
+her/PRP$
 hair/NN
 while/NN
 on/IN
@@ -36488,6 +36987,7 @@ most/RBS
 troublesome/JJ
 right/RB
 now/RB
+?/.
 A/DT
 good/JJ
 bet/NN
@@ -36727,6 +37227,7 @@ sick/JJ
 with/IN
 complexes/NNS
 ''/''
+;/:
 and/CC
 he/PRP
 called/VBD
@@ -36758,7 +37259,7 @@ derogatory/JJ
 language/NN
 to/TO
 articulate/VB
-his/PRP
+his/PRP$
 amateur/JJ
 analysis/NN
 of/IN
@@ -36766,7 +37267,7 @@ the/DT
 voting/NN
 behavior/NN
 of/IN
-his/PRP
+his/PRP$
 fellow/NN
 New/NNP
 Yorkers/NNP
@@ -36778,6 +37279,7 @@ be/VB
 quite/RB
 so/RB
 hot/JJ
+?/.
 It/PRP
 probably/RB
 would/MD
@@ -36803,7 +37305,7 @@ between/IN
 the/DT
 substance/NN
 of/IN
-his/PRP
+his/PRP$
 comments/NNS
 and/CC
 the/DT
@@ -36826,7 +37328,7 @@ critics/NNS
 have/VBP
 implied/VBN
 that/IN
-his/PRP
+his/PRP$
 type/NN
 of/IN
 ethnic/JJ
@@ -36895,6 +37397,7 @@ as/IN
 Polish/JJ
 jokes/NNS
 ''/''
+;/:
 and/CC
 the/DT
 type/NN
@@ -36939,7 +37442,7 @@ a/DT
 means/NN
 of/IN
 mocking/VBG
-their/PRP
+their/PRP$
 white/JJ
 and/CC
 gentile/JJ
@@ -36991,6 +37494,7 @@ mischief/NN
 ./.
 Why/WRB
 constructive/JJ
+?/.
 Because/IN
 despite/IN
 all/PDT
@@ -37127,6 +37631,7 @@ for/IN
 letting/VBG
 off/RP
 steam/NN
+?/.
 Do/VB
 n't/RB
 say/VB
@@ -37144,7 +37649,7 @@ genre/NN
 that/IN
 ,/,
 in/IN
-its/PRP
+its/PRP$
 desperate/JJ
 need/NN
 to/TO
@@ -37184,6 +37689,7 @@ in/IN
 ``/``
 Cheers/NNP
 ''/''
+;/:
 children/NNS
 vs./IN
 adults/NNS
@@ -37237,14 +37743,14 @@ against/IN
 the/DT
 wishes/NNS
 of/IN
-his/PRP
+his/PRP$
 mother/NN
 (/(
 Rita/NNP
 Karin/NNP
 )/)
 and/CC
-her/PRP
+her/PRP$
 brother/NN
 Michael/NNP
 (/(
@@ -37357,7 +37863,7 @@ immigrants/NNS
 so/RB
 popular/JJ
 that/IN
-its/PRP
+its/PRP$
 author/NN
 ,/,
 Anne/NNP
@@ -37388,7 +37894,7 @@ there/RB
 as/IN
 evidenced/VBN
 by/IN
-its/PRP
+its/PRP$
 reappearance/NN
 in/IN
 a/DT
@@ -37402,7 +37908,7 @@ Loves/NNP
 Bernie/NNP
 ,/,
 ''/''
-whose/WP
+whose/WP$
 sole/JJ
 distinction/NN
 was/VBD
@@ -37524,7 +38030,7 @@ but/CC
 because/IN
 he/PRP
 quits/VBZ
-his/PRP
+his/PRP$
 well-paying/JJ
 job/NN
 as/IN
@@ -37580,7 +38086,7 @@ Mr./NNP
 Mason/NNP
 slips/VBZ
 into/IN
-his/PRP
+his/PRP$
 standup/JJ
 mode/NN
 and/CC
@@ -37692,7 +38198,7 @@ Mr./NNP
 Mason/NNP
 to/TO
 interrupt/VB
-his/PRP
+his/PRP$
 classic/JJ
 shtik/NN
 with/IN
@@ -37717,7 +38223,7 @@ Miss/NNP
 America/NNP
 ./.
 At/IN
-your/PRP
+your/PRP$
 age/NN
 ,/,
 Jackie/NNP
@@ -37812,6 +38318,7 @@ growth/NN
 ''/''
 Sound/VB
 familiar/JJ
+?/.
 Here/RB
 's/VBZ
 what/WP
@@ -37848,6 +38355,7 @@ up/RB
 Heard/VBN
 that/DT
 before/RB
+?/.
 After/IN
 the/DT
 1929/CD
@@ -38009,6 +38517,7 @@ to/TO
 approve/VB
 an/DT
 estimated/JJ
+$/$
 13.5/CD
 billion/CD
 measure/NN
@@ -38515,7 +39024,7 @@ willing/JJ
 to/TO
 acquiesce/VB
 to/TO
-their/PRP
+their/PRP$
 Senate/NNP
 colleagues/NNS
 '/POS
@@ -38600,7 +39109,7 @@ a/DT
 guaranteed/JJ
 vote/NN
 on/IN
-his/PRP
+his/PRP$
 capital-gains/NNS
 tax/NN
 cut/NN
@@ -38714,7 +39223,7 @@ health/NN
 benefits/NNS
 to/TO
 top/JJ
-paid/VBN
+paid/VBN|JJ
 executives/NNS
 ./.
 One/CD
@@ -38903,7 +39412,7 @@ dropped/VBD
 a/DT
 plan/NN
 by/IN
-its/PRP
+its/PRP$
 Finance/NNP
 Committee/NNP
 that/WDT
@@ -38918,7 +39427,7 @@ which/WDT
 senior/JJ
 citizens/NNS
 have/VBP
-their/PRP
+their/PRP$
 Social/NNP
 Security/NNP
 benefits/NNS
@@ -38937,6 +39446,7 @@ make/VB
 permanent/JJ
 a/DT
 3/CD
+%/NN
 excise/NN
 tax/NN
 on/IN
@@ -38971,7 +39481,7 @@ military/JJ
 contractors/NNS
 to/TO
 reduce/VB
-their/PRP
+their/PRP$
 tax/NN
 burden/NN
 ./.
@@ -39018,6 +39528,7 @@ which/WDT
 would/MD
 have/VB
 raised/VBN
+$/$
 65/CD
 million/CD
 in/IN
@@ -39120,6 +39631,7 @@ deficit/NN
 reduction/NN
 bill/NN
 contains/VBZ
+$/$
 5.3/CD
 billion/CD
 in/IN
@@ -39130,6 +39642,7 @@ fiscal/JJ
 1990/CD
 ,/,
 and/CC
+$/$
 26/CD
 billion/CD
 over/IN
@@ -39188,7 +39701,7 @@ funds/NNS
 to/TO
 include/VB
 in/IN
-their/PRP
+their/PRP$
 taxable/JJ
 income/NN
 dividends/NNS
@@ -39249,6 +39762,7 @@ measure/NN
 repeals/VBZ
 a/DT
 50/CD
+%/NN
 exclusion/NN
 given/VBN
 to/TO
@@ -39273,6 +39787,7 @@ owns/VBZ
 less/JJR
 than/IN
 30/CD
+%/NN
 of/IN
 the/DT
 employer/NN
@@ -39304,6 +39819,7 @@ payments/NNS
 ./.
 --/:
 Raise/VB
+$/$
 851/CD
 million/CD
 by/IN
@@ -39358,6 +39874,7 @@ Styrofoam/NNP
 ,/,
 beginning/VBG
 at/IN
+$/$
 1.10/CD
 a/DT
 pound/NN
@@ -39390,9 +39907,9 @@ gasoline/NN
 excise/NN
 taxes/NNS
 to/TO
-weekly/RB
+weekly/RB|JJ
 from/IN
-semimonthly/RB
+semimonthly/RB|JJ
 ,/,
 effective/JJ
 next/IN
@@ -39427,10 +39944,12 @@ cash/NN
 --/:
 Increase/VB
 to/TO
+$/$
 6/CD
 a/DT
 person/NN
 from/IN
+$/$
 3/CD
 the/DT
 international/JJ
@@ -39441,6 +39960,7 @@ tax/NN
 and/CC
 impose/VB
 a/DT
+$/$
 3-a-person/JJ
 tax/NN
 on/IN
@@ -39463,7 +39983,7 @@ federal/JJ
 fees/NNS
 ./.
 Among/IN
-its/PRP
+its/PRP$
 provisions/NNS
 :/:
 --/:
@@ -39476,6 +39996,7 @@ fiscal/JJ
 1990/CD
 by/IN
 some/DT
+$/$
 2.8/CD
 billion/CD
 ,/,
@@ -39521,6 +40042,7 @@ reducing/VBG
 the/DT
 deficit/NN
 by/IN
+$/$
 1.77/CD
 billion/CD
 ./.
@@ -39542,6 +40064,7 @@ Aviation/NNP
 Administration/NNP
 to/TO
 raise/VB
+$/$
 239/CD
 million/CD
 by/IN
@@ -39582,6 +40105,7 @@ Regulatory/NNP
 Commission/NNP
 fees/NNS
 totaling/VBG
+$/$
 54/CD
 million/CD
 ./.
@@ -39594,6 +40118,7 @@ Coast/NNP
 Guard/NNP
 to/TO
 collect/VB
+$/$
 50/CD
 million/CD
 from/IN
@@ -39607,6 +40132,7 @@ services/NNS
 Raising/VBG
 an/DT
 additional/JJ
+$/$
 43/CD
 million/CD
 by/IN
@@ -39645,7 +40171,7 @@ article/NN
 In/IN
 response/NN
 to/TO
-your/PRP
+your/PRP$
 overly/RB
 optimistic/JJ
 ,/,
@@ -39698,7 +40224,7 @@ in/IN
 August/NNP
 1989/CD
 ./.
-My/PRP
+My/PRP$
 unemployment/NN
 insurance/NN
 ran/VBD
@@ -39708,6 +40234,7 @@ I/PRP
 found/VBD
 a/DT
 job/NN
+;/:
 I/PRP
 found/VBD
 cutbacks/NNS
@@ -39777,7 +40304,7 @@ underlying/JJ
 attitude/NN
 to/TO
 tell/VB
-your/PRP
+your/PRP$
 readers/NNS
 all/DT
 is/VBZ
@@ -39834,6 +40361,7 @@ Off/RP
 Are/VBP
 you/PRP
 kidding/VBG
+?/.
 Looking/VBG
 for/IN
 a/DT
@@ -39846,7 +40374,7 @@ most/RBS
 anxious/JJ
 periods/NNS
 of/IN
-my/PRP
+my/PRP$
 life/NN
 --/:
 and/CC
@@ -39855,7 +40383,7 @@ for/IN
 most/JJS
 people/NNS
 ./.
-Your/PRP
+Your/PRP$
 paper/NN
 needs/VBZ
 a/DT
@@ -39931,9 +40459,10 @@ Service/NNP
 said/VBD
 it/PRP
 reduced/VBD
-its/PRP
+its/PRP$
 rating/NN
 on/IN
+$/$
 165/CD
 million/CD
 of/IN
@@ -39964,7 +40493,7 @@ agency/NN
 said/VBD
 it/PRP
 reduced/VBD
-its/PRP
+its/PRP$
 rating/NN
 on/IN
 the/DT
@@ -40047,7 +40576,7 @@ Inc./NNP
 said/VBD
 it/PRP
 downgraded/VBD
-its/PRP
+its/PRP$
 rating/NN
 to/TO
 B-2/JJ
@@ -40056,6 +40585,7 @@ Ba-3/JJ
 on/IN
 less/JJR
 than/IN
+$/$
 20/CD
 million/CD
 of/IN
@@ -40092,7 +40622,7 @@ citing/VBG
 the/DT
 troubles/NNS
 at/IN
-its/PRP
+its/PRP$
 L.F./NNP
 Rothschild/NNP
 subsidiary/NN
@@ -40135,7 +40665,7 @@ a/DT
 little/JJ
 premature/JJ
 on/IN
-their/PRP
+their/PRP$
 part/NN
 ./.
 ''/''
@@ -40167,6 +40697,7 @@ Black/NNP
 Monday/NNP
 is/VBZ
 coming/VBG
+?/.
 Or/CC
 is/VBZ
 this/DT
@@ -40187,6 +40718,7 @@ turned/VBD
 out/RP
 to/TO
 be/VB
+?/.
 Here/RB
 's/VBZ
 what/WP
@@ -40357,6 +40889,7 @@ have/VBP
 hit/VBN
 52-week/JJ
 lows/NNS
+;/:
 about/RB
 100/CD
 stocks/NNS
@@ -40404,7 +40937,7 @@ warned/VBN
 clients/NNS
 to/TO
 take/VB
-their/PRP
+their/PRP$
 money/NN
 out/IN
 of/IN
@@ -40452,7 +40985,7 @@ those/DT
 two/CD
 years/NNS
 ,/,
-her/PRP
+her/PRP$
 stock/NN
 market/NN
 indicators/NNS
@@ -40482,7 +41015,8 @@ and/CC
 took/VBD
 the/DT
 market/NN
--12/CD
+10%-12/CD
+%/NN
 down/RB
 ,/,
 ''/''
@@ -40528,7 +41062,7 @@ be/VB
 a/DT
 fluke/NN
 ./.
-My/PRP
+My/PRP$
 advice/NN
 is/VBZ
 to/TO
@@ -40608,7 +41142,7 @@ But/CC
 Mr./NNP
 Davis/NNP
 ,/,
-whose/WP
+whose/WP$
 views/NNS
 are/VBP
 widely/RB
@@ -40813,7 +41347,7 @@ I/PRP
 guess/VBP
 that/IN
 's/POS
-my/PRP
+my/PRP$
 forecast/NN
 ./.
 ''/''
@@ -41331,8 +41865,11 @@ market/NN
 was/VBD
 up/RB
 35/CD
+%/NN
 since/IN
+{/(
 President/NNP
+}/)
 Bush/NNP
 took/VBD
 office/NN
@@ -41389,7 +41926,9 @@ are/VBP
 a/DT
 great/JJ
 opportunity/NN
+{/(
 this/DT
+}/)
 week/NN
 for/IN
 guys/NNS
@@ -41732,6 +42271,7 @@ Renaissance/NNP
 which/WDT
 manages/VBZ
 about/RB
+$/$
 1.8/CD
 billion/CD
 ,/,
@@ -41767,7 +42307,7 @@ rally/NN
 Renaissance/NNP
 is/VBZ
 keeping/VBG
-its/PRP
+its/PRP$
 money/NN
 entirely/RB
 in/IN
@@ -41799,7 +42339,7 @@ related/JJ
 story/NN
 :/:
 ``/``
-Your/PRP
+Your/PRP$
 Money/NN
 Matters/VBZ
 :/:
@@ -41845,7 +42385,7 @@ alleging/VBG
 1/LS
 ./.
 That/IN
-your/PRP
+your/PRP$
 Sept./NNP
 28/CD
 editorial/NN
@@ -41862,7 +42402,7 @@ misleading/JJ
 ./.
 I/PRP
 thought/VBD
-your/PRP
+your/PRP$
 editorial/NN
 was/VBD
 factually/RB
@@ -41935,7 +42475,7 @@ as/IN
 an/DT
 indication/NN
 of/IN
-his/PRP
+his/PRP$
 support/NN
 for/IN
 the/DT
@@ -41956,7 +42496,7 @@ rights/NNS
 Unfortunately/RB
 ,/,
 by/IN
-my/PRP
+my/PRP$
 rough/JJ
 guess/NN
 ,/,
@@ -41978,7 +42518,7 @@ Fifth/NNP
 ./.
 He/PRP
 sandwiched/VBD
-his/PRP
+his/PRP$
 praise/NN
 of/IN
 constitutional/JJ
@@ -41991,7 +42531,7 @@ bilious/JJ
 commentary/NN
 ./.
 As/IN
-your/PRP
+your/PRP$
 editorial/NN
 rightly/RB
 pointed/VBD
@@ -42047,7 +42587,7 @@ Lantos/NNP
 3/LS
 ./.
 That/IN
-his/PRP
+his/PRP$
 ``/``
 committee/NN
 does/VBZ
@@ -42061,7 +42601,7 @@ activity/NN
 at/IN
 HUD/NNP
 ./.
-My/PRP
+My/PRP$
 colleagues/NNS
 and/CC
 I/PRP
@@ -42090,7 +42630,7 @@ criterion/NN
 Mr./NNP
 Lantos/NNP
 and/CC
-his/PRP
+his/PRP$
 colleagues/NNS
 have/VBP
 a/DT
@@ -42104,7 +42644,7 @@ convicted/VBN
 ./.
 Apparently/RB
 ,/,
-their/PRP
+their/PRP$
 verdict/NN
 is/VBZ
 in/RB
@@ -42144,6 +42684,7 @@ I/PRP
 was/VBD
 in/IN
 school/NN
+?/.
 Ah/UH
 ,/,
 yes/UH
@@ -42162,7 +42703,7 @@ Lantos/NNP
 doth/VBZ
 protest/NN
 that/IN
-his/PRP
+his/PRP$
 subcommittee/NN
 simply/RB
 seeks/VBZ
@@ -42184,7 +42725,7 @@ Mr./NNP
 Lantos/NNP
 says/VBZ
 in/IN
-his/PRP
+his/PRP$
 letter/NN
 is/VBZ
 partially/RB
@@ -42194,7 +42735,7 @@ He/PRP
 's/VBZ
 right/JJ
 about/IN
-his/PRP
+his/PRP$
 subcommittee/NN
 's/POS
 responsibilities/NNS
@@ -42211,7 +42752,7 @@ officials/NNS
 ./.
 But/CC
 if/IN
-his/PRP
+his/PRP$
 explanation/NN
 of/IN
 motivation/NN
@@ -42220,7 +42761,7 @@ true/JJ
 ,/,
 why/WRB
 is/VBZ
-his/PRP
+his/PRP$
 investigation/NN
 so/RB
 oriented/VBN
@@ -42229,6 +42770,7 @@ to/TO
 identify/VB
 criminal/JJ
 activity/NN
+?/.
 Why/WRB
 not/RB
 simply/RB
@@ -42243,6 +42785,7 @@ of/IN
 waste/NN
 and/CC
 inefficiency/NN
+?/.
 Such/JJ
 as/IN
 ,/,
@@ -42254,6 +42797,7 @@ wanted/VBD
 to/TO
 know/VB
 about/RB
+$/$
 400/CD
 toilet/NN
 seats/NNS
@@ -42262,6 +42806,7 @@ whatever/WDT
 they/PRP
 supposedly/RB
 cost/VBD
+?/.
 No/RB
 ,/,
 Mr./NNP
@@ -42315,7 +42860,7 @@ forth/RB
 No/UH
 ,/,
 to/TO
-my/PRP
+my/PRP$
 mind/NN
 ,/,
 the/DT
@@ -42432,7 +42977,7 @@ Individuals/NNS
 can/MD
 always/RB
 have/VB
-their/PRP
+their/PRP$
 hands/NNS
 slapped/VBN
 ./.
@@ -42519,7 +43064,7 @@ Joe/NNP
 ''/''
 McCarthy/NNP
 did/VBD
-his/PRP
+his/PRP$
 work/NN
 ./.
 Raymond/NNP
@@ -42550,7 +43095,7 @@ HUD/NNP
 officials/NNS
 who/WP
 assert/VBP
-their/PRP
+their/PRP$
 Fifth/NNP
 Amendment/NNP
 privilege/NN
@@ -42663,7 +43208,7 @@ limited/VBN
 in/IN
 accordance/NN
 with/IN
-its/PRP
+its/PRP$
 plain/JJ
 language/NN
 to/TO
@@ -42747,7 +43292,7 @@ the/DT
 Fifth/NNP
 ,/,
 and/CC
-his/PRP
+his/PRP$
 taking/NN
 of/IN
 the/DT
@@ -42787,7 +43332,7 @@ and/CC
 justifiable/JJ
 belief/NN
 that/IN
-his/PRP
+his/PRP$
 testimony/NN
 may/MD
 subject/VB
@@ -42849,7 +43394,7 @@ subsequent/JJ
 criminal/JJ
 prosecution/NN
 ./.
-Absent/JJ
+Absent/JJ|IN
 the/DT
 risk/NN
 of/IN
@@ -42900,7 +43445,7 @@ good-faith/NN
 justifiable/JJ
 belief/NN
 that/IN
-his/PRP
+his/PRP$
 testimony/NN
 could/MD
 be/VB
@@ -42939,7 +43484,7 @@ Pierce/NNP
 own/JJ
 belief/NN
 that/IN
-his/PRP
+his/PRP$
 testimony/NN
 could/MD
 help/VB
@@ -42996,6 +43541,7 @@ points/NNS
 Just/RB
 a/DT
 coincidence/NN
+?/.
 Or/CC
 is/VBZ
 triskaidekaphobia/NN
@@ -43007,6 +43553,7 @@ number/NN
 13/CD
 --/:
 justified/VBN
+?/.
 In/IN
 academia/NN
 ,/,
@@ -43055,7 +43602,7 @@ the/DT
 13th/NNP
 ./.
 But/CC
-their/PRP
+their/PRP$
 study/NN
 ,/,
 which/WDT
@@ -43270,7 +43817,7 @@ get/VB
 dealers/NNS
 to/TO
 answer/VB
-their/PRP
+their/PRP$
 phones/NNS
 ,/,
 ''/''
@@ -43293,7 +43840,9 @@ Atlanta/NNP
 ``/``
 It/PRP
 was/VBD
+{/(
 like/IN
+}/)
 the/DT
 Friday/NNP
 before/IN
@@ -43336,7 +43885,7 @@ Nasdaq/NNP
 Composite/NNP
 Index/NNP
 suffered/VBD
-its/PRP
+its/PRP$
 biggest/JJS
 point/NN
 decline/NN
@@ -43344,7 +43893,7 @@ of/IN
 the/DT
 year/NN
 and/CC
-its/PRP
+its/PRP$
 sixth/JJ
 worst/JJS
 ever/RB
@@ -43354,6 +43903,7 @@ diving/VBG
 ,/,
 or/CC
 3/CD
+%/NN
 ,/,
 to/TO
 467.29/CD
@@ -43383,6 +43933,7 @@ Exchange/NNP
 Composite/NNP
 tumbled/VBD
 5.8/CD
+%/NN
 Friday/NNP
 and/CC
 the/DT
@@ -43392,6 +43943,7 @@ Exchange/NNP
 Composite/NNP
 fell/VBD
 4/CD
+%/NN
 ./.
 On/IN
 Oct./NNP
@@ -43408,15 +43960,17 @@ points/NNS
 ,/,
 or/CC
 3.8/CD
+%/NN
 ,/,
 followed/VBN
 by/IN
-its/PRP
+its/PRP$
 devastating/JJ
 46.12-point/JJ
 ,/,
 or/CC
 11/CD
+%/NN
 slide/NN
 ,/,
 three/CD
@@ -43567,7 +44121,7 @@ one/CD
 for/IN
 Nasdaq/NNP
 and/CC
-its/PRP
+its/PRP$
 market-making/JJ
 companies/NNS
 ,/,
@@ -43586,7 +44140,7 @@ who/WP
 could/MD
 n't/RB
 reach/VB
-their/PRP
+their/PRP$
 brokers/NNS
 or/CC
 trade/VB
@@ -43715,7 +44269,7 @@ York/NNP
 said/VBD
 proudly/RB
 that/IN
-his/PRP
+his/PRP$
 company/NN
 executed/VBD
 every/DT
@@ -43809,7 +44363,7 @@ on/IN
 the/DT
 stocks/NNS
 in/IN
-their/PRP
+their/PRP$
 inventories/NNS
 ,/,
 market/NN
@@ -43991,7 +44545,7 @@ Friday/NNP
 It/PRP
 helped/VBD
 that/IN
-his/PRP
+his/PRP$
 inventory/NN
 is/VBZ
 a/DT
@@ -44398,7 +44952,7 @@ buy/VB
 some/DT
 OTC/NNP
 stocks/NNS
-whose/WP
+whose/WP$
 prices/NNS
 were/VBD
 beaten/VBN
@@ -44467,6 +45021,7 @@ issues/NNS
 ,/,
 tumbled/VBD
 4.2/CD
+%/NN
 ,/,
 or/CC
 19.76/CD
@@ -44486,6 +45041,7 @@ banking/NN
 stocks/NNS
 dropped/VBD
 2/CD
+%/NN
 ,/,
 or/CC
 9.31/CD
@@ -44551,6 +45107,7 @@ Cellular/NNP
 McCaw/NNP
 lost/VBD
 8/CD
+%/NN
 ,/,
 or/CC
 3/CD
@@ -44568,6 +45125,7 @@ dropped/VBD
 ,/,
 or/CC
 5/CD
+%/NN
 ,/,
 to/TO
 107/CD
@@ -44619,9 +45177,10 @@ n't/RB
 plan/VB
 to/TO
 pursue/VB
-its/PRP
+its/PRP$
 previously/RB
 reported/VBN
+$/$
 27.50-a-share/JJ
 bid/NN
 to/TO
@@ -44688,6 +45247,7 @@ dropped/VBD
 to/TO
 33/CD
 7\/8/CD
+;/:
 Laidlaw/NNP
 Transportation/NNP
 lost/VBD
@@ -44696,6 +45256,7 @@ lost/VBD
 to/TO
 19/CD
 1\/2/CD
+;/:
 the/DT
 American/JJ
 depositary/JJ
@@ -44708,6 +45269,7 @@ off/RB
 to/TO
 10/CD
 1\/4/CD
+;/:
 MCI/NNP
 Communications/NNP
 slipped/VBD
@@ -44716,6 +45278,7 @@ slipped/VBD
 to/TO
 43/CD
 1\/2/CD
+;/:
 Apple/NNP
 Computer/NNP
 fell/VBD
@@ -44766,6 +45329,7 @@ RATE/NN
 :/:
 10/CD
 1\/2/CD
+%/NN
 ./.
 The/DT
 base/JJ
@@ -44786,20 +45350,24 @@ FUNDS/NNS
 :/:
 8/CD
 13\/16/CD
+%/NN
 high/JJ
 ,/,
 8/CD
 1\/2/CD
+%/NN
 low/JJ
 ,/,
 8/CD
 5\/8/CD
+%/NN
 near/IN
 closing/NN
 bid/NN
 ,/,
 8/CD
 3\/4/CD
+%/NN
 offered/VBN
 ./.
 Reserves/NNS
@@ -44813,6 +45381,7 @@ use/NN
 in/IN
 amounts/NNS
 of/IN
+$/$
 1/CD
 million/CD
 or/CC
@@ -44832,6 +45401,7 @@ DISCOUNT/NN
 RATE/NN
 :/:
 7/CD
+%/NN
 ./.
 The/DT
 charge/NN
@@ -44853,8 +45423,10 @@ MONEY/NN
 :/:
 9/CD
 3\/4/CD
+%/NN
 to/TO
 10/CD
+%/NN
 ./.
 The/DT
 charge/NN
@@ -44878,41 +45450,56 @@ Acceptance/NNP
 Corp./NNP
 :/:
 8.60/CD
+%/NN
 30/CD
 to/TO
 44/CD
 days/NNS
+;/:
 8.55/CD
+%/NN
 45/CD
 to/TO
 59/CD
 days/NNS
+;/:
 8.375/CD
+%/NN
 60/CD
 to/TO
 79/CD
 days/NNS
+;/:
 8.50/CD
+%/NN
 80/CD
 to/TO
 89/CD
 days/NNS
+;/:
 8.25/CD
+%/NN
 90/CD
 to/TO
 119/CD
 days/NNS
+;/:
 8.125/CD
+%/NN
 120/CD
 to/TO
 149/CD
 days/NNS
+;/:
 8/CD
+%/NN
 150/CD
 to/TO
 179/CD
 days/NNS
+;/:
 7.625/CD
+%/NN
 180/CD
 to/TO
 270/CD
@@ -44933,15 +45520,21 @@ corporations/NNS
 in/IN
 multiples/NNS
 of/IN
+$/$
 1,000/CD
 :/:
 8.65/CD
+%/NN
 30/CD
 days/NNS
+;/:
 8.55/CD
+%/NN
 60/CD
 days/NNS
+;/:
 8.55/CD
+%/NN
 90/CD
 days/NNS
 ./.
@@ -44950,18 +45543,27 @@ OF/IN
 DEPOSIT/NN
 :/:
 8.15/CD
+%/NN
 one/CD
 month/NN
+;/:
 8.15/CD
+%/NN
 two/CD
 months/NNS
+;/:
 8.13/CD
+%/NN
 three/CD
 months/NNS
+;/:
 8.11/CD
+%/NN
 six/CD
 months/NNS
+;/:
 8.08/CD
+%/NN
 one/CD
 year/NN
 ./.
@@ -44987,6 +45589,7 @@ usually/RB
 on/IN
 amounts/NNS
 of/IN
+$/$
 1/CD
 million/CD
 and/CC
@@ -44996,6 +45599,7 @@ The/DT
 minimum/JJ
 unit/NN
 is/VBZ
+$/$
 100,000/CD
 ./.
 Typical/JJ
@@ -45006,12 +45610,17 @@ secondary/JJ
 market/NN
 :/:
 8.65/CD
+%/NN
 one/CD
 month/NN
+;/:
 8.65/CD
+%/NN
 three/CD
 months/NNS
+;/:
 8.55/CD
+%/NN
 six/CD
 months/NNS
 ./.
@@ -45019,21 +45628,32 @@ BANKERS/NNS
 ACCEPTANCES/NNS
 :/:
 8.52/CD
+%/NN
 30/CD
 days/NNS
+;/:
 8.37/CD
+%/NN
 60/CD
 days/NNS
+;/:
 8.15/CD
+%/NN
 90/CD
 days/NNS
+;/:
 7.98/CD
+%/NN
 120/CD
 days/NNS
+;/:
 7.92/CD
+%/NN
 150/CD
 days/NNS
+;/:
 7.80/CD
+%/NN
 180/CD
 days/NNS
 ./.
@@ -45055,44 +45675,61 @@ EURODOLLARS/NNS
 :/:
 8/CD
 13\/16/CD
+%/NN
 to/TO
 8/CD
 11\/16/CD
+%/NN
 one/CD
 month/NN
+;/:
 8/CD
 13\/16/CD
+%/NN
 to/TO
 8/CD
 11\/16/CD
+%/NN
 two/CD
 months/NNS
+;/:
 8/CD
 13\/16/CD
+%/NN
 to/TO
 8/CD
 11\/16/CD
+%/NN
 three/CD
 months/NNS
+;/:
 8/CD
 3\/4/CD
+%/NN
 to/TO
 8/CD
 5\/8/CD
+%/NN
 four/CD
 months/NNS
+;/:
 8/CD
 11\/16/CD
+%/NN
 to/TO
 8/CD
 9\/16/CD
+%/NN
 five/CD
 months/NNS
+;/:
 8/CD
 5\/8/CD
+%/NN
 to/TO
 8/CD
 1\/2/CD
+%/NN
 six/CD
 months/NNS
 ./.
@@ -45106,18 +45743,25 @@ LIBOR/NNP
 :/:
 8/CD
 3\/4/CD
+%/NN
 one/CD
 month/NN
+;/:
 8/CD
 3\/4/CD
+%/NN
 three/CD
 months/NNS
+;/:
 8/CD
 9\/16/CD
+%/NN
 six/CD
 months/NNS
+;/:
 8/CD
 9\/16/CD
+%/NN
 one/CD
 year/NN
 ./.
@@ -45148,14 +45792,23 @@ RATES/NNS
 :/:
 Canada/NNP
 13.50/CD
+%/NN
+;/:
 Germany/NNP
 8.50/CD
+%/NN
+;/:
 Japan/NNP
 4.875/CD
+%/NN
+;/:
 Switzerland/NNP
 8.50/CD
+%/NN
+;/:
 Britain/NNP
 15/CD
+%/NN
 ./.
 These/DT
 rate/NN
@@ -45164,6 +45817,7 @@ are/VBP
 n't/RB
 directly/RB
 comparable/JJ
+;/:
 lending/NN
 practices/NNS
 vary/VBP
@@ -45201,15 +45855,20 @@ value/NN
 in/IN
 units/NNS
 of/IN
+$/$
 10,000/CD
 to/TO
+$/$
 1/CD
 million/CD
 :/:
 7.63/CD
+%/NN
 13/CD
 weeks/NNS
+;/:
 7.60/CD
+%/NN
 26/CD
 weeks/NNS
 ./.
@@ -45237,14 +45896,18 @@ within/IN
 days/NNS
 ./.
 9.91/CD
+%/NN
 ,/,
 standard/JJ
 conventional/JJ
 fixedrate/JJ
 mortgages/NNS
+;/:
 7.875/CD
+%/NN
 ,/,
 2/CD
+%/NN
 rate/NN
 capped/VBN
 one-year/JJ
@@ -45285,12 +45948,15 @@ at/IN
 par/NN
 )/)
 9.86/CD
+%/NN
 ,/,
 standard/JJ
 conventional/JJ
 fixed-rate/JJ
 mortgages/NNS
+;/:
 8.85/CD
+%/NN
 ,/,
 6\/2/CD
 rate/NN
@@ -45313,6 +45979,7 @@ ASSETS/NNP
 TRUST/NNP
 :/:
 8.33/CD
+%/NN
 ./.
 Annualized/JJ
 average/JJ
@@ -45326,6 +45993,7 @@ the/DT
 past/JJ
 30/CD
 days/NNS
+;/:
 not/RB
 a/DT
 forecast/NN
@@ -45407,7 +46075,7 @@ investors/NNS
 might/MD
 put/VB
 away/RP
-their/PRP
+their/PRP$
 checkbooks/NNS
 in/IN
 a/DT
@@ -45431,7 +46099,7 @@ the/DT
 market/NN
 ./.
 But/CC
-their/PRP
+their/PRP$
 1987/CD
 performance/NN
 indicates/VBZ
@@ -45483,6 +46151,7 @@ Inc./NNP
 ,/,
 which/WDT
 manages/VBZ
+$/$
 1.1/CD
 billion/CD
 of/IN
@@ -45492,14 +46161,14 @@ Mr./NNP
 Rogers/NNP
 spent/VBD
 half/PDT
-his/PRP
+his/PRP$
 cash/NN
 on/IN
 hand/NN
 Friday/NNP
 for/IN
 ``/``
-our/PRP
+our/PRP$
 favorite/JJ
 stocks/NNS
 that/WDT
@@ -45533,6 +46202,7 @@ Friday/NNP
 's/POS
 rout/NN
 shaved/VBD
+$/$
 40/CD
 million/CD
 from/IN
@@ -45540,6 +46210,7 @@ the/DT
 value/NN
 of/IN
 the/DT
+$/$
 752/CD
 million/CD
 Janus/NNP
@@ -45575,6 +46246,7 @@ market/NN
 ``/``
 I/PRP
 spent/VBD
+$/$
 30/CD
 million/CD
 in/IN
@@ -45588,7 +46260,7 @@ money/NN
 managers/NNS
 also/RB
 opened/VBD
-their/PRP
+their/PRP$
 wallets/NNS
 ./.
 ``/``
@@ -45706,6 +46378,7 @@ investment/NN
 ,/,
 attracting/VBG
 about/RB
+$/$
 1/CD
 trillion/CD
 from/IN
@@ -45747,6 +46420,7 @@ Services/NNP
 Inc/NNP
 ./.
 The/DT
+$/$
 56/CD
 billion/CD
 California/NNP
@@ -45759,10 +46433,11 @@ for/IN
 one/CD
 ,/,
 added/VBD
+$/$
 1/CD
 billion/CD
 to/TO
-its/PRP
+its/PRP$
 stock/NN
 portfolio/NN
 two/CD
@@ -45879,6 +46554,7 @@ year/NN
 ,/,
 rising/VBG
 27.97/CD
+%/NN
 before/IN
 Friday/NNP
 's/POS
@@ -45897,6 +46573,7 @@ ahead/RB
 more/JJR
 than/IN
 20/CD
+%/NN
 ,/,
 well/RB
 above/IN
@@ -46075,11 +46752,12 @@ futures/NNS
 contracts/NNS
 ./.
 In/IN
-its/PRP
+its/PRP$
 severest/JJS
 test/NN
 ,/,
 the/DT
+$/$
 60/CD
 billion/CD
 of/IN
@@ -46125,7 +46803,7 @@ said/VBD
 Neil/NNP
 Weisman/NNP
 ,/,
-whose/WP
+whose/WP$
 New/NNP
 York-based/JJ
 Chilmark/NNP
@@ -46134,8 +46812,10 @@ Partners/NNP
 had/VBD
 converted/VBN
 85/CD
+%/NN
 of/IN
-its/PRP
+its/PRP$
+$/$
 220/CD
 million/CD
 investment/NN
@@ -46161,7 +46841,7 @@ to/TO
 take/VB
 stock/NN
 off/IN
-their/PRP
+their/PRP$
 hands/NNS
 ./.
 ``/``
@@ -46192,7 +46872,7 @@ who/WP
 ,/,
 happy/JJ
 with/IN
-his/PRP
+his/PRP$
 returns/NNS
 on/IN
 investments/NNS
@@ -46249,7 +46929,7 @@ reprieve/NN
 for/IN
 money/NN
 managers/NNS
-whose/WP
+whose/WP$
 investment/NN
 styles/NNS
 had/VBD
@@ -46318,7 +46998,7 @@ said/VBD
 last/JJ
 May/NNP
 that/IN
-its/PRP
+its/PRP$
 short/JJ
 positions/NNS
 had/VBD
@@ -46326,6 +47006,7 @@ shown/VBN
 losses/NNS
 of/IN
 10/CD
+%/NN
 for/IN
 the/DT
 year/NN
@@ -46452,7 +47133,7 @@ Beecham/NNP
 PLC/NNP
 product/NN
 as/IN
-its/PRP
+its/PRP$
 own/JJ
 in/IN
 tests/NNS
@@ -46474,7 +47155,7 @@ at/IN
 the/DT
 retail/JJ
 level/NN
-its/PRP
+its/PRP$
 urinary/JJ
 tract/NN
 antibiotic/NN
@@ -46527,7 +47208,7 @@ recall/VB
 two/CD
 strengths/NNS
 of/IN
-its/PRP
+its/PRP$
 version/NN
 of/IN
 Macrodantin/NNP
@@ -46561,7 +47242,7 @@ voluntary/JJ
 recall/NN
 of/IN
 both/DT
-its/PRP
+its/PRP$
 100/CD
 milligram/NN
 and/CC
@@ -46592,7 +47273,7 @@ the/DT
 brand-name/JJ
 product/NN
 for/IN
-its/PRP
+its/PRP$
 own/JJ
 to/TO
 gain/VB
@@ -46615,7 +47296,7 @@ the/DT
 brand-name/JJ
 product/NN
 for/IN
-its/PRP
+its/PRP$
 own/JJ
 in/IN
 such/JJ
@@ -46781,7 +47462,7 @@ shareholders/NNS
 ./.
 Speaking/VBG
 through/IN
-its/PRP
+its/PRP$
 Dutch/JJ
 lawyers/NNS
 ,/,
@@ -46792,6 +47473,7 @@ it/PRP
 holds/VBZ
 a/DT
 15/CD
+%/NN
 stake/NN
 in/IN
 Ahold/NNP
@@ -46804,6 +47486,7 @@ ASKO/NNP
 held/VBD
 a/DT
 13.6/CD
+%/NN
 stake/NN
 that/WDT
 was/VBD
@@ -46816,12 +47499,12 @@ spokesman/NN
 for/IN
 Ahold/NNP
 said/VBD
-his/PRP
+his/PRP$
 company/NN
 is/VBZ
 confident/JJ
 of/IN
-its/PRP
+its/PRP$
 own/JJ
 position/NN
 and/CC
@@ -46900,7 +47583,7 @@ the/DT
 trade/NN
 deficit/NN
 ,/,
-our/PRP
+our/PRP$
 relations/NNS
 with/IN
 Japan/NNP
@@ -47021,6 +47704,7 @@ President/NNP
 Bush/NNP
 must/MD
 order/VB
+$/$
 16/CD
 billion/CD
 of/IN
@@ -47138,6 +47822,7 @@ push/VB
 the/DT
 dollar/NN
 lower/RBR
+;/:
 the/DT
 Fed/NNP
 has/VBZ
@@ -47198,7 +47883,7 @@ out/RP
 confusing/JJ
 signals/NNS
 about/IN
-its/PRP
+its/PRP$
 response/NN
 to/TO
 a/DT
@@ -47254,7 +47939,7 @@ kept/VBN
 mum/JJ
 on/IN
 how/WRB
-his/PRP
+his/PRP$
 decision/NN
 might/MD
 affect/VB
@@ -47437,6 +48122,7 @@ deficit/NN
 by/IN
 more/JJR
 than/IN
+$/$
 76/CD
 billion/CD
 --/:
@@ -47448,6 +48134,7 @@ actually/RB
 rose/VBD
 by/IN
 nearly/RB
+$/$
 12/CD
 billion/CD
 during/IN
@@ -47776,7 +48463,7 @@ April/NNP
 budget/NN
 accord/NN
 and/CC
-his/PRP
+his/PRP$
 insistence/NN
 on/IN
 combining/VBG
@@ -48057,7 +48744,7 @@ of/IN
 Representatives/NNPS
 to/TO
 strip/VB
-their/PRP
+their/PRP$
 bill/NN
 ''/''
 of/IN
@@ -48086,7 +48773,7 @@ Management/NNP
 and/CC
 Budget/NNP
 ,/,
-whose/WP
+whose/WP$
 calculations/NNS
 determine/VBP
 whether/IN
@@ -48109,6 +48796,7 @@ fiscal/JJ
 1990/CD
 shortfall/NN
 by/IN
+$/$
 6.2/CD
 billion/CD
 ,/,
@@ -48122,6 +48810,7 @@ Office/NNP
 's/POS
 estimate/NN
 of/IN
+$/$
 11.0/CD
 billion/CD
 ./.
@@ -48274,7 +48963,7 @@ Sen./NNP
 Mitchell/NNP
 said/VBD
 during/IN
-his/PRP
+his/PRP$
 television/NN
 appearance/NN
 ,/,
@@ -48285,7 +48974,7 @@ suggest/VBP
 that/DT
 is/VBZ
 perhaps/RB
-more/RBR
+more/RBR|JJR
 than/IN
 any/DT
 of/IN
@@ -48318,6 +49007,7 @@ Capital/NNP
 Markets/NNP
 Report/NNP
 :/:
+$/$
 15.2/CD
 billion/CD
 of/IN
@@ -48331,12 +49021,14 @@ notes/NNS
 ,/,
 refinancing/VBG
 about/RB
+$/$
 9.6/CD
 billion/CD
 in/IN
 maturing/VBG
 debt/NN
 ./.
+$/$
 9.75/CD
 billion/CD
 of/IN
@@ -48353,6 +49045,7 @@ Three/CD
 million/CD
 shares/NNS
 of/IN
+$/$
 25/CD
 preferred/JJ
 ,/,
@@ -48397,6 +49090,7 @@ Blockbuster/NNP
 Entertainment/NNP
 Corp./NNP
 --/:
+$/$
 250/CD
 million/CD
 (/(
@@ -48433,6 +49127,7 @@ Co/NNP
 Comcast/NNP
 Corp./NNP
 --/:
+$/$
 150/CD
 million/CD
 convertible/JJ
@@ -48508,6 +49203,7 @@ Securities/NNP
 ./.
 Oregon/NNP
 --/:
+$/$
 100/CD
 million/CD
 of/IN
@@ -48529,6 +49225,7 @@ Washington/NNP
 ,/,
 D.C./NNP
 --/:
+$/$
 200/CD
 million/CD
 of/IN
@@ -48552,6 +49249,7 @@ Public/NNP
 School/NNP
 Authority/NNP
 --/:
+$/$
 55,730,000/CD
 of/IN
 school/NN
@@ -48574,12 +49272,14 @@ Austin/NNP
 ,/,
 Texas/NNP
 --/:
+$/$
 68,230,000/CD
 of/IN
 various/JJ
 bonds/NNS
 ,/,
 including/VBG
+$/$
 32/CD
 million/CD
 hotel/NN
@@ -48592,6 +49292,7 @@ Series/NNP
 1989A/NNP
 ,/,
 and/CC
+$/$
 36.23/CD
 million/CD
 convention/NN
@@ -48616,6 +49317,7 @@ Facilities/NNP
 Financing/NNP
 Authority/NNP
 --/:
+$/$
 144.5/CD
 million/CD
 of/IN
@@ -48631,6 +49333,7 @@ group/NN
 ./.
 Connecticut/NNP
 --/:
+$/$
 100/CD
 million/CD
 of/IN
@@ -48661,6 +49364,7 @@ Education/NNP
 Facilities/NNP
 Authority/NNP
 --/:
+$/$
 117/CD
 million/CD
 of/IN
@@ -48703,6 +49407,7 @@ of/IN
 New/NNP
 Jersey/NNP
 --/:
+$/$
 55/CD
 million/CD
 of/IN
@@ -48725,6 +49430,7 @@ And/CC
 Tourism/NNP
 Authority/NNP
 --/:
+$/$
 143/CD
 million/CD
 of/IN
@@ -48745,6 +49451,7 @@ Antonio/NNP
 ,/,
 Texas/NNP
 --/:
+$/$
 640/CD
 million/CD
 of/IN
@@ -48769,6 +49476,7 @@ Education/NNP
 Facility/NNP
 Authority/NNP
 --/:
+$/$
 51.1/CD
 million/CD
 of/IN
@@ -48793,7 +49501,7 @@ group/NN
 Small/JJ
 investors/NNS
 matched/VBD
-their/PRP
+their/PRP$
 big/JJ
 institutional/JJ
 brethren/NNS
@@ -48893,7 +49601,7 @@ predicted/VBD
 Mr./NNP
 Sullivan/NNP
 ,/,
-whose/WP
+whose/WP$
 investments/NNS
 include/VBP
 AMR/NNP
@@ -48989,7 +49697,7 @@ Ky/NNP
 Mrs./NNP
 Crump/NNP
 said/VBD
-her/PRP
+her/PRP$
 Ashwood/NNP
 Investment/NNP
 Club/NNP
@@ -48999,7 +49707,7 @@ lost/VBD
 about/RB
 one-third/NN
 of/IN
-its/PRP
+its/PRP$
 value/NN
 following/VBG
 the/DT
@@ -49279,6 +49987,7 @@ with/IN
 an/DT
 offer/NN
 of/IN
+$/$
 275/CD
 a/DT
 share/NN
@@ -49343,12 +50052,12 @@ it/PRP
 ''/''
 She/PRP
 and/CC
-her/PRP
+her/PRP$
 husband/NN
 pulled/VBD
 most/JJS
 of/IN
-their/PRP
+their/PRP$
 investments/NNS
 out/IN
 of/IN
@@ -49380,7 +50089,7 @@ because/IN
 she/PRP
 recently/RB
 quit/VBD
-her/PRP
+her/PRP$
 job/NN
 as/IN
 a/DT
@@ -49478,7 +50187,7 @@ crash/NN
 and/CC
 ,/,
 to/TO
-his/PRP
+his/PRP$
 regret/NN
 ,/,
 never/RB
@@ -49704,7 +50413,7 @@ Houston/NNP
 said/VBD
 he/PRP
 and/CC
-his/PRP
+his/PRP$
 mother/NN
 have/VBP
 some/DT
@@ -49717,7 +50426,7 @@ the/DT
 overall/JJ
 economy/NN
 is/VBZ
-his/PRP
+his/PRP$
 chief/JJ
 worry/NN
 ./.
@@ -49735,7 +50444,7 @@ today/NN
 he/PRP
 said/VBD
 in/IN
-his/PRP
+his/PRP$
 showroom/NN
 ,/,
 which/WDT
@@ -49849,10 +50558,12 @@ ever/RB
 get/VB
 back/RB
 in/RP
+?/.
 ``/``
 Are/VBP
 you/PRP
 kidding/VBG
+!/.
 When/WRB
 it/PRP
 comes/VBZ
@@ -49994,7 +50705,7 @@ be/VB
 the/DT
 first/JJ
 in/IN
-their/PRP
+their/PRP$
 weight/NN
 class/NN
 not/RB
@@ -50021,7 +50732,7 @@ than/IN
 anything/NN
 else/RB
 of/IN
-their/PRP
+their/PRP$
 size/NN
 on/IN
 the/DT
@@ -50033,8 +50744,10 @@ they/PRP
 priced/VBN
 aggressively/RB
 at/IN
+$/$
 2,400/CD
 to/TO
+$/$
 5,000/CD
 ./.
 All/DT
@@ -50138,6 +50851,7 @@ be/VB
 said/VBD
 of/IN
 the/DT
+$/$
 2,400/CD
 notepad/NN
 computer/NN
@@ -50241,6 +50955,7 @@ pound/NN
 costs/VBZ
 a/DT
 mere/JJ
+$/$
 400/CD
 and/CC
 runs/VBZ
@@ -50268,7 +50983,7 @@ critics/NNS
 however/RB
 ,/,
 say/VB
-its/PRP
+its/PRP$
 ability/NN
 to/TO
 run/VB
@@ -50408,9 +51123,11 @@ GRiD/NNP
 Whether/IN
 it/PRP
 's/VBZ
+$/$
 5/CD
 billion/CD
 or/CC
+$/$
 3.5/CD
 billion/CD
 ,/,
@@ -50434,6 +51151,7 @@ which/WDT
 now/RB
 comprise/VBP
 12/CD
+%/NN
 of/IN
 all/DT
 personal/JJ
@@ -50721,6 +51439,7 @@ last/JJ
 year/NN
 had/VBD
 28/CD
+%/NN
 of/IN
 the/DT
 U.S./NNP
@@ -50731,7 +51450,7 @@ recently/RB
 agreed/VBD
 to/TO
 sell/VB
-its/PRP
+its/PRP$
 computer/NN
 business/NN
 to/TO
@@ -50755,6 +51474,7 @@ December/NNP
 on/IN
 the/DT
 proposed/JJ
+$/$
 635/CD
 million/CD
 sale/NN
@@ -50802,6 +51522,7 @@ pointedly/RB
 that/IN
 Zenith/NNP
 's/POS
+$/$
 2,000/CD
 MinisPort/NNP
 uses/VBZ
@@ -51142,6 +51863,7 @@ What/WP
 about/IN
 Big/NNP
 Blue/NNP
+?/.
 International/NNP
 Business/NNP
 Machines/NNP
@@ -51198,12 +51920,14 @@ Honeywell/NNP
 's/POS
 contract/NN
 totaled/VBD
+$/$
 69.7/CD
 million/CD
 ,/,
 and/CC
 IBM/NNP
 's/POS
+$/$
 68.8/CD
 million/CD
 ./.
@@ -51211,6 +51935,7 @@ Boeing/NNP
 Co./NNP
 received/VBD
 a/DT
+$/$
 46.7/CD
 million/CD
 Air/NNP
@@ -51230,6 +51955,7 @@ Dynamics/NNP
 Corp./NNP
 received/VBD
 a/DT
+$/$
 29/CD
 million/CD
 Air/NNP
@@ -51244,6 +51970,7 @@ Grumman/NNP
 Corp./NNP
 received/VBD
 an/DT
+$/$
 18.1/CD
 million/CD
 Navy/NNP
@@ -51257,6 +51984,7 @@ Avco/NNP
 Corp./NNP
 received/VBD
 an/DT
+$/$
 11.8/CD
 million/CD
 Army/NNP
@@ -51284,6 +52012,7 @@ to/TO
 shoot/VB
 up/RB
 1.1/CD
+%/NN
 from/IN
 the/DT
 previous/JJ
@@ -51297,6 +52026,7 @@ of/IN
 inflation/NN
 to/TO
 6.8/CD
+%/NN
 ,/,
 the/DT
 National/NNP
@@ -51349,6 +52079,7 @@ Prices/NNS
 have/VBP
 risen/VBN
 5.9/CD
+%/NN
 in/IN
 the/DT
 first/JJ
@@ -51363,6 +52094,7 @@ both/CC
 the/DT
 initial/JJ
 3/CD
+%/NN
 inflation/NN
 goal/NN
 set/VBN
@@ -51383,6 +52115,7 @@ revised/VBN
 goal/NN
 of/IN
 5.8/CD
+%/NN
 ./.
 Japan/NNP
 's/POS
@@ -51392,6 +52125,7 @@ in/IN
 September/NNP
 rose/VBD
 3.3/CD
+%/NN
 from/IN
 a/DT
 year/NN
@@ -51400,6 +52134,7 @@ and/CC
 were/VBD
 up/RB
 0.4/CD
+%/NN
 from/IN
 the/DT
 previous/JJ
@@ -51429,8 +52164,10 @@ of/IN
 100/CD
 ./.
 Plunge/NN
+?/.
 What/WDT
 plunge/NN
+?/.
 Twenty-four/CD
 New/NNP
 York/NNP
@@ -51540,6 +52277,7 @@ Friday/NNP
 session/NN
 traded/VBD
 below/IN
+$/$
 100/CD
 a/DT
 share/NN
@@ -51554,9 +52292,11 @@ June/NNP
 IBM/NNP
 closed/VBD
 at/IN
+$/$
 102/CD
 ,/,
 down/RB
+$/$
 5.625/CD
 ./.
 Other/JJ
@@ -51596,7 +52336,7 @@ the/DT
 cascading/JJ
 market/NN
 in/IN
-their/PRP
+their/PRP$
 maiden/JJ
 day/NN
 of/IN
@@ -51619,12 +52359,14 @@ restaurants/NNS
 ,/,
 closed/VBD
 at/IN
+$/$
 17/CD
 each/DT
 ,/,
 up/RB
 from/IN
-its/PRP
+its/PRP$
+$/$
 15/CD
 offering/NN
 price/NN
@@ -51642,11 +52384,13 @@ consultant/NN
 ,/,
 closed/VBD
 at/IN
+$/$
 14.125/CD
 ,/,
 up/RB
 from/IN
-its/PRP
+its/PRP$
+$/$
 12/CD
 offering/NN
 price/NN
@@ -51658,6 +52402,7 @@ said/VBD
 it/PRP
 acquired/VBD
 5/CD
+%/NN
 of/IN
 the/DT
 shares/NNS
@@ -51713,6 +52458,7 @@ as/RB
 much/JJ
 as/IN
 15/CD
+%/NN
 of/IN
 Jaguar/NNP
 shares/NNS
@@ -51734,6 +52480,7 @@ as/RB
 much/JJ
 as/IN
 15/CD
+%/NN
 of/IN
 the/DT
 British/JJ
@@ -51816,7 +52563,7 @@ drop/NN
 That/DT
 's/VBZ
 because/IN
-their/PRP
+their/PRP$
 brokers/NNS
 can/MD
 require/VB
@@ -51835,7 +52582,7 @@ enhance/VB
 the/DT
 collateral/NN
 backing/VBG
-their/PRP
+their/PRP$
 loans/NNS
 ./.
 In/IN
@@ -51874,8 +52621,9 @@ stock/NN
 falls/VBZ
 below/IN
 75/CD
+%/NN
 of/IN
-its/PRP
+its/PRP$
 original/JJ
 value/NN
 ./.
@@ -51955,8 +52703,10 @@ officials/NNS
 do/VBP
 n't/RB
 expect/VB
+{/(
 margin/NN
 calls/NNS
+}/)
 to/TO
 be/VB
 as/RB
@@ -52139,9 +52889,11 @@ five/CD
 programs/NNS
 at/IN
 between/IN
+$/$
 8/CD
 million/CD
 and/CC
+$/$
 14/CD
 million/CD
 ./.
@@ -52319,7 +53071,7 @@ that/IN
 it/PRP
 would/MD
 drop/VB
-its/PRP
+its/PRP$
 marketing/NN
 agreements/NNS
 at/IN
@@ -52371,7 +53123,7 @@ time/NN
 ,/,
 Hertz/NNP
 said/VBD
-its/PRP
+its/PRP$
 annual/JJ
 fees/NNS
 to/TO
@@ -52379,6 +53131,7 @@ those/DT
 airlines/NNS
 amounted/VBD
 to/TO
+$/$
 20/CD
 million/CD
 and/CC
@@ -52389,6 +53142,7 @@ of/IN
 redeemed/VBN
 awards/NNS
 topped/VBD
+$/$
 15/CD
 million/CD
 ./.
@@ -52407,7 +53161,7 @@ high/JJ
 ./.
 Budget/NNP
 said/VBD
-its/PRP
+its/PRP$
 frequent-flier/JJ
 costs/NNS
 are/VBP
@@ -52438,12 +53192,14 @@ and/CC
 costs/NNS
 attached/VBN
 to/TO
+{/(
 frequent-flier/JJ
 programs/NNS
+}/)
 have/VBP
 significantly/RB
 diminished/VBN
-their/PRP
+their/PRP$
 value/NN
 ./.
 ''/''
@@ -52479,7 +53235,7 @@ been/VBN
 looking/VBG
 to/TO
 get/VB
-their/PRP
+their/PRP$
 costs/NNS
 down/RB
 ,/,
@@ -52513,7 +53269,7 @@ to/TO
 one/CD
 hour/NN
 from/IN
-its/PRP
+its/PRP$
 current/JJ
 90/CD
 minutes/NNS
@@ -52618,7 +53374,7 @@ CBS/NNP
 News/NNP
 will/MD
 extend/VB
-its/PRP
+its/PRP$
 four-hour/JJ
 ``/``
 Nightwatch/NNP
@@ -52736,7 +53492,7 @@ revenue/NN
 and/CC
 earnings/NNS
 for/IN
-its/PRP
+its/PRP$
 fiscal/JJ
 fourth/JJ
 quarter/NN
@@ -52753,6 +53509,7 @@ report/VB
 revenue/NN
 of/IN
 about/RB
+$/$
 450/CD
 million/CD
 and/CC
@@ -52784,7 +53541,7 @@ a/DT
 continued/JJ
 improvement/NN
 in/IN
-our/PRP
+our/PRP$
 U.S./NNP
 business/NN
 ,/,
@@ -52809,6 +53566,7 @@ reported/VBD
 net/JJ
 income/NN
 of/IN
+$/$
 30.1/CD
 million/CD
 ,/,
@@ -52821,6 +53579,7 @@ share/NN
 on/IN
 revenue/NN
 of/IN
+$/$
 383.9/CD
 million/CD
 ./.
@@ -52851,9 +53610,11 @@ will/MD
 report/VB
 revenue/NN
 of/IN
+$/$
 430/CD
 million/CD
 to/TO
+$/$
 460/CD
 million/CD
 and/CC
@@ -52906,7 +53667,7 @@ of/IN
 the/DT
 U.S./NNP
 exceeded/VBD
-our/PRP
+our/PRP$
 plan/NN
 ./.
 ''/''
@@ -52965,7 +53726,7 @@ is/VBZ
 scheduled/VBN
 to/TO
 announce/VB
-its/PRP
+its/PRP$
 most/JJS
 powerful/JJ
 computer/NN
@@ -53010,9 +53771,11 @@ various/JJ
 configurations/NNS
 ,/,
 are/VBP
+$/$
 2/CD
 million/CD
 to/TO
+$/$
 10/CD
 million/CD
 ./.
@@ -53090,6 +53853,7 @@ by/IN
 less/JJR
 than/IN
 20/CD
+%/NN
 next/JJ
 year/NN
 ,/,
@@ -53118,7 +53882,7 @@ Tandem/NNP
 Cyclone/NNP
 by/IN
 discounting/VBG
-its/PRP
+its/PRP$
 own/JJ
 mainframes/NNS
 ,/,
@@ -53323,7 +54087,7 @@ Federal/NNP
 Reserve/NNP
 to/TO
 ease/VB
-its/PRP
+its/PRP$
 grip/NN
 on/IN
 credit/NN
@@ -53458,7 +54222,7 @@ of/IN
 the/DT
 nation/NN
 ./.
-Its/PRP
+Its/PRP$
 spasms/NNS
 ca/MD
 n't/RB
@@ -53489,7 +54253,7 @@ has/VBZ
 a/DT
 life/NN
 of/IN
-its/PRP
+its/PRP$
 own/JJ
 ,/,
 ''/''
@@ -53682,7 +54446,7 @@ a/DT
 fundamental/JJ
 change/NN
 in/IN
-their/PRP
+their/PRP$
 interest-rate/NN
 policies/NNS
 ./.
@@ -53705,7 +54469,7 @@ short-term/JJ
 interest/NN
 rates/NNS
 in/IN
-its/PRP
+its/PRP$
 effort/NN
 to/TO
 calm/VB
@@ -53732,12 +54496,14 @@ Funds/NNP
 rate/NN
 to/TO
 8.625/CD
+%/NN
 late/RB
 Friday/NNP
 ,/,
 down/RB
 from/IN
 8.820/CD
+%/NN
 the/DT
 day/NN
 before/RB
@@ -53793,7 +54559,7 @@ some/DT
 investors/NNS
 to/TO
 reassess/VB
-their/PRP
+their/PRP$
 desire/NN
 to/TO
 invest/VB
@@ -53948,6 +54714,7 @@ annual/JJ
 rate/NN
 of/IN
 5.3/CD
+%/NN
 ./.
 The/DT
 consensus/NN
@@ -53962,6 +54729,7 @@ much/RB
 more/RBR
 sluggish/JJ
 2.3/CD
+%/NN
 in/IN
 the/DT
 third/JJ
@@ -54066,8 +54834,10 @@ by/IN
 strength/NN
 elsewhere/RB
 ./.
+{/(
 The/DT
 effects/NNS
+}/)
 were/VBD
 much/RB
 less/RBR
@@ -54170,7 +54940,7 @@ money/NN
 ,/,
 the/DT
 greater/JJR
-its/PRP
+its/PRP$
 sensitivity/NN
 to/TO
 an/DT
@@ -54189,6 +54959,7 @@ withstand/VB
 an/DT
 unanticipated/JJ
 storm/NN
+;/:
 a/DT
 highly/RB
 leveraged/JJ
@@ -54212,7 +54983,7 @@ very/RB
 well/RB
 --/:
 hence/RB
-its/PRP
+its/PRP$
 readiness/NN
 to/TO
 pump/VB
@@ -54259,7 +55030,7 @@ to/TO
 live/VB
 up/IN
 to/TO
-its/PRP
+its/PRP$
 tough/JJ
 words/NNS
 on/IN
@@ -54267,7 +55038,7 @@ eliminating/VBG
 inflation/NN
 because/IN
 of/IN
-its/PRP
+its/PRP$
 responsibility/NN
 to/TO
 protect/VB
@@ -54296,6 +55067,7 @@ recession/NN
 ,/,
 he/PRP
 reasons/VBZ
+;/:
 it/PRP
 's/VBZ
 an/DT
@@ -54375,6 +55147,7 @@ much/JJ
 of/IN
 a/DT
 dent/NN
+;/:
 multiply/VB
 that/IN
 a/DT
@@ -54765,16 +55538,19 @@ Mich./NNP
 company/NN
 are/VBP
 between/IN
+$/$
 3.20/CD
 a/DT
 share/NN
 and/CC
+$/$
 3.30/CD
 a/DT
 share/NN
 ,/,
 compared/VBN
 with/IN
+$/$
 3.36/CD
 a/DT
 year/NN
@@ -54783,11 +55559,13 @@ ago/RB
 when/WRB
 profit/NN
 was/VBD
+$/$
 632/CD
 million/CD
 on/IN
 sales/NNS
 of/IN
+$/$
 4.15/CD
 billion/CD
 ./.
@@ -54833,8 +55611,10 @@ whole/JJ
 industry/NN
 by/IN
 8/CD
+%/NN
 to/TO
 10/CD
+%/NN
 ./.
 ``/``
 You/PRP
@@ -54910,7 +55690,7 @@ because/IN
 so/RB
 much/JJ
 of/IN
-their/PRP
+their/PRP$
 business/NN
 is/VBZ
 outside/IN
@@ -54956,7 +55736,7 @@ chemicals/NNS
 it/PRP
 buys/VBZ
 for/IN
-its/PRP
+its/PRP$
 own/JJ
 production/NN
 needs/NNS
@@ -54983,7 +55763,7 @@ the/DT
 latest/JJS
 quarter/NN
 from/IN
-its/PRP
+its/PRP$
 Conoco/NNP
 Inc./NNP
 oil/NN
@@ -54996,8 +55776,10 @@ Du/NNP
 Pont/NNP
 range/NN
 from/IN
+$/$
 2.25/CD
 to/TO
+$/$
 2.45/CD
 a/DT
 share/NN
@@ -55011,10 +55793,12 @@ quarter/NN
 the/DT
 company/NN
 earned/VBD
+$/$
 461/CD
 million/CD
 ,/,
 or/CC
+$/$
 1.91/CD
 a/DT
 share/NN
@@ -55022,6 +55806,7 @@ share/NN
 on/IN
 sales/NNS
 of/IN
+$/$
 7.99/CD
 billion/CD
 ./.
@@ -55046,7 +55831,7 @@ profit/NN
 ,/,
 even/RB
 though/IN
-its/PRP
+its/PRP$
 sales/NNS
 of/IN
 crop/NN
@@ -55079,7 +55864,7 @@ again/RB
 that/IN
 losses/NNS
 in/IN
-its/PRP
+its/PRP$
 G.D./NNP
 Searle/NNP
 &/CC
@@ -55126,8 +55911,10 @@ for/IN
 Monsanto/NNP
 run/VBP
 between/IN
+$/$
 1.70/CD
 and/CC
+$/$
 2/CD
 a/DT
 share/NN
@@ -55142,10 +55929,12 @@ posted/VBD
 third-quarter/JJ
 profit/NN
 of/IN
+$/$
 116/CD
 million/CD
 ,/,
 or/CC
+$/$
 1.67/CD
 a/DT
 share/NN
@@ -55153,6 +55942,7 @@ share/NN
 on/IN
 sales/NNS
 of/IN
+$/$
 2.02/CD
 billion/CD
 ./.
@@ -55274,6 +56064,7 @@ compared/VBN
 with/IN
 a/DT
 restated/JJ
+$/$
 1.65/CD
 a/DT
 share/NN
@@ -55284,11 +56075,13 @@ earlier/RBR
 when/WRB
 profit/NN
 was/VBD
+$/$
 107.8/CD
 million/CD
 on/IN
 sales/NNS
 of/IN
+$/$
 435.5/CD
 million/CD
 ./.
@@ -55297,7 +56090,7 @@ faces/VBZ
 lower/JJR
 prices/NNS
 for/IN
-its/PRP
+its/PRP$
 mainstay/NN
 product/NN
 ,/,
@@ -55315,7 +56108,7 @@ investment/NN
 program/NN
 to/TO
 bolster/VB
-its/PRP
+its/PRP$
 raw/JJ
 material/NN
 supply/NN
@@ -55326,7 +56119,7 @@ uses/NNS
 for/IN
 polypropylene/NN
 ,/,
-whose/WP
+whose/WP$
 markets/NNS
 include/VBP
 the/DT
@@ -55345,7 +56138,7 @@ Wilmington/NNP
 Del./NNP
 ,/,
 is/VBZ
--owned/JJ
+81%-owned/JJ
 by/IN
 Montedison/NNP
 S.p/NNP
@@ -55403,7 +56196,7 @@ explosion/NN
 Some/DT
 analysts/NNS
 hedge/VBP
-their/PRP
+their/PRP$
 estimates/NNS
 for/IN
 Quantum/NNP
@@ -55442,10 +56235,12 @@ quarter/NN
 ,/,
 Quantum/NNP
 earned/VBD
+$/$
 99.8/CD
 million/CD
 ,/,
 or/CC
+$/$
 3.92/CD
 a/DT
 share/NN
@@ -55453,6 +56248,7 @@ share/NN
 on/IN
 sales/NNS
 of/IN
+$/$
 724.4/CD
 million/CD
 ./.
@@ -55472,14 +56268,17 @@ post/VB
 profit/NN
 of/IN
 between/IN
+$/$
 1/CD
 a/DT
 share/NN
 and/CC
+$/$
 1.25/CD
 ,/,
 compared/VBN
 with/IN
+$/$
 1.56/CD
 a/DT
 share/NN
@@ -55491,11 +56290,13 @@ when/WRB
 the/DT
 company/NN
 earned/VBD
+$/$
 213/CD
 million/CD
 on/IN
 sales/NNS
 of/IN
+$/$
 2.11/CD
 billion/CD
 ./.
@@ -55546,10 +56347,12 @@ Dow/NNP
 Chemical/NNP
 Co./NNP
 --/:
+$/$
 150/CD
 million/CD
 of/IN
 8.55/CD
+%/NN
 senior/JJ
 notes/NNS
 due/JJ
@@ -55632,10 +56435,12 @@ Centel/NNP
 Capital/NNP
 Corp./NNP
 --/:
+$/$
 150/CD
 million/CD
 of/IN
 9/CD
+%/NN
 debentures/NNS
 due/JJ
 Oct./NNP
@@ -55649,6 +56454,7 @@ at/IN
 to/TO
 yield/VB
 9.008/CD
+%/NN
 ./.
 The/DT
 non-callable/JJ
@@ -55708,6 +56514,7 @@ Loan/NNP
 Mortgage/NNP
 Corp./NNP
 --/:
+$/$
 500/CD
 million/CD
 of/IN
@@ -55735,6 +56542,7 @@ Freddie/NNP
 Mac/NNP
 8/CD
 1\/2/CD
+%/NN
 securities/NNS
 with/IN
 a/DT
@@ -55769,6 +56577,7 @@ yields/NNS
 ranged/VBD
 from/IN
 8.78/CD
+%/NN
 ,/,
 or/CC
 75/CD
@@ -55781,6 +56590,7 @@ securities/NNS
 ,/,
 to/TO
 10.05/CD
+%/NN
 ,/,
 or/CC
 200/CD
@@ -55796,6 +56606,7 @@ Loan/NNP
 Mortgage/NNP
 Corp./NNP
 --/:
+$/$
 300/CD
 million/CD
 of/IN
@@ -55822,6 +56633,7 @@ Freddie/NNP
 Mac/NNP
 9/CD
 1\/2/CD
+%/NN
 securities/NNS
 ./.
 Pricing/NN
@@ -55837,6 +56649,7 @@ Loan/NNP
 Mortgage/NNP
 Corp./NNP
 --/:
+$/$
 200/CD
 million/CD
 of/IN
@@ -55861,6 +56674,7 @@ by/IN
 Freddie/NNP
 Mac/NNP
 8/CD
+%/NN
 securities/NNS
 pooled/VBN
 into/IN
@@ -55937,6 +56751,7 @@ underlying/JJ
 Freddie/NNP
 Mac/NNP
 8/CD
+%/NN
 securities/NNS
 ,/,
 while/IN
@@ -55961,6 +56776,7 @@ at/IN
 to/TO
 yield/VB
 8.45/CD
+%/NN
 ,/,
 assuming/VBG
 an/DT
@@ -55974,6 +56790,7 @@ a/DT
 prepayment/NN
 of/IN
 160/CD
+%/NN
 of/IN
 the/DT
 PSA/NNP
@@ -55990,6 +56807,7 @@ at/IN
 to/TO
 yield/VB
 10.72/CD
+%/NN
 ./.
 There/EX
 were/VBD
