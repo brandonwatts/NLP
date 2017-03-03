@@ -4,20 +4,22 @@
 
 # Brandon Watts
 # CMSC 416
-# Assignment 3
+# Assignment 3 - Tagger
 # 3/2/17
 
 ######## SUMMARY #########
 
 # This program attempts to perform POS (Part of Speech) tagging. It learns of of the training data set file pos-train.txt. From 
-# there it will read in the file pos-test.txt and attempt to POS tag the tokens within that file. The program will output 
-# pos-test-with-tags.txt which will be the tokens matched with thier approxoimate POS tag.
+# there it will read in the file pos-test.txt and attempt to POS tag the tokens within that file. We then specify an output file 
+# with the > charcter to insist on where the output file should be witten to. 
+
 
 ########## EXAMPLE USE CASE #########
 
-# $ perl tagger.pl pos-train.txt pos-test.txt
+# $ perl tagger.pl pos-train.txt pos-test.txt > pos-test-with-tags.txt
 #
-# The first arguement is the file in which our training data is stored and the second file is the test data.
+# The first arguement is the file in which our training data is stored and the second file is the test data. The las arguement is the file which
+# you want the output written to.
 
 ######### ALGORITHIMS ########
 
@@ -128,7 +130,6 @@ sub generateTaggedFile {
 
     $file =~ s/\s+|_/ /g; # Delete all of the Tabs and remove extra Spaces.
 
-    my $outputFile = "pos-test-with-tags.txt";
 
     my @sentenceTokens = $file=~ /\S+/g;
 
@@ -138,120 +139,110 @@ sub generateTaggedFile {
 
         if($i<1) { $POSGuess = getPOS($sentenceTokens[$i]);} 
             else { $POSGuess = getPOS($sentenceTokens[$i],$sentenceTokens[$i-1]);}
-
-        append_file( $outputFile, "$sentenceTokens[$i]/$POSGuess\n");
+            print STDOUT "$sentenceTokens[$i]/$POSGuess\n";
     }
 }
 
 #  Method that get a POS tag given a word and its previous POS
 #
-#  @param $_[0]   
+#  @param $_[0]  The current word you are trying to find the POS tag of.
+#  @param $_[1]  The previous word
 sub getPOS {
 
+    ### Hold the current word ###
     my $currentWord = $_[0];
 
+    ### Holds the previous word ###
     my $lastWord = $_[1];
 
+    ### Will store the previous POS ###
     my $prevPOS;
 
+    ### Variable to store the max of a given probability so we can later assign it to POS ###
     my $max;
 
+    ### Our POS guess ###
     my $POS;
 
+    ### We check to see if a last word is defined because if it is, we will compute its POS. If not we will just call it a noun ###
     if (defined $lastWord) { $prevPOS = getPOS($lastWord); } 
         else { $prevPOS = "NN"; }
 
+    ### If the current word is a number then just assign it the tag 'CD' ###
     if($currentWord =~ /^(?=.)(\d{1,3}(,\d{3})*)?(\.\d+)?$|(\d\\\/\d)/) { return "CD"; } 
 
+    ### If the current word is a time then also assign it the tag 'CD' ###
     if($currentWord =~ /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/) { return "CD";} 
     
+    ### Let us start by assuming our POS is a Noun ###
     $POS = "NNP";
 
+    ### If we have seen the word before ###
     if(exists $wordToPOSMapping{$currentWord}) {
 
+        ### Set the max to zero ###
         $max = 0;
 
+        ### Let us loop through all the possible POS tags we have stored for that word ###
         for my $value ( keys %{ $wordToPOSMapping{$currentWord} } ) {
 
+            ### This is how many times the POS tag appeared in our training data ###
             my $frequencyTableValue;
+
+            ### This is how many time a POS tag was seen given its previous tag ###
             my $POSMapping;
+
+            ### This is how many times the current word was seen with the given POS tag. ###
             my $currentMap;
 
+            ### If have a frequency table value then set it else just move on so we dont divide by zero ###
             if(exists $frequencyTable{$value}) { $frequencyTableValue =  $frequencyTable{$value}; } 
                 else { next; }
 
+            ### If have a previous POS value then set it else just move on because we know the result will be zero ###
             if(exists $POStoPOSMapping{$value}{$prevPOS}) { $POSMapping = $POStoPOSMapping{$value}{$prevPOS}; } 
-                else { $POSMapping = 0; }
+                else { next; }
 
+            ### If have a relationship with the current word then set it else just move on because we know the result will be zero ###
             if(exists $wordToPOSMapping{$currentWord}{$value}) { $currentMap = $wordToPOSMapping{$currentWord}{$value}; } 
-                else {  $currentMap = 0; }
+                else {  next; }
 
+            ### Now we can calculate the probabilty the current POS tag is the one we need ###
             my $argMax = (($currentMap * $POSMapping)/$frequencyTableValue);
-                
+            
+            ### If the result of our caluculation was bigger than the current max, make it the current max and make it our POS tag.    
             if($argMax > $max) {
                 $max = $argMax;
                 $POS = $value;
             }
         }
+
+        ### Return the maximum possible POS tag. ###
         return $POS;
     }
+
+    ### We have not seen the word before ###
     else { 
-                
+            
+            ### If the word contains a hypen, it usually, but not always, represents an acjective so lets just assume it is.           
             if($currentWord =~ /\w+-\w+/) { return "JJ"; } 
                 
+            ### Assume that most adverbs end in ly ###              
             if($currentWord =~ /\b\w+(ly\b)/) { return "RB"; } 
 
+            ### Since we are assuming a noun (singular), adding an 's' would give us a noun plural. ###
             if($currentWord =~ /\b\w+(s\b)/) { return "NNS"; } 
 
+            ### Past tense verbs most of the time end in 'ed' ###
             if($currentWord =~ /\b\w+(ed\b)/) { return "VBN"; } 
 
+            ### If we see an interjection, just label it ###
             if($currentWord =~ /\boh\b|\bah\b/i) { return "UH"; } 
 
+            ### If the word ends in 'ing' there is a good chance its a verb ###
             if($currentWord =~ /\b\w+(ing\b)/) { return "VBG"; } 
 
+            ### If all else fails, just call it a noun ###
             return "NNP";
     }    
 }
-
-sub printFrequecyTable {
-
-    say "---------------------- Frequency Table ----------------------------";
-
-    foreach my $key ( keys %frequencyTable ) {    # Loop through the dictionary
-        printf("KEY: %-25s VALUE: %-25s\n", $key, $frequencyTable{$key});
-    }
-}
-
-sub printRawFrequencyTable {
-    say "---------------------- Word To POS Frequency Table ----------------------------";
-
-    for my $key ( keys %wordToPOSMapping ) {
-        
-        print "$key: ";
-
-        for my $value ( keys %{ $wordToPOSMapping{$key} } ) {
-            print "$value=$wordToPOSMapping{$key}{$value} ";
-        }
-
-        print "\n";
-    }
-}
-
-sub printPOStoPOSTable {
-    say "---------------------- POS To POS Frequency Table ----------------------------";
-
-    for my $key ( keys %POStoPOSMapping ) {
-        
-        print "$key: ";
-
-        for my $value ( keys %{ $POStoPOSMapping{$key} } ) {
-            print "$value=$POStoPOSMapping{$key}{$value} ";
-        }
-
-        print "\n";
-    }
-}
-
-
-
-
