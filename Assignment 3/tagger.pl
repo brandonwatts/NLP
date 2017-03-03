@@ -13,6 +13,18 @@
 # there it will read in the file pos-test.txt and attempt to POS tag the tokens within that file. We then specify an output file 
 # with the > charcter to insist on where the output file should be witten to. 
 
+######## ACCURACY AND RULES ########
+
+# Becuase my program also used the previous tag to make its calculations, my accuray was able to climb to about a 90.5%
+#
+# I still added a few basic grammar rules so I wouldnt make the assumption that a word I hadnt seen was always a Noun.
+#
+# 1) If the word contains a hypen, it usually, but not always, represents an acjective so lets just assume it is.                      
+# 2) Assume that most adverbs end in ly             
+# 3) Since we are assuming a noun (singular), adding an 's' would give us a noun plural.
+# 4) Past tense verbs most of the time end in 'ed' 
+# 5) If we see an interjection, just label it 
+# 6) If the word ends in 'ing' there is a good chance its a verb
 
 ########## EXAMPLE USE CASE #########
 
@@ -121,15 +133,14 @@ sub createWordtoPOSMapping {
 
 #  Method that generates the tagged output file 
 #
-#  @param $_[0]  Will hold the Trst data file in its entirety
+#  @param $_[0]  Will hold the Test data file in its entirety
 sub generateTaggedFile {
 
     my $file = $_[0];
 
-    $file =~ s/\[|\]/ /g;
+    $file =~ s/\[|\]/ /g; # Remove Brackets 
 
     $file =~ s/\s+|_/ /g; # Delete all of the Tabs and remove extra Spaces.
-
 
     my @sentenceTokens = $file=~ /\S+/g;
 
@@ -137,6 +148,7 @@ sub generateTaggedFile {
         
         my $POSGuess;
 
+        ### We check to see if i is at least 1 so we dont get an out of bounds error ###
         if($i<1) { $POSGuess = getPOS($sentenceTokens[$i]);} 
             else { $POSGuess = getPOS($sentenceTokens[$i],$sentenceTokens[$i-1]);}
             print STDOUT "$sentenceTokens[$i]/$POSGuess\n";

@@ -125,7 +125,6 @@ sub computeAccuracy {
         }
     }
 
-
     say "---------------------- Confusion Matrix ----------------------------";
 
     for my $key ( keys %confusionMatrix ) {
@@ -143,5 +142,3 @@ sub computeAccuracy {
     print (STDOUT "Percentage Correct: $correctPercentage\n");
     print (STDOUT "Percentage Incorrect: $incorrectPercentage\n");
 }
-
-
