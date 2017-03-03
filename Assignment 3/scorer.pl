@@ -31,23 +31,27 @@ computeAccuracy();
    
 sub processKey {
     
-    my $outputFile = "test.txt";
-
     my $rawData = $_[0];
+
     $rawData =~ s/\[|\]/ /g;
+
     $rawData =~ s/\s+|_/ /g; # Delete all of the Tabs and remove extra Spaces.
 
-    my @sentenceTokens = $rawData=~ /\S+/g;    
+    my @sentenceTokens = $rawData=~ /\S+/g;  
+
     foreach my $i (0.. $#sentenceTokens ) {
-        append_file($outputFile, "$sentenceTokens[$i]\n"); 
+
+
        if ($sentenceTokens[$i] =~ /(\S+)\\?\/(\S+)/) { 
-        $tokensForKey[$i] = $1; 
-        $POSForKey[$i] = $2;
+
+            $tokensForKey[$i] = $1; 
+            $POSForKey[$i] = $2;
        } 
     }
 }
 
 sub processTagged {
+
     my $rawData = $_[0];
 
     my @sentenceTokens = $rawData=~ /\S+/g;
@@ -70,12 +74,12 @@ sub computeAccuracy {
 
     foreach my $i (0.. $#POSForTagged ) {
         
-        if ($POSForTagged[$i] eq $POSForKey[$i]) { 
-                $true++;
-       } else {
-                $false++;
-                $confusionMatrix{$tokensForTagged[$i]}{$POSForKey[$i]} = $POSForTagged[$i];
-            }
+        if ($POSForTagged[$i] eq $POSForKey[$i]) { $true++; } 
+        else {
+
+            $false++;
+            $confusionMatrix{$tokensForTagged[$i]}{$POSForKey[$i]} = $POSForTagged[$i];
+        }
     }
 
     say "---------------------- Confusion Matrix ----------------------------";
@@ -87,12 +91,11 @@ sub computeAccuracy {
             printf("Word: %-20s | Chose: %-20s | Correct: %-20s\n", $key,$confusionMatrix{$key}{$value} ,$value);
             say "---------------------------------------------------------------------------------------------";
         }
-
         print "\n";
     }
 
-       my $correctPercentage = $true/$#POSForTagged;
-        my $incorrectPercentage = $false/$#POSForTagged;
+    my $correctPercentage = $true/$#POSForTagged;
+    my $incorrectPercentage = $false/$#POSForTagged;
     print("Percentage Correct: $correctPercentage\n");
     print("Percentage Incorrect: $incorrectPercentage\n");
 }
