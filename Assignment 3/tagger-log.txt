@@ -1,0 +1,420 @@
+Script started on Sat Mar  4 20:38:00 2017
+[?1034hbash-3.2$ time perl tagger.pl pos-t
+pos-test-key.txt  pos-test.txt      pos-train.txt     
+bash-3.2$ time perl tagger.pl pos-train.txt pos [K-test.txt > pos-test-with-tags.txt
+
+real	0m0.925s
+user	0m0.802s
+sys	0m0.022s
+bash-3.2$ head -100 pos-tets[K[Kst-with-tags.txt
+No/DT
+,/,
+it/PRP
+was/VBD
+n't/RB
+Black/NNP
+Monday/NNP
+./.
+But/CC
+while/IN
+the/DT
+New/NNP
+York/NNP
+Stock/NNP
+Exchange/NNP
+did/VBD
+n't/RB
+fall/VB
+apart/NNP
+Friday/NNP
+as/IN
+the/DT
+Dow/NNP
+Jones/NNP
+Industrial/NNP
+Average/NNP
+plunged/VBD
+190.58/CD
+points/NNS
+--/:
+most/NNP
+of/IN
+it/PRP
+in/IN
+the/DT
+final/JJ
+hour/NN
+--/:
+it/PRP
+barely/RB
+managed/VBN
+to/TO
+stay/VB
+this/DT
+side/NN
+of/IN
+chaos/NNS
+./.
+Some/DT
+``/``
+circuit/NN
+breakers/NNS
+''/''
+installed/VBN
+after/IN
+the/DT
+October/NNP
+1987/CD
+crash/NN
+failed/VBD
+their/PRP$
+first/JJ
+test/NN
+,/,
+traders/NNS
+say/VBP
+,/,
+unable/JJ
+to/TO
+cool/JJ
+the/DT
+selling/VBG
+panic/NN
+in/IN
+both/DT
+stocks/NNS
+and/CC
+futures/NNS
+./.
+The/DT
+49/CD
+stock/NN
+specialist/NN
+firms/NNS
+on/IN
+the/DT
+Big/NNP
+Board/NNP
+floor/NN
+--/:
+the/DT
+buyers/NNS
+and/CC
+sellers/NNS
+of/IN
+last/JJ
+resort/NN
+who/WP
+were/VBD
+criticized/VBD
+bash-3.2$ perl scorer.pl pos-ts[Kest-with-tags.txt pos-test-key.txt > pos-taggind[Kg-report.txt
+bash-3.2$ cat pos-tagging-report.txt 
+---------------------- Confusion Matrix ----------------------------
+########## PDT ##########
+Chose: PDT     | Correct: PDT     | Number: 1      | Percentage: 0.0018
+Chose: PDT     | Correct: NN      | Number: 3      | Percentage: 0.0053
+Chose: PDT     | Correct: DT      | Number: 1      | Percentage: 0.0018
+
+########## CC ##########
+Chose: CC      | Correct: CC      | Number: 1361   | Percentage: 2.3952
+Chose: CC      | Correct: RB      | Number: 6      | Percentage: 0.0106
+Chose: CC      | Correct: NN      | Number: 1      | Percentage: 0.0018
+
+########## NNP ##########
+Chose: NNP     | Correct: CC      | Number: 1      | Percentage: 0.0018
+Chose: NNP     | Correct: NNP     | Number: 5405   | Percentage: 9.5120
+Chose: NNP     | Correct: ,       | Number: 2      | Percentage: 0.0035
+Chose: NNP     | Correct: WP$     | Number: 1      | Percentage: 0.0018
+Chose: NNP     | Correct: VBN     | Number: 20     | Percentage: 0.0352
+Chose: NNP     | Correct: WP      | Number: 2      | Percentage: 0.0035
+Chose: NNP     | Correct: RBR     | Number: 1      | Percentage: 0.0018
+Chose: NNP     | Correct: CD      | Number: 34     | Percentage: 0.0598
+Chose: NNP     | Correct: RP      | Number: 2      | Percentage: 0.0035
+Chose: NNP     | Correct: JJ      | Number: 465    | Percentage: 0.8183
+Chose: NNP     | Correct: PRP     | Number: 1      | Percentage: 0.0018
+Chose: NNP     | Correct: RB      | Number: 59     | Percentage: 0.1038
+Chose: NNP     | Correct: WRB     | Number: 13     | Percentage: 0.0229
+Chose: NNP     | Correct: FW      | Number: 15     | Percentage: 0.0264
+Chose: NNP     | Correct: WDT     | Number: 2      | Percentage: 0.0035
+Chose: NNP     | Correct: VBP     | Number: 53     | Percentage: 0.0933
+Chose: NNP     | Correct: VBZ     | Number: 4      | Percentage: 0.0070
+Chose: NNP     | Correct: JJR     | Number: 20     | Percentage: 0.0352
+Chose: NNP     | Correct: NNPS    | Number: 1      | Percentage: 0.0018
+Chose: NNP     | Correct: (       | Number: 8      | Percentage: 0.0141
+Chose: NNP     | Correct: JJ|IN   | Number: 1      | Percentage: 0.0018
+Chose: NNP     | Correct: UH      | Number: 1      | Percentage: 0.0018
+Chose: NNP     | Correct: $       | Number: 5      | Percentage: 0.0088
+Chose: NNP     | Correct: ``      | Number: 4      | Percentage: 0.0070
+Chose: NNP     | Correct: :       | Number: 2      | Percentage: 0.0035
+Chose: NNP     | Correct: JJS     | Number: 18     | Percentage: 0.0317
+Chose: NNP     | Correct: VB      | Number: 253    | Percentage: 0.4452
+Chose: NNP     | Correct: .       | Number: 4      | Percentage: 0.0070
+Chose: NNP     | Correct: MD      | Number: 33     | Percentage: 0.0581
+Chose: NNP     | Correct: NN      | Number: 1080   | Percentage: 1.9006
+Chose: NNP     | Correct: NNS     | Number: 22     | Percentage: 0.0387
+Chose: NNP     | Correct: VBD     | Number: 20     | Percentage: 0.0352
+Chose: NNP     | Correct: DT      | Number: 6      | Percentage: 0.0106
+Chose: NNP     | Correct: #       | Number: 3      | Percentage: 0.0053
+Chose: NNP     | Correct: ''      | Number: 5      | Percentage: 0.0088
+Chose: NNP     | Correct: RBS     | Number: 3      | Percentage: 0.0053
+Chose: NNP     | Correct: IN      | Number: 14     | Percentage: 0.0246
+Chose: NNP     | Correct: SYM     | Number: 1      | Percentage: 0.0018
+Chose: NNP     | Correct: PRP$    | Number: 29     | Percentage: 0.0510
+Chose: NNP     | Correct: )       | Number: 6      | Percentage: 0.0106
+Chose: NNP     | Correct: VBG     | Number: 1      | Percentage: 0.0018
+
+########## , ##########
+Chose: ,       | Correct: ,       | Number: 3068   | Percentage: 5.3992
+
+########## WP$ ##########
+Chose: WP$     | Correct: WP$     | Number: 20     | Percentage: 0.0352
+
+########## VBN ##########
+Chose: VBN     | Correct: VBP     | Number: 6      | Percentage: 0.0106
+Chose: VBN     | Correct: VBN|JJ  | Number: 2      | Percentage: 0.0035
+Chose: VBN     | Correct: NNP     | Number: 17     | Percentage: 0.0299
+Chose: VBN     | Correct: VB      | Number: 7      | Percentage: 0.0123
+Chose: VBN     | Correct: JJ      | Number: 183    | Percentage: 0.3221
+Chose: VBN     | Correct: NN      | Number: 3      | Percentage: 0.0053
+Chose: VBN     | Correct: VBN     | Number: 923    | Percentage: 1.6243
+Chose: VBN     | Correct: VBD     | Number: 278    | Percentage: 0.4892
+
+########## WP ##########
+Chose: WP      | Correct: WP      | Number: 109    | Percentage: 0.1918
+Chose: WP      | Correct: WDT     | Number: 1      | Percentage: 0.0018
+
+########## RBR ##########
+Chose: RBR     | Correct: RBR|JJR | Number: 2      | Percentage: 0.0035
+Chose: RBR     | Correct: RBR     | Number: 49     | Percentage: 0.0862
+Chose: RBR     | Correct: JJR|RBR | Number: 3      | Percentage: 0.0053
+Chose: RBR     | Correct: RB      | Number: 11     | Percentage: 0.0194
+Chose: RBR     | Correct: JJR     | Number: 44     | Percentage: 0.0774
+
+########## CD ##########
+Chose: CD      | Correct: LS      | Number: 4      | Percentage: 0.0070
+Chose: CD      | Correct: CD      | Number: 1890   | Percentage: 3.3261
+Chose: CD      | Correct: NNP     | Number: 7      | Percentage: 0.0123
+Chose: CD      | Correct: JJ      | Number: 5      | Percentage: 0.0088
+Chose: CD      | Correct: PRP     | Number: 5      | Percentage: 0.0088
+Chose: CD      | Correct: NNS     | Number: 6      | Percentage: 0.0106
+Chose: CD      | Correct: NN      | Number: 6      | Percentage: 0.0106
+
+########## RP ##########
+Chose: RP      | Correct: RB      | Number: 19     | Percentage: 0.0334
+Chose: RP      | Correct: RP      | Number: 86     | Percentage: 0.1513
+Chose: RP      | Correct: IN      | Number: 9      | Percentage: 0.0158
+
+########## JJ ##########
+Chose: JJ      | Correct: PDT     | Number: 4      | Percentage: 0.0070
+Chose: JJ      | Correct: NNP     | Number: 134    | Percentage: 0.2358
+Chose: JJ      | Correct: VBN     | Number: 12     | Percentage: 0.0211
+Chose: JJ      | Correct: CD      | Number: 7      | Percentage: 0.0123
+Chose: JJ      | Correct: RBR     | Number: 1      | Percentage: 0.0018
+Chose: JJ      | Correct: VB      | Number: 13     | Percentage: 0.0229
+Chose: JJ      | Correct: JJ      | Number: 2752   | Percentage: 4.8431
+Chose: JJ      | Correct: NNS     | Number: 29     | Percentage: 0.0510
+Chose: JJ      | Correct: NN      | Number: 212    | Percentage: 0.3731
+Chose: JJ      | Correct: VBD     | Number: 2      | Percentage: 0.0035
+Chose: JJ      | Correct: DT      | Number: 16     | Percentage: 0.0282
+Chose: JJ      | Correct: RB      | Number: 51     | Percentage: 0.0898
+Chose: JJ      | Correct: RB|JJ   | Number: 1      | Percentage: 0.0018
+Chose: JJ      | Correct: IN      | Number: 5      | Percentage: 0.0088
+Chose: JJ      | Correct: VBP     | Number: 4      | Percentage: 0.0070
+Chose: JJ      | Correct: JJR     | Number: 3      | Percentage: 0.0053
+Chose: JJ      | Correct: NNPS    | Number: 5      | Percentage: 0.0088
+Chose: JJ      | Correct: VBG     | Number: 3      | Percentage: 0.0053
+
+########## PRP ##########
+Chose: PRP     | Correct: CD      | Number: 1      | Percentage: 0.0018
+Chose: PRP     | Correct: PRP$    | Number: 5      | Percentage: 0.0088
+Chose: PRP     | Correct: PRP     | Number: 1044   | Percentage: 1.8373
+
+########## TO ##########
+Chose: TO      | Correct: TO      | Number: 1243   | Percentage: 2.1875
+
+########## EX ##########
+Chose: EX      | Correct: EX      | Number: 52     | Percentage: 0.0915
+Chose: EX      | Correct: RB      | Number: 6      | Percentage: 0.0106
+
+########## WRB ##########
+Chose: WRB     | Correct: WRB     | Number: 119    | Percentage: 0.2094
+
+########## RB ##########
+Chose: RB      | Correct: CC      | Number: 2      | Percentage: 0.0035
+Chose: RB      | Correct: EX      | Number: 5      | Percentage: 0.0088
+Chose: RB      | Correct: WRB     | Number: 1      | Percentage: 0.0018
+Chose: RB      | Correct: RB      | Number: 1668   | Percentage: 2.9354
+Chose: RB      | Correct: NNP     | Number: 19     | Percentage: 0.0334
+Chose: RB      | Correct: RB|JJ   | Number: 1      | Percentage: 0.0018
+Chose: RB      | Correct: IN      | Number: 29     | Percentage: 0.0510
+Chose: RB      | Correct: VBP     | Number: 1      | Percentage: 0.0018
+Chose: RB      | Correct: RBR     | Number: 1      | Percentage: 0.0018
+Chose: RB      | Correct: RP      | Number: 15     | Percentage: 0.0264
+Chose: RB      | Correct: VB      | Number: 4      | Percentage: 0.0070
+Chose: RB      | Correct: JJ      | Number: 51     | Percentage: 0.0898
+Chose: RB      | Correct: NN      | Number: 8      | Percentage: 0.0141
+Chose: RB      | Correct: UH      | Number: 2      | Percentage: 0.0035
+
+########## WDT ##########
+Chose: WDT     | Correct: WDT     | Number: 147    | Percentage: 0.2587
+Chose: WDT     | Correct: IN      | Number: 6      | Percentage: 0.0106
+Chose: WDT     | Correct: DT      | Number: 2      | Percentage: 0.0035
+
+########## VBP ##########
+Chose: VBP     | Correct: VBP     | Number: 652    | Percentage: 1.1474
+Chose: VBP     | Correct: VB      | Number: 78     | Percentage: 0.1373
+Chose: VBP     | Correct: JJ      | Number: 4      | Percentage: 0.0070
+Chose: VBP     | Correct: NN      | Number: 26     | Percentage: 0.0458
+
+########## JJR ##########
+Chose: JJR     | Correct: RBR     | Number: 57     | Percentage: 0.1003
+Chose: JJR     | Correct: JJR|RBR | Number: 1      | Percentage: 0.0018
+Chose: JJR     | Correct: JJR     | Number: 127    | Percentage: 0.2235
+Chose: JJR     | Correct: NNP     | Number: 1      | Percentage: 0.0018
+Chose: JJR     | Correct: VB      | Number: 1      | Percentage: 0.0018
+
+########## VBZ ##########
+Chose: VBZ     | Correct: VBZ     | Number: 1098   | Percentage: 1.9323
+Chose: VBZ     | Correct: NNP     | Number: 1      | Percentage: 0.0018
+Chose: VBZ     | Correct: NN      | Number: 1      | Percentage: 0.0018
+Chose: VBZ     | Correct: NNS     | Number: 77     | Percentage: 0.1355
+Chose: VBZ     | Correct: POS     | Number: 16     | Percentage: 0.0282
+
+########## NNPS ##########
+Chose: NNPS    | Correct: NNP     | Number: 48     | Percentage: 0.0845
+Chose: NNPS    | Correct: NNPS    | Number: 8      | Percentage: 0.0141
+Chose: NNPS    | Correct: NNS     | Number: 8      | Percentage: 0.0141
+
+########## ( ##########
+Chose: (       | Correct: (       | Number: 68     | Percentage: 0.1197
+
+########## UH ##########
+Chose: UH      | Correct: UH      | Number: 3      | Percentage: 0.0053
+
+########## POS ##########
+Chose: POS     | Correct: VBZ     | Number: 9      | Percentage: 0.0158
+Chose: POS     | Correct: ''      | Number: 1      | Percentage: 0.0018
+Chose: POS     | Correct: POS     | Number: 535    | Percentage: 0.9415
+
+########## $ ##########
+Chose: $       | Correct: $       | Number: 370    | Percentage: 0.6511
+
+########## `` ##########
+Chose: ``      | Correct: ``      | Number: 531    | Percentage: 0.9345
+
+########## : ##########
+Chose: :       | Correct: :       | Number: 334    | Percentage: 0.5878
+
+########## JJS ##########
+Chose: JJS     | Correct: JJS     | Number: 103    | Percentage: 0.1813
+Chose: JJS     | Correct: RB      | Number: 2      | Percentage: 0.0035
+Chose: JJS     | Correct: JJ      | Number: 1      | Percentage: 0.0018
+Chose: JJS     | Correct: RBS     | Number: 13     | Percentage: 0.0229
+
+########## . ##########
+Chose: .       | Correct: .       | Number: 2359   | Percentage: 4.1515
+
+########## VB ##########
+Chose: VB      | Correct: RB      | Number: 2      | Percentage: 0.0035
+Chose: VB      | Correct: NNP     | Number: 1      | Percentage: 0.0018
+Chose: VB      | Correct: VBN     | Number: 3      | Percentage: 0.0053
+Chose: VB      | Correct: VBP     | Number: 51     | Percentage: 0.0898
+Chose: VB      | Correct: VB      | Number: 1170   | Percentage: 2.0590
+Chose: VB      | Correct: JJ      | Number: 4      | Percentage: 0.0070
+Chose: VB      | Correct: NN      | Number: 22     | Percentage: 0.0387
+Chose: VB      | Correct: VBD     | Number: 3      | Percentage: 0.0053
+
+########## MD ##########
+Chose: MD      | Correct: MD      | Number: 547    | Percentage: 0.9626
+Chose: MD      | Correct: NN      | Number: 2      | Percentage: 0.0035
+
+########## NNS ##########
+Chose: NNS     | Correct: RB      | Number: 2      | Percentage: 0.0035
+Chose: NNS     | Correct: FW      | Number: 4      | Percentage: 0.0070
+Chose: NNS     | Correct: NNP     | Number: 248    | Percentage: 0.4364
+Chose: NNS     | Correct: IN      | Number: 3      | Percentage: 0.0053
+Chose: NNS     | Correct: VBP     | Number: 1      | Percentage: 0.0018
+Chose: NNS     | Correct: RBR     | Number: 1      | Percentage: 0.0018
+Chose: NNS     | Correct: VBZ     | Number: 125    | Percentage: 0.2200
+Chose: NNS     | Correct: VB      | Number: 3      | Percentage: 0.0053
+Chose: NNS     | Correct: JJ      | Number: 23     | Percentage: 0.0405
+Chose: NNS     | Correct: NNPS    | Number: 28     | Percentage: 0.0493
+Chose: NNS     | Correct: NNS     | Number: 3367   | Percentage: 5.9254
+Chose: NNS     | Correct: NN      | Number: 31     | Percentage: 0.0546
+Chose: NNS     | Correct: UH      | Number: 1      | Percentage: 0.0018
+
+########## NN ##########
+Chose: NN      | Correct: RB      | Number: 13     | Percentage: 0.0229
+Chose: NN      | Correct: FW      | Number: 1      | Percentage: 0.0018
+Chose: NN      | Correct: NNP     | Number: 27     | Percentage: 0.0475
+Chose: NN      | Correct: VBN     | Number: 1      | Percentage: 0.0018
+Chose: NN      | Correct: JJS     | Number: 1      | Percentage: 0.0018
+Chose: NN      | Correct: VBP     | Number: 29     | Percentage: 0.0510
+Chose: NN      | Correct: CD      | Number: 3      | Percentage: 0.0053
+Chose: NN      | Correct: VBG|NN  | Number: 1      | Percentage: 0.0018
+Chose: NN      | Correct: VB      | Number: 57     | Percentage: 0.1003
+Chose: NN      | Correct: JJ      | Number: 146    | Percentage: 0.2569
+Chose: NN      | Correct: MD      | Number: 4      | Percentage: 0.0070
+Chose: NN      | Correct: NNS     | Number: 4      | Percentage: 0.0070
+Chose: NN      | Correct: NN      | Number: 6014   | Percentage: 10.5837
+Chose: NN      | Correct: VBG     | Number: 26     | Percentage: 0.0458
+Chose: NN      | Correct: VBD     | Number: 3      | Percentage: 0.0053
+
+########## VBD ##########
+Chose: VBD     | Correct: VB      | Number: 3      | Percentage: 0.0053
+Chose: VBD     | Correct: JJ      | Number: 19     | Percentage: 0.0334
+Chose: VBD     | Correct: NN      | Number: 18     | Percentage: 0.0317
+Chose: VBD     | Correct: VBN     | Number: 139    | Percentage: 0.2446
+Chose: VBD     | Correct: VBD     | Number: 1531   | Percentage: 2.6943
+
+########## DT ##########
+Chose: DT      | Correct: PDT     | Number: 13     | Percentage: 0.0229
+Chose: DT      | Correct: CC      | Number: 9      | Percentage: 0.0158
+Chose: DT      | Correct: RB      | Number: 9      | Percentage: 0.0158
+Chose: DT      | Correct: NNP     | Number: 4      | Percentage: 0.0070
+Chose: DT      | Correct: IN      | Number: 4      | Percentage: 0.0070
+Chose: DT      | Correct: NN      | Number: 1      | Percentage: 0.0018
+Chose: DT      | Correct: DT      | Number: 4757   | Percentage: 8.3716
+Chose: DT      | Correct: UH      | Number: 1      | Percentage: 0.0018
+
+########## # ##########
+Chose: #       | Correct: #       | Number: 2      | Percentage: 0.0035
+
+########## '' ##########
+Chose: ''      | Correct: ''      | Number: 527    | Percentage: 0.9274
+
+########## RBS ##########
+Chose: RBS     | Correct: JJS     | Number: 6      | Percentage: 0.0106
+Chose: RBS     | Correct: RBS     | Number: 14     | Percentage: 0.0246
+
+########## IN ##########
+Chose: IN      | Correct: RB      | Number: 200    | Percentage: 0.3520
+Chose: IN      | Correct: NNP     | Number: 1      | Percentage: 0.0018
+Chose: IN      | Correct: WDT     | Number: 130    | Percentage: 0.2288
+Chose: IN      | Correct: IN      | Number: 5796   | Percentage: 10.2001
+Chose: IN      | Correct: VBP     | Number: 5      | Percentage: 0.0088
+Chose: IN      | Correct: RP      | Number: 74     | Percentage: 0.1302
+Chose: IN      | Correct: JJ      | Number: 8      | Percentage: 0.0141
+Chose: IN      | Correct: NN      | Number: 3      | Percentage: 0.0053
+Chose: IN      | Correct: DT      | Number: 37     | Percentage: 0.0651
+Chose: IN      | Correct: TO      | Number: 2      | Percentage: 0.0035
+
+########## PRP$ ##########
+Chose: PRP$    | Correct: PRP$    | Number: 476    | Percentage: 0.8377
+Chose: PRP$    | Correct: PRP     | Number: 6      | Percentage: 0.0106
+
+########## ) ##########
+Chose: )       | Correct: )       | Number: 70     | Percentage: 0.1232
+
+########## VBG ##########
+Chose: VBG     | Correct: NNP     | Number: 26     | Percentage: 0.0458
+Chose: VBG     | Correct: JJ      | Number: 50     | Percentage: 0.0880
+Chose: VBG     | Correct: VBG     | Number: 787    | Percentage: 1.3850
+Chose: VBG     | Correct: NN      | Number: 149    | Percentage: 0.2622
+
+Percentage Correct: 0.900744416873449
+Percentage Incorrect: 0.0992731816341974
+bash-3.2$ exit
+exit
+
+Script done on Sat Mar  4 20:41:48 2017
