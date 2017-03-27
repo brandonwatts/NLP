@@ -7,10 +7,11 @@
 # Assignment 3 - Tagger
 # 3/2/17
 
-use warnings;
 use feature qw(say switch);
+use warnings;
 
 use File::Slurp;
+use Data::Dumper;
 use XML::Simple;
 use List::Util;
 
@@ -54,11 +55,13 @@ sub preprocess {
    # create object
     my $xml = new XML::Simple;
 
-    write_file("ex.txt",$train);
     # read XML file
     $data = $xml->XMLin($train);
 
     $testData = $xml->XMLin($test);
+
+        write_file("ex.txt",Dumper($testData));
+
 
     createFeatures();
     createWordTypes();
@@ -76,23 +79,20 @@ sub createFeatures {
     my @surroundingWords;
 
     for $instance ( keys %$data->{lexelt}->{instance} ) {
-        else {
-            
-            foreach my $part ($data->{lexelt}->{instance}->{$instance}->{context}->{'s'} ) {
-                    foreach my $p (@$part){
-                            if(ref($p) eq "HASH"){
-                                foreach my $surroundingWords ($p->{content}){
-                                   foreach my $s (@$surroundingWords){
-                                        push(@surroundingWords,$s);
-                                    }
-                                }
-                            }
-                            else{
-                               push(@surroundingWords,$p);
-                            }
+        foreach my $part ($data->{lexelt}->{instance}->{$instance}->{context}->{'s'} ) {
+            foreach my $p ($part) {
+                if(ref($p) eq "HASH"){
+                    foreach my $surroundingWords ($p->{content}){
+                        foreach my $s (@$surroundingWords){
+                            push(@surroundingWords,$s);
+                        }
                     }
-            }
-        }
+                }
+                else{
+                    push(@surroundingWords,$p);
+                }
+            }    
+        }       
     }
 
     my $allWords = join(' ',@surroundingWords);
@@ -120,34 +120,34 @@ sub createWordsSurrounding {
             else {
                 foreach my $part ($data->{lexelt}->{instance}->{$instance}->{context}->{'s'} ) {
                     foreach my $p (@$part){
-                            if(ref($p) eq "HASH"){
-                                foreach my $surroundingWords ($p->{content}){
-                                   foreach my $s (@$surroundingWords){
-                                        push(@surroundingWords,$s);
-                                    }
+                        if(ref($p) eq "HASH"){
+                            foreach my $surroundingWords ($p->{content}){
+                                foreach my $s (@$surroundingWords){
+                                    push(@surroundingWords,$s);
                                 }
                             }
-                            else{
-                               push(@surroundingWords,$p);
-                            }
+                        }
+                        else {
+                            push(@surroundingWords,$p);
+                        }
                     }
                 }
-             }
-         }
-     }
+            }
+        }
+    }
 
-     my $allWords1 = join(' ',@surroundingWords);
-     $allWords1 =~ s/\s+|_/ /g; # Delete all of the Tabs and remove extra Spaces.
+    my $allWords1 = join(' ',@surroundingWords);
+    $allWords1 =~ s/\s+|_/ /g; # Delete all of the Tabs and remove extra Spaces.
 
-     $wordsSurrounding{$senseid} = $allWords1;
+    $wordsSurrounding{$senseid} = $allWords1;
 }
 
 sub createWordTypes {
 
-     for $instance ( keys %$data->{lexelt}->{instance} ) {
+    for $instance ( keys %$data->{lexelt}->{instance} ) {
 
-          my $senseid = $data->{lexelt}->{instance}->{$instance}->{answer}->{senseid};
-          $wordTypes{$senseid}++;
+        my $senseid = $data->{lexelt}->{instance}->{$instance}->{answer}->{senseid};
+        $wordTypes{$senseid}++;
     } 
 }
 
@@ -160,7 +160,7 @@ sub getTimesWordOccuredWithFeature {
 
     my @individualWords = $wordsSurroundingFeature=~ /\S+/g;
     my $counter = 0;
-     foreach my $word (@individualWords) {
+    foreach my $word (@individualWords) {
         if($word eq $searchWord){
             $counter++;
         } 
@@ -196,23 +196,23 @@ sub computeSenseID {
 
            foreach my $surroundingWords ($testData->{lexelt}->{instance}->{$instance}->{context}->{'s'}->{content}){
                     push(@surroundingWords,$surroundingWords);
-                };
+                }
         }
         ########## 's' was an array ########## 
         else {
             foreach my $part ($testData->{lexelt}->{instance}->{$instance}->{context}->{'s'} ) {
-                    foreach my $p (@$part){
-                            if(ref($p) eq "HASH"){
-                                foreach my $surroundingWords ($p->{content}){
-                                   foreach my $s (@$surroundingWords){
-                                        push(@surroundingWords,$s);
-                                    }
-                                }
+                foreach my $p (@$part){
+                    if(ref($p) eq "HASH"){
+                        foreach my $surroundingWords ($p->{content}){
+                            foreach my $s (@$surroundingWords){
+                                push(@surroundingWords,$s);
                             }
-                            else{
-                               push(@surroundingWords,$p);
-                            }
+                        }
                     }
+                        else{
+                            push(@surroundingWords,$p);
+                        }
+                }    
             }
         }
 
@@ -247,8 +247,8 @@ sub computeSenseID {
 }
 
 sub createAnswerFile {
-    foreach my $key (keys %guessedSenses) {    # Loop through the dictionary
-        printf(STDOUT "<answer instance=\"$key\" senseid=\"$guessedSenses{$key}\"/>\n");
+    foreach $guess (keys %guessedSenses) {    # Loop through the dictionary
+        printf(STDOUT "<answer instance=\"$guess\" senseid=\"$guessedSenses{$guess}\"/>\n");
     }
 }
 

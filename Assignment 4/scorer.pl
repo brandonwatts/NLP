@@ -54,8 +54,6 @@ sub computeAccuracy {
             }
     }  
 
-    print $keyMapping{'line-n.w9_16:217:'};
-
     my $true = 0;
     my $false = 0;
     my $total = 0;
