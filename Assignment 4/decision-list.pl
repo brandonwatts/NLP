@@ -292,30 +292,29 @@ sub getTimesWordOccuredWithFeature {
 #  Method that computes a sense for a particualar instance 
 sub computeSenseID {
     
-    ##### Break that string into individual words #####    
+    ##### Store max so we can determine argmax #####    
     my $max;
 
-    ##### Break that string into individual words #####
+    ##### Temp var used to store all of the strings #####
     my $allWords = ();
 
-    ##### Break that string into individual words #####
+    ##### Strings broken down into individual words #####
     my @words =();
 
-    ##### Break that string into individual words #####
+    ##### Strings surroundign a given word #####
     my @surroundingWords = ();
 
-    ##### Break that string into individual words #####
+    ##### Types the word 'line' could have #####
     my @types = ("phone","product");
 
-    ##### Break that string into individual words #####
+    ##### Sense we ar guessing #####
     my $guessedSense = "UNDETERMINED";
 
     ########## For Every instance ##########
     for $instance ( keys%$testData->{lexelt}->{instance}) {
-
         print STDERR "Computing senseid for instance: ". $instance ."\n";
         
-        ########## Empty arrays from the previous instance  ##########
+        ########## Empty variables from the previous instance  ##########
         $allWords = ();
         @words =();
         @surroundingWords = ();
@@ -326,9 +325,10 @@ sub computeSenseID {
         ########## Set the default sense to undetermined for easier debugging if a sense is not chosen ##########
         $guessedSense = "UNDETERMINED";
 
-        ########## 's' can either be a hash or an array from the xml parser (not really sure why) so I have to check so I can access it the correct way ##########
+        ##### Per the xml parser 's' can either be an array or a hash #####
         if (ref($testData->{lexelt}->{instance}->{$instance}->{context}->{'s'}) eq "HASH"){
 
+           ##### Iterate through the content and grab all the surrounding sentences and push them to temp array #####
            foreach my $surroundingWords ($testData->{lexelt}->{instance}->{$instance}->{context}->{'s'}->{content}){
                     push(@surroundingWords,$surroundingWords);
                 }
@@ -336,62 +336,100 @@ sub computeSenseID {
 
         ########## 's' was an array ########## 
         else {
+
+            ##### Break array up in to individual parts #####    
             foreach my $part ($testData->{lexelt}->{instance}->{$instance}->{context}->{'s'} ) {
+
+                ##### For each part of the array #####    
                 foreach my $p (@$part){
+
+                    ##### The array may contain a hash ##### 
                     if(ref($p) eq "HASH"){
+
+                        ##### Grab the content #####    
                         foreach my $surroundingWords ($p->{content}){
+
+                            ##### Iterate through the content and grab all the surrounding sentences and push them to temp array #####
                             foreach my $s (@$surroundingWords){
                                 push(@surroundingWords,$s);
                             }
                         }
                     }
-                        else{
-                            push(@surroundingWords,$p);
-                        }
+
+                    ##### Array #####
+                    else{
+                        push(@surroundingWords,$p);
+                    }
                 }    
             }
         }
 
+        ##### Place all the sentences into a giant string #####
         $allWords = join(' ',@surroundingWords);
-        $allWords =~ s/\s+|_/ /g; # Delete all of the Tabs and remove extra Spaces.
+
+        ##### Delete all of the Tabs and remove extra Spaces. #####
+        $allWords =~ s/\s+|_/ /g; 
+
+        ##### Break the sentences up into individual words #####
         @words = $allWords=~ /\S+/g;
+
+        ##### Initialize max to be zero #####
         my $max = 0;
+
+        ##### Used to store our sense guess #####
         my $typeScore;
+
+        ##### For each type #####
         foreach my $type (@types){
-            $typeScore =1;
+
+            ##### Initialize the type score to zero #####
+            $typeScore = 0;
+
+            ##### Iterate through all the words that surround that instance #####
             foreach my $word (@words) {
 
+                ##### Count how many times that word appeared within our training data  #####
                 my $timesWordAppearedinTrainingData = $wordTypes{$type};
 
+                ##### Count how many times that wprd appeared with that feature #####
                 my $TimesWordOccuredWithFeature = getTimesWordOccuredWithFeature($word,$type);
 
-                if($TimesWordOccuredWithFeature == 0){
-                    next;
-                }
+                ##### If that word did not occour with our feature then just move on  #####
+                if($TimesWordOccuredWithFeature == 0){ next; }
+
+                ##### Perform calculation  #####
                 $typeScore += log($TimesWordOccuredWithFeature/$timesWordAppearedinTrainingData);
             } 
 
+            ##### If the score is greater than our max then this is the senseID we choose #####
             if (abs($typeScore) > $max) {
                 $max = abs($typeScore);
                 $guessedSense = $type;
             }
         }
- 
+
+        ##### Place our guess in a hash #####
         $guessedSenses{$instance} = $guessedSense;
-            print STDERR "Done!\n";
-
+        
+        print STDERR "Done!\n";
     }
-
 }
 
 
 #  Method that generates the tagged output file 
-#
-#  @param $_[0]  Will hold the Test data file in its entirety
 sub createAnswerFile {
-    print STDERR "Creating the answer file... \n";
+    print STDERR "Creating the answer file...\n";
+
+    ##### Add start tag #####
+    printf(STDOUT "<answers>\n");
+
+    ##### Iterate through all of our guesses and output then to a file with the correct formating #####
     foreach $guess (keys %guessedSenses) {    # Loop through the dictionary
         printf(STDOUT "<answer instance=\"$guess\" senseid=\"$guessedSenses{$guess}\"/>\n");
     }
+
+    ##### Add end tag #####
+    printf(STDOUT "<\/answers>\n");
+
     print STDERR "Done!\n"
 }
