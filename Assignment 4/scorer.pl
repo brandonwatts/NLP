@@ -51,6 +51,7 @@ use File::Slurp;
 use warnings;
 use feature qw(say switch);
 use XML::Simple;
+use Data::Dumper;
 use File::Slurp qw( prepend_file ) ;
 
 ### Training data file ###
@@ -60,10 +61,12 @@ my $answers = read_file($ARGV[0]);
 my $key = $ARGV[1];
 
 my %confusionMatrix;
+
 my $answerHash;
 my $keyHash;
 
 processKey($key);
+write_file("x.txt", Dumper($keyHash));
 processAnswers($answers);
 computeAccuracy();
 
@@ -76,8 +79,8 @@ sub processKey{
     ##### We needto add start and end tags to conform to XML #####
     my $startTag = "<answers>\n";
     my $endTag = "<\/answers>\n";
-    prepend_file( $key,  $startTag) ;
-    append_file( $key, $endTag) ;
+    #prepend_file( $key,  $startTag) ;
+    #append_file( $key, $endTag) ;
 
     ##### Now we can read the file in #####
     my $keyFile = read_file($key);
@@ -103,7 +106,7 @@ sub computeAccuracy {
     my %keyMapping;
 
     ##### Loop through all of the instances in the answer file and create the keyMapping #####
-    foreach my $instances ($answerHash->{answer}){
+    foreach my $instances ($keyHash->{answer}){
             foreach my $id (@$instances){
                $keyMapping{$id->{instance}} = $id->{senseid};
             }
@@ -121,16 +124,36 @@ sub computeAccuracy {
 
     ##### Loop through all of the instances in the answer file and create the keyMapping #####
     foreach my $instances ($answerHash->{answer}){
+        
+        ##### Grab the senseID #####
         foreach my $id (@$instances){
+
+            ##### If the senseID of the key is equal to my guessed senseID #####
             if(($id->{senseid}) eq ($keyMapping{$id->{instance}})) {
+                print("I choose: $id->{senseid}   Correct Answer: $keyMapping{$id->{instance}}\n");
                 $true++;
                 $total++;
             } 
+
+            ##### The senseID of they key is not equal to my guessed senseID. #####
             else {
+                print("I choose: $id->{senseid}   Correct Answer: $keyMapping{$id->{instance}}\n");
                 $false++;
                 $total++;
             }
         }
+    }
+
+    say "---------------------- Confusion Matrix ----------------------------";
+
+    for my $key ( keys %confusionMatrix ) {
+        
+        print(STDOUT "########## $key ##########\n");
+
+        for my $value ( keys %{ $confusionMatrix{$key} } ) {
+            printf(STDOUT "Chose: %-7s | Correct: %-7s | Number: %-7s", $key, $value,$confusionMatrix{$key}{$value}); printf (STDOUT "| Percentage: %.4f\n", ($confusionMatrix{$key}{$value}/$#POSForTagged)*100);
+        }
+        print STDOUT "\n";
     }
 
     say "Total Correct: $true";

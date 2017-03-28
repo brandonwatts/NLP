@@ -382,23 +382,42 @@ sub computeSenseID {
         ##### For each type #####
         foreach my $type (@types){
 
-            ##### Initialize the type score to zero #####
-            $typeScore = 0;
 
             ##### Iterate through all the words that surround that instance #####
             foreach my $word (@words) {
+                
 
-                ##### Count how many times that word appeared within our training data  #####
-                my $timesWordAppearedinTrainingData = $wordTypes{$type};
+                    if(getTimesWordOccuredWithFeature($word,$type) == 0)
+                    {
+                        $typeScore = 0;
+                    }
+                    else 
+                    {
+                        $typeScore = log(getTimesWordOccuredWithFeature($word,$type)/$frequencyTable{$word});
 
-                ##### Count how many times that wprd appeared with that feature #####
-                my $TimesWordOccuredWithFeature = getTimesWordOccuredWithFeature($word,$type);
+                    }
 
-                ##### If that word did not occour with our feature then just move on  #####
-                if($TimesWordOccuredWithFeature == 0){ next; }
+                
+    
 
-                ##### Perform calculation  #####
-                $typeScore += log($TimesWordOccuredWithFeature/$timesWordAppearedinTrainingData);
+
+
+                foreach my $feature (@words) {
+
+                    ##### Count how many times that word appeared within our training data  #####
+                    my $timesWordAppearedinTrainingData = $frequencyTable{$word};
+
+                    ##### Count how many times that wprd appeared with that feature #####
+                    my $TimesWordOccuredWithFeature = getTimesWordOccuredWithFeature($word,$type);
+
+                    my $timesTypeOcuured = $wordTypes{$type};
+
+                    ##### If that word did not occour with our feature then just move on  #####
+                    if($TimesWordOccuredWithFeature == 0){ next; }
+
+                    ##### Perform calculation  #####
+                    $typeScore += log($TimesWordOccuredWithFeature/$timesTypeOcuured);
+                }
             } 
 
             ##### If the score is greater than our max then this is the senseID we choose #####

@@ -1,12 +1,4 @@
 <answers>
-<answers>
-<answers>
-<answers>
-<answers>
-<answers>
-<answers>
-<answers>
-<answers>
 <answer instance="line-n.w8_059:8174:" senseid="phone"/>
 <answer instance="line-n.w7_098:12684:" senseid="phone"/>
 <answer instance="line-n.w8_106:13309:" senseid="phone"/>
@@ -133,12 +125,6 @@
 <answer instance="line-n.w8_110:14049:" senseid="product"/>
 <answer instance="line-n.w7_108:4296:" senseid="phone"/>
 <answer instance="line-n.w7_057:1203:" senseid="phone"/>
+
 </answers>
-</answers>
-</answers>
-</answers>
-</answers>
-</answers>
-</answers>
-</answers>
-</answers>
+
