@@ -52,9 +52,16 @@ use warnings;
 
 use File::Slurp;
 use XML::Simple;
+use Data::Dumper;
 
 ##### Will hold our unigram of all words ###
 my %frequencyTable;
+
+my %features;
+
+my %rankedFeatures;
+
+my @orderedFeatures;
 
 ##### Will hold our data from the training file ###
 my $data;
@@ -67,6 +74,8 @@ my %guessedSenses;
 
 ##### Hash to hold all the words surrounding a given sense ###
 my %wordsSurrounding;
+
+my %instanceToFeatureVector;
 
 ##### Traing data XML file ###
 my $trainingData = read_file($ARGV[0]);
@@ -107,12 +116,18 @@ sub main {
     # parse test data xml
     $testData = $xml->XMLin($test);
 
+    print(Dumper($data));
     createFeatures();
-    createWordTypes();
+    createFeatureVector();    
     createWordsSurrounding("phone");
     createWordsSurrounding("product");
-    computeSenseID();
-    createAnswerFile();
+    #printV();
+    #createTests();
+    #rankTests();
+    #orderFeatures();
+    #printRankedFeatures();
+    #computeSenseID();
+    #createAnswerFile();
 }
 
 #  Method that creates features using bag-of-words
@@ -130,27 +145,81 @@ sub createFeatures {
         ##### For each sentance ('s') #####
         foreach my $part ($data->{lexelt}->{instance}->{$instance}->{context}->{'s'} ) {
             
-        ##### Per the xml parser 's' can either be an array or a hash #####
+            ##### Per the xml parser 's' can either be an array or a hash #####
             foreach my $p ($part) {
+                
+                if(ref($p) eq "ARRAY"){
 
-                ##### If it is a hash it stores more words and the ambigous word itself#####
-                if(ref($p) eq "HASH"){
+                    foreach my $section (@$p) {
+                        ##### If it is a hash it stores more words and the ambigous word itself#####
+                        if(ref($section) eq "HASH"){
 
-                    ##### Grab the content (which is an array) #####
-                    foreach my $surroundingWords ($p->{content}){
+                            ##### Grab the content (which is an array) #####
+                            foreach my $surroundingWords ($section->{content}){
 
-                        ##### Iterate through the content and grab all the surrounding sentences and push them to temp array #####
-                        foreach my $s (@$surroundingWords){
-                            push(@surroundingWords,$s);
+                                ##### Iterate through the content and grab all the surrounding sentences and push them to temp array #####
+                                foreach my $s (@$surroundingWords){
+                                    $s =~ s/[\.?!\)\(]//g; 
+                                    push(@surroundingWords,$s);
+                                }
+                            }
+
+
+                    if (exists $surroundingWords[0]) {
+                        my @wordsBefore =  $surroundingWords[0] =~ /\S+/g;
+                        my $wordBeforeSize = @wordsBefore;
+                        $features{$wordsBefore[$wordBeforeSize-1]}++;
+
+
+                    }
+                    if (exists $surroundingWords[1]) {
+              
+                        my @wordsAfter =  $surroundingWords[1] =~ /\S+/g;
+                    
+                            my $wordAfterSize = @wordsAfter;
+                            if(exists $wordsAfter[$wordAfterSize-1]){
+                                 $features{$wordsAfter[$wordAfterSize-1]}++;    
+
+                            }
+                    }
+                        
+
+                            @surroundingWords = ();
                         }
                     }
                 }
 
                 ##### If it is an array it just stores the surroundign word so just push it to a temp array #####
                 else{
-                    push(@surroundingWords,$p);
+
+                    foreach my $surroundingWords ($section->{content}){
+
+                        ##### Iterate through the content and grab all the surrounding sentences and push them to temp array #####
+                        foreach my $s (@$surroundingWords){
+                            $s =~ s/[\.?!\)\(]//g; 
+                            push(@surroundingWords,$s);
+                        }
+                    }
+
+                    if (exists $surroundingWords[0]) {
+                        my @wordsBefore =  $surroundingWords[0] =~ /\S+/g;
+                        my $wordBeforeSize = @wordsBefore;
+                        $features{$wordsBefore[$wordBeforeSize-1]}++;
+
+
+                    }
+                    if (exists $surroundingWords[1]) {
+                        my @wordsAfter =  $surroundingWords[1] =~ /\S+/g;
+                        my $wordAfterSize = @wordsAfter;
+                                                        $features{$wordsAfter[$wordAfterSize-1]}++;
+
+                    }
+
+
+
+                    @surroundingWords = ();
                 }
-            }    
+            }     
         }       
     }
 
@@ -158,7 +227,6 @@ sub createFeatures {
     my $allWords = join(' ',@surroundingWords);
 
     ##### Delete all of the Tabs and remove extra Spaces. #####
-    $allWords =~ s/\s+|_/ /g; 
 
     ##### Break the string up in to individual words. #####
     my @words = $allWords=~ /\S+/g;
@@ -169,6 +237,83 @@ sub createFeatures {
     print STDERR "Done!\n";
 }
 
+sub createFeatureVector(){
+
+    ##### For each instance #####
+    for $instance ( keys %$testData->{lexelt}->{instance} ) {
+
+        @surroundingWords = ();
+
+        ##### For each sentance ('s') #####
+        foreach my $part ($testData->{lexelt}->{instance}->{$instance}->{context}->{'s'} ) {
+
+
+            if(ref($part) eq "HASH"){
+                foreach my $sentence ($testData->{lexelt}->{instance}->{$instance}->{context}->{'s'}->{content}) {
+                    
+                    foreach my $s (@$sentence)
+                    {
+                        push(@surroundingWords,$s);
+                    }
+                }
+            } else{
+                foreach my $subpart ($part) {
+
+                    foreach my $s (@$subpart)
+                    {
+                          if (ref($s) eq "HASH"){
+
+                            foreach my $sentence ($s->{content}) {
+                                foreach my $x (@$sentence) {
+                                     push(@surroundingWords,$x);
+
+                                }
+
+                            }
+
+                          }
+                          else{
+                            push(@surroundingWords,$s);
+
+                          }
+                   }
+                }
+            }
+        }
+
+        ##### Combine all the surrounding sentences into one giant string #####
+        my $allWords = join(' ',@surroundingWords);
+
+
+
+        ##### Delete all of the Tabs and remove extra Spaces. #####
+        $allWords =~ s/\s+|_/ /g; 
+
+        ##### Break the string up in to individual words. #####
+        my @words = $allWords=~ /\S+/g;
+
+        my @featureVector;
+
+                    print STDERR "Features: @orderedFeatures";
+
+        foreach $feature (@orderedFeatures) {  
+
+            print STDERR "Feature: $feature";
+
+            if( $allWords =~ /$feature/) {
+                push @featureVector, 1;
+            }
+            else{
+                push @featureVector, 0;
+            }
+        }
+
+
+        $instanceToFeatureVector{$instance} = @featureVector;
+
+    }
+}
+
 
 #  Method that creates a hash of all the words surrounding a particular hash 
 #
@@ -176,7 +321,6 @@ sub createFeatures {
 sub createWordsSurrounding {
        
     my $senseid = $_[0];
-    print STDERR "Creating Words surrounding $senseid...\n";
     my @surroundingWords = ();
     my $allWords = ();
 
@@ -189,7 +333,7 @@ sub createWordsSurrounding {
            ##### Per the xml parser 's' can either be an array or a hash #####
            if (ref($data->{lexelt}->{instance}->{$instance}->{context}->{'s'}) eq "HASH"){
            
-                 ##### Iterate through the content and grab all the surrounding sentences and push them to temp array #####
+                ##### Iterate through the content and grab all the surrounding sentences and push them to temp array #####
                 foreach my $surroundingWords ($data->{lexelt}->{instance}->{$instance}->{context}->{'s'}->{content}){
                     push(@surroundingWords,$surroundingWords);
                 }
@@ -236,13 +380,11 @@ sub createWordsSurrounding {
     ##### Place the senseID in the hash mappepd to the words that surround it #####
     $wordsSurrounding{$senseid} = $allWords;
 
-    print STDERR "Done!\n";
 }
 
 
 #  Method counts the number of times a particular sense occurs 
 sub createWordTypes {
-    print STDERR "Creating Word Types...\n";
 
     ##### For each instance #####
     for $instance ( keys %$data->{lexelt}->{instance} ) {
@@ -254,7 +396,6 @@ sub createWordTypes {
         $wordTypes{$senseid}++;
     } 
 
-    print STDERR "Done!\n";
 }
 
 
@@ -288,156 +429,65 @@ sub getTimesWordOccuredWithFeature {
     return $counter;
 }
 
+my %tests;
+sub createTests{
+     foreach my $i (0 .. $#orderedFeatures) {  
+            $tests{$orderedFeatures[$i]} = $i;
+    }
+}
 
-#  Method that computes a sense for a particualar instance 
-sub computeSenseID {
-    
-    ##### Store max so we can determine argmax #####    
-    my $max;
+sub rankTests{
+    foreach $feature (@orderedFeatures) {  
+        $countOfSenseGivenFeaturePhone = getTimesWordOccuredWithFeature($feature, "phone");
+        $countOfSenseGivenFeatureProduct = getTimesWordOccuredWithFeature($feature, "product");
 
-    ##### Temp var used to store all of the strings #####
-    my $allWords = ();
+        $countofFeature = $features{$feature};
 
-    ##### Strings broken down into individual words #####
-    my @words =();
+        $rank = abs(log(($countOfSenseGivenFeaturePhone/$countofFeature) / ($countOfSenseGivenFeatureProduct/$countofFeature)));
 
-    ##### Strings surroundign a given word #####
-    my @surroundingWords = ();
+        $rankedFeatures{$feature} = $rank;
 
-    ##### Types the word 'line' could have #####
-    my @types = ("phone","product");
-
-    ##### Sense we ar guessing #####
-    my $guessedSense = "UNDETERMINED";
-
-    ########## For Every instance ##########
-    for $instance ( keys%$testData->{lexelt}->{instance}) {
-        print STDERR "Computing senseid for instance: ". $instance ."\n";
-        
-        ########## Empty variables from the previous instance  ##########
-        $allWords = ();
-        @words =();
-        @surroundingWords = ();
-
-        ########## The 2 senses the word "line" can have is "product" and "phone" ##########
-        @types = ("product","phone");
-
-        ########## Set the default sense to undetermined for easier debugging if a sense is not chosen ##########
-        $guessedSense = "UNDETERMINED";
-
-        ##### Per the xml parser 's' can either be an array or a hash #####
-        if (ref($testData->{lexelt}->{instance}->{$instance}->{context}->{'s'}) eq "HASH"){
-
-           ##### Iterate through the content and grab all the surrounding sentences and push them to temp array #####
-           foreach my $surroundingWords ($testData->{lexelt}->{instance}->{$instance}->{context}->{'s'}->{content}){
-                    push(@surroundingWords,$surroundingWords);
-                }
-        }
-
-        ########## 's' was an array ########## 
-        else {
-
-            ##### Break array up in to individual parts #####    
-            foreach my $part ($testData->{lexelt}->{instance}->{$instance}->{context}->{'s'} ) {
-
-                ##### For each part of the array #####    
-                foreach my $p (@$part){
-
-                    ##### The array may contain a hash ##### 
-                    if(ref($p) eq "HASH"){
-
-                        ##### Grab the content #####    
-                        foreach my $surroundingWords ($p->{content}){
-
-                            ##### Iterate through the content and grab all the surrounding sentences and push them to temp array #####
-                            foreach my $s (@$surroundingWords){
-                                push(@surroundingWords,$s);
-                            }
-                        }
-                    }
-
-                    ##### Array #####
-                    else{
-                        push(@surroundingWords,$p);
-                    }
-                }    
-            }
-        }
-
-        ##### Place all the sentences into a giant string #####
-        $allWords = join(' ',@surroundingWords);
-
-        ##### Delete all of the Tabs and remove extra Spaces. #####
-        $allWords =~ s/\s+|_/ /g; 
-
-        ##### Break the sentences up into individual words #####
-        @words = $allWords=~ /\S+/g;
-
-        ##### Initialize max to be zero #####
-        my $max = 0;
-
-        ##### Used to store our sense guess #####
-        my $typeScore;
-
-        ##### For each type #####
-        foreach my $type (@types){
-
-
-            ##### Iterate through all the words that surround that instance #####
-            foreach my $word (@words) {
-                
-
-                    if(getTimesWordOccuredWithFeature($word,$type) == 0)
-                    {
-                        $typeScore = 0;
-                    }
-                    else 
-                    {
-                        $typeScore = log(getTimesWordOccuredWithFeature($word,$type)/$frequencyTable{$word});
-
-                    }
-
-                
-    
+    }
+    @orderedFeatures = ();
+    foreach my $key ( sort { $rankedFeatures{$b} <=> $rankedFeatures{$a} } keys %rankedFeatures ) {    # Loop through the dictionary
+        push(@orderedFeatures,$key);
+    }
+}
 
 
 
-                foreach my $feature (@words) {
 
-                    ##### Count how many times that word appeared within our training data  #####
-                    my $timesWordAppearedinTrainingData = $frequencyTable{$word};
 
-                    ##### Count how many times that wprd appeared with that feature #####
-                    my $TimesWordOccuredWithFeature = getTimesWordOccuredWithFeature($word,$type);
+sub orderFeatures{
 
-                    my $timesTypeOcuured = $wordTypes{$type};
+    foreach my $key ( sort { $features{$b} <=> $features{$a} } keys %features ) {    # Loop through the dictionary
+        push(@orderedFeatures,$key);
+    }
+}
 
-                    ##### If that word did not occour with our feature then just move on  #####
-                    if($TimesWordOccuredWithFeature == 0){ next; }
+sub printRankedFeatures{
+    print STDERR @orderedFeatures;
+}
 
-                    ##### Perform calculation  #####
-                    $typeScore += log($TimesWordOccuredWithFeature/$timesTypeOcuured);
-                }
-            } 
+sub computeSenseID{
+   ##### For each instance #####
+    foreach my $instance ( keys %$testData->{lexelt}->{instance} ) {
 
-            ##### If the score is greater than our max then this is the senseID we choose #####
-            if (abs($typeScore) > $max) {
-                $max = abs($typeScore);
-                $guessedSense = $type;
-            }
-        }
+        $featureVectorInstance = $instanceToFeatureVector{$instance};
+       # print STDERR "$featureVectorInstance\n";
+    }
+}
 
-        ##### Place our guess in a hash #####
-        $guessedSenses{$instance} = $guessedSense;
-        
-        print STDERR "Done!\n";
+sub printV{
+   ##### For each instance #####
+    foreach my $v ( keys %instanceToFeatureVector ) {
+     printf(STDERR "Instance: %-7s | Vector: %-7s ", $v, $instanceToFeatureVector{$v});
     }
 }
 
 
 #  Method that generates the tagged output file 
 sub createAnswerFile {
-    print STDERR "Creating the answer file...\n";
 
     ##### Add start tag #####
     printf(STDOUT "<answers>\n");
