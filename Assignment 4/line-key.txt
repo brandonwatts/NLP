@@ -125,6 +125,4 @@
 <answer instance="line-n.w8_110:14049:" senseid="product"/>
 <answer instance="line-n.w7_108:4296:" senseid="phone"/>
 <answer instance="line-n.w7_057:1203:" senseid="phone"/>
-
 </answers>
-

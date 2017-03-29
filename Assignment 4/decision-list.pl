@@ -9,13 +9,12 @@
 
 ######## SUMMARY #########
 
-# This program attempts to perform sentence disambiguation using Naive Bayes. 
-# We use the bag-of-word (unigram) model to provide context
-# to a given word. From there we decide what is the correct meaning of the word. 
+# This program attempts to perform sentence disambiguation using a decision list classifier. It uses the training data to build features
+# and then with those features, it builds tests. We then use the order of the tests to figure out the sense.
 
 ######## ACCURACY ########
 
-# Naive Bayes is a very powerful algorithim so I was capable of achieving a 100% accuracy.
+# I was able to achieve a 88.1% accuracy. I think i could have gotten it a little higher with a better parsing strategy.
 
 ########## EXAMPLE USE CASE #########
 
@@ -27,23 +26,22 @@
 ######### ALGORITHIMS ########
 
 # Algorithims are decribed in detail below but the idea is that the file line-train.txt is parsed with an XML Parser to obtain the information stored within it From there
-# we create our freatures by iterating through line-train.txt and createing a unigram model for our training data. We then take a count of all the 
-# different word types for each instance. After that we gather all the words surrounding each instance (bag-of-words). From there we conpute our 
-# guessed senses and write them to an output file.
+# we create our freatures by iterating through line-train.txt and createing a unigram model for our training data. From the features we
+# build tests that if pass will give us a sense. We order these tests in the highest rank. To process the test file, we create feature 
+# vectors for each instance. We pass these feature vectors through our now ordered tests to produce a sense. That sense is then used to generate our
+# output file.
 #
 #   1) Format both the training data and the test data so we can pass it in to our XML Parser.
 #   2) Pass both training data and test data into an XML Parser.
-#   3) Iterate through through all the words in the training data and create a unigram model.
-#   4) Iterate through through all the instances in the training data and create a frequency count for each SenseID.
-#   5) We then create a hash of all the words surrounding each instace for easy retrieval
-#   6) From there we iterate through every instance and grab all the words surrouding our unknown word. And then for every type and every word we compute
-#      Probablity if the sense + log(Times Word Occured With Feature/ times Word Appeared in Training Data)
-#   7) Argmax of that calculation is our guessed sense
-#   8) Finally we combine the instance id and the guessed sense to build our answer file
+#   3) Iterate through through all the words in the training data and create a unigram model of features.
+#   4) We then create a hash of all the words surrounding each instace for easy retrieval
+#   5) From there we create and order our tests based on thier rank
+#   6) We create feature vectors for every instance in the test data
+#   7) We pass each feature vector through our list of tests to compute a sense id
+#   8) Finally we use that sense id to produce an output file in XML
 
 ########## REFERENCES #########
 
-# "6 Easy Steps to Learn Naive Bayes" - https://www.analyticsvidhya.com/blog/2015/09/naive-bayes-explained/
 # "File::Slurp" - http://search.cpan.org/~uri/File-Slurp-9999.19/lib/File/Slurp.pm
 # "XML::Simple" - http://search.cpan.org/~grantm/XML-Simple-2.22/lib/XML/Simple.pm
 
@@ -52,15 +50,14 @@ use warnings;
 
 use File::Slurp;
 use XML::Simple;
-use Data::Dumper;
 
-##### Will hold our unigram of all words ###
-my %frequencyTable;
-
+##### Hash from features to thier count within the test file #####
 my %features;
 
+##### Hash from a feature to its ranking #####
 my %rankedFeatures;
 
+##### Tests in the order they will be applied  #####
 my @orderedFeatures;
 
 ##### Will hold our data from the training file ###
@@ -72,9 +69,10 @@ my %wordTypes;
 ##### Final hash of our guessed senses ###
 my %guessedSenses;
 
-##### Hash to hold all the words surrounding a given sense ###
+##### Hash to hold all the words surrounding a given sense #####
 my %wordsSurrounding;
 
+##### Hash from an instance to its repective feature vector #####
 my %instanceToFeatureVector;
 
 ##### Traing data XML file ###
@@ -84,7 +82,6 @@ my $trainingData = read_file($ARGV[0]);
 my $testData = read_file($ARGV[1]);
 
 main($trainingData, $testData);
-
 
 #  Main method that kicks off execution of the program 
 #
@@ -116,33 +113,45 @@ sub main {
     # parse test data xml
     $testData = $xml->XMLin($test);
 
-    print(Dumper($data));
+    ##### Create features from unigram model of each instance #####
     createFeatures();
+
+    ##### Order those features by decreasing frequency #####
     orderFeatures();
-    createFeatureVector();    
+
+    ##### Create a hash of all the words that surround phone for easy retrieval later #####
     createWordsSurrounding("phone");
+
+    ##### Create a hash of all the words that surround product for easy retrieval later #####
     createWordsSurrounding("product");
-    printV();
-    #createTests();
-    #rankTests();
-    #printRankedFeatures();
-    #computeSenseID();
-    #createAnswerFile();
+
+    ##### Rank tests based off of evaluation of each feature #####
+    rankTests();
+
+    ##### Create a Feature vectors for each instance in our test file #####
+    createFeatureVector(); 
+
+    ##### Compute the sense id for each instance in our test file #####   
+    computeSenseID();
+
+    ##### Create an answer file output in XML #####
+    createAnswerFile();
+
+    outputFeatures();
 }
 
-#  Method that creates features using bag-of-words
+#  Method that creates features using unigram model
 sub createFeatures {
+
     print STDERR "Creating Features...\n";
 
     ##### Words surrounding our ambigious word #####
     my @surroundingWords = ();
 
-    my @allWords = ();
-
     ##### For each instance #####
     for $instance ( keys %$data->{lexelt}->{instance} ) {
 
-        ##### For each sentance ('s') #####
+        ##### For each sentence ('s') #####
         foreach my $part ($data->{lexelt}->{instance}->{$instance}->{context}->{'s'} ) {
             
             ##### Per the xml parser 's' can either be an array or a hash #####
@@ -151,6 +160,7 @@ sub createFeatures {
                 if(ref($p) eq "ARRAY"){
 
                     foreach my $section (@$p) {
+
                         ##### If it is a hash it stores more words and the ambigous word itself#####
                         if(ref($section) eq "HASH"){
 
@@ -159,96 +169,91 @@ sub createFeatures {
 
                                 ##### Iterate through the content and grab all the surrounding sentences and push them to temp array #####
                                 foreach my $s (@$surroundingWords){
-                                    $s =~ s/[\.?!\)\(]//g; 
+                                    $s =~ s/[\.?!\)\("-]//g; 
+                                    $s =~ s/\d+/num/g;
                                     push(@surroundingWords,$s);
                                 }
                             }
 
+                            ##### If there are surounding words add them to our features #####
+                            if (exists $surroundingWords[0]) {
+                                my @wordsBefore =  $surroundingWords[0] =~ /\S+/g;
+                                my $wordBeforeSize = @wordsBefore;
 
-                    if (exists $surroundingWords[0]) {
-                        my @wordsBefore =  $surroundingWords[0] =~ /\S+/g;
-                        my $wordBeforeSize = @wordsBefore;
-                        $features{$wordsBefore[$wordBeforeSize-1]}++;
-
-
-                    }
-                    if (exists $surroundingWords[1]) {
-              
-                        my @wordsAfter =  $surroundingWords[1] =~ /\S+/g;
-                    
-                            my $wordAfterSize = @wordsAfter;
-                            if(exists $wordsAfter[$wordAfterSize-1]){
-                                 $features{$wordsAfter[$wordAfterSize-1]}++;    
-
+                                for my $word (@wordsBefore) {
+                                        $features{$word}++;
+                                } 
                             }
-                    }
-                        
+
+                            ##### If there are surounding words add them to our features #####
+                            if (exists $surroundingWords[1]) {
+              
+                                my @wordsAfter =  $surroundingWords[1] =~ /\S+/g;
+                    
+                                for my $word (@wordsAfter) {
+                                    $features{$word}++;
+                                } 
+                            }
 
                             @surroundingWords = ();
                         }
                     }
                 }
 
-                ##### If it is an array it just stores the surroundign word so just push it to a temp array #####
+                ##### It is a hash #####
                 else{
 
-                    foreach my $surroundingWords ($section->{content}){
+                    ##### Get the content #####
+                    foreach my $surroundingWords ($data->{lexelt}->{instance}->{$instance}->{context}->{'s'}->{content}){
 
                         ##### Iterate through the content and grab all the surrounding sentences and push them to temp array #####
                         foreach my $s (@$surroundingWords){
-                            $s =~ s/[\.?!\)\(]//g; 
+                            $s =~ s/[\.?!\)\("-]//g; 
+                            $s =~ s/\d+/num/g;
                             push(@surroundingWords,$s);
                         }
                     }
 
+                    ##### If there are surounding words add them to our features #####
                     if (exists $surroundingWords[0]) {
                         my @wordsBefore =  $surroundingWords[0] =~ /\S+/g;
-                        my $wordBeforeSize = @wordsBefore;
-                        $features{$wordsBefore[$wordBeforeSize-1]}++;
-
-
+                         for my $word (@wordsBefore) {
+                            $features{$word}++;
+                        } 
                     }
+
+                    ##### If there are surounding words add them to our features #####
                     if (exists $surroundingWords[1]) {
                         my @wordsAfter =  $surroundingWords[1] =~ /\S+/g;
-                        my $wordAfterSize = @wordsAfter;
-                                                        $features{$wordsAfter[$wordAfterSize-1]}++;
-
+                          for my $word (@wordsAfter) {
+                            $features{$word}++;
+                        } 
                     }
-
-
 
                     @surroundingWords = ();
                 }
             }     
         }       
     }
-
-    ##### Combine all the surrounding sentences into one giant string #####
-    my $allWords = join(' ',@surroundingWords);
-
-    ##### Delete all of the Tabs and remove extra Spaces. #####
-
-    ##### Break the string up in to individual words. #####
-    my @words = $allWords=~ /\S+/g;
-
-    ##### Iterate through all the words and count how many times it appears in the file #####
-    foreach my $word (@words) { $frequencyTable{$word}++;}
-
     print STDERR "Done!\n";
 }
 
+
+#  Method that creates feature vectors for each instance in the test file
 sub createFeatureVector(){
 
-    ##### For each instance #####
+    print STDERR "Creating Feature Vectors...\n";
+
+    ##### GRAB ALL THE SURROUNDING WORDS BOILERPLATE CODE ##########
     for $instance ( keys %$testData->{lexelt}->{instance} ) {
 
         @surroundingWords = ();
+        my $allWords = ();
 
-        ##### For each sentance ('s') #####
         foreach my $part ($testData->{lexelt}->{instance}->{$instance}->{context}->{'s'} ) {
 
-
             if(ref($part) eq "HASH"){
+
                 foreach my $sentence ($testData->{lexelt}->{instance}->{$instance}->{context}->{'s'}->{content}) {
                     
                     foreach my $s (@$sentence)
@@ -256,60 +261,69 @@ sub createFeatureVector(){
                         push(@surroundingWords,$s);
                     }
                 }
-            } else{
+            } 
+
+            else{
                 foreach my $subpart ($part) {
 
-                    foreach my $s (@$subpart)
-                    {
-                          if (ref($s) eq "HASH"){
+                    foreach my $s (@$subpart){
+
+                        if (ref($s) eq "HASH"){
 
                             foreach my $sentence ($s->{content}) {
+
                                 foreach my $x (@$sentence) {
+
                                      push(@surroundingWords,$x);
 
                                 }
-
                             }
+                        }
 
-                          }
-                          else{
-                            push(@surroundingWords,$s);
-
-                          }
-                   }
+                        else{
+                        push(@surroundingWords,$s);
+                        }
+                    }
                 }
             }
         }
 
-        ##### Combine all the surrounding sentences into one giant string #####
-        my $allWords = join(' ',@surroundingWords);
+        $allWords = join(' ',@surroundingWords);
 
-
-
-        ##### Delete all of the Tabs and remove extra Spaces. #####
         $allWords =~ s/\s+|_/ /g; 
+        $allWords =~ s/[\.?!\)\("-]//g; 
+        $allWords =~ s/\d+/num/g;
 
-        ##### Break the string up in to individual words. #####
         my @words = $allWords=~ /\S+/g;
+
+        ################################################################################
+
 
         my @featureVector;
 
+        ##### For each feature #####
         foreach $feature (@orderedFeatures) {  
 
+            ##### If our feature is present in the surrounding words #####
             if( $allWords =~ /$feature/) {
+
+                ##### Push a 1 on to the array #####
                 push @featureVector, 1;
             }
+
+            ##### If our feature is not present in the surrounding words #####
             else{
+
+                ##### Push a 1 on to the array #####
                 push @featureVector, 0;
             }
         }
 
-        print(STDERR "FEATURE VECTOR: @featureVector");
-        $instanceToFeatureVector{$instance} = @featureVector;
-
+        ##### Map the instance to its respective feature vector #####
+        $instanceToFeatureVector{$instance} = [@featureVector];
     }
+    print STDERR "Done!\n";
 }
-
 
 #  Method that creates a hash of all the words surrounding a particular hash 
 #
@@ -368,16 +382,14 @@ sub createWordsSurrounding {
     }
 
     ##### Combine all the surrounding sentences into one giant string #####
-    my $allWords = join(' ',@surroundingWords);
+    $allWords = join(' ',@surroundingWords);
 
     ##### Delete all of the Tabs and remove extra Spaces. #####
     $allWords =~ s/\s+|_/ /g; 
 
     ##### Place the senseID in the hash mappepd to the words that surround it #####
     $wordsSurrounding{$senseid} = $allWords;
-
 }
-
 
 #  Method counts the number of times a particular sense occurs 
 sub createWordTypes {
@@ -391,9 +403,7 @@ sub createWordTypes {
         ##### Count the number of times that sense is seen and place into a hash #####
         $wordTypes{$senseid}++;
     } 
-
 }
-
 
 #  Helper method to get the number of times a particular word occured with a feature 
 #
@@ -425,65 +435,99 @@ sub getTimesWordOccuredWithFeature {
     return $counter;
 }
 
-my %tests;
-sub createTests{
-     foreach my $i (0 .. $#orderedFeatures) {  
-            $tests{$orderedFeatures[$i]} = $i;
-    }
-}
-
+#  Method to compute the rank for each test 
 sub rankTests{
-    foreach $feature (@orderedFeatures) {  
-        $countOfSenseGivenFeaturePhone = getTimesWordOccuredWithFeature($feature, "phone");
-        $countOfSenseGivenFeatureProduct = getTimesWordOccuredWithFeature($feature, "product");
 
+    print STDERR "Ranking Tests...\n";
+
+    ##### Loop over each feature #####
+    foreach $feature (@orderedFeatures) {  
+
+        ##### Get the number of times it appeared with phone and add one to both so we dont divide by zero. #####
+        $countOfSenseGivenFeaturePhone = getTimesWordOccuredWithFeature($feature, "phone") + 1;
+            
+        ##### Get the number of times it appeared with product #####
+        $countOfSenseGivenFeatureProduct = getTimesWordOccuredWithFeature($feature, "product") + 1;
+
+        ##### Get the number of times the feature occurs with product and add one to both so we dont divide by zero.  #####
         $countofFeature = $features{$feature};
 
+        ##### compute the rank #####
         $rank = abs(log(($countOfSenseGivenFeaturePhone/$countofFeature) / ($countOfSenseGivenFeatureProduct/$countofFeature)));
 
+        ##### Store that rank so we can sort based off it later #####
         $rankedFeatures{$feature} = $rank;
-
     }
+
+    ##### Empty the array from earlier so we can place tests back in the correct order #####
     @orderedFeatures = ();
+
+    ##### Place tests back in the correct order #####
     foreach my $key ( sort { $rankedFeatures{$b} <=> $rankedFeatures{$a} } keys %rankedFeatures ) {    # Loop through the dictionary
         push(@orderedFeatures,$key);
     }
+
+    print STDERR "Done!\n";
 }
 
-
-
-
-
+#####  Helper method to order the features by decreasing frequency #####
 sub orderFeatures{
 
-    foreach my $key ( sort { $features{$b} <=> $features{$a} } keys %features ) {    # Loop through the dictionary
+    print STDERR "Ordeing Features...\n";
+
+    foreach my $key ( sort { $features{$b} <=> $features{$a} } keys %features ) {   
         push(@orderedFeatures,$key);
     }
+
+    print STDERR "Done!\n";
 }
 
-sub printRankedFeatures{
-    print STDERR @orderedFeatures;
-}
-
+#  Method that takes the test file and computes the best possible sense from our ordered features 
 sub computeSenseID{
+
+    print STDERR "Computing SenseIDs...\n";
+
    ##### For each instance #####
     foreach my $instance ( keys %$testData->{lexelt}->{instance} ) {
 
+        ##### Get the vector associated with that instance #####
         $featureVectorInstance = $instanceToFeatureVector{$instance};
-       # print STDERR "$featureVectorInstance\n";
-    }
-}
 
-sub printV{
-   ##### For each instance #####
-    foreach my $v ( keys %instanceToFeatureVector ) {
-     printf(STDERR "Instance: $v | Vector: $instanceToFeatureVector{$v} " );
-    }
-}
+        ##### Loop ove the tests in order #####
+        foreach my $i (0 .. $#orderedFeatures) {
 
+            ##### If the test passes #####  
+            if (@$featureVectorInstance[$i] eq 1) {
+
+                ##### Get the number of times the word occurs with "phone" #####
+                my $phoneCount = getTimesWordOccuredWithFeature($orderedFeatures[$i],"phone");
+
+                ##### Get the number of times the word occurs with "product" #####
+                my $productCount = getTimesWordOccuredWithFeature($orderedFeatures[$i],"product");
+
+                ##### Figure out what sense is most probable #####
+                if($phoneCount >  $productCount)
+                {
+                    $guessedSenses{$instance} = "phone";
+                }
+                elsif($phoneCount <  $productCount)
+                {
+                    $guessedSenses{$instance} = "product";
+                }
+
+                ##### We have our sense so just break out of loop #####
+                last;
+            }
+        }
+    }
+
+    print STDERR "Done!\n";
+}
 
 #  Method that generates the tagged output file 
 sub createAnswerFile {
+
+    print STDERR "Creating Answer File...\n";
 
     ##### Add start tag #####
     printf(STDOUT "<answers>\n");
@@ -496,5 +540,27 @@ sub createAnswerFile {
     ##### Add end tag #####
     printf(STDOUT "<\/answers>\n");
 
-    print STDERR "Done!\n"
+    print STDERR "Done!\n";
+}
+
+sub outputFeatures{
+    print STDERR "Creating Decision List...\n";
+    my $file = "my-decision-list.txt";
+    foreach my $key ( sort { $rankedFeatures{$b} <=> $rankedFeatures{$a} } keys %rankedFeatures ) {    # Loop through the dictionary
+                my $phoneCount = getTimesWordOccuredWithFeature($key,"phone");
+                my $productCount = getTimesWordOccuredWithFeature($key,"product");
+                if($phoneCount >  $productCount)
+                {
+                    append_file( $file, "\nFEATURE: $key \t\t LOG-LIKEYHOOD: $rankedFeatures{$key} \t\t CHOOSEN SENSE: product\n") ;
+                    append_file($file,"----------------------------------------------------------------------------------------------------\n");
+                }
+                elsif($phoneCount <  $productCount)
+                {
+                append_file( $file, "\nFEATURE: $key \t\t LOG-LIKEYHOOD: $rankedFeatures{$key} \t\t CHOOSEN SENSE: phone\n");
+                append_file($file,"----------------------------------------------------------------------------------------------------\n");
+
+                }
+    }
+        print STDERR "Done!\n";
+
 }

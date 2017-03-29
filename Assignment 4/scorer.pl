@@ -9,41 +9,26 @@
 
 ######## SUMMARY #########
 
-# This program attempts to perform sentence disambiguation using Naive Bayes. 
-# We use the bag-of-word (unigram) model to provide context
-# to a given word. From there we decide what is the correct meaning of the word. 
-
-######## ACCURACY ########
-
-# Naive Bayes is a very powerful algorithim so I was capable of achieving a 100% accuracy.
+# This is a helper program to score the output of decision-list.pl against the key data. 
 
 ########## EXAMPLE USE CASE #########
 
-# $ perl decision-list.pl line-train.txt line-test.txt > my-line-answers.txt
+# $ perl scorer.pl my-line-answers.txt line-key.txt
 #
-# The first arguement is the file in which our training data is stored and the second file is the test data. The last arguement is the file which
-# you want the output (Tagged answers) written to.
+# The first arguement is the file is the file output from decision-list.pl while the second file is key data.
 
 ######### ALGORITHIMS ########
 
-# Algorithims are decribed in detail below but the idea is that the file line-train.txt is parsed with an XML Parser to obtain the information stored within it From there
-# we create our freatures by iterating through line-train.txt and createing a unigram model for our training data. We then take a count of all the 
-# different word types for each instance. After that we gather all the words surrounding each instance (bag-of-words). From there we conpute our 
-# guessed senses and write them to an output file.
-#
-#   1) Format both the training data and the test data so we can pass it in to our XML Parser.
-#   2) Pass both training data and test data into an XML Parser.
-#   3) Iterate through through all the words in the training data and create a unigram model.
-#   4) Iterate through through all the instances in the training data and create a frequency count for each SenseID.
-#   5) We then create a hash of all the words surrounding each instace for easy retrieval
-#   6) From there we iterate through every instance and grab all the words surrouding our unknown word. And then for every type and every word we compute
-#      Probablity if the sense + log(Times Word Occured With Feature/ times Word Appeared in Training Data)
-#   7) Argmax of that calculation is our guessed sense
-#   8) Finally we combine the instance id and the guessed sense to build our answer file
+# There we really no algorithims used here, but the steps below were taken:
+#   
+#   1) parse the key file with an XML Parser.
+#   2) Parse the answer file with an XML parser.
+#   3) Compare the senseID of the answer to the senseID of the key.
+#   4) Count how many we got right and wrong to produce accuracy.
+#   5) Also produce a confusion matrix
 
 ########## REFERENCES #########
 
-# "6 Easy Steps to Learn Naive Bayes" - https://www.analyticsvidhya.com/blog/2015/09/naive-bayes-explained/
 # "File::Slurp" - http://search.cpan.org/~uri/File-Slurp-9999.19/lib/File/Slurp.pm
 # "XML::Simple" - http://search.cpan.org/~grantm/XML-Simple-2.22/lib/XML/Simple.pm
 
@@ -51,8 +36,6 @@ use File::Slurp;
 use warnings;
 use feature qw(say switch);
 use XML::Simple;
-use Data::Dumper;
-use File::Slurp qw( prepend_file ) ;
 
 ### Training data file ###
 my $answers = read_file($ARGV[0]);
@@ -60,13 +43,16 @@ my $answers = read_file($ARGV[0]);
 ### Test data file ###
 my $key = $ARGV[1];
 
+### Confusion Matrix ###
 my %confusionMatrix;
 
+### Answer Matrix ###
 my $answerHash;
+
+### Key Matrix ###
 my $keyHash;
 
 processKey($key);
-write_file("x.txt", Dumper($keyHash));
 processAnswers($answers);
 computeAccuracy();
 
@@ -75,12 +61,6 @@ computeAccuracy();
 #  @param $_[0]  Will hold the key file 
 sub processKey{
     my $key = $_[0];
-
-    ##### We needto add start and end tags to conform to XML #####
-    my $startTag = "<answers>\n";
-    my $endTag = "<\/answers>\n";
-    #prepend_file( $key,  $startTag) ;
-    #append_file( $key, $endTag) ;
 
     ##### Now we can read the file in #####
     my $keyFile = read_file($key);
@@ -130,28 +110,29 @@ sub computeAccuracy {
 
             ##### If the senseID of the key is equal to my guessed senseID #####
             if(($id->{senseid}) eq ($keyMapping{$id->{instance}})) {
-                print("I choose: $id->{senseid}   Correct Answer: $keyMapping{$id->{instance}}\n");
+                $confusionMatrix{$id->{senseid}}{$keyMapping{$id->{instance}}}++;
                 $true++;
                 $total++;
             } 
 
             ##### The senseID of they key is not equal to my guessed senseID. #####
             else {
-                print("I choose: $id->{senseid}   Correct Answer: $keyMapping{$id->{instance}}\n");
+                $confusionMatrix{$id->{senseid}}{$keyMapping{$id->{instance}}}++;
                 $false++;
                 $total++;
             }
         }
     }
 
-    say "---------------------- Confusion Matrix ----------------------------";
+    ######################################## OUTPUT DATA ########################################
+    say "---------------------------- Confusion Matrix ----------------------------\n";
 
     for my $key ( keys %confusionMatrix ) {
         
-        print(STDOUT "########## $key ##########\n");
+        print(STDOUT "###################### $key ######################\n");
 
         for my $value ( keys %{ $confusionMatrix{$key} } ) {
-            printf(STDOUT "Chose: %-7s | Correct: %-7s | Number: %-7s", $key, $value,$confusionMatrix{$key}{$value}); printf (STDOUT "| Percentage: %.4f\n", ($confusionMatrix{$key}{$value}/$#POSForTagged)*100);
+            printf(STDOUT "Chose: %-7s | Correct: %-7s | Number: %-5s", $key, $value,$confusionMatrix{$key}{$value}); printf (STDOUT "| Percentage of file: %.2f", ($confusionMatrix{$key}{$value}/$total)*100);print("\%\n");
         }
         print STDOUT "\n";
     }
@@ -161,6 +142,7 @@ sub computeAccuracy {
     $PercentageCorrect = $true/$total;
     $PercentageIncorrect = $false/$total;
 
-    say "Percentage Correct: ".$PercentageCorrect*100;
-    say "Percentage Incorrect: ".$PercentageIncorrect*100;
+    printf (STDOUT "Percentage Correct: %.2f", ($PercentageCorrect)*100);print("\%\n");
+    printf (STDOUT "Percentage Incorrect: %.2f", ($PercentageIncorrect)*100);print("\%\n");
+    ################################################################################################
 }
