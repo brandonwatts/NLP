@@ -1,0 +1,103 @@
+Script started on Wed Mar 29 19:31:04 2017
+[?1034hbash-3.2$ perl decision-list.pl line-train.txt line-test.txt my-decision-list.txt > my-line-answers.
+.txt
+Using a hash as a reference is deprecated at decision-list.pl line 154.
+Using a hash as a reference is deprecated at decision-list.pl line 250.
+Using a hash as a reference is deprecated at decision-list.pl line 340.
+Using a hash as a reference is deprecated at decision-list.pl line 400.
+Using a hash as a reference is deprecated at decision-list.pl line 493.
+Creating Features...
+Done!
+Ordeing Features...
+Done!
+Ranking Tests...
+Done!
+Creating Feature Vectors...
+Done!
+Computing SenseIDs...
+Done!
+Creating Answer File...
+Done!
+Creating Decision List...
+Done!
+bash-3.2$ head -50 my-decision-list.txt 
+
+FEATURE: telephone 		 LOG-LIKEYHOOD: 4.27666611901606 		 CHOOSEN SENSE: product
+----------------------------------------------------------------------------------------------------
+
+FEATURE: phone 		 LOG-LIKEYHOOD: 3.25809653802148 		 CHOOSEN SENSE: product
+----------------------------------------------------------------------------------------------------
+
+FEATURE: service 		 LOG-LIKEYHOOD: 2.99573227355399 		 CHOOSEN SENSE: product
+----------------------------------------------------------------------------------------------------
+
+FEATURE: call 		 LOG-LIKEYHOOD: 2.83321334405622 		 CHOOSEN SENSE: product
+----------------------------------------------------------------------------------------------------
+
+FEATURE: you 		 LOG-LIKEYHOOD: 2.70805020110221 		 CHOOSEN SENSE: product
+----------------------------------------------------------------------------------------------------
+
+FEATURE: introduced 		 LOG-LIKEYHOOD: 2.70805020110221 		 CHOOSEN SENSE: phone
+----------------------------------------------------------------------------------------------------
+
+FEATURE: dead 		 LOG-LIKEYHOOD: 2.56494935746154 		 CHOOSEN SENSE: product
+----------------------------------------------------------------------------------------------------
+
+FEATURE: voice 		 LOG-LIKEYHOOD: 2.484906649788 		 CHOOSEN SENSE: product
+----------------------------------------------------------------------------------------------------
+
+FEATURE: analysts 		 LOG-LIKEYHOOD: 2.484906649788 		 CHOOSEN SENSE: phone
+----------------------------------------------------------------------------------------------------
+
+FEATURE: personal 		 LOG-LIKEYHOOD: 2.39789527279837 		 CHOOSEN SENSE: phone
+----------------------------------------------------------------------------------------------------
+
+FEATURE: num, 		 LOG-LIKEYHOOD: 2.39789527279837 		 CHOOSEN SENSE: phone
+----------------------------------------------------------------------------------------------------
+
+FEATURE: came 		 LOG-LIKEYHOOD: 2.39789527279837 		 CHOOSEN SENSE: product
+----------------------------------------------------------------------------------------------------
+
+FEATURE: him 		 LOG-LIKEYHOOD: 2.39789527279837 		 CHOOSEN SENSE: product
+----------------------------------------------------------------------------------------------------
+
+FEATURE: Bell 		 LOG-LIKEYHOOD: 2.39789527279837 		 CHOOSEN SENSE: product
+----------------------------------------------------------------------------------------------------
+
+FEATURE: access 		 LOG-LIKEYHOOD: 2.30258509299405 		 CHOOSEN SENSE: product
+----------------------------------------------------------------------------------------------------
+
+FEATURE: car 		 LOG-LIKEYHOOD: 2.30258509299405 		 CHOOSEN SENSE: phone
+----------------------------------------------------------------------------------------------------
+
+FEATURE: machines 		 LOG-LIKEYHOOD: 2.30258509299405 		 CHOOSEN SENSE: phone
+bash-3.2$ head -10 my-line-answers.txt 
+<answers>
+<answer instance="line-n.w7_023:17827:" senseid="phone"/>
+<answer instance="line-n.w7_093:5547:" senseid="product"/>
+<answer instance="line-n.art7} aphb 29604729:" senseid="product"/>
+<answer instance="line-n.w7_041:11151:" senseid="product"/>
+<answer instance="line-n.w7_059:9261:" senseid="phone"/>
+<answer instance="line-n.w9_18:11863:" senseid="product"/>
+<answer instance="line-n.w8_065:17112:" senseid="product"/>
+<answer instance="line-n.w7_106:10827:" senseid="phone"/>
+<answer instance="line-n.art7} aphb 37805623:" senseid="phone"/>
+bash-3.2$ perl scorer.pl my-line-answers.txt line-key.txt 
+---------------------------- Confusion Matrix ----------------------------
+
+###################### product ######################
+Chose: product | Correct: product | Number: 43   | Percentage of file: 34.13%
+Chose: product | Correct: phone   | Number: 4    | Percentage of file: 3.17%
+
+###################### phone ######################
+Chose: phone   | Correct: product | Number: 11   | Percentage of file: 8.73%
+Chose: phone   | Correct: phone   | Number: 68   | Percentage of file: 53.97%
+
+Total Correct: 111
+Total Incorrect: 15
+Percentage Correct: 88.10%
+Percentage Incorrect: 11.90%
+bash-3.2$ exit
+exit
+
+Script done on Wed Mar 29 19:34:40 2017

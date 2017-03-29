@@ -140,106 +140,106 @@ FEATURE: callers 		 LOG-LIKEYHOOD: 1.94591014905531 		 CHOOSEN SENSE: product
 FEATURE: installed 		 LOG-LIKEYHOOD: 1.94591014905531 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: aimed 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: aimed 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: K 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: K 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: year's 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: year's 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: foreign 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: foreign 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: Inc 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: Inc 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: calling 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: calling 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: Apple 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: Apple 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: my 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: my 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: plans 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: plans 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: International 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: International 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: went 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: went 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: send 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: send 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: tollfree 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: tollfree 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: apparel 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: apparel 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: Foods 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: Foods 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: : 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: : 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: Bank 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: Bank 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: grew 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: grew 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: sales, 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: sales, 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: product 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: product 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: Fed 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: Fed 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: fourth 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: fourth 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: markets 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: markets 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: priced 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: priced 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: asked 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: asked 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: BellSouth 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: BellSouth 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: serves 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: serves 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: PC 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: PC 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: Morris 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: Morris 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: banks 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: banks 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: toys 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: toys 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: Inc's 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: Inc's 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: party 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: product
+FEATURE: party 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: product
 ----------------------------------------------------------------------------------------------------
 
-FEATURE: trying 		 LOG-LIKEYHOOD: 1.79175946922806 		 CHOOSEN SENSE: phone
+FEATURE: trying 		 LOG-LIKEYHOOD: 1.79175946922805 		 CHOOSEN SENSE: phone
 ----------------------------------------------------------------------------------------------------
 
 FEATURE: calls 		 LOG-LIKEYHOOD: 1.73460105538811 		 CHOOSEN SENSE: product

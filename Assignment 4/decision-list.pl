@@ -81,6 +81,8 @@ my $trainingData = read_file($ARGV[0]);
 ##### Test data XML file ###
 my $testData = read_file($ARGV[1]);
 
+my $output = $ARGV[2];
+
 main($trainingData, $testData);
 
 #  Main method that kicks off execution of the program 
@@ -544,23 +546,27 @@ sub createAnswerFile {
 }
 
 sub outputFeatures{
-    print STDERR "Creating Decision List...\n";
-    my $file = "my-decision-list.txt";
-    foreach my $key ( sort { $rankedFeatures{$b} <=> $rankedFeatures{$a} } keys %rankedFeatures ) {    # Loop through the dictionary
-                my $phoneCount = getTimesWordOccuredWithFeature($key,"phone");
-                my $productCount = getTimesWordOccuredWithFeature($key,"product");
-                if($phoneCount >  $productCount)
-                {
-                    append_file( $file, "\nFEATURE: $key \t\t LOG-LIKEYHOOD: $rankedFeatures{$key} \t\t CHOOSEN SENSE: product\n") ;
-                    append_file($file,"----------------------------------------------------------------------------------------------------\n");
-                }
-                elsif($phoneCount <  $productCount)
-                {
-                append_file( $file, "\nFEATURE: $key \t\t LOG-LIKEYHOOD: $rankedFeatures{$key} \t\t CHOOSEN SENSE: phone\n");
-                append_file($file,"----------------------------------------------------------------------------------------------------\n");
 
-                }
+    print STDERR "Creating Decision List...\n";
+
+    my $file = $output;
+
+    foreach my $key ( sort { $rankedFeatures{$b} <=> $rankedFeatures{$a} } keys %rankedFeatures ) {    # Loop through the dictionary
+        
+        my $phoneCount = getTimesWordOccuredWithFeature($key,"phone");
+        my $productCount = getTimesWordOccuredWithFeature($key,"product");
+        
+        if($phoneCount >  $productCount)
+        {
+            append_file( $file, "\nFEATURE: $key \t\t LOG-LIKEYHOOD: $rankedFeatures{$key} \t\t CHOOSEN SENSE: product\n") ;
+            append_file($file,"----------------------------------------------------------------------------------------------------\n");
+        }
+        elsif($phoneCount <  $productCount)
+        {
+            append_file( $file, "\nFEATURE: $key \t\t LOG-LIKEYHOOD: $rankedFeatures{$key} \t\t CHOOSEN SENSE: phone\n");
+            append_file($file,"----------------------------------------------------------------------------------------------------\n");
+
+        }
     }
         print STDERR "Done!\n";
-
 }
