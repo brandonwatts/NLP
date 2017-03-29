@@ -118,13 +118,13 @@ sub main {
 
     print(Dumper($data));
     createFeatures();
+    orderFeatures();
     createFeatureVector();    
     createWordsSurrounding("phone");
     createWordsSurrounding("product");
-    #printV();
+    printV();
     #createTests();
     #rankTests();
-    #orderFeatures();
     #printRankedFeatures();
     #computeSenseID();
     #createAnswerFile();
@@ -294,11 +294,7 @@ sub createFeatureVector(){
 
         my @featureVector;
 
-                    print STDERR "Features: @orderedFeatures";
-
         foreach $feature (@orderedFeatures) {  
-
-            print STDERR "Feature: $feature";
 
             if( $allWords =~ /$feature/) {
                 push @featureVector, 1;
@@ -308,7 +304,7 @@ sub createFeatureVector(){
             }
         }
 
-
+        print(STDERR "FEATURE VECTOR: @featureVector");
         $instanceToFeatureVector{$instance} = @featureVector;
 
     }
@@ -481,7 +477,7 @@ sub computeSenseID{
 sub printV{
    ##### For each instance #####
     foreach my $v ( keys %instanceToFeatureVector ) {
-     printf(STDERR "Instance: %-7s | Vector: %-7s ", $v, $instanceToFeatureVector{$v});
+     printf(STDERR "Instance: $v | Vector: $instanceToFeatureVector{$v} " );
     }
 }
 
