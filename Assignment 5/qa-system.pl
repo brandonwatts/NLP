@@ -4,9 +4,15 @@ use warnings;
 use Switch;
 use Data::Dumper;
 use WWW::Wikipedia;
+#use WordNet::QueryData;
+use Sort::Hash::Values;
 use feature qw(say);
 
 my $wiki = WWW::Wikipedia->new();
+my $rankedNGrams;
+
+#my $wn = WordNet::QueryData->new("C:/Program Files/WordNet/3.0/dict");
+
  
 
 say "This is a QA system by Brandon Watts. It will try to answer questions that start with Who, What, When or Where. Enter \"exit\" to leave the program.";
@@ -21,8 +27,11 @@ while(<STDIN>){
       #  print("QUERY: $query");
       queryWiki($query);
   #}
-  printBigrams();
-  printTrigrams();
+  #printUnigrams();
+  #printBigrams();
+  #printTrigrams();
+  rankList();
+  tileNGrams();
 }
 
 sub getQueryType {
@@ -136,8 +145,9 @@ sub transformQuery{
 
     sub queryWiki{
         my $query = $_[0];
-        my $entry = $wiki->search("Jeff Sessions");
+        my $entry = $wiki->search("Albert Einstein");
         my $text = $entry->text_basic();
+        @categories = $entry->categories();
         $text = parseWikiData($text);
         createUnigrams($text);
         createBigrams($text);
@@ -150,7 +160,9 @@ sub transformQuery{
         $data =~ s/(\{)?(\{)?(\s*?.*?)*?\}\}//g;
         $data =~ s/name="?.*"?>//g;
         $data =~ s/<!--.*-->//g;
+        #$data =~ s/\ba\b|\ban\b|\band\b|\bare\b|\bas\b|\bat\b|\bbe\b|\bby\b|\bfor\b|\bfrom\b|\bhas\b|\bhe\b|\bin\b|\bis\b|\bit\b|\bit's\b|\bof\b|\bon\b|\bthat\b|\bthe\b|\bto\b|\bwas\b|\bwere\b|\bwill\b|\bwith\b//gi; 
         $data =~ s/\s+/ /g; 
+        $data =~ s/[,\."'\)\(;]//g;
         return $data
     }
 
@@ -168,7 +180,7 @@ sub transformQuery{
         $wikiResponse = $_[0];
         my @responseWords =  $wikiResponse =~ /\S+/g;
         foreach my $i (1 .. $#responseWords){
-            $bigrams{$responseWords[$i-1]}{$responseWords[$i]}++;
+            $bigrams{$responseWords[$i-1]." ".$responseWords[$i]}++;
         }
     }
 
@@ -178,7 +190,7 @@ sub transformQuery{
         my @responseWords =  $wikiResponse =~ /\S+/g;
         my @responseWords =  $wikiResponse =~ /\S+/g;
         foreach my $i (2 .. $#responseWords){
-            $trigrams{$responseWords[$i-2]." ".$responseWords[$i-1]}{$responseWords[$i]}++;
+            $trigrams{$responseWords[$i-2]." ".$responseWords[$i-1]." ".$responseWords[$i]}++;
         }
     }
 
@@ -186,8 +198,8 @@ sub transformQuery{
 sub printUnigrams {
     say "---------------------- Unigram Mapping ----------------------------";
 
-    for my $key (keys %bigrams) {
-        printf("Word: %-25s Given We Just Saw: %-25s Frequency: %-25s\n", $secKey, $key, $bigrams{$key}{$secKey});
+    for my $key (sort_values { $b <=> $a } %unigrams) {
+        printf("Word: %-25s Given We Just Saw: %-25s\n", $key, $unigrams{$key});
         }
 }
 
@@ -195,11 +207,8 @@ sub printBigrams {
 
     say "---------------------- Bigram Mapping ----------------------------";
 
-        for my $key (keys %bigrams) {
-            my $hash = $bigrams{$key};
-            for my $secKey (sort { $hash->{$a}<=>$hash->{$b} } keys %$hash) {
-                       printf("Word: %-25s Given We Just Saw: %-25s Frequency: %-25s\n", $secKey, $key, $bigrams{$key}{$secKey});
-            }
+        for my $key (sort_values { $b <=> $a } %bigrams) {
+        printf("Word: %-25s Given We Just Saw: %-25s\n", $key, $bigrams{$key});
         }
     
 
@@ -209,12 +218,98 @@ sub printTrigrams {
 
     say "---------------------- Trigram Mapping ----------------------------";
 
-   for my $key (keys %trigrams) {
-            my $hash = $trigrams{$key};
-            for my $secKey (sort { $hash->{$a}<=>$hash->{$b} } keys %$hash) {
-                printf("Word: %-25s Given We Just Saw: %-25s Frequency: %-25s\n", $secKey, $key, $trigrams{$key}{$secKey});
+     for my $key (sort_values { $b <=> $a } %trigrams) {
+        printf("Word: %-25s Given We Just Saw: %-25s\n", $key, $trigrams{$key});
+        }
+}
+
+sub rankList {
+    my $totalSpots = 0;
+    for my $key (sort_values { $b <=> $a } %unigrams) {
+        if ($totalSpots < 10)
+        {
+            $rankedNGrams{$key} = $unigrams{$key};
+            $totalSpots++;
+        }
+    }
+
+    $totalSpots = 0;
+        for my $key (sort_values { $b <=> $a } %bigrams) {
+        if ($totalSpots < 10)
+        {
+            $rankedNGrams{$key} = $bigrams{$key};
+            $totalSpots++;
+        }
+    }
+
+    $totalSpots = 0;
+       for my $key (sort_values { $b <=> $a } %trigrams) {
+        if ($totalSpots < 10)
+        {
+            $rankedNGrams{$key} = $trigrams{$key};
+           $totalSpots++;
+        }
+    }
+
+    for my $key (keys %rankedNGrams) {
+        my $type = getType($key);
+        if($type ne "UNDEFINED")
+        {
+            $rankedNGrams{$key} = $rankedNGrams{$key} + 10;
+        }
+    }
+
+   # for my $key (sort_values { $b <=> $a } %rankedNGrams) {
+    #    printf("Word: %-35s Frequency: %-25s Type:%-25s\n", $key, $rankedNGrams{$key}, getType($key));
+    #}
+}
+
+sub getType{
+
+    my $word = $_[0];
+    my $query = $_[0];
+    my @categories;
+    my $entry = $wiki->search($word);
+
+    if(defined $entry) {
+      @categories = $entry->categories();
+    }
+    else {
+        return "UNDEFINED";
+    }
+
+    my $returnType = "Object";
+    for my $category (@categories){
+        if($category =~ m/Cities/){
+            $returnType = "City";
+        }
+        elsif($category =~ m/people/){
+            $returnType = "Person";
+        }
+    }
+
+    return $returnType;
+}
+
+sub tileNGrams {
+    my @orderedKeys;
+    for my $key (sort_values { $b <=> $a } %rankedNGrams) {
+        push(@orderedKeys, $key);
+    }
+    print("\n_____________BEFORE CHANGES__________\n");
+    print join("\n", @orderedKeys);
+
+    for my $i (0 .. $#orderedKeys) {
+        my $startingKey = $orderedKeys[$i];
+         for my $j ($i+1..$#orderedKeys) {
+            if($orderedKeys[$j] =~ /\b$startingKey\b\s(.*)/){
+                    print ("Replacing @orderedKeys[$i] with @orderedKeys[$i] $1\n");
+                   $orderedKeys[$i] = $orderedKeys[$i]." ".$1;
             }
         }
+    }
+    print("_____________AFTER CHANGES__________\n");
+    print join("\n", @orderedKeys);
 
 }
 
