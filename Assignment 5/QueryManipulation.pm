@@ -4,37 +4,53 @@ use Switch;
 use Exporter;
 
 our @ISA= qw( Exporter );
-
-# these are exported by default.
 our @EXPORT = qw( parseQuery getQuerySubject getVariations getQueryType getQueryModifier getSubjectModifier );
 
+#  Method that breaks a query up into likely answers that we can feed into our regex.
+#
+#  @param $_[0]  The Query
 sub parseQuery {
 	$query = $_[0];
 	$query =~ s/[\.?!]//g;
 	return $query;
 }
 
+#  Method that breaks a query up into likely answers that we can feed into our regex.
+#
+#  @param $_[0]  The Query
 sub getQuerySubject {
 	my $query = $_[0];
 	if($query =~ /([A-Z][a-z]+),?\s([A-Z][a-z]+).*/) {
         return $1." ".$2;
     }
+    elsif($query =~ /([A-Z][a-z]+)/) {
+        return $1;
+    }
     return "UNIDENTIFIABLE SUBJECT";
 }
 
+#  Method that breaks a query up into likely answers that we can feed into our regex.
+#
+#  @param $_[0]  The Query
 sub getVariations {
 	my $subject = $_[0];
 	my @variations = ();
 
 	if($subject =~ /([A-Z][a-z]+),?\s([A-Z][a-z]+)/) {
+        push(@variations, $1." ".$2);
         push(@variations, $1);
         push(@variations, $2);
-        push(@variations, $1." ".$2);
+    }
+    elsif ($subject =~ /([A-Z][a-z]+)/) {
+    	push(@variations, $1);
     }
 
     return @variations;
 }
 
+#  Method that breaks a query up into likely answers that we can feed into our regex.
+#
+#  @param $_[0]  The Query
 sub getQueryType {
     my $query = $_[0];
     my $queryType;
@@ -57,6 +73,9 @@ sub getQueryType {
     return $queryType;
 }
 
+#  Method that breaks a query up into likely answers that we can feed into our regex.
+#
+#  @param $_[0]  The Query
 sub getQueryModifier{
     my $query = $_[0];
     my $queryType = getQueryType($query);
@@ -90,6 +109,9 @@ sub getQueryModifier{
     return $queryModifier;
 }
 
+#  Method that breaks a query up into likely answers that we can feed into our regex.
+#
+#  @param $_[0]  The Query
 sub getSubjectModifier{
     my $query = $_[0];
     my $queryType = getQueryType($query);
