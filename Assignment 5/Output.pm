@@ -1,4 +1,4 @@
-package WikiParser;
+package Output;
 
 ######### INFORMATION ########
 
@@ -33,26 +33,32 @@ use Exporter;
 our @ISA= qw( Exporter );
 our @EXPORT = qw( parseWikiData );
 
-#  Method that attempts to parse Query Data into sentences split by a single space.
-#  @param $_[0]  The raw text returned from the wiki entry
-sub parseWikiData{
-    my $data = $_[0];
+sub printUnigrams {
+    say "---------------------- Unigram Mapping ----------------------------";
 
-    ##### Delete all the reference tags #####
-    $data =~ s/<ref>|<\/ref>|<ref//g;
-
-    ##### Delete the author tags #####
-    $data =~ s/name="?.*"?>//g;
-
-    ##### Delete everything that is not a letter or a period #####
-    $data =~ s/[^a-zA-Z0-9\.]/ /g; 
-
-    ##### Delete all the extra tabs and spaces#####
-    $data =~ s/\s+/ /g;
-
-    ##### Used for Abbreviations - We delete periods so we dont mistake them for sentence endings. #####
-    $data =~ s/([A-Z])\.([A-Z])\./$1$2/g;
-
-    return $data;
+    for my $key (sort_values { $b <=> $a } %unigrams) {
+        printf("Word: %-25s Given We Just Saw: %-25s\n", $key, $unigrams{$key});
+        }
 }
+
+sub printBigrams {
+
+    say "---------------------- Bigram Mapping ----------------------------";
+
+        for my $key (sort_values { $b <=> $a } %bigrams) {
+        printf("Word: %-25s Given We Just Saw: %-25s\n", $key, $bigrams{$key});
+        }
+    
+
+}
+
+sub printTrigrams {
+
+    say "---------------------- Trigram Mapping ----------------------------";
+
+     for my $key (sort_values { $b <=> $a } %trigrams) {
+        printf("Word: %-25s Given We Just Saw: %-25s\n", $key, $trigrams{$key});
+        }
+}
+
 1;

@@ -91,33 +91,6 @@ sub expandQuery{
     return @categories;
 }
 
-sub getType{
-
-    my $word = $_[0];
-    my $query = $_[0];
-    my @categories;
-    my $entry = $wiki->search($word);
-
-    if(defined $entry) {
-      @categories = $entry->categories();
-    }
-    else {
-        return "UNDEFINED";
-    }
-
-    my $returnType = "Object";
-    for my $category (@categories){
-        if($category =~ m/Cities/){
-            $returnType = "City";
-        }
-        elsif($category =~ m/people/){
-            $returnType = "Person";
-        }
-    }
-
-    return $returnType;
-}
-
 sub tileNGrams {
     my @orderedKeys;
     for my $key (sort_values { $b <=> $a } %rankedNGrams) {
@@ -168,35 +141,6 @@ sub tileNGrams {
         }
     }
 
-
-sub printUnigrams {
-    say "---------------------- Unigram Mapping ----------------------------";
-
-    for my $key (sort_values { $b <=> $a } %unigrams) {
-        printf("Word: %-25s Given We Just Saw: %-25s\n", $key, $unigrams{$key});
-        }
-}
-
-sub printBigrams {
-
-    say "---------------------- Bigram Mapping ----------------------------";
-
-        for my $key (sort_values { $b <=> $a } %bigrams) {
-        printf("Word: %-25s Given We Just Saw: %-25s\n", $key, $bigrams{$key});
-        }
-    
-
-}
-
-sub printTrigrams {
-
-    say "---------------------- Trigram Mapping ----------------------------";
-
-     for my $key (sort_values { $b <=> $a } %trigrams) {
-        printf("Word: %-25s Given We Just Saw: %-25s\n", $key, $trigrams{$key});
-        }
-}
-
 sub rankList {
     my $totalSpots = 0;
     for my $key (sort_values { $b <=> $a } %unigrams) {
@@ -238,115 +182,6 @@ sub rankList {
     #}
 }
 
-sub transformQuery{
-    my $query = $_[0];
-    my $queryType = $_[1];
-    my @returnQueries = ();
-    
-    switch ($queryType) {
-        case "Who" {
-            if($query =~ /^Who\s(\w+)\s/i) {
-                $queryModifier = $1;
-            }
-        }
-        case "When" {
-             if($query =~ /^When\s(\w+)\s/i) {
-                $queryModifier = $1;
-            }
-        }
-        case "Where" {
-             if($query =~ /^Where\s(\w+)\s/i) {
-                $queryModifier = $1;
-            }
-        }
-        case "What" {
-             if($query =~ /^What\s(\w+)\s/i) {
-                $queryModifier = $1;
-            }
-        } else {
-            return @returnQueries;
-        }
-    }
-
-    $query =~ s/\b$queryModifier\b//g;
-    my @queryWords =  $query =~ /\S+/g;
-
-    foreach my $i (-1...$#queryWords) {
-        my $newQuery =  join(" ",arrayInsertAfterPosition(\@queryWords,$i,$queryModifier));
-        push(@returnQueries, $newQuery);
-    }
-    return @returnQueries;
-}
-
-    sub arrayInsertAfterPosition
-    {
-        my ($inArray, $inPosition, $inElement) = @_;
-        my @res         = ();
-        my @after       = ();
-        my $arrayLength = int @{$inArray};
-
-        if ($inPosition < 0) { @after = @{$inArray}; }
-            else {
-            if ($inPosition >= $arrayLength)    { $inPosition = $arrayLength - 1; }
-            if ($inPosition < $arrayLength - 1) { @after = @{$inArray}[($inPosition+1)..($arrayLength-1)]; }
-        }
-
-        push (@res, @{$inArray}[0..$inPosition],
-              $inElement,
-              @after);
-
-        return @res;
-    }
-
-
-sub getQueryType {
-    my $query = $_[0];
-    my $queryType;
-    if($query =~ /^Who/i) {
-        $queryType = "Who";
-    }
-    elsif($query =~ /^What/i) {
-        $queryType = "What";
-    }
-    elsif($query =~ /^When/i) {
-        $queryType = "When";
-    }
-    elsif($query =~ /^Where/i) {
-        $queryType = "Where";
-    } 
-    else {
-        $queryType = "UNDETERMINED";
-    }
-
-    return $queryType;
-}
-
-sub rewriteQuery{
-    my $query = $_[0];
-    my $queryType = getQueryType($query);
-    transformQuery($query,$queryType);
-}
-
-sub getExpectedAnswer{
-    my $query = $_[0];
-    my $queryType = getQueryType($query);
-    my $expectedAnswer;
-    switch ($queryType) {
-        case "Who" {
-            $expectedAnswer = "<PERSON>";
-        }
-        case "What" {
-            $expectedAnswer = "<OBJECT>";
-        }
-        case "When" {
-            $expectedAnswer = "<DATE>";
-        }
-        case "Where" {
-            $expectedAnswer = "<LOCATION>";
-        }
-    }
-    return $expectedAnswer;
-}
 sub createDocuments {
     @Queries = @_;
 
@@ -366,13 +201,3 @@ sub createDocuments {
     return @documents;
 }
 
-    sub queryWiki{
-        my $query = $_[0];
-        my $entry = $wiki->search("Albert Einstein");
-        my $text = $entry->text_basic();
-        @categories = $entry->categories();
-        $text = parseWikiData($text);
-        createUnigrams($text);
-        createBigrams($text);
-        createTrigrams($text);
-    }
