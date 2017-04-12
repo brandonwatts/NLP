@@ -4,21 +4,21 @@ use warnings;
 use strict;
 use Switch;
 use WWW::Wikipedia;
+use File::Slurp;
 use feature qw(say);
 use QueryManipulation;
 use WikiParser;
-use DocumentManipulation;
 
 ######### INFORMATION ########
 
 # Brandon Watts
 # CMSC 416
 # Assignment 5
-# 4/10/17
+# 4/12/17
 
 ######## SUMMARY #########
 
-# This program is a rudimentary Question and answering system using Wikipedia as a backend. It attempts to answer four basic 
+# This program is a rudimentary Question and Answering system using Wikipedia as a backend. It attempts to answer four basic 
 # types of questions: Who, What, When or Where by means of query rewriting and direct regex matching.
 
 ########## EXAMPLE USE CASE #########
@@ -34,31 +34,19 @@ use DocumentManipulation;
 #   There were really no major alogorithims used in this iteration of the QA system but I will decribe the method by which I 
 #   turned a query into a response.
 #
-#   1) 
-#   2) 
-#   3) 
-#   4) 
+#   1) I first rewrot the query into a possible answer form using the subject and the question type 
+#   2) From there I parsed the subject out of the Query and used Wikipedia to obtain its document
+#   3) If the document cannot be obtained it attempts to search through related documents but has so far been unsuccessful
+#   4) "Searching" through the document involves attempting to direct regex match the likely answer
 
 ########## REFERENCES #########
+# WWW::Wikipedia - http://search.cpan.org/~bricas/WWW-Wikipedia-2.04/lib/WWW/Wikipedia.pm
+# File::Slurp - http://search.cpan.org/~uri/File-Slurp-9999.19/lib/File/Slurp.pm
 
-
-#####  #####
 my $wiki = WWW::Wikipedia->new();
 
-#####  #####
-my $rankedNGrams;
-
-#####  #####
-my @documents;
-
-#####  #####
-my @FeatureVectorLabelingScheme;
-
-#####  #####
-my %documentToFeatureVector;
-
-#####  #####
-my @words; 
+##### File that output will be witten to #####
+my $logFile = $ARGV[0];
 
 ##### A Quick Greeting to the user #####
 say "This is a QA system by Brandon Watts. It will try to answer questions that start with Who, What, When or Where. Enter \"exit\" to leave the program.";
@@ -69,25 +57,29 @@ while(<STDIN>){
   ##### Quit the program if the user types "exit" #####
   last if ($_ =~ /exit/); 
 
+  ##### Start wrtiing to log file #####
+  append_file( $logFile, "-------------------- BEGIN TRANSACTION --------------------") ;
+
   ##### Get input from the user #####
-  my $string = $_; 
+  my $string = parseQuery($_); 
 
   ##### Create an array of likey representations of the answers #####
   my @las = createLikelyAnswers($string);
 
+
   ##### Get the subject from the query #####
   my $subject = getSubjectModifier($string);
 
-  ##### Array that holds the subject. It is an array because in part two there will be multiple subjects #####
-  @words  = ("$subject");
-
   ##### Get the document/s from wikipedia regarding our subjects #####
-  my $document = parseWikiData(getDocumet());
- 
+  my $document = parseWikiData(getDocumet(getQuerySubject($subject)));
+
+  ##### Write log #####
+  append_file( $logFile, "\nWe are lookign for document relating to: $subject \t\t From Query: $string") ;
+
   ##### Boolean Variable to test if we have found the answer. #####
   my $foundAnswer = "false";
 
-  ##### Document could not be obtained with the provided query
+  ##### Document could not be obtained with the provided query #####
   if( $document eq "" ) {
     say "Answer could not be obtained with the provided query";
   }
@@ -113,38 +105,58 @@ while(<STDIN>){
     }
 
     ##### We found the document but couldnt find a match for the query #####
-    if( $foundAnswer eq "false" ) { print ("Sorry couldn't find anything."); }
+   # if( $foundAnswer eq "false" ) { 
 
+    #  say "Expanding Search...";
+
+     # ##### Get all the related categories #####
+      #my @expandendCategories = getRelatedSubjects($string);
+
+      ##### Get all the documents from those categories #####
+      #my @relatedDocuments = getRelatedDocuments(@expandendCategories);
+
+      ##### loop over each document #####
+     # for my $document (@relatedDocuments) {
+        
+        ##### Loop over each likely answer #####
+      #  for my $las (@las){
+
+          ##### If our document contains our answer #####
+       #   if ($document =~ /$las([^\.]*)/i) {
+
+            ##### print the answer to the console #####
+        #    print ("$las$1.\n");
+
+            ##### Mark that we have found the answer #####
+         #   $foundAnswer = "true";
+
+            ##### Since we are only looking for an exact string match just break (We will introduce the concept of rank later) #####
+          #  last;
+          #}
+        #}
+      #} 
+
+      ##### We still could not find the answer #####
+      if( $foundAnswer eq "false" ) { 
+              print("Sorry we couldnt find anything.\n");
+      }
+    #}
   }  
-
-my @expandendCategories = getRelatedSubjects($string);
-
-my @relatedDocuments = getRelatedDocuments(@expandendCategories);
-
-#say "EXPANDED: ";
-#print( join("\n", @expandendCategories));
-
-
+     ##### End writing to logfile #####
+    append_file( $logFile, "-------------------- END TRANSACTION --------------------") ;
 }
 
 #  Method that will query Wikipedia and give back related document
 sub getDocumet {
 
-    ##### Loop through the words (Right now only one but will add more subjects later) #####
-    for my $word (@words){
+  my $query = $_[0];
+  
+  ##### Get the entry from query #####
+  my $entry = $wiki->search($query);
 
-        ##### Get the entry from query #####
-        my $entry = $wiki->search($word);
-
-        ##### Some entrys may not be defined in our loop so we take that into account #####
-        if(defined $entry) { return($entry->fulltext()); }
-        
-        ##### If its not defined just continue on #####
-        else { next; }
-    }
-
-    ##### If we cant find anything just return nothing #####
-    return "";
+  ##### Some entrys may not be defined so we take that into account #####
+  if(defined $entry) { return($entry->fulltext()); }
+  else { return ""; }
 }
 
 #  Method that breaks a query up into likely answers that we can feed into our regex.
@@ -154,70 +166,76 @@ sub createLikelyAnswers{
 
     my $query = $_[0];
 
-    ##### If we cant find anything just return nothing #####
+    ##### Get the subject #####
     my $subject = getSubjectModifier($query);
 
-    ##### If we cant find anything just return nothing #####
+    ##### Get the Query Modifier #####
     my $queryModifier = getQueryModifier($query);
-    
-    ##### If we cant find anything just return nothing #####
-    my $queryType = getQueryType($query);
 
-    ##### If we cant find anything just return nothing #####
+    ##### List of all the possible likely answers#####
     my @queryList = ();
 
-    ##### If we cant find anything just return nothing #####
+    ##### conjugations of our query modifier #####
     my @conjugations = ();
 
-    ##### If we cant find anything just return nothing #####
-    if ( $queryModifier =~ /is|was|where|are/ ) {
+    ##### apply gonjugation rules #####
+    if ( $queryModifier =~ /is|was|where|are|were|/ ) {
 
         push(@conjugations, "is");
+        push (@conjugations, "were");
         push(@conjugations, "was");
         push(@conjugations, "were");
         push(@conjugations, "are");
     }
 
-    ##### If we cant find anything just return nothing #####
+    ##### Grab the different variations of a name #####
     my @variations = getVariations(getQuerySubject($subject));
 
-    ##### If we cant find anything just return nothing #####
+    ##### Get everything after the subject #####
     my $remainingSentence = "";
       if($subject =~ /[A-Z][a-z]+,?\s[A-Z][a-z]+\s(.*)/) {
         $remainingSentence = $1;
     }
 
-    ##### If we cant find anything just return nothing #####
-    for my $conjugation (@conjugations){
+    ##### loop over every variation #####
+    for my $variation (@variations) {
 
-        ##### If we cant find anything just return nothing #####
-        for my $variation (@variations) {
-            push(@queryList, $variation." ".$conjugation." ".$remainingSentence);
-        }
+      ##### Loop over every possible conjugation #####
+      for my $conjugation (@conjugations){
+
+        ##### Add that answer to a likely answer. #####
+        push(@queryList, $variation." ".$conjugation." ".$remainingSentence);
+      }
     }
 
     return @queryList;
 }
 
+#  Method that gets all the related subjects to our current subject 
+#
+#  @param $_[0]  The Query 
 sub getRelatedSubjects{
 
   my $query = $_[0];
-
-    ##### If we cant find anything just return nothing #####
-  my $subject = getSubjectModifier($query);
-
+  my $subject = getQuerySubject($query);
   my @entry = $wiki->search($subject)->related();
-
   return @entry;
-
 }
 
+sub getRelatedDocuments {
 
+    my @Queries = @_;
 
+    my @documents = ();
 
+    for my $query ( @Queries ) {
+        
+        my $entry = $wiki->search($query);
 
+        if(defined $entry) { push(@documents,parseWikiData($entry->text())); }
+        
+        else { next; }
+    }
 
-
-
-
-
+    return @documents;
+}

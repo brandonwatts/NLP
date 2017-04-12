@@ -1,0 +1,92 @@
+
+20 Factual Questions:
+
+	Who:
+		
+		1) Who is George Washington?
+		2) Who is Katy Perry?
+		3) Who is Lawrence of Arabia?
+		4) Who were the twelve Deciples?
+		5) Who is the president of France?
+
+	What:
+
+		1) What is a Car?
+		2) What is a Ball?
+		3) What is the capital of Maine?
+		4) What is the Theory of Relativity?
+		5) What were The Beatles?
+
+	When:
+
+		1) When was Issac Asimov born?
+		2) When was Barrack Obama born?
+		3)
+		4)
+		5)
+
+	Where:
+
+		1) Where is Reno?
+		2) Where is Mardi Gras?
+		3) Where is the Effiel Tower?
+		4) Where is Richmond, Virginia?
+		5) Where is Abraham Lincoln buried?
+
+Example Responses:
+
+	Correct:
+
+			1)	Question: "Where is Reno."
+				Answer: Reno is a city in the US state of Nevada.
+
+			2)	"Question: Where is Richmond, Virginia"
+				Answer: Richmond is the capital of the Commonwealth of Virginia in the United States.
+
+			3)	Question: "Who is Katy Perry?"
+				Answer: 
+
+			4) 	Question: What is a Ball?
+				Answer:
+
+			5) Question: Who is George Washington?
+				Answer:
+
+			6) Question: When was Isaac Asimov born?
+				Answer: Asimov was born between October 4 1919 and January 2 1920.
+
+			7)
+
+			8)
+
+			9)
+
+			10)
+
+	Incorrect: 
+
+			1)	Question: "Where is the Effiel Tower"
+				Answer: Eiffel Tower is the most visited paid monument in the world 6.
+
+			2)	Question: "Where was George Washington born"
+				Answer: George Washington was an American politician and soldier who served as the first President of the United States from 1789 to 1797 and was one of the Founding Fathers of the United States.
+
+			3)	Question: "Where is Abraham Lincoln buried"
+				Answer: Abraham Lincoln was an American politician and lawyer who served as the 16th President of the United States from March 1861 until his assassination in April 1865.
+
+			4) Question: "What were the Beatles?"
+				Answer:The Beatles were Proper nouns that are plural in form take a plural verb in both American English and British English.
+
+			5)
+
+			6)
+
+			7)
+
+			8)
+
+			9)
+
+			10)
+
+

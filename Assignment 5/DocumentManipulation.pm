@@ -4,7 +4,7 @@ package DocumentManipulation;
 
 # Brandon Watts
 # CMSC 416
-# Assignment 5 - Wiki Parser
+# Assignment 5 - Document Manipulation
 # 4/10/17
 
 ######## SUMMARY #########
@@ -72,6 +72,8 @@ sub createTrigrams {
         $trigrams{$responseWords[$i-2]." ".$responseWords[$i-1]." ".$responseWords[$i]}++;
     }
 }
+
+
 
 sub rankNGrams {
 
@@ -221,7 +223,7 @@ sub tileNGrams {
         my $startingKey = $orderedKeys[$i];
          for my $j ($i+1..$#orderedKeys) {
             if($orderedKeys[$j] =~ /\b$startingKey\b\s(.*)/){
-                    print ("Replacing @orderedKeys[$i] with @orderedKeys[$i] $1\n");
+                    print ("Replacing $orderedKeys[$i] with $orderedKeys[$i] $1\n");
                    $orderedKeys[$i] = $orderedKeys[$i]." ".$1;
             }
         }

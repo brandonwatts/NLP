@@ -1,0 +1,68 @@
+-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: George Washington ? 		 From Query: When was George Washington born?-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION ---------------------------------------- BEGIN TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Orlando 		 From Query: Where is Orlando-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Reno 		 From Query: Where is Reno-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Richmond, Virginia 		 From Query: Where is Richmond, Virginia-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Guadalajara 		 From Query: Where is Guadalajara-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Mardi Gras 		 From Query: Where is Mardi Gras-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to:  Effiel Tower 		 From Query: Where is the Effiel Tower-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Effiel Tower 		 From Query: Where is Effiel Tower-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Effiel Tower 		 From Query: Where is Effiel Tower-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Eiffel Tower 		 From Query: Where is Eiffel Tower-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Detroit 		 From Query: Where is Detroit-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Memphis 		 From Query: Where is Memphis-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Topeka 		 From Query: Where is Topeka-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: George Washington  		 From Query: Where was George Washington borm-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Virginia Commonwealth University 		 From Query: Who is Virginia Commonwealth University-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Duke University 		 From Query: Where is Duke University-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: The Virginia State Fair 		 From Query: Where is The Virginia State Fair-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Apple  		 From Query: Where is Apple headquaters-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy  		 From Query: Where is Jhon Kennedy burried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Abraham Lincoln  		 From Query: Where is Abraham Lincoln buried-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to:     		 From Query: What is the capital of maine-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to:    Maine 		 From Query: What is the capital of Maine-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to:  Frog 		 From Query: What is a Frog-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to:  Bike 		 From Query: What is a Bike-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to:  Car 		 From Query: What is a Car-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to:  Ball 		 From Query: What is a Ball-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to:   Sky 		 From Query: What color is the Sky-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to:   Leaf 		 From Query: What color is a Leaf-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to:  Program 		 From Query: What is a Program-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to:    Maine 		 From Query: What is the capital of Maine-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to:     		 From Query: What is the capital of maine-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Abraham Lincoln  		 From Query: Where is Abraham Lincoln buried-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy  		 From Query: Where is Jhon Kennedy burried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy  		 From Query: Where is Jhon Kennedy burried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy  		 From Query: Where is Jhon Kennedy burried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy  		 From Query: Where is Jhon Kennedy burried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy  		 From Query: Where is Jhon Kennedy burried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy  		 From Query: Where is Jhon Kennedy burried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy  		 From Query: Where is Jhon Kennedy burried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy  		 From Query: Where is Jhon Kennedy burried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy  		 From Query: Where is Jhon Kennedy burried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy burried 		 From Query: Where is Jhon Kennedy burried-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy burried 		 From Query: Where is Jhon Kennedy burried-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy burried 		 From Query: Where is Jhon Kennedy burried-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy burried 		 From Query: Where is Jhon Kennedy burried-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy burried 		 From Query: Where is Jhon Kennedy burried-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy burried 		 From Query: Where is Jhon Kennedy burried-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy burried 		 From Query: Where is Jhon Kennedy burried-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy burried 		 From Query: Where is Jhon Kennedy burried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy burried 		 From Query: Where is Jhon Kennedy burried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Jhon Kennedy burried 		 From Query: Where is Jhon Kennedy burried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Abraham Lincoln buried 		 From Query: Where is Abraham Lincoln buried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Abraham Lincoln buried 		 From Query: Where is Abraham Lincoln buried-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: the capital of Maine 		 From Query: What is the capital of Maine-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Theory of Relativity 		 From Query: What is Theory of Relativity-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: a Spaceship 		 From Query: What is a Spaceship-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: PI 		 From Query: What is PI-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Fall 		 From Query: When is Fall-------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Fall 		 From Query: When is Fall-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Fall 		 From Query: When is Fall-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Issac Asimo born 		 From Query: When was Issac Asimo born-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Issac Asimov born 		 From Query: When was Issac Asimov born-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Barrak Obama born 		 From Query: When was Barrak Obama born-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: Barrak Obama born 		 From Query: When was Barrak Obama born-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: The Three Stooges 		 From Query: What were The Three Stooges-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: The Beatles 		 From Query: What were The Beatles-------------------- END TRANSACTION ---------------------------------------- BEGIN TRANSACTION --------------------
+We are lookign for document relating to: The Beatles 		 From Query: What were The Beatles-------------------- END TRANSACTION --------------------
