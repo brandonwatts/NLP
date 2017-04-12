@@ -3,14 +3,11 @@
 use warnings;
 use strict;
 use Switch;
-#use Data::Dumper;
-#use File::Slurp;
 use WWW::Wikipedia;
-#use Data::CosineSimilarity;
-#use Sort::Hash::Values;
 use feature qw(say);
 use QueryManipulation;
 use WikiParser;
+use DocumentManipulation;
 
 ######### INFORMATION ########
 
@@ -101,23 +98,33 @@ while(<STDIN>){
     ##### Loop through our likely answers an attempt to find a direct string match from our document #####
     for my $las (@las){
 
-        ##### If our document contains our answer #####
-        if ($document =~ /$las([^\.]*)/i) {
+      ##### If our document contains our answer #####
+      if ($document =~ /$las([^\.]*)/i) {
 
-            ##### print the answer to the console #####
-            print ("$las$1.\n");
+        ##### print the answer to the console #####
+        print ("$las$1.\n");
 
-            ##### Mark that we have found the answer #####
-            $foundAnswer = "true";
+        ##### Mark that we have found the answer #####
+        $foundAnswer = "true";
 
-            ##### Since we are only looking for an exact string match just break (We will introduce the concept of rank later) #####
-            last;
-        }
+        ##### Since we are only looking for an exact string match just break (We will introduce the concept of rank later) #####
+        last;
+      }
     }
 
     ##### We found the document but couldnt find a match for the query #####
     if( $foundAnswer eq "false" ) { print ("Sorry couldn't find anything."); }
+
   }  
+
+my @expandendCategories = getRelatedSubjects($string);
+
+my @relatedDocuments = getRelatedDocuments(@expandendCategories);
+
+#say "EXPANDED: ";
+#print( join("\n", @expandendCategories));
+
+
 }
 
 #  Method that will query Wikipedia and give back related document
@@ -191,3 +198,26 @@ sub createLikelyAnswers{
 
     return @queryList;
 }
+
+sub getRelatedSubjects{
+
+  my $query = $_[0];
+
+    ##### If we cant find anything just return nothing #####
+  my $subject = getSubjectModifier($query);
+
+  my @entry = $wiki->search($subject)->related();
+
+  return @entry;
+
+}
+
+
+
+
+
+
+
+
+
+
