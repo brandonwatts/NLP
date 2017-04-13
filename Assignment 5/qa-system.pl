@@ -34,7 +34,7 @@ use WikiParser;
 #   There were really no major alogorithims used in this iteration of the QA system but I will decribe the method by which I 
 #   turned a query into a response.
 #
-#   1) I first rewrot the query into a possible answer form using the subject and the question type 
+#   1) I first rewrote the query into a possible answer form using the subject and the question type 
 #   2) From there I parsed the subject out of the Query and used Wikipedia to obtain its document
 #   3) If the document cannot be obtained it attempts to search through related documents but has so far been unsuccessful
 #   4) "Searching" through the document involves attempting to direct regex match the likely answer
@@ -48,6 +48,7 @@ my $wiki = WWW::Wikipedia->new();
 ##### File that output will be witten to #####
 my $logFile = $ARGV[0];
 
+##### document obtained my the Wiki Search #####
 my $document;
 
 ##### A Quick Greeting to the user #####
@@ -64,7 +65,8 @@ while(<STDIN>){
 
   ##### Get input from the user #####
   my $string = parseQuery($_); 
-   ##### Get the subject from the query #####
+
+  ##### Get the subject from the query #####
   my $subject = getSubjectModifier($string);
 
   ##### Get the document/s from wikipedia regarding our subjects #####
@@ -72,9 +74,6 @@ while(<STDIN>){
 
   ##### Create an array of likey representations of the answers #####
   my @las = createLikelyAnswers($string);
-
-
- 
 
   ##### Write log #####
   append_file( $logFile, "\nWe are looking for document relating to: $subject \t\t From Query: $string\n") ;
@@ -91,13 +90,14 @@ while(<STDIN>){
   else{
 
     my $returnAnswer;
-      append_file( $logFile, "\nGenerated Search Querys: \n") ;
+    
+    ##### Print to log file #####
+    append_file( $logFile, "\nGenerated Search Querys: \n") ;
 
     ##### Loop through our likely answers an attempt to find a direct string match from our document #####
     for my $las (@las){
 
-      append_file( $logFile, "$las\n") ;
-
+    append_file( $logFile, "$las\n") ;
 
       ##### If our document contains our answer #####
       if ($document =~ /$las([^\.]*)/i) {
@@ -150,9 +150,9 @@ while(<STDIN>){
       }
 
 
-    #append_file( $logFile, "\n****************************** Raw Data: ******************************\n") ;
-    #append_file( $logFile, "\n$document\n") ;
-    #append_file( $logFile, "\n************************************************************************\n") ;
+    append_file( $logFile, "\n****************************** Raw Data: ******************************\n") ;
+    append_file( $logFile, "\n$document\n") ;
+    append_file( $logFile, "\n************************************************************************\n") ;
 
 
 

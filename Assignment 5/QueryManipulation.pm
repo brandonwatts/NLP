@@ -47,7 +47,6 @@ sub getVariations {
     return @variations;
 }
 
-
 #  Method that returns what type of query we are dealign with
 #
 #  @param $_[0]  The Query
