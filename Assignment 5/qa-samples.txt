@@ -3,90 +3,115 @@
 
 	Who:
 		
-		1) Who is George Washington?
+		1) Who is Micky Mouse?
 		2) Who is Katy Perry?
 		3) Who is Lawrence of Arabia?
-		4) Who were the twelve Deciples?
-		5) Who is the president of France?
+		4) Who is the president of France?
+		5) Who is Hermes?
 
 	What:
 
 		1) What is a Car?
 		2) What is a Ball?
-		3) What is the capital of Maine?
 		4) What is the Theory of Relativity?
 		5) What were The Beatles?
+		5) What is Karadzharoceras?
 
 	When:
 
 		1) When was Issac Asimov born?
 		2) When was Barrack Obama born?
-		3)
-		4)
-		5)
+		3) When is Easter?
+		4) When is Election Day?
+		5) When was Jesus born?
 
 	Where:
 
 		1) Where is Reno?
-		2) Where is Mardi Gras?
+		2) Where is Topeka?
 		3) Where is the Effiel Tower?
 		4) Where is Richmond, Virginia?
 		5) Where is Abraham Lincoln buried?
 
 Example Responses:
 
-	Correct:
+	Correct: (System Answer is same as correct answer)
 
 			1)	Question: "Where is Reno."
 				Answer: Reno is a city in the US state of Nevada.
 
-			2)	"Question: Where is Richmond, Virginia"
+			2)	Question: "Where is Richmond, Virginia"
 				Answer: Richmond is the capital of the Commonwealth of Virginia in the United States.
 
 			3)	Question: "Who is Katy Perry?"
-				Answer: 
+				Answer: Katy Perry is an American singer and songwriter.
 
-			4) 	Question: What is a Ball?
-				Answer:
+			4) 	Question: "What is a Ball?""
+				Answer: Ball is a round object usually spherical but sometimes ovoid with various uses.
 
-			5) Question: Who is George Washington?
-				Answer:
+			5) Question: "Who is Micky Mouse?""
+				Answer: Mickey Mouse is a funny animal cartoon character and the official mascot of The Walt Disney Company.
 
-			6) Question: When was Isaac Asimov born?
+			6) Question: "When was Isaac Asimov born?"
 				Answer: Asimov was born between October 4 1919 and January 2 1920.
 
-			7)
+			7) Question: "Where is Topeka?""
+				Answer: Topeka is the capital city of the US state of Kansas and the seat of Shawnee County.
 
-			8)
+			8) Question: "What is a Car?"
+				Answer: Car is a wheeled self powered motor vehicle used for transportation and a product of the automotive industry.
 
-			9)
+			9) Question: "What is Karadzharoceras?"
+				Answer: Karadzharoceras is a genus of discosorids from the Devonian named by Zhuravleva in 1972 possibly a member of the Discosoridae.
 
-			10)
+			10) Question: "Who is Hermes?""
+				Answer: Hermes is an Olympian god in Greek religion and mythology the son of Zeus and the Pleiad Maia and the second youngest of the Olympian gods Dionysus being the youngest .
 
-	Incorrect: 
+	Incorrect: (System Answer differed from correct answer)
 
 			1)	Question: "Where is the Effiel Tower"
 				Answer: Eiffel Tower is the most visited paid monument in the world 6.
+				Correct Answer: The Effiel tower is locate on the Champ de Mars in Paris, France.
 
 			2)	Question: "Where was George Washington born"
 				Answer: George Washington was an American politician and soldier who served as the first President of the United States from 1789 to 1797 and was one of the Founding Fathers of the United States.
+				Correct Answer:  George Washington was born in Colonial Beach in Westmoreland County, Virginia.
+
 
 			3)	Question: "Where is Abraham Lincoln buried"
 				Answer: Abraham Lincoln was an American politician and lawyer who served as the 16th President of the United States from March 1861 until his assassination in April 1865.
+				Correct Answer:  Abraham Lincoln is buried in Oak Ridge Cemetery in Springfield, Illinois.
+
 
 			4) Question: "What were the Beatles?"
-				Answer:The Beatles were Proper nouns that are plural in form take a plural verb in both American English and British English.
-
-			5)
-
-			6)
-
-			7)
-
-			8)
-
-			9)
-
-			10)
+				Answer: The Beatles were Proper nouns that are plural in form take a plural verb in both American English and British English.
+				Correct Answer: The Beatles were an English rock band, formed in Liverpool in 1960. 
 
 
+			5) Question: "Who is James Cameron?"
+				Answer: James Cameron was fired after failing to get a close up of Carole Davis in her opening scene.
+				Correct Answer: James Cameron is a Canadian filmmaker, director, producer, screenwriter, inventor, engineer, philanthropist, and deep-sea explorer.
+
+			6) Question: "Who is the president of France?"
+				Answer: France is a developed country with the world s sixth largest economy by nominal GDP and ninth largest by purchasing power parity.
+				Correct Answer: The president of France is François Hollande
+
+
+			7) Question: "What is the Theroy of Relativity?"
+				Answer: Theory is a contemplative and rational type of abstract or generalizing thinking or the results of such thinking.
+				Correct Answer: The theory of relativity usually encompasses two interrelated theories by Albert Einstein: special relativity and general relativity.
+
+
+			8) Question: "When is Easter?"
+				Answer: Easter is linked to the Jewish Passover by much of its symbolism as well as by its position in the calendar.
+				Correct Answer: Easter always falls on a Sunday between 22 March and 25 April inclusive.
+
+
+			9) Question: "When is Election Day?"
+				Answer: Election Day is the following Tuesday Norway though municipalities are also permitted to open polling stations on the preceding Sunday Philippines Trinidad and Tobago Tuesday In the following countries general elections are held on Tuesdays Denmark although the most recent general election was held on a Thursday instead.
+				Correct Answer: Election day is held on the Tuesday next after the first Monday in the month of November.
+
+
+			10) Question: "When was Jesus born?"
+				Answer: Jesus is as certain as any historical fact can be.
+				Correct Answer: Jesus was born betweeen 6 BC and 4 BC.

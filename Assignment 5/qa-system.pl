@@ -48,6 +48,8 @@ my $wiki = WWW::Wikipedia->new();
 ##### File that output will be witten to #####
 my $logFile = $ARGV[0];
 
+my $document;
+
 ##### A Quick Greeting to the user #####
 say "This is a QA system by Brandon Watts. It will try to answer questions that start with Who, What, When or Where. Enter \"exit\" to leave the program.";
 
@@ -58,23 +60,24 @@ while(<STDIN>){
   last if ($_ =~ /exit/); 
 
   ##### Start wrtiing to log file #####
-  append_file( $logFile, "-------------------- BEGIN TRANSACTION --------------------") ;
+  append_file( $logFile, "\n-------------------- BEGIN TRANSACTION --------------------\n") ;
 
   ##### Get input from the user #####
   my $string = parseQuery($_); 
+   ##### Get the subject from the query #####
+  my $subject = getSubjectModifier($string);
+
+  ##### Get the document/s from wikipedia regarding our subjects #####
+  $document = parseWikiData(getDocumet(getQuerySubject($subject)));
 
   ##### Create an array of likey representations of the answers #####
   my @las = createLikelyAnswers($string);
 
 
-  ##### Get the subject from the query #####
-  my $subject = getSubjectModifier($string);
-
-  ##### Get the document/s from wikipedia regarding our subjects #####
-  my $document = parseWikiData(getDocumet(getQuerySubject($subject)));
+ 
 
   ##### Write log #####
-  append_file( $logFile, "\nWe are lookign for document relating to: $subject \t\t From Query: $string") ;
+  append_file( $logFile, "\nWe are looking for document relating to: $subject \t\t From Query: $string\n") ;
 
   ##### Boolean Variable to test if we have found the answer. #####
   my $foundAnswer = "false";
@@ -87,25 +90,28 @@ while(<STDIN>){
   ##### We were able to obtain a document from Wiki ##### 
   else{
 
+    my $returnAnswer;
+      append_file( $logFile, "\nGenerated Search Querys: \n") ;
+
     ##### Loop through our likely answers an attempt to find a direct string match from our document #####
     for my $las (@las){
 
+      append_file( $logFile, "$las\n") ;
+
+
       ##### If our document contains our answer #####
       if ($document =~ /$las([^\.]*)/i) {
-
-        ##### print the answer to the console #####
-        print ("$las$1.\n");
-
-        ##### Mark that we have found the answer #####
-        $foundAnswer = "true";
-
-        ##### Since we are only looking for an exact string match just break (We will introduce the concept of rank later) #####
-        last;
+        if ($foundAnswer eq "false") {
+            $foundAnswer = "true";
+            $returnAnswer = "$las$1";
+        }
       }
     }
 
     ##### We found the document but couldnt find a match for the query #####
    # if( $foundAnswer eq "false" ) { 
+
+    #************** INTRODUCE BACKOFF MODEL NEXT PA ******************#
 
     #  say "Expanding Search...";
 
@@ -139,11 +145,24 @@ while(<STDIN>){
       ##### We still could not find the answer #####
       if( $foundAnswer eq "false" ) { 
               print("Sorry we couldnt find anything.\n");
+      } else {
+          say ($returnAnswer);
       }
+
+
+    #append_file( $logFile, "\n****************************** Raw Data: ******************************\n") ;
+    #append_file( $logFile, "\n$document\n") ;
+    #append_file( $logFile, "\n************************************************************************\n") ;
+
+
+
+    append_file( $logFile, "\nWe Choose: $returnAnswer\n") ;
+
+    append_file( $logFile, "\n-------------------- END TRANSACTION --------------------\n") ;
+
     #}
   }  
      ##### End writing to logfile #####
-    append_file( $logFile, "-------------------- END TRANSACTION --------------------") ;
 }
 
 #  Method that will query Wikipedia and give back related document
@@ -190,15 +209,33 @@ sub createLikelyAnswers{
 
     ##### Grab the different variations of a name #####
     my @variations = getVariations(getQuerySubject($subject));
+    my @variationsWithMiddleName = ();
+
+    for my $variation (@variations) {
+      
+      my $firstName;
+      my $lastName;
+
+      if ($variation =~ /([A-Z][a-z]+),?\s([A-Z][a-z]+)/) {
+        $firstName = $1;
+        $lastName = $2;
+        if ($document =~ /$firstName\s(\w+)\s$lastName/) {
+          push(@variationsWithMiddleName,("$firstName $1 $lastName"));
+        }
+      }
+    }
+
+   push(@variationsWithMiddleName,@variations);
+
 
     ##### Get everything after the subject #####
     my $remainingSentence = "";
-      if($subject =~ /[A-Z][a-z]+,?\s[A-Z][a-z]+\s(.*)/) {
+    if($subject =~ /[A-Z][a-z]+,?\s[A-Z][a-z]+\s(.*)/) {
         $remainingSentence = $1;
     }
 
     ##### loop over every variation #####
-    for my $variation (@variations) {
+    for my $variation (@variationsWithMiddleName) {
 
       ##### Loop over every possible conjugation #####
       for my $conjugation (@conjugations){

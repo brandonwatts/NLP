@@ -47,17 +47,6 @@ sub getVariations {
     return @variations;
 }
 
-sub getRemainsFromSubjectExtraction {
-    my $subject = $_[0];
-
-    ##### If the naem is 2 parts break it up #####
-    if($subject =~ /[A-Z][a-z]+,?\s[A-Z][a-z]+|[A-Z][a-z]+/) {
-        return "$'";
-    }
-    else{
-        return "";
-    }
-}
 
 #  Method that returns what type of query we are dealign with
 #
