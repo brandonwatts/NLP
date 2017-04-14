@@ -14,6 +14,8 @@ package QueryManipulation;
 use warnings;
 use Switch;
 use Exporter;
+use Lingua::EN::NamedEntity;
+
 
 our @ISA= qw( Exporter );
 our @EXPORT = qw( parseQuery getQuerySubject getVariations getQueryType getQueryModifier getSubjectModifier getRemainsFromSubjectExtraction );
@@ -125,9 +127,10 @@ sub getSubjectModifier{
     my $subjectModifier;
     switch ($queryType) {
         case "Who" {
-            if($query =~ /^Who\s(\w+)\s/i) { 
-                $subjectModifier = $';
-            }
+            my @entities = extract_entities($query);
+            foreach my $entity (@entities){
+                    $subjectModifier = $entity->{entity};
+            } 
         }
         case "When" {
              if($query =~ /^When\s(\w+)\s/i) { 

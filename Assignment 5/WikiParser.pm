@@ -23,11 +23,15 @@ our @EXPORT = qw( parseWikiData );
 sub parseWikiData{
     my $data = $_[0];
 
-    ##### Remove Date part in first paragraph #####
-    $data =~ s/\(;.*\)//g;
+    $data =~ s/\s+/ /g;
+
+    ##### Remove Phoenatic speellign and birthdate #####
+    $data =~ s/\(;.*,\s\d\d\d\d\)//;
+
+    $data =~ s/\{\{Infobox.*\}\}\s'//g;
 
     ##### Delete all the reference tags #####
-    $data =~ s/<ref>|<\/ref>|<ref .*\)//g;
+    $data =~ s/<ref>|<\/ref>|<ref .*\/?>//g;
 
     ##### Delete all the break tags #####
     $data =~ s/<br>|<br \/>//g;
@@ -39,7 +43,7 @@ sub parseWikiData{
     $data =~ s/\s+/ /g;
 
     ##### Used for Abbreviations - We delete periods so we dont mistake them for sentence endings. #####
-    $data =~ s/([A-Z])\.([A-Z])\./$1$2/g;
+    #$data =~ s/([A-Z])\.([A-Z])\./$1$2/g;
 
     return $data;
 }

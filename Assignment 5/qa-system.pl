@@ -8,6 +8,8 @@ use File::Slurp;
 use feature qw(say);
 use QueryManipulation;
 use WikiParser;
+use Data::Dumper;
+use Lingua::EN::NamedEntity;
 
 ######### INFORMATION ########
 
@@ -61,16 +63,27 @@ while(<STDIN>){
   last if ($_ =~ /exit/); 
 
   ##### Start wrtiing to log file #####
-  append_file( $logFile, "\n-------------------- BEGIN TRANSACTION --------------------\n") ;
+  #append_file( $logFile, "\n-------------------- BEGIN TRANSACTION --------------------\n") ;
 
   ##### Get input from the user #####
   my $string = parseQuery($_); 
+
+  #my @entities = extract_entities("What is a Cinco de Mayo?");
+ 
+ ##### Iterate through the content and grab all the surrounding sentences and push them to temp array #####
+           #foreach my $entity (@entities){
+            #        print($entity->{entity}."\n");
+             #   }
+        
+  #print(Dumper(@entities));
 
   ##### Get the subject from the query #####
   my $subject = getSubjectModifier($string);
 
   ##### Get the document/s from wikipedia regarding our subjects #####
   $document = parseWikiData(getDocumet(getQuerySubject($subject)));
+
+  #print ($document);
 
   ##### Create an array of likey representations of the answers #####
   my @las = createLikelyAnswers($string);
@@ -101,15 +114,16 @@ while(<STDIN>){
 
       ##### If our document contains our answer #####
       if ($document =~ /$las([^\.]*)/i) {
+      
         if ($foundAnswer eq "false") {
             $foundAnswer = "true";
-            $returnAnswer = "$las$1";
+            $returnAnswer = "$las$1.";
         }
       }
     }
 
     ##### We found the document but couldnt find a match for the query #####
-   # if( $foundAnswer eq "false" ) { 
+    #if( $foundAnswer eq "false" ) { 
 
     #************** INTRODUCE BACKOFF MODEL NEXT PA ******************#
 
@@ -144,7 +158,7 @@ while(<STDIN>){
 
       ##### We still could not find the answer #####
       if( $foundAnswer eq "false" ) { 
-              print("Sorry we couldnt find anything.\n");
+           print("Sorry we couldnt find anything.\n");
       } else {
           say ($returnAnswer);
       }
@@ -160,8 +174,8 @@ while(<STDIN>){
 
     append_file( $logFile, "\n-------------------- END TRANSACTION --------------------\n") ;
 
-    #}
-  }  
+    }
+  #}  
      ##### End writing to logfile #####
 }
 
@@ -174,7 +188,7 @@ sub getDocumet {
   my $entry = $wiki->search($query);
 
   ##### Some entrys may not be defined so we take that into account #####
-  if(defined $entry) { return($entry->fulltext()); }
+  if(defined $entry) { return($entry->text()); }
   else { return ""; }
 }
 
