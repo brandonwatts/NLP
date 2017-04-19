@@ -1,7 +1,7 @@
 #! usr/bin/perl
 
 use warnings;
-use strict;
+#use strict;
 use Switch;
 use WWW::Wikipedia;
 use File::Slurp;
@@ -10,6 +10,7 @@ use QueryManipulation;
 use WikiParser;
 use Data::Dumper;
 use Lingua::EN::NamedEntity;
+use String::Util 'trim';
 
 ######### INFORMATION ########
 
@@ -63,33 +64,26 @@ while(<STDIN>){
   last if ($_ =~ /exit/); 
 
   ##### Start wrtiing to log file #####
-  #append_file( $logFile, "\n-------------------- BEGIN TRANSACTION --------------------\n") ;
+  append_file( $logFile, "\n-------------------- BEGIN TRANSACTION --------------------\n") ;
 
   ##### Get input from the user #####
   my $string = parseQuery($_); 
 
-  #my @entities = extract_entities("What is a Cinco de Mayo?");
- 
- ##### Iterate through the content and grab all the surrounding sentences and push them to temp array #####
-           #foreach my $entity (@entities){
-            #        print($entity->{entity}."\n");
-             #   }
-        
-  #print(Dumper(@entities));
-
   ##### Get the subject from the query #####
   my $subject = getSubjectModifier($string);
 
-  ##### Get the document/s from wikipedia regarding our subjects #####
-  $document = parseWikiData(getDocumet(getQuerySubject($subject)));
+  my $expectedAnswer = getExpectedAnswer($string);
 
-  #print ($document);
+  my ($querySubject, $queryType) = getQuerySubject($string);
+
+  ##### Get the document/s from wikipedia regarding our subjects #####
+  $document = parseWikiData(getDocumet($querySubject));
 
   ##### Create an array of likey representations of the answers #####
   my @las = createLikelyAnswers($string);
 
   ##### Write log #####
-  append_file( $logFile, "\nWe are looking for document relating to: $subject \t\t From Query: $string\n") ;
+  append_file( $logFile, "\nWe are looking for document relating to: $querySubject \t\t From Query: $string\n") ;
 
   ##### Boolean Variable to test if we have found the answer. #####
   my $foundAnswer = "false";
@@ -110,71 +104,59 @@ while(<STDIN>){
     ##### Loop through our likely answers an attempt to find a direct string match from our document #####
     for my $las (@las){
 
-    append_file( $logFile, "$las\n") ;
+    append_file( $logFile, "$las\n");
 
       ##### If our document contains our answer #####
       if ($document =~ /$las([^\.]*)/i) {
-      
-        if ($foundAnswer eq "false") {
-            $foundAnswer = "true";
-            $returnAnswer = "$las$1.";
-        }
+          $foundAnswer = "true";
+          $returnAnswer = "$las$1.";
       }
     }
-
-    ##### We found the document but couldnt find a match for the query #####
-    #if( $foundAnswer eq "false" ) { 
-
-    #************** INTRODUCE BACKOFF MODEL NEXT PA ******************#
-
-    #  say "Expanding Search...";
-
-     # ##### Get all the related categories #####
-      #my @expandendCategories = getRelatedSubjects($string);
-
-      ##### Get all the documents from those categories #####
-      #my @relatedDocuments = getRelatedDocuments(@expandendCategories);
-
-      ##### loop over each document #####
-     # for my $document (@relatedDocuments) {
+    if( $foundAnswer eq "false" ) { 
         
-        ##### Loop over each likely answer #####
-      #  for my $las (@las){
+        $document = parseFullWiki(getFullText($querySubject));
 
-          ##### If our document contains our answer #####
-       #   if ($document =~ /$las([^\.]*)/i) {
-
-            ##### print the answer to the console #####
-        #    print ("$las$1.\n");
-
-            ##### Mark that we have found the answer #####
-         #   $foundAnswer = "true";
-
-            ##### Since we are only looking for an exact string match just break (We will introduce the concept of rank later) #####
-          #  last;
-          #}
-        #}
-      #} 
-
-      ##### We still could not find the answer #####
-      if( $foundAnswer eq "false" ) { 
-           print("Sorry we couldnt find anything.\n");
-      } else {
-          say ($returnAnswer);
-      }
+         append_file( $logFile, $document) ;
 
 
-    append_file( $logFile, "\n****************************** Raw Data: ******************************\n") ;
-    append_file( $logFile, "\n$document\n") ;
-    append_file( $logFile, "\n************************************************************************\n") ;
+          for my $las (@las){
 
+            append_file( $logFile, "$las\n") ;
 
+            if ($document =~ /$las([^\.]*)/i) {
+
+              if($expectedAnswer eq "DATE"){
+
+                if($1 =~ m/.*\d.*/){
+                  $foundAnswer = "true";
+                  $returnAnswer = "$las$1.";
+                  last;
+                }
+                else{
+                  print("$1\n");
+                  next;
+                }
+              }
+              else {
+                $foundAnswer = "true";
+                $returnAnswer = "$las$1.";
+              } 
+            }
+          }
+    }
+  }
+  ##### We still could not find the answer #####
+  if( $foundAnswer eq "false" ) { 
+    say "Answer not found."
+  }
+  else{
+    say ($returnAnswer);
+  }
 
     append_file( $logFile, "\nWe Choose: $returnAnswer\n") ;
 
     append_file( $logFile, "\n-------------------- END TRANSACTION --------------------\n") ;
 
-    }
   #}  
      ##### End writing to logfile #####
 }
@@ -185,10 +167,22 @@ sub getDocumet {
   my $query = $_[0];
   
   ##### Get the entry from query #####
-  my $entry = $wiki->search($query);
+  my $entry = $wiki->search("$query");
 
   ##### Some entrys may not be defined so we take that into account #####
   if(defined $entry) { return($entry->text()); }
+  else { return ""; }
+}
+
+sub getFullText {
+
+  my $query = $_[0];
+  
+  ##### Get the entry from query #####
+  my $entry = $wiki->search("$query");
+
+  ##### Some entrys may not be defined so we take that into account #####
+  if(defined $entry) { return($entry->fulltext()); }
   else { return ""; }
 }
 
@@ -198,6 +192,7 @@ sub getDocumet {
 sub createLikelyAnswers{
 
     my $query = $_[0];
+
 
     ##### Get the subject #####
     my $subject = getSubjectModifier($query);
@@ -222,34 +217,17 @@ sub createLikelyAnswers{
     }
 
     ##### Grab the different variations of a name #####
-    my @variations = getVariations(getQuerySubject($subject));
-    my @variationsWithMiddleName = ();
-
-    for my $variation (@variations) {
-      
-      my $firstName;
-      my $lastName;
-
-      if ($variation =~ /([A-Z][a-z]+),?\s([A-Z][a-z]+)/) {
-        $firstName = $1;
-        $lastName = $2;
-        if ($document =~ /$firstName\s(\w+)\s$lastName/) {
-          push(@variationsWithMiddleName,("$firstName $1 $lastName"));
-        }
-      }
-    }
-
-   push(@variationsWithMiddleName,@variations);
-
+    my ($querySubject, $queryType) = getQuerySubject($query);
+    my @variations = getVariations($querySubject, $queryType);
 
     ##### Get everything after the subject #####
     my $remainingSentence = "";
-    if($subject =~ /[A-Z][a-z]+,?\s[A-Z][a-z]+\s(.*)/) {
+    if($subject =~ /$querySubject\s(.*)/) {
         $remainingSentence = $1;
     }
 
     ##### loop over every variation #####
-    for my $variation (@variationsWithMiddleName) {
+    for my $variation (@variations) {
 
       ##### Loop over every possible conjugation #####
       for my $conjugation (@conjugations){

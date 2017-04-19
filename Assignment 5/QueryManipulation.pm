@@ -15,10 +15,11 @@ use warnings;
 use Switch;
 use Exporter;
 use Lingua::EN::NamedEntity;
+use String::Util;
 
 
 our @ISA= qw( Exporter );
-our @EXPORT = qw( parseQuery getQuerySubject getVariations getQueryType getQueryModifier getSubjectModifier getRemainsFromSubjectExtraction );
+our @EXPORT = qw( parseQuery getExpectedAnswer getQuerySubject getVariations getQueryType getQueryModifier getSubjectModifier getRemainsFromSubjectExtraction );
 
 #  Method that parses a query to remove punctuation 
 #
@@ -34,20 +35,55 @@ sub parseQuery {
 #  @param $_[0]  The Subject
 sub getVariations {
 	my $subject = $_[0];
+    my $subjectType = $_[1];
 	my @variations = ();
 
     ##### If the naem is 2 parts break it up #####
-	if($subject =~ /([A-Z][a-z]+),?\s([A-Z][a-z]+)/) {
-        push(@variations, $1." ".$2);
-        push(@variations, $1);
-        push(@variations, $2);
+	if ($subjectType eq "person"){
+        if($subject =~ /([A-Z][a-z]+),?\s([A-Z][a-z]+)/) {
+            push(@variations, $1." ".$2);
+            push(@variations, $1);
+            push(@variations, $2);
+            push(@variations, "He");
+            push(@variations, "She");
+        }
     }
-
-    ##### Else, just leave it as it is #####
-    elsif ($subject =~ /([A-Z][a-z]+)/) { push(@variations, $1); }
+    else { 
+        push(@variations, $subject);
+    }
 
     return @variations;
 }
+
+sub getExpectedAnswer {
+    my $query = $_[0];
+
+    ##### Get the query type #####
+    my $queryType = getQueryType($query);
+
+    my $expectedAnswer;
+    switch ($queryType) {
+        case "Who" {
+            $expectedAnswer = "PERSON";
+        }
+        case "When" {
+            $expectedAnswer = "DATE";
+        }
+        case "Where" {
+            $expectedAnswer = "LOCATION"; 
+        }
+        case "What" {
+           $expectedAnswer = "OBJECT"; 
+        } 
+        else {
+            return "NO EXPECTED ANSWER";
+        }
+    }
+
+    return $expectedAnswer;
+}
+
+
 
 #  Method that returns what type of query we are dealign with
 #
@@ -70,18 +106,23 @@ sub getQueryType {
 #  @param $_[0]  The Query
 sub getQuerySubject {
     my $query = $_[0];
+    my $subjectModifier;
+    my $subjectType; 
 
-    ##### #####
-    if($query =~ /([A-Z][a-z]+),?\s([A-Z][a-z]+).*/) {
-        return $1." ".$2;
+
+    my @entities = extract_entities($query);
+            foreach my $entity (@entities){
+                    $subjectModifier = $entity->{entity};
+                    $subjectType = $entity->{class}
+                }
+
+     if ( scalar @entities == 0){
+            my $q = getSubjectModifier($query);
+            my @phrases = $q =~ /[A-Z][a-z]+/g;
+            return $phrases[0], "object";
+    } else {
+        return "$subjectModifier", $subjectType;
     }
-
-    ##### #####
-    elsif($query =~ /([A-Z][a-z]+)/) {
-        return $1;
-    }
-
-    return "UNIDENTIFIABLE SUBJECT";
 }
 
 #  Method that get the modiefier of a query such as : "is","was"..etc.
@@ -127,10 +168,9 @@ sub getSubjectModifier{
     my $subjectModifier;
     switch ($queryType) {
         case "Who" {
-            my @entities = extract_entities($query);
-            foreach my $entity (@entities){
-                    $subjectModifier = $entity->{entity};
-            } 
+             if($query =~ /^Who\s(\w+)\s/i) { 
+                $subjectModifier = $';
+            }
         }
         case "When" {
              if($query =~ /^When\s(\w+)\s/i) { 
