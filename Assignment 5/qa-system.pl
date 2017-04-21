@@ -76,27 +76,21 @@ while(<STDIN>){
 
   my ($querySubject, $queryType) = getQuerySubject($string);
 
-  ##### Get the document/s from wikipedia regarding our subjects #####
   $document = parseWikiData(getDocumet($querySubject));
 
-  ##### Create an array of likey representations of the answers #####
   my @las = createLikelyAnswers($string);
+  
+  my $returnAnswer;
 
-  ##### Write log #####
   append_file( $logFile, "\nWe are looking for document relating to: $querySubject \t\t From Query: $string\n") ;
 
-  ##### Boolean Variable to test if we have found the answer. #####
   my $foundAnswer = "false";
 
-  ##### Document could not be obtained with the provided query #####
   if( $document eq "" ) {
     say "Answer could not be obtained with the provided query";
   }
 
-  ##### We were able to obtain a document from Wiki ##### 
   else{
-
-    my $returnAnswer;
     
     ##### Print to log file #####
     append_file( $logFile, "\nGenerated Search Querys: \n") ;
@@ -104,61 +98,59 @@ while(<STDIN>){
     ##### Loop through our likely answers an attempt to find a direct string match from our document #####
     for my $las (@las){
 
-    append_file( $logFile, "$las\n");
+      append_file( $logFile, "$las\n");
 
       ##### If our document contains our answer #####
       if ($document =~ /$las([^\.]*)/i) {
-          $foundAnswer = "true";
-          $returnAnswer = "$las$1.";
+        $foundAnswer = "true";
+        $returnAnswer = "$las$1";
       }
     }
+
     if( $foundAnswer eq "false" ) { 
         
-        $document = parseFullWiki(getFullText($querySubject));
+      $document = parseFullWiki(getFullText($querySubject));
 
-         append_file( $logFile, $document) ;
+      my @possibleAnswers;
 
+      for my $las (@las){   
+        push(@possibleAnswers, $document =~ /($las[^\.]*)/ig);
+      }
+      
+      for my $possibleAnswers (@possibleAnswers)
+      {
+        if($expectedAnswer eq "DATE"){
 
-          for my $las (@las){
+          if($possibleAnswers =~ m/.*\d.*/){
 
-            append_file( $logFile, "$las\n") ;
-
-            if ($document =~ /$las([^\.]*)/i) {
-
-              if($expectedAnswer eq "DATE"){
-
-                if($1 =~ m/.*\d.*/){
-                  $foundAnswer = "true";
-                  $returnAnswer = "$las$1.";
-                  last;
-                }
-                else{
-                  print("$1\n");
-                  next;
-                }
-              }
-              else {
-                $foundAnswer = "true";
-                $returnAnswer = "$las$1.";
-              } 
-            }
+            $foundAnswer = "true";
+            $returnAnswer = "$possibleAnswers";
+            last;
           }
+          else{
+            next;
+          }
+        }
+
+        else {
+          $foundAnswer = "true";
+          $returnAnswer = $possibleAnswers;
+        } 
+      }
     }
   }
+
   ##### We still could not find the answer #####
   if( $foundAnswer eq "false" ) { 
-    say "Answer not found."
+    say "Answer not found.";
+    append_file( $logFile, "\nWe Could not find an Answer.\n") ;
   }
   else{
-    say ($returnAnswer);
+    say ("$returnAnswer.");
+    append_file( $logFile, "\nWe Choose: $returnAnswer.\n") ;
   }
 
-    append_file( $logFile, "\nWe Choose: $returnAnswer\n") ;
-
-    append_file( $logFile, "\n-------------------- END TRANSACTION --------------------\n") ;
-
-  #}  
-     ##### End writing to logfile #####
+  append_file( $logFile, "\n-------------------- END TRANSACTION --------------------\n") ;
 }
 
 #  Method that will query Wikipedia and give back related document
@@ -191,80 +183,50 @@ sub getFullText {
 #  @param $_[0]  The Query 
 sub createLikelyAnswers{
 
-    my $query = $_[0];
-
-
-    ##### Get the subject #####
-    my $subject = getSubjectModifier($query);
-
-    ##### Get the Query Modifier #####
-    my $queryModifier = getQueryModifier($query);
-
-    ##### List of all the possible likely answers#####
-    my @queryList = ();
-
-    ##### conjugations of our query modifier #####
-    my @conjugations = ();
-
-    ##### apply gonjugation rules #####
-    if ( $queryModifier =~ /is|was|where|are|were|/ ) {
-
-        push(@conjugations, "is");
-        push (@conjugations, "were");
-        push(@conjugations, "was");
-        push(@conjugations, "were");
-        push(@conjugations, "are");
-    }
-
-    ##### Grab the different variations of a name #####
-    my ($querySubject, $queryType) = getQuerySubject($query);
-    my @variations = getVariations($querySubject, $queryType);
-
-    ##### Get everything after the subject #####
-    my $remainingSentence = "";
-    if($subject =~ /$querySubject\s(.*)/) {
-        $remainingSentence = $1;
-    }
-
-    ##### loop over every variation #####
-    for my $variation (@variations) {
-
-      ##### Loop over every possible conjugation #####
-      for my $conjugation (@conjugations){
-
-        ##### Add that answer to a likely answer. #####
-        push(@queryList, $variation." ".$conjugation." ".$remainingSentence);
-      }
-    }
-
-    return @queryList;
-}
-
-#  Method that gets all the related subjects to our current subject 
-#
-#  @param $_[0]  The Query 
-sub getRelatedSubjects{
-
   my $query = $_[0];
-  my $subject = getQuerySubject($query);
-  my @entry = $wiki->search($subject)->related();
-  return @entry;
-}
 
-sub getRelatedDocuments {
 
-    my @Queries = @_;
+  ##### Get the subject #####
+  my $subject = getSubjectModifier($query);
 
-    my @documents = ();
+  ##### Get the Query Modifier #####
+  my $queryModifier = getQueryModifier($query);
 
-    for my $query ( @Queries ) {
-        
-        my $entry = $wiki->search($query);
+  ##### List of all the possible likely answers#####
+  my @queryList = ();
 
-        if(defined $entry) { push(@documents,parseWikiData($entry->text())); }
-        
-        else { next; }
+  ##### conjugations of our query modifier #####
+  my @conjugations = ();
+
+  ##### apply gonjugation rules #####
+  if ( $queryModifier =~ /is|was|where|are|were|/ ) {
+
+    push(@conjugations, "is");
+    push (@conjugations, "were");
+    push(@conjugations, "was");
+    push(@conjugations, "were");
+    push(@conjugations, "are");
+  }
+
+  ##### Grab the different variations of a name #####
+  my ($querySubject, $queryType) = getQuerySubject($query);
+  my @variations = getVariations($querySubject, $queryType);
+
+  ##### Get everything after the subject #####
+  my $remainingSentence = "";
+  if($subject =~ /$querySubject\s(.*)/) {
+        $remainingSentence = $1;
+  }
+
+  ##### loop over every variation #####
+  for my $variation (@variations) {
+
+    ##### Loop over every possible conjugation #####
+    for my $conjugation (@conjugations){
+
+      ##### Add that answer to a likely answer. #####
+      push(@queryList, $variation." ".$conjugation." ".$remainingSentence);
     }
-
-    return @documents;
+  }
+  return @queryList;
 }
