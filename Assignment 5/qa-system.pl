@@ -19,6 +19,15 @@ use String::Util 'trim';
 # Assignment 5
 # 4/12/17
 
+
+#####****************** Changes for PA6 ********************#####
+
+# Enhancement 1 for Query Reformulation: The addition of "Variations"
+# Enhancement 2 for Query Reformulation: The addition of Tense phrases
+# Enhancement 1 for Answer Composition: The addition of "Filtering"
+# Enhancement 2 for Answer Composition: The addition of the "Backoff Model"
+
+
 ######## SUMMARY #########
 
 # This program is a rudimentary Question and Answering system using Wikipedia as a backend. It attempts to answer four basic 
@@ -63,78 +72,97 @@ while(<STDIN>){
   ##### Quit the program if the user types "exit" #####
   last if ($_ =~ /exit/); 
 
-  ##### Start wrtiing to log file #####
   append_file( $logFile, "\n-------------------- BEGIN TRANSACTION --------------------\n") ;
 
   ##### Get input from the user #####
   my $string = parseQuery($_); 
 
-  ##### Get the subject from the query #####
+  ##### Get everything after the query modifier #####
   my $subject = getSubjectModifier($string);
 
+  ##### Obtain our Expected Answer #####
   my $expectedAnswer = getExpectedAnswer($string);
-
+  
+  ##### Get the subject and the query type #####
   my ($querySubject, $queryType) = getQuerySubject($string);
 
+  ##### Get the document #####
   $document = parseWikiData(getDocumet($querySubject));
 
+  ##### Obtain all the possible variations of the answer #####
   my @las = createLikelyAnswers($string);
   
+  ##### The answer we will be returning #####
   my $returnAnswer;
 
   append_file( $logFile, "\nWe are looking for document relating to: $querySubject \t\t From Query: $string\n") ;
 
+  ##### Boolean value to test if we have found the answer #####
   my $foundAnswer = "false";
 
+  ##### Confidence Score of our answer #####
+  my $CONFIDENCE_SCORE = 1;
+
+  ##### The user must have input the Query incorrectly #####
   if( $document eq "" ) {
     say "Answer could not be obtained with the provided query";
   }
 
   else{
-    
-    ##### Print to log file #####
-    append_file( $logFile, "\nGenerated Search Querys: \n") ;
+
+    append_file( $logFile, "\nGenerated Search Querys: \n\n") ;
 
     ##### Loop through our likely answers an attempt to find a direct string match from our document #####
     for my $las (@las){
 
+      ##### Every time we make our loop we are getting farthen away from a direct string match so our confidence score decreases #####
+      $CONFIDENCE_SCORE = $CONFIDENCE_SCORE * .99;
+
       append_file( $logFile, "$las\n");
 
-      ##### If our document contains our answer #####
+      ##### If the first part of the document contains our answer #####
       if ($document =~ /$las([^\.]*)/i) {
         $foundAnswer = "true";
         $returnAnswer = "$las$1";
+        last;
       }
     }
 
+    ##### We were not able to find the answer in the top part so we need to search the whole text now #####
     if( $foundAnswer eq "false" ) { 
         
       $document = parseFullWiki(getFullText($querySubject));
 
+      ##### Becasue the answer may appear multiple times we need to store all answers in an array #####
       my @possibleAnswers;
 
       for my $las (@las){   
         push(@possibleAnswers, $document =~ /($las[^\.]*)/ig);
       }
       
-      for my $possibleAnswers (@possibleAnswers)
-      {
+      for my $possibleAnswers (@possibleAnswers) {
+
+        ##### Every time we make our loop we are getting farthen away from a direct string match so our confidence score decreases #####
+        $CONFIDENCE_SCORE = $CONFIDENCE_SCORE * .99;
+
+        ##### If it was a "When" Question #####
         if($expectedAnswer eq "DATE"){
 
+          ##### If the possible answer has a number in it, return it. Otherwise keep looking #####
           if($possibleAnswers =~ m/.*\d.*/){
 
             $foundAnswer = "true";
             $returnAnswer = "$possibleAnswers";
             last;
           }
-          else{
-            next;
-          }
+
+          else{ next; }
         }
 
         else {
           $foundAnswer = "true";
           $returnAnswer = $possibleAnswers;
+          last;
         } 
       }
     }
@@ -144,10 +172,13 @@ while(<STDIN>){
   if( $foundAnswer eq "false" ) { 
     say "Answer not found.";
     append_file( $logFile, "\nWe Could not find an Answer.\n") ;
+    append_file( $logFile, "\nConfidence Score: 0.0\n") ;
   }
   else{
     say ("$returnAnswer.");
     append_file( $logFile, "\nWe Choose: $returnAnswer.\n") ;
+    append_file( $logFile, "\nConfidence Score: $CONFIDENCE_SCORE\n") ;
+
   }
 
   append_file( $logFile, "\n-------------------- END TRANSACTION --------------------\n") ;
