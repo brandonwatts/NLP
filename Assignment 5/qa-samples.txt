@@ -6,8 +6,10 @@
 		1) Who is Micky Mouse?
 		2) Who is Katy Perry?
 		3) Who is Lawrence of Arabia?
-		4) Who is the president of France?
+		4) Who is the President of France?
 		5) Who is Hermes?
+		6) Who is Hulk Hogan?
+		7) Who is Jane Goodall?
 
 	What:
 
@@ -16,6 +18,8 @@
 		4) What is the Theory of Relativity?
 		5) What were The Beatles?
 		5) What is Karadzharoceras?
+		6) What is February?
+		7) What is the capital of Wyoming?
 
 	When:
 
@@ -24,6 +28,8 @@
 		3) When is Easter?
 		4) When is Election Day?
 		5) When was Jesus born?
+		6) When is Christmas?
+		7) Need correct.
 
 	Where:
 
@@ -32,6 +38,8 @@
 		3) Where is the Effiel Tower?
 		4) Where is Richmond, Virginia?
 		5) Where is Abraham Lincoln buried?
+		6) Where is Area 51?
+		7) Where is the Louvre?
 
 Example Responses:
 
@@ -64,8 +72,26 @@ Example Responses:
 			9) Question: "What is Karadzharoceras?"
 				Answer: Karadzharoceras is a genus of discosorids from the Devonian named by Zhuravleva in 1972 possibly a member of the Discosoridae.
 
-			10) Question: "Who is Hermes?""
-				Answer: Hermes is an Olympian god in Greek religion and mythology the son of Zeus and the Pleiad Maia and the second youngest of the Olympian gods Dionysus being the youngest .
+			10) Question: "Who is Hermes?
+				Answer: Hermes is an Olympian god in Greek religion and mythology the son of Zeus and the Pleiad Maia and the second youngest of the Olympian gods Dionysus being the youngest.
+
+			11) Question: "What is February?""
+				Answer: February is the second month of the year in the Julian and Gregorian calendars.
+
+			12) Question: "Who is Hulk Hogan?
+				Answer: Hulk Hogan is an American semi retired professional wrestler actor television personality entrepreneur and rock bassist.
+
+			13) Question: "Who is Jane Goodall?""
+				Answer: Goodall is a British primatologist ethologist anthropologist and UN Messenger of Peace.
+
+			********** EXAMPLE THAT DIFFERS FROM QUERY **********
+
+			The query cannot be found so we introduce a backoff model that includes the phrase "He was born" and we take that match
+			but we also lower the confidence score because "He" could refer to someone other than George Washington.
+
+			14) Question: "When was George Washington born?"
+				Answer: He was born on February 11 1731 according to the Julian calendar and Annunciation Style of enumerating years then in use in the British Empire.
+
 
 	Incorrect: (System Answer differed from correct answer)
 
@@ -111,8 +137,23 @@ Example Responses:
 				Answer: Election Day is the following Tuesday Norway though municipalities are also permitted to open polling stations on the preceding Sunday Philippines Trinidad and Tobago Tuesday In the following countries general elections are held on Tuesdays Denmark although the most recent general election was held on a Thursday instead.
 				Correct Answer: Election day is held on the Tuesday next after the first Monday in the month of November.
 
-
 			10) Question: "When was Jesus born?"
 				Answer: Jesus is as certain as any historical fact can be.
 				Correct Answer: Jesus was born betweeen 6 BC and 4 BC.
+
+			11) Question: "Where is the Louvre?"
+				Answer: Louvre is the world s most visited museum receiving 7.
+				Correct Answer: 
+
+			12) Question: "Where is Area 51?"
+				Answer: Answer not found.
+				Correct Answer: 
+
+			13) Question: "When is Christmas?"
+				Answer: Christmas is celebrated on Tahsas 28 in order to maintain the exact interval of 9 30 day months and 5 days of the child s gestation.
+				Correct Answer: 
+
+			14) Question: "What is the capital of Wyoming?"
+				Answer: Wyoming is a state in the mountain region of the western United States.
+				Correct Answer: 
 
